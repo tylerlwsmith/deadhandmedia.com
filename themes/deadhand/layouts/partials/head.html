@@ -23,7 +23,7 @@
 	<link href="{{ ($style).RelPermalink }}" rel="stylesheet">
 	{{ else }}
 	{{ $style := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" false) }}
-	<link href="{{ ($style | minify | fingerprint).RelPermalink }}" rel="stylesheet">
+	<link href="{{ ($style).RelPermalink }}" rel="stylesheet">
 	{{ end }}
 
 
