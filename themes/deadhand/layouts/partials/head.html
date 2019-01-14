@@ -1,3 +1,10 @@
 <head>
-	
+	{{ if .Site.IsServer }}
+	{{ $style := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" true) }}
+	<link rel="stylesheet" href="{{ ($style).RelPermalink }}">
+	{{ else }}
+	{{ $style := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" false) }}
+	<link rel="stylesheet" href="{{ ($style | minify | fingerprint).RelPermalink }}">
+	{{ end }}
+	<link href="https://fonts.googleapis.com/css?family=Bungee|Raleway:300" rel="stylesheet">
 </head>
