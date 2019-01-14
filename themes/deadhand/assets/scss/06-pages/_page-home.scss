@@ -1,17 +1,37 @@
 .page-home {
+	background-color: $color__light-purple;
+	@media(max-width: $breakpoint__md) {
+		background-color: $color__purple;
+	}
+	.header {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.header__menu{
+		float: none;
+		text-align: right;
+		padding-left: 0;
+		@media(max-width: $breakpoint__md) {
+			text-align: center;
+		}
+	}
+	.header__menu-item {
+		@media(max-width: $breakpoint__md) {
+			margin: 10px 10px 0;
+		}
+	}
 	&__head-container {
 		float: left;
 		width: 40%;
 		height: 100%;
 		min-height: 100vh;
-		background-color: $color__light-purple;
 		position: absolute;
-		top: 0;
-		bottom: 0;
-		background-image: url('/2018.png');
+		padding: 20px;
+		background-image: url('/tylers-giant-head.svg');
 		background-repeat: no-repeat;
-		background-position: 50% 0%;
+		background-position: 50% 0;
 		background-size: contain;
+		background-origin: content-box;
 		@media(max-width: $breakpoint__md) {
 			width: 100%;
 			height: 0;
@@ -23,11 +43,14 @@
 	}
 
 	&__content-container {
+		position: relative;
+		background-color: $color__purple;
 		float: right;
 		width: 60%;
 		min-height: 100vh;
 		padding: 0 4vw;
 		box-sizing: border-box;
+		padding-bottom: 50px;
 		@media(max-width: $breakpoint__md) {
 			width: 100%;
 			min-height: 0;
@@ -38,6 +61,7 @@
 	&__heading {
 		font-size: 7vw;
 		margin: .5em 0 .6vw;
+		padding-top: 0;
 		@media(max-width: $breakpoint__md) {
 			font-size: 56px;
 		}
@@ -49,6 +73,9 @@
 	&__sub-heading {
 		font-size: 3.2vw;
 		margin: 2vw 0 2vw;
+		line-height: 1.2;
+		padding-top: 0;
+		font-family: $font-family__headings;
 		@media(max-width: $breakpoint__md) {
 			font-size: 24px;
 		}
@@ -57,7 +84,7 @@
 		}
 	}
 
-	&__content {
+	&__content p {
 		font-size: 1.5vw;
 		font-weight: 300;
 		line-height: 135%;

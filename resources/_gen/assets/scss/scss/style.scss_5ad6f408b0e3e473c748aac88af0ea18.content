@@ -1,92 +1,189 @@
+* {
+  box-sizing: border-box; }
+
 html {
   min-height: 100vh; }
 
 body {
   background-color: #684c9f;
   font-family: raleway, sans-serif;
+  font-weight: 300;
   color: #fff;
   height: 100%;
   position: relative;
   margin: 0px;
-  max-width: 100vw; }
+  max-width: 100vw;
+  line-height: 1.6; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: bungee, sans-serif;
-  line-height: 1.2; }
+  line-height: 1.2;
+  padding-top: .8em; }
 
-a,
-a:visited,
-a:active,
-a:focus {
+p {
+  font-size: 18px; }
+
+h1 {
+  font-family: bungee, sans-serif;
+  font-size: 46px;
+  font-weight: 400; }
+  @media (max-width: 650px) {
+    h1 {
+      font-size: 30px; } }
+
+h2 {
+  font-size: 36px;
+  font-weight: 600; }
+  @media (max-width: 650px) {
+    h2 {
+      font-size: 26px; } }
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: 24px;
+  font-weight: 600;
+  font-style: italic; }
+  @media (max-width: 650px) {
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: 20px; } }
+
+a {
   color: #fff;
   text-decoration: none;
   border-bottom: solid 2px #fff;
   padding-bottom: 2px; }
+  a:hover, a:focus {
+    border-bottom-width: 3px; }
 
-.page-home__head-container {
-  float: left;
-  width: 40%;
-  height: 100%;
-  min-height: 100vh;
-  background-color: #d4cbe5;
+strong {
+  font-weight: 600; }
+
+.page-wrapper {
+  min-height: 100vh; }
+
+.header {
+  padding: 20px 4vw; }
+  .header__title {
+    float: left;
+    border-bottom: none;
+    font-family: bungee, sans-serif;
+    font-size: 22px;
+    padding-bottom: 20px;
+    overflow: auto; }
+  .header__menu {
+    list-style-type: none;
+    margin: 0;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    float: right;
+    overflow: auto;
+    font-size: 16px; }
+  .header__menu-item {
+    display: inline-block;
+    margin-left: 10px; }
+
+.content-wrapper {
+  margin: 0 auto;
+  padding: 50px 4vw 100px;
+  max-width: 650px; }
+
+.footer {
   position: absolute;
-  top: 0;
   bottom: 0;
-  background-image: url("/2018.png");
-  background-repeat: no-repeat;
-  background-position: 50% 0%;
-  background-size: contain; }
-  @media (max-width: 650px) {
-    .page-home__head-container {
-      width: 100%;
-      height: 0;
-      padding-bottom: 80%;
-      min-height: 0;
-      position: initial;
-      background-color: #d4cbe5; } }
+  left: 0;
+  right: 0;
+  padding: 10px 4vw;
+  text-align: center;
+  font-weight: bold; }
 
-.page-home__content-container {
-  float: right;
-  width: 60%;
-  min-height: 100vh;
-  padding: 0 4vw;
-  box-sizing: border-box; }
+.page-home {
+  background-color: #d4cbe5; }
   @media (max-width: 650px) {
-    .page-home__content-container {
-      width: 100%;
-      min-height: 0;
-      text-align: center; } }
-
-.page-home__heading {
-  font-size: 7vw;
-  margin: .5em 0 .6vw; }
+    .page-home {
+      background-color: #684c9f; } }
+  .page-home .header {
+    padding-left: 0;
+    padding-right: 0; }
+  .page-home .header__menu {
+    float: none;
+    text-align: right;
+    padding-left: 0; }
+    @media (max-width: 650px) {
+      .page-home .header__menu {
+        text-align: center; } }
   @media (max-width: 650px) {
-    .page-home__heading {
-      font-size: 56px; } }
-  @media (max-width: 450px) {
-    .page-home__heading {
-      font-size: 32px; } }
-
-.page-home__sub-heading {
-  font-size: 3.2vw;
-  margin: 2vw 0 2vw; }
-  @media (max-width: 650px) {
-    .page-home__sub-heading {
-      font-size: 24px; } }
-  @media (max-width: 450px) {
-    .page-home__sub-heading {
-      font-size: 20px; } }
-
-.page-home__content {
-  font-size: 1.5vw;
-  font-weight: 300;
-  line-height: 135%; }
-  @media (max-width: 1400px) {
-    .page-home__content {
-      font-size: 20px; } }
-  @media (max-width: 450px) {
-    .page-home__content {
-      font-size: 16px; } }
+    .page-home .header__menu-item {
+      margin: 10px 10px 0; } }
+  .page-home__head-container {
+    float: left;
+    width: 40%;
+    height: 100%;
+    min-height: 100vh;
+    position: absolute;
+    padding: 20px;
+    background-image: url("/tylers-giant-head.svg");
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: contain;
+    background-origin: content-box; }
+    @media (max-width: 650px) {
+      .page-home__head-container {
+        width: 100%;
+        height: 0;
+        padding-bottom: 80%;
+        min-height: 0;
+        position: initial;
+        background-color: #d4cbe5; } }
+  .page-home__content-container {
+    position: relative;
+    background-color: #684c9f;
+    float: right;
+    width: 60%;
+    min-height: 100vh;
+    padding: 0 4vw;
+    box-sizing: border-box;
+    padding-bottom: 50px; }
+    @media (max-width: 650px) {
+      .page-home__content-container {
+        width: 100%;
+        min-height: 0;
+        text-align: center; } }
+  .page-home__heading {
+    font-size: 7vw;
+    margin: .5em 0 .6vw;
+    padding-top: 0; }
+    @media (max-width: 650px) {
+      .page-home__heading {
+        font-size: 56px; } }
+    @media (max-width: 450px) {
+      .page-home__heading {
+        font-size: 32px; } }
+  .page-home__sub-heading {
+    font-size: 3.2vw;
+    margin: 2vw 0 2vw;
+    line-height: 1.2;
+    padding-top: 0;
+    font-family: bungee, sans-serif; }
+    @media (max-width: 650px) {
+      .page-home__sub-heading {
+        font-size: 24px; } }
+    @media (max-width: 450px) {
+      .page-home__sub-heading {
+        font-size: 20px; } }
+  .page-home__content p {
+    font-size: 1.5vw;
+    font-weight: 300;
+    line-height: 135%; }
+    @media (max-width: 1400px) {
+      .page-home__content p {
+        font-size: 20px; } }
+    @media (max-width: 450px) {
+      .page-home__content p {
+        font-size: 16px; } }
 
 .sr-only {
   position: absolute;

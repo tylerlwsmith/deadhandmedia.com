@@ -1,4 +1,13 @@
-<header>
-	<a href="/">DeadHand Media</a>
-	{{- partial "menu.html" . -}}
+<header class="header">
+	{{ if not .IsHome }}
+		<a href="/" class="header__title">Tyler Smith</a>
+	{{ end }}
+	<ul class="header__menu">
+		{{ $currentPage := . }}
+		{{ range .Site.Menus.main }}
+			<li class="header__menu-item">
+				<a class="sidebar-nav-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+			</li>
+		{{ end }}	
+	</ul>
 </header>
