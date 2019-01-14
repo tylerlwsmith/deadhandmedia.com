@@ -1,0 +1,14 @@
+{{ define "main" }}
+	<h1>{{ .Name }}</h1>
+	<div>Technologies: 
+		{{ range .Param "technologies" }}
+			{{ . }}
+		{{ end }}
+	</div>
+	<div>Services: 
+		{{ range .Param "Services" }}
+			{{ . }}
+		{{ end }}
+	</div>
+	{{ .Content }}
+{{ end }}

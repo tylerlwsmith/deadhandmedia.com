@@ -1,0 +1,8 @@
+# Hugo default output directory
+/public
+
+# Node Modules
+node_modules
+
+# OSX
+.DS_Store
