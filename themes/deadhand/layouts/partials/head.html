@@ -1,25 +1,30 @@
 <head>
 	<title>{{ block "title" . }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
 
+	{{ $description :=  replace .Content "\n" ""}}
+	{{ $description :=  $description | truncate 160 }}
+
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="{{ .Content }}">
+	<meta name="description" content="{{ $description }}">
 	<meta property="og:title" content="DeadHand Media">
-	<meta property="og:description" content="{{ .Content }}">
+	<meta property="og:description" content="{{ .Content | truncate 160 }}">
 	<meta property="og:type" content="website">
-	<meta property="og:url" content="http://deadhandmedia.com">
-	<meta property="og:image" content="http://deadhandmedia.com/og-tyler.png">
+	<meta property="og:url" content="{{ .URL | absURL }}">
+	<meta property="og:image" content="{{ "og-image.png" | absURL }}">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
+
+	<link href="{{ .Site.BaseURL }}favicon.png" rel="icon">
 
 	<link href="https://fonts.googleapis.com/css?family=Bungee|Raleway:300" rel="stylesheet">
 	{{ if .Site.IsServer }}
 	{{ $style := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" true) }}
-	<link rel="stylesheet" href="{{ ($style).RelPermalink }}">
+	<link href="{{ ($style).RelPermalink }}" rel="stylesheet">
 	{{ else }}
 	{{ $style := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" false) }}
-	<link rel="stylesheet" href="{{ ($style | minify | fingerprint).RelPermalink }}">
+	<link href="{{ ($style | minify | fingerprint).RelPermalink }}" rel="stylesheet">
 	{{ end }}
-	<link href="https://fonts.googleapis.com/css?family=Bungee|Raleway:300,300i,600,600i" rel="stylesheet">
 
 
 	<script>
