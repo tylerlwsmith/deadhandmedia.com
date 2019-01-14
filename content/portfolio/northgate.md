@@ -31,13 +31,13 @@ With the properties complete, we build filtering for cities, property type and t
 
 ### Property Report Tool
 
-Northgate wanted to be able to generate custom reports of their properties that they could print out and hand to their clients or that visitors could generate for themselves.
+Northgate wanted the ability to generate custom reports of their properties that they could print out and hand to their clients or that visitors could generate for themselves.
 
 The biggest challenge was that we wanted to be able to do this without users having to create an account. Using the JavaScript local storage API, we were able to keep the report IDs stored in the browser, allowing users to compare properties and come back to the same report without having to create an account on the side.
 
 ### Printer Friendly Pages
 
-In the commercial real estate industry, paper is still favored over digital for many agents and clients alike. Because of this, it was important for Northgate that many key pages look as good printed as they did on the screen.
+In the commercial real estate, paper is still favored over digital by many agents and buyers alike. Because of this, it was important to Northgate key pages look as good printed as they did on the screen.
 
 Northgate is one of only two clients I've ever had that's requested this, so I went to work researching how how other sites have made their pages printer friendly, then emulated the best practices on Northgate's site.
 
