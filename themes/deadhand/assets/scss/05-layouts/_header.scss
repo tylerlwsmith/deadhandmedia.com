@@ -20,5 +20,8 @@
 	&__menu-item {
 		display: inline-block;
 		margin-left: 10px;
+		&--is-active a {
+			border-bottom-width: 3px;
+		}
 	}
 }

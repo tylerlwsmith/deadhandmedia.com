@@ -3,10 +3,12 @@
 	@media(max-width: $breakpoint__md) {
 		background-color: $color__purple;
 	}
+	
 	.header {
 		padding-left: 0;
 		padding-right: 0;
 	}
+
 	.header__menu{
 		float: none;
 		text-align: right;
@@ -15,11 +17,13 @@
 			text-align: center;
 		}
 	}
+
 	.header__menu-item {
 		@media(max-width: $breakpoint__md) {
 			margin: 10px 10px 0;
 		}
 	}
+
 	&__head-container {
 		float: left;
 		width: 40%;
@@ -35,7 +39,7 @@
 		@media(max-width: $breakpoint__md) {
 			width: 100%;
 			height: 0;
-			padding-bottom: 80%;
+			height: 83vw;
 			min-height: 0;
 			position: initial;
 			background-color: $color__light-purple;

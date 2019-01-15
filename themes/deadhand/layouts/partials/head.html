@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="{{ $description }}">
 	<meta property="og:title" content="DeadHand Media">
-	<meta property="og:description" content="{{ .Content | truncate 160 }}">
+	<meta property="og:description" content="{{ $description }}">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="{{ .URL | absURL }}">
 	<meta property="og:image" content="{{ "og-image.png" | absURL }}">
@@ -24,7 +24,7 @@
 	{{ $style := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" false) }}
 	<link href="{{ ($style).RelPermalink }}" rel="stylesheet">
 	{{ end }}
-	
+
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

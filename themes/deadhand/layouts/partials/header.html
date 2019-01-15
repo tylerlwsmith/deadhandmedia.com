@@ -5,8 +5,8 @@
 	<ul class="header__menu">
 		{{ $currentPage := . }}
 		{{ range .Site.Menus.main }}
-			<li class="header__menu-item">
-				<a class="sidebar-nav-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+			<li class="header__menu-item{{ if eq .URL $currentPage.URL }} header__menu-item--is-active{{ end }}">
+				<a href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a>
 			</li>
 		{{ end }}	
 	</ul>
