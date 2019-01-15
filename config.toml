@@ -1,4 +1,4 @@
-baseURL = "http://deadhandmedia.com/"
+baseURL = "https://deadhandmedia.com/"
 languageCode = "en-us"
 title = "DeadHand Media"
 theme = "deadhand"
