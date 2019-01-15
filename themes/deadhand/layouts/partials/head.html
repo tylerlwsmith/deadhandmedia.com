@@ -1,9 +1,8 @@
 <head>
 	<title>{{ block "title" . }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
 
-	{{ $description :=  replace .Content "\n" ""}}
-	{{ $description :=  $description | truncate 160 }}
-
+	{{- $description :=  replace .Content "\n" "" -}}
+	{{- $description :=  $description | truncate 160 -}}
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="{{ $description }}">
@@ -15,19 +14,17 @@
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
 
-	
 	<link href="{{ "favicon.png" | absURL }}" rel="icon">
 
 	<link href="https://fonts.googleapis.com/css?family=Bungee|Raleway:300" rel="stylesheet">
-	{{ if .Site.IsServer }}
+	{{- if .Site.IsServer -}}
 	{{ $style := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" true) }}
 	<link href="{{ ($style).RelPermalink }}" rel="stylesheet">
-	{{ else }}
+	{{- else -}}
 	{{ $style := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" false) }}
 	<link href="{{ ($style).RelPermalink }}" rel="stylesheet">
 	{{ end }}
-
-
+	
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
