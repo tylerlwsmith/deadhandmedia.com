@@ -3,6 +3,8 @@ languageCode = "en-us"
 title = "DeadHand Media"
 theme = "deadhand"
 
+disableKinds = ["categories", "tags"]
+
 [menu]
 
   [[menu.main]]
