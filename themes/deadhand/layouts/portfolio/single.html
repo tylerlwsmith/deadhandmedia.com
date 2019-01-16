@@ -1,14 +1,23 @@
 {{ define "main" }}
 	<h1>{{ .Name }}</h1>
-	<div>Technologies: 
+	<div>
+		<div><strong>Technologies:</strong></div>
+
+		<ul class="pill__wrapper">
 		{{ range .Param "technologies" }}
-			{{ . }}
+			<li class="pill">{{ . }}</li>
 		{{ end }}
+		</ul>
+
 	</div>
-	<div>Services: 
+	<div>
+		<div><strong>Services:</strong></div>
+
+		<ul class="pill__wrapper">
 		{{ range .Param "Services" }}
-			{{ . }}
+			<li class="pill">{{ . }}</li>
 		{{ end }}
+		</ul>
 	</div>
 	{{ .Content }}
 {{ end }}
