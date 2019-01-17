@@ -1,5 +1,7 @@
 .header{
-	padding: 20px 4vw;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	@include site-padding;
 	&__title {
 		float: left;
 		border-bottom: none;

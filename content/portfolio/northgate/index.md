@@ -4,7 +4,7 @@ date: 2019-01-13T21:45:45-08:00
 projectUrl: https://northgatecre.com
 technologies: ["WordPress", "Twitter Bootstrap", "Scss", "ES6 Modules"]
 services: ["Design Consultation", "Custom Theme Development", "Data Migration", "SEO"]
-screenshot: /projects/northgate.jpg
+screenshot: northgate.png
 draft: true
 ---
 When Northgate Commercial Real Estate approached me to build their new website, the company's web presence felt stuck in 2005. They had a legacy, non-mobile-responsive site that was split half way a legacy Cold Fusion app for the sites content and a third party property listing service that used the same outdated theme.

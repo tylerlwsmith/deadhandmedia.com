@@ -1,10 +1,14 @@
 .pill {
 	border: 1px solid white;
-	border-radius: 1000px;
+	border-radius: 4px;
 	font-size: 14px;
 	padding: 2px 8px;
 	display: inline-block;
 	margin-bottom: 12px;
+	margin-right: 3px;
+	background-color: #fff;
+	color: $color__purple;
+	font-weight: 600;
 	&__wrapper {
 		list-style-type: none;
 		padding: 0;

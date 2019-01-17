@@ -1,0 +1,14 @@
+.breadcrumb {
+	display: inline-block;
+	font-size: 14px;
+	&+&:before{
+		display: inline-block;
+		padding-right: 5px;
+		content: "/";
+	}
+	&__wrapper {
+		margin: 0;
+		padding-left: 0;
+		list-style: none;
+	}
+}

@@ -1,5 +1,31 @@
 {{ define "main" }}
-	<h1>{{ .Name }}</h1>
+	<aside>
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb__wrapper">
+				<li class="breadcrumb"><a href="/portfolio/">Portfolio</a></li>
+				<li class="breadcrumb"><a href="{{ .URL }}">{{ .Name }}</a></li>
+			</ol>
+		</nav>
+	</aside>
+	<h1 class="page__title">{{ .Name }}</h1>
+
+	{{ $screenshot := .Resources.GetMatch (.Param "screenshot") }}
+	{{ if $screenshot }}
+		{{ $resized := $screenshot.Resize "610x" }}
+		{{ $resized2x := $screenshot.Resize "1220x" }}
+		<img src="{{ $resized.RelPermalink }}" srcset="{{ $resized2x.RelPermalink }} 2x" alt="{{ .Name }} Screenshot">
+	{{ end }}
+
+	<div>
+		<div><strong>Scope of Work:</strong></div>
+
+		<ul class="pill__wrapper">
+		{{ range .Param "Services" }}
+			<li class="pill">{{ . }}</li>
+		{{ end }}
+		</ul>
+	</div>
+
 	<div>
 		<div><strong>Technologies:</strong></div>
 
@@ -10,14 +36,9 @@
 		</ul>
 
 	</div>
-	<div>
-		<div><strong>Services:</strong></div>
-
-		<ul class="pill__wrapper">
-		{{ range .Param "Services" }}
-			<li class="pill">{{ . }}</li>
-		{{ end }}
-		</ul>
-	</div>
 	{{ .Content }}
+	<aside>
+		<a href="/portfolio/"><span aria-hidden="true">&#8592; </span>Back to porfolio</a>
+	</aside>
+
 {{ end }}
