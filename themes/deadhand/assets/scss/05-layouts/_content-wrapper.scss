@@ -2,5 +2,8 @@
 	margin: 0 auto;
 	padding: 50px $padding__md 100px;
 	max-width: $breakpoint__md;
-
+	@media(max-width: $breakpoint__sm) {
+		padding-left: $padding__sm;
+		padding-right: $padding__sm;
+	}
 }

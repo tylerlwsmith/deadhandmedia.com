@@ -13,7 +13,9 @@
 	{{ if $screenshot }}
 		{{ $resized := $screenshot.Resize "610x" }}
 		{{ $resized2x := $screenshot.Resize "1220x" }}
-		<img src="{{ $resized.RelPermalink }}" srcset="{{ $resized2x.RelPermalink }} 2x" alt="{{ .Name }} Screenshot">
+		<div class="page-portfolio__screenshot-wrapper">
+			<img src="{{ $resized.RelPermalink }}" srcset="{{ $resized2x.RelPermalink }} 2x" alt="{{ .Name }} Screenshot">
+		</div>
 	{{ end }}
 
 	<div>
@@ -37,7 +39,7 @@
 
 	</div>
 	{{ .Content }}
-	<aside>
+	<aside class="back-link">
 		<a href="/portfolio/"><span aria-hidden="true">&#8592; </span>Back to porfolio</a>
 	</aside>
 
