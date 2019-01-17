@@ -1,8 +1,8 @@
 .breadcrumb {
-	display: inline-block;
+	display: inline;
 	font-size: 14px;
 	&+&:before{
-		display: inline-block;
+		display: inline;
 		padding-right: 5px;
 		content: "/";
 	}

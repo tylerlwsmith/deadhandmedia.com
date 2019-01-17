@@ -2,8 +2,8 @@
 title: "Northgate Commercial Real Estate"
 date: 2019-01-13T21:45:45-08:00
 projectUrl: https://northgatecre.com
-technologies: ["WordPress", "Twitter Bootstrap", "Scss", "ES6 Modules"]
 services: ["Design Consultation", "Custom Theme Development", "Data Migration", "SEO"]
+technologies: ["WordPress", "Twitter Bootstrap", "Scss", "ES6 Modules"]
 screenshot: northgate.png
 draft: true
 ---
@@ -20,6 +20,8 @@ The design called for three particularly interesting features:
 * Printer friendly pages properties, team members, blogs and reports.
 
 ### Filterable Property Management System
+
+{{< image "northgate.png" "Another screenshot" >}}
 
 Like most commercial real estate companies, Northgate lists on Loopnet, but the company wanted the ability to offer more in depth information about their listings on their own site.
 

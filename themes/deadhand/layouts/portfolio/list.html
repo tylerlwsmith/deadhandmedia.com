@@ -1,0 +1,15 @@
+{{ define "main" }}
+	<article>
+		<h1 class="page__title">{{ .Title }}</h1>
+		{{ .Content }}
+	</article>
+
+	{{ range.Pages }}
+		<article>
+			<h3><a href="{{ .URL }}">{{.Title}}</a></h3>
+			<a href="{{ .URL }}">
+				{{ partial "portfolio-screenshot" . }}
+			</a>
+		</article>
+	{{ end }}
+{{ end }}

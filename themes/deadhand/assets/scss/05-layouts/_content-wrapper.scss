@@ -1,9 +1,8 @@
 .content-wrapper {
 	margin: 0 auto;
-	padding: 50px $padding__md 100px;
+	padding: 50px $padding__md 120px;
 	max-width: $breakpoint__md;
 	@media(max-width: $breakpoint__sm) {
-		padding-left: $padding__sm;
-		padding-right: $padding__sm;
+		padding-top: 20px $padding__sm 80px;
 	}
 }

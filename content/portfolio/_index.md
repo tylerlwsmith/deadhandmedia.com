@@ -4,4 +4,4 @@ date: 2019-01-13T21:01:46-08:00
 draft: true
 ---
 
-Below is a small sample of my work. Let's work together so I can add your next website to this list.
+Below is a small sample of my work. Let's build something together so I can add your next website to this list.

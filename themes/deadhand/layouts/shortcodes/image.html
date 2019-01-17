@@ -1,0 +1,8 @@
+{{- $img := .Get 0 -}}
+{{- $alt := .Get 1 -}}
+{{- $imageResource := .Page.Resources.GetMatch $img -}}
+{{- if $imageResource -}}
+	{{- $resized := $imageResource.Resize "610x" -}}
+	{{- $resized2x := $imageResource.Resize "1220x" -}}
+	<img src="{{- $resized.RelPermalink }}" srcset="{{- $resized2x.RelPermalink }} 2x" alt="{{- $alt }}-">
+{{- end -}}
