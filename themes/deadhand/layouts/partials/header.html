@@ -9,9 +9,25 @@
 			{{- $isDraft := false -}}
 			{{- $path := .URL | relURL | plainify -}}
 			{{ $pathNoTrailingSlash := strings.TrimSuffix "/" $path  }}
+
+			{{/* 
+				Here we enter the scope of the current page to see if the page
+				is in draft. If it is, it will only be shown on the hugo server
+				and not on the live site.
+
+			 */}}
 			{{- with $.Site.GetPage $pathNoTrailingSlash -}}
 				{{- if or (not .Draft) (.Site.IsServer) -}}
-					<li class="header__menu-item{{ if eq $currentMenuItem.URL $currentPage.URL }} header__menu-item--is-active{{ end }}">
+
+					{{/* 
+						Grab the length of menu item, get a substring of the 
+						current page url the length of the menu item and see if
+						they're the same. If they are, it means that the
+						current page is a child or the same page and should be active.
+					 */}}
+					{{ $menuItemUrlLength := len $currentMenuItem.URL }}
+					{{ $pageSubstr := substr $currentPage.URL 0 $menuItemUrlLength }}
+					<li class="header__menu-item{{ if eq $pageSubstr .URL }} header__menu-item--is-active{{end}}">
 						<a href="{{ $currentMenuItem.URL }}" title="{{ $currentMenuItem.Name }}">{{ $currentMenuItem.Name }}</a>
 					</li>
 				{{- end -}}

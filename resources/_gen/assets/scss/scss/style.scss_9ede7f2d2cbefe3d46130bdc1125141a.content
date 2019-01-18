@@ -31,6 +31,9 @@ h1 {
   font-weight: 400; }
   @media (max-width: 650px) {
     h1 {
+      font-size: 38px; } }
+  @media (max-width: 450px) {
+    h1 {
       font-size: 30px; } }
 
 h2 {
@@ -86,10 +89,13 @@ img {
 
 .breadcrumb {
   display: inline;
-  font-size: 14px; }
+  font-size: 16px; }
+  @media (max-width: 650px) {
+    .breadcrumb {
+      font-size: 14px; } }
   .breadcrumb + .breadcrumb:before {
     display: inline;
-    padding-right: 5px;
+    padding: 0 5px;
     content: "/"; }
   .breadcrumb__wrapper {
     margin: 0;
