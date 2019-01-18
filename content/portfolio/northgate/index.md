@@ -21,7 +21,7 @@ The design called for three particularly interesting features:
 
 ### Filterable Property Management System
 
-{{< image "northgate.png" "Another screenshot" >}}
+{{< image "northgate-filters.png" "Another screenshot" >}}
 
 Like most commercial real estate companies, Northgate lists on Loopnet, but the company wanted the ability to offer more in depth information about their listings on their own site.
 
@@ -33,11 +33,15 @@ With the properties complete, we build filtering for cities, property type and t
 
 ### Property Report Tool
 
+{{< image "northgate-report.png" "Another screenshot" >}}
+
 Northgate wanted the ability to generate custom reports of their properties that they could print out and hand to their clients or that visitors could generate for themselves.
 
 The biggest challenge was that we wanted to be able to do this without users having to create an account. Using the JavaScript local storage API, we were able to keep the report IDs stored in the browser, allowing users to compare properties and come back to the same report without having to create an account on the side.
 
-### Printer Friendly Pages
+### Printer-Friendly Pages
+
+{{< image "northgate-printed.png" "Another screenshot" >}}
 
 In the commercial real estate, paper is still favored over digital by many agents and buyers alike. Because of this, it was important to Northgate key pages look as good printed as they did on the screen.
 
