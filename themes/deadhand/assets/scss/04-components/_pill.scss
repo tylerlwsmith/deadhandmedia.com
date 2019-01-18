@@ -6,8 +6,8 @@
 	display: inline-block;
 	margin-bottom: 12px;
 	margin-right: 3px;
-	background-color: #fff;
-	color: $color__purple;
+	color: #fff;
+	background-color: desaturate($color__purple, 10%);
 	font-weight: 600;
 	&__wrapper {
 		list-style-type: none;

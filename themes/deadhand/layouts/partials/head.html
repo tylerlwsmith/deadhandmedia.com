@@ -16,7 +16,7 @@
 
 	<link href="{{ "favicon.png" | absURL }}" rel="icon">
 
-	<link href="https://fonts.googleapis.com/css?family=Bungee|Raleway:300,600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Bungee|Raleway:300,400,600" rel="stylesheet">
 	{{- if .Site.IsServer -}}
 	{{ $style := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" true) }}
 	<link href="{{ ($style).RelPermalink }}" rel="stylesheet">

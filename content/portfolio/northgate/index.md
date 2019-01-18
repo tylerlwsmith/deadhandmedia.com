@@ -7,9 +7,9 @@ technologies: ["WordPress", "Twitter Bootstrap", "Scss", "ES6 Modules"]
 screenshot: northgate.png
 draft: true
 ---
-When Northgate Commercial Real Estate approached me to build their new website, the company's web presence felt stuck in 2005. They had a legacy, non-mobile-responsive site that was split half way a legacy Cold Fusion app for the sites content and a third party property listing service that used the same outdated theme.
+When Northgate Commercial Real Estate approached me to build their new website, the company's web presence felt stuck in the previous decade. They had a non-mobile-responsive site that was half legacy Cold Fusion app for running content and half third-party property listing service on a subdomain that used the same dated theme.
 
-Northgate was fortunate enough to have a talented designer on staff, however, he didn't not have experience with websites. I provided design guidance for web and ultimately was presented with a one of the most beautifully simple and intuitive designs I've ever had the pleasure of building.
+Northgate was fortunate enough to have a talented designer on staff who was eager to design the site. I provided minimal website design consultation and ultimately was presented with a one of the most refreshingly clean and intuitive designs I've ever had the pleasure of building.
 
 ## Development Challenges 
 

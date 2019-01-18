@@ -1,12 +1,19 @@
 .page-home {
-	background-color: $color__light-purple;
+	background-color: $color__purple--light;
+	color: #fff;
 	@media(max-width: $breakpoint__md) {
 		background-color: $color__purple;
+	}
+
+	a {
+		color: #fff;
+		border-bottom-color: #fff;
 	}
 	
 	.header {
 		padding-left: 0;
 		padding-right: 0;
+		background: none;
 	}
 
 	.header__menu{
@@ -42,7 +49,7 @@
 			height: 83vw;
 			min-height: 0;
 			position: initial;
-			background-color: $color__light-purple;
+			background-color: $color__purple--light;
 		}
 	}
 

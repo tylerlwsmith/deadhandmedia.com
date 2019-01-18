@@ -27,8 +27,8 @@
 					 */}}
 					{{ $menuItemUrlLength := len $currentMenuItem.URL }}
 					{{ $pageSubstr := substr $currentPage.URL 0 $menuItemUrlLength }}
-					<li class="header__menu-item{{ if eq $pageSubstr .URL }} header__menu-item--is-active{{end}}">
-						<a href="{{ $currentMenuItem.URL }}" title="{{ $currentMenuItem.Name }}">{{ $currentMenuItem.Name }}</a>
+					<li class="header__menu-item">
+						<a href="{{ $currentMenuItem.URL }}" class="header__menu-item-link{{ if eq $pageSubstr .URL }} header__menu-item-link--is-active{{end}}">{{ $currentMenuItem.Name }}</a>
 					</li>
 				{{- end -}}
 			{{- end -}}

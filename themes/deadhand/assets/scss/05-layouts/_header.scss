@@ -2,15 +2,17 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-top: 16px;
+	padding-bottom: 16px;
+	background-color: $color__purple--dark;
 	@include site-padding;
 	&__title {
 		display: inline-block;
 		border-bottom: none;
 		font-family: $font-family__headings;
 		font-size: 22px;
-		padding-bottom: 20px;
+		color: #fff;
+		padding-bottom: 0;
 	}
 	&__menu {
 		margin: 0;
@@ -24,7 +26,11 @@
 	&__menu-item {
 		display: inline-block;
 		margin-left: 10px;
-		&--is-active a {
+	}
+	&__menu-item-link{
+		color: #fff;
+		border-bottom-color: white;
+		&--is-active {
 			border-bottom-width: 4px;
 		}
 	}

@@ -7,10 +7,10 @@ html {
 }
 
 body {
-	background-color: $color__purple;
+	background-color: #fff;
 	font-family: $font-family__body;
-	font-weight: 300;
-	color: #fff;
+	font-weight: 400;
+	color: #404040;
 	height: 100%;
 	position: relative;
 	margin: 0px;
@@ -21,13 +21,6 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	line-height: 1.2;
 	padding-top: .8em;
-}
-
-p {
-	font-size: 18px;
-	@media(max-width: $breakpoint__sm){
-		font-size: 16px;
-	}
 }
 
 h1 {
@@ -63,9 +56,9 @@ h6 {
 }
 
 a {
-	color: #fff;
+	color: $color__purple;
 	text-decoration: none;
-	border-bottom: solid 2px #fff;
+	border-bottom: solid 2px $color__purple;
 	padding-bottom: 2px;
 	&:hover,
 	&:focus {

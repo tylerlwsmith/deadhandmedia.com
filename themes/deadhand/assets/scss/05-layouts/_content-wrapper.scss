@@ -2,7 +2,9 @@
 	margin: 0 auto;
 	padding: 50px $padding__md 120px;
 	max-width: $breakpoint__md;
+	font-size: 18px;
 	@media(max-width: $breakpoint__sm) {
 		padding-top: 20px $padding__sm 80px;
+		font-size: 16px;
 	}
 }
