@@ -3,7 +3,7 @@
 	font-size: 14px;
 	&+&:before{
 		display: inline;
-		padding-right: 5px;
+		padding: 0 5px;
 		content: "/";
 	}
 	&__wrapper {

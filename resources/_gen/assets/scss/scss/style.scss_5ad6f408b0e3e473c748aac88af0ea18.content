@@ -89,7 +89,7 @@ img {
   font-size: 14px; }
   .breadcrumb + .breadcrumb:before {
     display: inline;
-    padding-right: 5px;
+    padding: 0 5px;
     content: "/"; }
   .breadcrumb__wrapper {
     margin: 0;
