@@ -35,6 +35,9 @@ h1 {
 	font-size:44px;
 	font-weight: 400;
 	@media(max-width: $breakpoint__md) {
+		font-size: 38px;
+	}
+	@media(max-width: $breakpoint__sm) {
 		font-size: 30px;
 	}
 }
