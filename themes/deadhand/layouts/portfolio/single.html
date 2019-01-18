@@ -1,12 +1,7 @@
 {{ define "main" }}
-	<aside>
-		<nav aria-label="breadcrumb">
-			<ol class="breadcrumb__wrapper">
-				<li class="breadcrumb"><a href="/portfolio/">Portfolio</a></li>
-				<li class="breadcrumb">{{ .Name }}</li>
-			</ol>
-		</nav>
-	</aside>
+	
+	{{ partial "breadcrumbs" . }}
+
 	<h1 class="page__title">{{ .Name }}</h1>
 
 	{{ partial "portfolio-screenshot" . }}

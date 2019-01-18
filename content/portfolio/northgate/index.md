@@ -11,7 +11,7 @@ When Northgate Commercial Real Estate approached me to build their new website, 
 
 Northgate was fortunate enough to have a talented designer on staff, however, he didn't not have experience with websites. I provided design guidance for web and ultimately was presented with a one of the most beautifully simple and intuitive designs I've ever had the pleasure of building.
 
-## Interesting Development Challenges 
+## Development Challenges 
 
 The design called for three particularly interesting features: 
 

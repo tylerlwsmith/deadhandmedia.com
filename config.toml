@@ -13,10 +13,10 @@ enableInlineShortcodes = true
     url = "/about/"
     weight = 1
 
-#  [[menu.main]]
-#    name = "Portfolio"
-#    url = "/portfolio/"
-#    weight = 2
+   [[menu.main]]
+     name = "Portfolio"
+     url = "/portfolio/"
+     weight = 2
 
   [[menu.main]]
     name = "Contact"
