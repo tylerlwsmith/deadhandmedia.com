@@ -2,7 +2,5 @@
 {{ if $screenshot }}
 	{{ $resized := $screenshot.Resize "610x" }}
 	{{ $resized2x := $screenshot.Resize "1220x" }}
-	<div class="page-portfolio__screenshot-wrapper">
-		<img src="{{ $resized.RelPermalink }}" srcset="{{ $resized2x.RelPermalink }} 2x" alt="{{ .Name }} Screenshot">
-	</div>
+	<img src="{{ $resized.RelPermalink }}" srcset="{{ $resized2x.RelPermalink }} 2x" alt="{{ .Name }} Screenshot" class="page-portfolio__screenshot">
 {{ end }}

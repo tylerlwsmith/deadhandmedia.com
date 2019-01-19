@@ -7,4 +7,8 @@
 		padding-top: 20px $padding__sm 80px;
 		font-size: 16px;
 	}
+	img {
+		margin: 20px 0;
+		filter: drop-shadow(0 10px 10px rgba(#404040, .3));
+	}
 }

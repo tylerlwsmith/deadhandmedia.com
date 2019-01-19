@@ -96,6 +96,14 @@ img {
     padding-left: 0;
     list-style: none; }
 
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  color: #fff;
+  background-color: #684c9f;
+  border-radius: 4px; }
+
 .back-link {
   padding-top: 20px; }
 
@@ -152,6 +160,9 @@ img {
     .content-wrapper {
       padding-top: 20px 16px 80px;
       font-size: 16px; } }
+  .content-wrapper img {
+    margin: 20px 0;
+    filter: drop-shadow(0 10px 10px rgba(64, 64, 64, 0.3)); }
 
 .footer {
   position: absolute;
@@ -261,8 +272,9 @@ img {
       .page-home__content p {
         font-size: 16px; } }
 
-.page-portfolio__screenshot-wrapper {
-  padding-bottom: 20px; }
+.page-portfolio__screenshot {
+  margin-top: 0 !important;
+  filter: none !important; }
 
 .page__title {
   margin-top: 0;
@@ -277,5 +289,8 @@ img {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0; }
+
+.text-center {
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
