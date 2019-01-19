@@ -22,7 +22,7 @@ Given Northgate's needs, WordPress was the obvious platform of choice. WordPress
 
 The new site needed several content types with structured data. Some content types needed relationships with other types of content, such as relating property listings to their agents. I used the Advanced Custom Fields Pro plugin to implement the necessary fields and relationships to each post type.
 
-Because Northgate had a talented designer on staff, I wanted to give them extra flexibility when editing the site's main pages. I installed the Beaver Builder page builder plugin to allow Northgate to build custom-designed pages, such as the [Northgate's homepage](https://northgatecre.com/) or the [services page](https://northgatecre.com/services). 
+Because Northgate had a talented designer on staff, I wanted to give extra flexibility when editing the site's main pages. I installed the Beaver Builder page builder plugin to allow Northgate to build custom-designed pages, such as the [Northgate's homepage](https://northgatecre.com/) or the [services page](https://northgatecre.com/services). 
 
 {{< image "northgate-listing-backend.png" "WordPress backend editing property listing on Northgate's site." >}}
 
@@ -62,8 +62,8 @@ Northgate was pleased with the results. In particular, the individual property p
 
 ## Performance Optimizations
 
-To keep the load time of the site as fast as possible, I compiled and minified all theme JavaScript and CSS files into a single script and stylesheet file. I only included parts of the Bootstrap 4 framework that were actually used on the site, which substantially reduced the size of the assets. 
-
-All external dependencies are managed by NPM and compiled with Laravel Mix, meaning I can update dependencies and recompile frontend assets with just a few terminal commands.
-
 To keep the size of images down, the WP Smush plugin was added to compress photos as they are loaded into the site.
+
+To keep the load time of the site as fast as possible, I compiled and minified all theme JavaScript and CSS into one script and one stylesheet file. I also only included parts of the Bootstrap 4 framework that were actually used on the site, which substantially reduced the size of the files. 
+
+The site's frontend dependencies are managed by NPM and compiled with Laravel Mix.
