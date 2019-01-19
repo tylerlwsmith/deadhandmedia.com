@@ -14,7 +14,7 @@ When Northgate Commercial Real Estate approached me to build their new website, 
 
 Northgate needed to integrate all of their content into a single easy-to-use platform, and Northgate's new website needed to offer a streamlined way for potential clients to consume the site's information.
 
-Northgate was fortunate enough to have a talented designer on staff who was eager to design the new website. I provided minimal website design guidance and ultimately was presented with a one of the most clean and intuitive designs I've built to date.
+Northgate was fortunate to have a talented designer on staff who was eager to design the new website. I provided basic website design guidance and ultimately was presented with a one of the most clean and intuitive designs I've built to date.
 
 ## Technical Approach
 
