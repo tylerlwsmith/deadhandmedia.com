@@ -1,4 +1,8 @@
 .page-portfolio__screenshot {
-	margin-top: 0 !important;
+	margin: 0 !important;
 	filter: none !important;
+	transform: none !important;
+	&-wrapper {
+		padding-bottom: 20px;
+	}
 }

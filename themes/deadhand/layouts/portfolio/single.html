@@ -27,6 +27,11 @@
 
 	</div>
 	{{ .Content }}
+
+	<div class="button__wrapper text-center">
+		<a href="{{ .Param "projectUrl" }}" class="button">Visit {{ .Name }}</a>
+	</div>
+
 	<aside class="back-link">
 		<a href="/portfolio/"><span aria-hidden="true">&#8592; </span>Back to porfolio</a>
 	</aside>
