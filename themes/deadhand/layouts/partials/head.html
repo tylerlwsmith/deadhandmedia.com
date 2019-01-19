@@ -4,6 +4,10 @@
 	{{- $description :=  replace .Content "\n" "" -}}
 	{{- $description :=  $description | truncate 160 -}}
 
+	{{ if (.Param "hidden") }} 
+	<meta name=”robots” content=”noindex, follow”>
+	{{ end }}
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="{{ $description }}">
 	<meta property="og:title" content="DeadHand Media">

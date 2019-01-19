@@ -17,8 +17,7 @@
 
 			 */}}
 			{{- with $.Site.GetPage $pathNoTrailingSlash -}}
-				{{- if or (not .Draft) (.Site.IsServer) -}}
-
+				{{- if or (and (not .Draft) (not (.Param "hidden"))) (.Site.IsServer) -}}
 					{{/* 
 						Grab the length of menu item, get a substring of the 
 						current page url the length of the menu item and see if
