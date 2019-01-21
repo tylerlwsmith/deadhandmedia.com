@@ -116,7 +116,8 @@ img {
   padding-top: 20px; }
 
 .page-wrapper {
-  min-height: 100vh; }
+  min-height: 100vh;
+  border-top: 2px solid #684c9f; }
 
 .header {
   display: flex;
@@ -139,7 +140,6 @@ img {
     border-bottom: none;
     font-family: bungee, sans-serif;
     font-size: 22px;
-    color: #684c9f;
     padding-bottom: 0; }
   .header__menu {
     margin: 0;
@@ -288,8 +288,7 @@ img {
     padding-bottom: 20px; }
 
 .page__title {
-  margin-top: 0;
-  color: #684c9f; }
+  margin-top: 0; }
 
 .sr-only {
   position: absolute;
