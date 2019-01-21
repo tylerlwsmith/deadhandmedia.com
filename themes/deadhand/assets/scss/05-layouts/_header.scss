@@ -4,14 +4,13 @@
 	justify-content: space-between;
 	padding-top: 16px;
 	padding-bottom: 16px;
-	background-color: $color__purple--dark;
 	@include site-padding;
 	&__title {
 		display: inline-block;
 		border-bottom: none;
 		font-family: $font-family__headings;
 		font-size: 22px;
-		color: #fff;
+		color: $color__purple;
 		padding-bottom: 0;
 	}
 	&__menu {
@@ -28,9 +27,12 @@
 		margin-left: 10px;
 	}
 	&__menu-item-link{
-		color: #fff;
-		border-bottom-color: white;
-		&--is-active {
+		color: #404040;
+		border-bottom-width: 0;
+		&--is-active,
+		&--is-active:hover,
+		&--is-active:focus,
+		 {
 			border-bottom-width: 4px;
 		}
 	}

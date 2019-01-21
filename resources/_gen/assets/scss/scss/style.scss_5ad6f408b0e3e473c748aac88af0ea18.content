@@ -51,11 +51,12 @@ h6 {
       font-size: 20px; } }
 
 a {
-  color: #684c9f;
+  color: #404040;
   text-decoration: none;
   border-bottom: solid 2px #684c9f;
   padding-bottom: 2px; }
   a:hover, a:focus {
+    color: #684c9f;
     border-bottom-width: 3px; }
 
 strong {
@@ -103,8 +104,10 @@ img {
   background-color: #544573;
   border-radius: 4px; }
   .button:hover, .button:focus {
+    color: #fff;
     background-color: #684c9f; }
   .button:active {
+    color: #fff;
     background-color: #d4cbe5; }
   .button__wrapper {
     padding: 20px 10px 40px; }
@@ -121,7 +124,6 @@ img {
   justify-content: space-between;
   padding-top: 16px;
   padding-bottom: 16px;
-  background-color: #544573;
   padding-left: 4vw;
   padding-right: 4vw; }
   @media (max-width: 650px) {
@@ -137,7 +139,7 @@ img {
     border-bottom: none;
     font-family: bungee, sans-serif;
     font-size: 22px;
-    color: #fff;
+    color: #684c9f;
     padding-bottom: 0; }
   .header__menu {
     margin: 0;
@@ -151,9 +153,9 @@ img {
     display: inline-block;
     margin-left: 10px; }
   .header__menu-item-link {
-    color: #fff;
-    border-bottom-color: white; }
-    .header__menu-item-link--is-active {
+    color: #404040;
+    border-bottom-width: 0; }
+    .header__menu-item-link--is-active, .header__menu-item-link--is-active:hover, .header__menu-item-link--is-active:focus {
       border-bottom-width: 4px; }
 
 .content-wrapper {
