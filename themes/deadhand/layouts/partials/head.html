@@ -2,7 +2,7 @@
 	<title>{{ block "title" . }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
 
 	{{- $description :=  replace .Content "\n" "" -}}
-	{{- $description :=  $description | truncate 160 -}}
+	{{- $description :=  $description | plainify | truncate 160 -}}
 
 	{{ if (.Param "hidden") }} 
 	<meta name="robots" content="noindex, follow">
