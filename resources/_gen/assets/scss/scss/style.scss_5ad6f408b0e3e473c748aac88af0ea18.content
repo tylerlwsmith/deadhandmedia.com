@@ -5,7 +5,7 @@ html {
   min-height: 100vh; }
 
 body {
-  background-color: #fff;
+  background-color: #f7f6f7;
   font-family: raleway, sans-serif;
   font-weight: 400;
   color: #404040;
@@ -117,7 +117,7 @@ img {
 
 .page-wrapper {
   min-height: 100vh;
-  border-top: 2px solid #684c9f; }
+  border-top: 4px solid #684c9f; }
 
 .header {
   display: flex;
