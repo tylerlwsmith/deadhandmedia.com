@@ -6,6 +6,7 @@ services: ["Design", "Custom Theme Development", "Data Aggregation"]
 technologies: ["WordPress", "Sage 9", "Scss"]
 screenshot: sacmusic.png
 draft: true
+hidden: true
 ---
 The SacMusic website is a passion project and long time dream of mine. I've been playing at open mics and jams for a decade, and I've always thought that finding good information about these events was incredibly troublesome. 
 

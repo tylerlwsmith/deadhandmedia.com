@@ -5,8 +5,6 @@ projectUrl: https://northgatecre.com
 services: ["Design Consultation", "Custom Theme Development", "Data Migration", "SEO"]
 technologies: ["WordPress", "jQuery", "Bootstrap 4", "GSAP", "Flickity", "Isotope", "Fancybox", "Scss", "ES6 Modules", "Laravel Mix"]
 screenshot: northgate.png
-draft: false
-hidden: true
 ---
 When Northgate Commercial Real Estate approached me to build their new website, the company's web presence felt stuck in the previous decade. They had a non-mobile-responsive site that was half legacy ColdFusion web application and half third-party property listing service on a different server, which was styled to look like it was a part of the same site.
 
