@@ -6,11 +6,16 @@
 	{{- $resized2x := $imageResource.Resize "1280x" -}}
 	{{- $width := 0 -}}
 	{{- $height := 0 -}}
-	<img 
-		src="{{- $resized.RelPermalink }}" 
-		srcset="{{- $resized2x.RelPermalink }} 2x" 
-		alt="{{- $alt -}}"
-		width="{{- $resized.Width -}}"
-		height="{{- $resized.Height -}}"
+	<div 
+		class="image-wrapper"
+		style="padding-bottom: {{ div (float $resized.Height ) (float $resized.Height)  }}% "
 	>
+		<img 
+			src="{{- $resized.RelPermalink }}" 
+			srcset="{{- $resized2x.RelPermalink }} 2x" 
+			alt="{{- $alt -}}"
+			width="{{- $resized.Width -}}"
+			height="{{- $resized.Height -}}"
+		>
+	</div>
 {{- end -}}

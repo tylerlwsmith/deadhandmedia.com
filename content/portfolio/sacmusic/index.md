@@ -7,8 +7,8 @@ services:
 technologies:
   ["WordPress", "Timber", "Twig", "Scss", "Vanilla JavaScript", "Laravel Mix"]
 screenshot: sacmusic.png
-draft: true
-hidden: true
+draft: false
+hidden: false
 ---
 
 I've been performing at open mics and jams for over a decade, but finding information about these events has always been troublesome. I wanted to build a web site that could help the Sacramento music community find all the open mics and jams in the region.
@@ -39,6 +39,8 @@ I displayed the most important information about each event on the homepage, so 
 
 For a better user experience, I also opted to list open mics by day-of-the-week instead of using a calendar. Calendars are difficult to make usable on mobile devices, and most open mics and jams are weekly events.
 
+{{< figure src="mobile.png" alt="An app like design on mobile browsers." width="250" >}}
+
 ## Technical Approach
 
 I chose to build SacMusic.com with WordPress because my familiarity with the platform would allow me to develop the site quickly as a single developer.
@@ -55,7 +57,9 @@ Age restrictions are displayed prominently so that young musicians can participa
 
 The Sacramento region is comprised of many cities spanning multiple counties, so cities are displayed at the top of the event to quickly let users assess if the event is worth the drive.
 
-Finally, the venue's address is on every listing, along with an interactive map and a button to get directions.
+Finally, the venue's address is on every listing's full page, along with an interactive map and a button to get directions.
+
+{{< image "event-details.png" "Each event has details summarized before you ever click in." >}}
 
 ## Performance Optimizations
 
@@ -66,3 +70,5 @@ I built custom Scss mixins based loosely on Twitter Bootstrap's grid for positio
 [SVG symbols](https://css-tricks.com/svg-symbol-good-choice-icons/) were used to display instrument icons. SVG offers major performance benefits over raster graphics as the data is stored as a shape rather than pixels.
 
 The most interesting challenge was the embedded map on the individual open mic page. I originally intended to implement this as a simple iframe, however, the iframe added 2.6 megabytes to the page load and slowed the page load speed down by over a second. To increase performance, I opted to use the [Google Static Maps API](https://developers.google.com/maps/documentation/maps-static/intro), which loads a map of the location as a static image. The user is prompted to tap the map to load a full interactive view, which replaces the static image with an iframe version of the map. As a result, only the minority of users who intend to interact with the map have to incur the full load time of the iframe.
+
+{{< image "full-page.png" "Full individual open mic page." >}}
