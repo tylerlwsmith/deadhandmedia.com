@@ -1,7 +1,6 @@
 .page-portfolio__screenshot {
 	margin: 0 !important;
-	filter: none !important;
-	transform: none !important;
+	max-width: 100% !important;
 	&-wrapper {
 		padding-bottom: 20px;
 	}

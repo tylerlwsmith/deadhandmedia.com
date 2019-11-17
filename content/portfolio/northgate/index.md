@@ -2,10 +2,24 @@
 title: "Northgate Commercial Real Estate"
 date: 2019-01-13T21:45:45-08:00
 projectUrl: https://northgatecre.com
-services: ["Design Consultation", "Custom Theme Development", "Data Migration", "SEO"]
-technologies: ["WordPress", "jQuery", "Bootstrap 4", "GSAP", "Flickity", "Isotope", "Fancybox", "Scss", "ES6 Modules", "Laravel Mix"]
-screenshot: northgate.png
+services:
+  ["Design Consultation", "Custom Theme Development", "Data Migration", "SEO"]
+technologies:
+  [
+    "WordPress",
+    "jQuery",
+    "Bootstrap 4",
+    "GSAP",
+    "Flickity",
+    "Isotope",
+    "Fancybox",
+    "Scss",
+    "ES6 Modules",
+    "Laravel Mix",
+  ]
+screenshot: northgate-2.png
 ---
+
 When Northgate Commercial Real Estate approached me to build their new website, the company's web presence felt stuck in the previous decade. They had a non-mobile-responsive site that was half legacy ColdFusion web application and half third-party property listing service on a different server, which was styled to look like it was a part of the same site.
 
 ## The Challenge
@@ -20,7 +34,7 @@ Given Northgate's needs, WordPress was the obvious platform of choice. WordPress
 
 The new site needed several content types with structured data. Some content types needed relationships with other types of content, such as relating property listings to their agents. I used the Advanced Custom Fields Pro plugin to implement the necessary fields and relationships for each post type.
 
-Because Northgate had a talented designer on staff, I wanted to give extra flexibility when editing the site's main pages. I installed the Beaver Builder page builder plugin to allow Northgate to build custom-designed pages, such as the [Northgate's homepage](https://northgatecre.com/) or the [services page](https://northgatecre.com/services). 
+Because Northgate had a talented designer on staff, I wanted to give extra flexibility when editing the site's main pages. I installed the Beaver Builder page builder plugin to allow Northgate to build custom-designed pages, such as the [Northgate's homepage](https://northgatecre.com/) or the [services page](https://northgatecre.com/services).
 
 {{< image "northgate-listing-backend.png" "WordPress backend editing property listing on Northgate's site." >}}
 
@@ -30,7 +44,7 @@ Like most commercial real estate companies, Northgate lists on LoopNet, but they
 
 Before building the new site, there were around 100 properties in the third-party listing service that Northgate was using. Creating and editing listings with this system was a time-consuming task, with over half a dozen screens to click through. Worse yet, the system still didn't meet Northgate's needs.
 
-With a brand-new site, we were able to build a custom solution that matched the real world needs of Northgate. We went through an iterative process based on Northgate's listing data and a lot of questions, creating a tailor-suited listing experience. Once the new system was in place, we migrated the data from their old provider to the new WordPress site. 
+With a brand-new site, we were able to build a custom solution that matched the real world needs of Northgate. We went through an iterative process based on Northgate's listing data and a lot of questions, creating a tailor-suited listing experience. Once the new system was in place, we migrated the data from their old provider to the new WordPress site.
 
 The new individual listing page included all the listing's information, a touch-responsive carousel for property images and a lightbox pop-up to display larger versions of the listing's images.
 
@@ -54,7 +68,7 @@ The challenge was building this functionality without forcing users to create an
 
 In commercial real estate, paper is preferred by many agents and buyers alike. It was important that the individual property pages and property reports looked as good printed as they did on the screen. After researching how other listing sites have made their pages printer friendly, we emulated the best practices on Northgate's site.
 
-Northgate was pleased with the results. In particular, the individual property page and the report page looked like they were designed specifically for print. 
+Northgate was pleased with the results. In particular, the individual property page and the report page looked like they were designed specifically for print.
 
 {{< image "northgate-printed.png" "A property listing and property report printed side-by-side." >}}
 
@@ -62,6 +76,6 @@ Northgate was pleased with the results. In particular, the individual property p
 
 To keep the size of images down, the WP Smush plugin was added to compress photos as they are loaded into the site.
 
-To keep the load time of the site as fast as possible, I compiled and minified all theme JavaScript and CSS into one script and one stylesheet file. I also only included parts of the Bootstrap 4 framework that were actually used on the site, which substantially reduced the size of the files. 
+To keep the load time of the site as fast as possible, I compiled and minified all theme JavaScript and CSS into one script and one stylesheet file. I also only included parts of the Bootstrap 4 framework that were actually used on the site, which substantially reduced the size of the files.
 
 The site's frontend dependencies are managed by NPM and compiled with Laravel Mix.
