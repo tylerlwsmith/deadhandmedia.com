@@ -1,5 +1,5 @@
 <head>
-	<title>{{ block "title" . }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+	<title>{{ .Title }} - {{ .Site.Title }}</title>
 
 	{{- $description :=  replace .Content "\n" "" -}}
 	{{- $description :=  $description | plainify | truncate 160 -}}
@@ -10,7 +10,7 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="{{ $description }}">
-	<meta property="og:title" content="DeadHand Media">
+	<meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}">
 	<meta property="og:description" content="{{ $description }}">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="{{ .URL | absURL }}">
