@@ -172,6 +172,7 @@ img {
     margin-left: -15px;
     margin-right: -15px;
     max-width: calc(100% + 30px);
+    height: auto;
     filter: drop-shadow(0 10px 10px rgba(64, 64, 64, 0.3)); }
 
 .footer {
