@@ -36,8 +36,6 @@ The new site needed several content types with structured data. Some content typ
 
 Because Northgate had a talented designer on staff, I wanted to give extra flexibility when editing the site's main pages. I installed the Beaver Builder page builder plugin to allow Northgate to build custom-designed pages, such as the [Northgate's homepage](https://northgatecre.com/) or the [services page](https://northgatecre.com/services).
 
-{{< image "northgate-listing-backend.png" "WordPress backend editing property listing on Northgate's site." >}}
-
 ## Listing Management System
 
 Like most commercial real estate companies, Northgate lists on LoopNet, but they also wanted to offer more in-depth information about their listings on their own site.
