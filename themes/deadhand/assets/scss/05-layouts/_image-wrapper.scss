@@ -1,0 +1,17 @@
+.content-image__wrapper-outer {
+  position: relative;
+  left: 50%;
+  padding-top: 20px;
+  padding-bottom: 12px;
+  transform: translateX(-50%);
+  width: calc(100% + 30px);
+}
+.content-image__wrapper-inner {
+  height: 0;
+}
+.content-image {
+  position: initial;
+  max-width: 100% !important;
+  transform: none;
+  margin: 0 !important;
+}

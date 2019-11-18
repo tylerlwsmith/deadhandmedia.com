@@ -4,18 +4,20 @@
 {{- if $imageResource -}}
 	{{- $resized := $imageResource.Resize "640x" -}}
 	{{- $resized2x := $imageResource.Resize "1280x" -}}
-	{{- $width := 0 -}}
-	{{- $height := 0 -}}
-	<div 
-		class="image-wrapper"
-		style="padding-bottom: {{ div (float $resized.Height ) (float $resized.Height)  }}% "
-	>
-		<img 
-			src="{{- $resized.RelPermalink }}" 
-			srcset="{{- $resized2x.RelPermalink }} 2x" 
-			alt="{{- $alt -}}"
-			width="{{- $resized.Width -}}"
-			height="{{- $resized.Height -}}"
+	{{- $width := float $resized.Width -}}
+	{{- $height := float $resized.Height -}}
+	<div class="content-image__wrapper-outer">
+		<div 
+			class="content-image__wrapper-inner"
+			style="padding-bottom: {{ mul (div $height $width) 100}}%; height: 0; "
 		>
+			<img 
+				src="{{- $resized.RelPermalink }}" 
+				srcset="{{- $resized2x.RelPermalink }} 2x" 
+				alt="{{- $alt -}}"
+				class="content-image"
+			>
+		</div>
+
 	</div>
 {{- end -}}
