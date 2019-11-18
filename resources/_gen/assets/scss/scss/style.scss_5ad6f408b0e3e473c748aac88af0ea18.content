@@ -78,11 +78,14 @@ figure {
   font-size: 14px;
   padding: 2px 8px;
   display: inline-block;
-  margin-bottom: 12px;
+  margin-bottom: .5em;
   margin-right: 3px;
   color: #fff;
   background-color: #6c5893;
   font-weight: 600; }
+  @media (max-width: 450px) {
+    .pill {
+      font-size: 12px; } }
   .pill__wrapper {
     list-style-type: none;
     padding: 0;
@@ -310,10 +313,17 @@ figure {
         font-size: 16px; } }
 
 .page-portfolio__screenshot {
+  position: absolute !important;
+  transform: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   margin: 0 !important;
   max-width: 100% !important; }
   .page-portfolio__screenshot-wrapper {
-    padding-bottom: 20px; }
+    margin-bottom: 26px;
+    position: relative; }
 
 .page__title {
   margin-top: 0; }
