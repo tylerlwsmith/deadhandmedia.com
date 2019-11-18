@@ -26,12 +26,13 @@
 		margin-left: 10px;
 	}
 	&__menu-item-link{
-		color: #404040;
+		color: #666;
 		border-bottom-width: 0;
 		&--is-active,
 		&--is-active:hover,
 		&--is-active:focus,
 		 {
+		 	color: #404040;
 			border-bottom-width: 4px;
 		}
 	}

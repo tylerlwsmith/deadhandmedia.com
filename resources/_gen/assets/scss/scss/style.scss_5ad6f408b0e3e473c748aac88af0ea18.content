@@ -163,9 +163,10 @@ figure {
     display: inline-block;
     margin-left: 10px; }
   .header__menu-item-link {
-    color: #404040;
+    color: #666;
     border-bottom-width: 0; }
     .header__menu-item-link--is-active, .header__menu-item-link--is-active:hover, .header__menu-item-link--is-active:focus {
+      color: #404040;
       border-bottom-width: 4px; }
 
 .content-wrapper {
