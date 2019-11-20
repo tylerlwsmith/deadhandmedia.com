@@ -43,7 +43,7 @@ Like most commercial real estate companies, Northgate lists on LoopNet, but they
 
 Before building the new site, there were around 100 properties in the third-party listing service that Northgate was using. Creating and editing listings with this system was a time-consuming task, with over half a dozen screens to click through. Worse yet, the system still didn't meet Northgate's needs.
 
-With a brand-new site, we were able to build a custom solution that matched the real world needs of Northgate. We went through an iterative process based on Northgate's listing data and a lot of questions, creating a tailor-suited listing experience. Once the new system was in place, we migrated the data from their old provider to the new WordPress site.
+With a brand-new site, we were able to build a custom solution that matched the real-world needs of Northgate. We went through an iterative process based on Northgate's listing data and a lot of questions, creating a tailor-suited listing experience. Once the new system was in place, we migrated the data from their old provider to the new WordPress site.
 
 The new individual listing page included all the listing's information, a touch-responsive carousel for property images and a lightbox pop-up to display larger versions of the listing's images.
 
