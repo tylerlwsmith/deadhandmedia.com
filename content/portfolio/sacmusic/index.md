@@ -3,7 +3,7 @@ title: "SacMusic.com"
 date: 2019-01-14T00:36:29-08:00
 projectUrl: https://sacmusic.com
 services:
-  ["Design", "Custom Theme Development", "Data Aggregation", "Content Writing"]
+  ["Design", "Custom Theme Development", "Data Aggregation", "Content Writing", "VPS Management"]
 technologies:
   ["React.js", "Next.js", "Emotion", "Node.js", "WordPress"]
 screenshot: sacmusic.png
