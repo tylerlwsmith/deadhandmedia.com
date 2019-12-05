@@ -5,7 +5,7 @@ projectUrl: https://sacmusic.com
 services:
   ["Design", "Custom Theme Development", "Data Aggregation", "Content Writing"]
 technologies:
-  ["WordPress", "Timber", "Twig", "Scss", "Vanilla JavaScript", "Laravel Mix"]
+  ["React.js", "Next.js", "Emotion", "Node.js", "WordPress"]
 screenshot: sacmusic.png
 draft: false
 hidden: false
@@ -44,11 +44,11 @@ For a better user experience, I also opted to list open mics by day-of-the-week 
 
 ## Technical Approach
 
-I chose to build SacMusic.com with WordPress because my familiarity with the platform would allow me to develop the site quickly as a single developer.
+This site has been through several iterations, and it is currently built with React using Next.js as a Node.js webserver. Next allows React to be server-side rendered, which improves the experience for users with slow connections by allowing them to see content before the JavaScript finishes loading. It also allows Google to index the site more easily, improving SEO.
 
-I used a WordPress add on called [Timber](https://www.upstatement.com/timber/), which allowed me to use [Symphony's Twig templating engine](https://twig.symfony.com/) on the site. Twig let me develop the site using DRYer, less repetitive code. Twig is also similar to the Django templating engine, which will be helpful if I decide to migrate the site to Django in the future.
+I originally built SacMusic.com with WordPress because my familiarity with the platform allowed me to develop the site quickly. After building the site with the Sage starter theme to use Blade templates then migrating to Timber for the Twig templating engine, I wanted to leverage the power of a modern JavaScript framework for a more app-like experience.
 
-On the front end, I compiled Scss to CSS, and I opted out of all libraries except Font Awesome to increase performance. All theme JavaScript was implemented without frameworks or libraries.
+The site continues to use WordPress as its data source. WordPress's REST API is famously slow, so when the data is updated, WordPress syncs its data to the Node.js server where it can be delivered to the user in milliseconds. 
 
 ## Detailed Event Information
 
@@ -64,11 +64,7 @@ Finally, the venue's address is on every listing's full page, along with an inte
 
 ## Performance Optimizations
 
-To keep load times fast, the only library used in the site's theme was Font Awesome.
-
-I built custom Scss mixins based loosely on Twitter Bootstrap's grid for positioning elements. This avoided the bloat of unused classes while taking advantage of gzip efficient compression of repetitive code. As a result, the theme's minified CSS weighed in at only 13.1 kilobytes, and 4.4 kilobytes gzipped.
-
-[SVG symbols](https://css-tricks.com/svg-symbol-good-choice-icons/) were used to display instrument icons. SVG offers major performance benefits over raster graphics as the data is stored as a shape rather than pixels.
+Node.js is known for its speed, and this site reaps the benefits of its performance. Next.js's server-side rendering allows users on slower devices to get content before the JavaScript has finished parsing. I also intentionally chose Emotion to style this app because of its focus on performance. 
 
 The most interesting challenge was the embedded map on the individual open mic page. I originally intended to implement this as a simple iframe, however, the iframe added 2.6 megabytes to the page load and slowed the page load speed down by over a second. To increase performance, I opted to use the [Google Static Maps API](https://developers.google.com/maps/documentation/maps-static/intro), which loads a map of the location as a static image. The user is prompted to tap the map to load a full interactive view, which replaces the static image with an iframe version of the map. As a result, only the minority of users who intend to interact with the map have to incur the full load time of the iframe.
 
