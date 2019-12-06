@@ -20,7 +20,7 @@ There are countless open mic listing sites on the Internet, but many have seriou
 
 The biggest entity in the space is [OpenMic.US](https://www.openmic.us/), which is an international network of open mic sites for major cities across the globe. To maintain such an extensive network, they depend on user-submitted events. This has led to some event information being low quality. Sometimes, the hosting venue has gone out of business entirely. The site also prompts the user with a non-dismissable dialog to get the user's email, which feels hostile towards the users. The site's design feels dated.
 
-There are also hundreds of local open mic websites across the country. These are usually created by non-developers, and as a result often have issues with mobile responsiveness. Locally operated sites also often omit important details like signup times or age restrictions. Sometimes, these sites even charge to list events.
+There are also hundreds of local open mic websites across the country. These are usually created by non-developers, and as a result often have issues with mobile responsiveness and slow load times. Locally operated sites also often omit important details like signup times or age restrictions. Sometimes, these sites even charge to list events.
 
 To build a site that would be truly useful to the Sacramento music community, I would need to source the event data myself and design a site that displays important event details upfront.
 
