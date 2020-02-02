@@ -282,7 +282,7 @@ figure {
         text-align: center; } }
   .page-home__heading {
     font-size: 7vw;
-    margin: .5em 0 .6vw;
+    margin: 0.5em 0 0.6vw;
     padding-top: 0; }
     @media (max-width: 650px) {
       .page-home__heading {
@@ -302,16 +302,18 @@ figure {
     @media (max-width: 450px) {
       .page-home__sub-heading {
         font-size: 20px; } }
-  .page-home__content p {
-    font-size: 1.5vw;
-    font-weight: 300;
-    line-height: 135%; }
-    @media (max-width: 1400px) {
-      .page-home__content p {
-        font-size: 20px; } }
-    @media (max-width: 450px) {
-      .page-home__content p {
-        font-size: 16px; } }
+  .page-home__content {
+    width: 75%; }
+    .page-home__content p {
+      font-size: 1.5vw;
+      font-weight: 300;
+      line-height: 135%; }
+      @media (max-width: 1400px) {
+        .page-home__content p {
+          font-size: 20px; } }
+      @media (max-width: 450px) {
+        .page-home__content p {
+          font-size: 16px; } }
 
 .page-portfolio__screenshot {
   position: absolute !important;

@@ -3,11 +3,16 @@ title: "SacMusic.com"
 date: 2019-01-14T00:36:29-08:00
 projectUrl: https://sacmusic.com
 services:
-  ["Design", "Custom Theme Development", "Data Aggregation", "Content Writing", "VPS Management"]
-technologies:
-  ["React.js", "Next.js", "Emotion", "Node.js", "WordPress"]
+  [
+    "Design",
+    "Custom Theme Development",
+    "Data Aggregation",
+    "Content Writing",
+    "VPS Management",
+  ]
+technologies: ["React.js", "Next.js", "Emotion", "Node.js", "WordPress"]
 screenshot: sacmusic.png
-draft: false
+draft: true
 hidden: false
 weight: 2
 ---
@@ -48,7 +53,7 @@ This site has been through several iterations, and it is currently built with Re
 
 I originally built SacMusic.com with WordPress because my familiarity with the platform allowed me to develop the site quickly. After building the site with the Sage starter theme to use Blade templates then migrating to Timber for the Twig templating engine, I wanted to leverage the power of a modern JavaScript framework for a more app-like experience.
 
-The site continues to use WordPress as its data source. WordPress's REST API is famously slow, so when the data is updated, WordPress syncs its data to the Node.js server where it can be delivered to the user in milliseconds. 
+The site continues to use WordPress as its data source. WordPress's REST API is famously slow, so when the data is updated, WordPress syncs its data to the Node.js server where it can be delivered to the user in milliseconds.
 
 ## Detailed Event Information
 
@@ -64,7 +69,7 @@ Finally, the venue's address is on every listing's full page, along with an inte
 
 ## Performance Optimizations
 
-Node.js is known for its speed, and this site reaps the benefits of its performance. Next.js's server-side rendering allows users on slower devices to get content before the JavaScript has finished parsing. I also intentionally chose Emotion to style this app because of its focus on performance. 
+Node.js is known for its speed, and this site reaps the benefits of its performance. Next.js's server-side rendering allows users on slower devices to get content before the JavaScript has finished parsing. I also intentionally chose Emotion to style this app because of its focus on performance.
 
 The most interesting challenge was the embedded map on the individual open mic page. I originally intended to implement this as a simple iframe, however, the iframe added 2.6 megabytes to the page load and slowed the page load speed down by over a second. To increase performance, I opted to use the [Google Static Maps API](https://developers.google.com/maps/documentation/maps-static/intro), which loads a map of the location as a static image. The user is prompted to tap the map to load a full interactive view, which replaces the static image with an iframe version of the map. As a result, only the minority of users who intend to interact with the map have to incur the full load time of the iframe.
 

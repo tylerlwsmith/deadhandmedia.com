@@ -1,109 +1,118 @@
 .page-home {
-	background-color: $color__purple--light;
-	color: #fff;
-	@media(max-width: $breakpoint__md) {
-		background-color: $color__purple;
-	}
+  background-color: $color__purple--light;
+  color: #fff;
+  @media (max-width: $breakpoint__md) {
+    background-color: $color__purple;
+  }
 
-	a {
-		color: #fff;
-		border-bottom-color: #fff;
-	}
-	
-	.header {
-		padding-left: 0;
-		padding-right: 0;
-		background: none;
-	}
+  a {
+    color: #fff;
+    border-bottom-color: #fff;
+  }
 
-	.header__menu{
-		float: none;
-		text-align: right;
-		padding-left: 0;
-		@media(max-width: $breakpoint__md) {
-			text-align: center;
-		}
-	}
+  .header {
+    padding-left: 0;
+    padding-right: 0;
+    background: none;
+  }
 
-	.header__menu-item {
-		@media(max-width: $breakpoint__md) {
-			margin: 10px 10px 0;
-		}
-	}
+  .header__menu {
+    float: none;
+    text-align: right;
+    padding-left: 0;
+    @media (max-width: $breakpoint__md) {
+      text-align: center;
+    }
+  }
 
-	&__head-container {
-		float: left;
-		width: 40%;
-		height: 100%;
-		min-height: 100vh;
-		position: absolute;
-		padding: 20px;
-		background-image: url('/tylers-giant-head.svg');
-		background-repeat: no-repeat;
-		background-position: 50% 0;
-		background-size: contain;
-		background-origin: content-box;
-		@media(max-width: $breakpoint__md) {
-			width: 100%;
-			height: 0;
-			height: 83vw;
-			min-height: 0;
-			position: initial;
-			background-color: $color__purple--light;
-		}
-	}
+  .header__menu-item {
+    @media (max-width: $breakpoint__md) {
+      margin: 10px 10px 0;
+    }
+  }
 
-	&__content-container {
-		position: relative;
-		background-color: $color__purple;
-		float: right;
-		width: 60%;
-		min-height: 100vh;
-		box-sizing: border-box;
-		padding-bottom: 50px;
-		@include site-padding;
-		@media(max-width: $breakpoint__md) {
-			width: 100%;
-			min-height: 0;
-			text-align: center;
-		}
-	}
+  &__head-container {
+    float: left;
+    width: 40%;
+    height: 100%;
+    min-height: 100vh;
+    position: absolute;
+    padding: 20px;
+    background-image: url("/tylers-giant-head.svg");
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: contain;
+    background-origin: content-box;
+    @media (max-width: $breakpoint__md) {
+      width: 100%;
+      height: 0;
+      height: 83vw;
+      min-height: 0;
+      position: initial;
+      background-color: $color__purple--light;
+    }
+  }
 
-	&__heading {
-		font-size: 7vw;
-		margin: .5em 0 .6vw;
-		padding-top: 0;
-		@media(max-width: $breakpoint__md) {
-			font-size: 56px;
-		}
-		@media(max-width: $breakpoint__sm) {
-			font-size: 32px;
-		}
-	}
+  &__content-container {
+    position: relative;
+    background-color: $color__purple;
+    float: right;
+    width: 60%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding-bottom: 50px;
+    @include site-padding;
+    @media (max-width: $breakpoint__md) {
+      width: 100%;
+      min-height: 0;
+      text-align: center;
+    }
+  }
 
-	&__sub-heading {
-		font-size: 3.2vw;
-		margin: 2vw 0 2vw;
-		line-height: 1.2;
-		padding-top: 0;
-		font-family: $font-family__headings;
-		@media(max-width: $breakpoint__md) {
-			font-size: 24px;
-		}
-		@media(max-width: $breakpoint__sm) {
-			font-size: 20px;
-		}
-	}
+  &__heading {
+    font-size: 7vw;
+    margin: 0.5em 0 0.6vw;
+    padding-top: 0;
+    @media (max-width: $breakpoint__md) {
+      font-size: 56px;
+    }
+    @media (max-width: $breakpoint__sm) {
+      font-size: 32px;
+    }
+  }
 
-	&__content p {
-		font-size: 1.5vw;
-		font-weight: 300;
-		line-height: 135%;
-		@media(max-width: $breakpoint__xl) {
-			font-size: 20px;
-		}
-		@media(max-width: $breakpoint__sm) {
-			font-size: 16px;
-		}
-	}
+  &__sub-heading {
+    font-size: 3.2vw;
+    margin: 2vw 0 2vw;
+    line-height: 1.2;
+    padding-top: 0;
+    font-family: $font-family__headings;
+    @media (max-width: $breakpoint__md) {
+      font-size: 24px;
+    }
+    @media (max-width: $breakpoint__sm) {
+      font-size: 20px;
+    }
+  }
+
+  &__content {
+    max-width: 75%;
+    @media (max-width: $breakpoint__xl) {
+      max-width: 540px;
+    }
+    @media (max-width: $breakpoint__md) {
+      max-width: initial;
+    }
+    p {
+      font-size: 1.5vw;
+      font-weight: 300;
+      line-height: 135%;
+      @media (max-width: $breakpoint__xl) {
+        font-size: 20px;
+      }
+      @media (max-width: $breakpoint__sm) {
+        font-size: 16px;
+      }
+    }
+  }
 }

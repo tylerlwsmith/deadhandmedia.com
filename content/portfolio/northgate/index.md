@@ -18,6 +18,8 @@ technologies:
     "Laravel Mix",
   ]
 screenshot: northgate-2.png
+draft: true
+hidden: false
 weight: 1
 ---
 
