@@ -303,7 +303,15 @@ figure {
       .page-home__sub-heading {
         font-size: 20px; } }
   .page-home__content {
-    width: 75%; }
+    max-width: 75%; }
+    @media (max-width: 1400px) {
+      .page-home__content {
+        max-width: 540px; } }
+    @media (max-width: 650px) {
+      .page-home__content {
+        max-width: initial;
+        margin-left: auto;
+        margin-right: auto; } }
     .page-home__content p {
       font-size: 1.5vw;
       font-weight: 300;

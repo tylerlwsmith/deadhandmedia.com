@@ -102,6 +102,8 @@
     }
     @media (max-width: $breakpoint__md) {
       max-width: initial;
+      margin-left: auto;
+      margin-right: auto;
     }
     p {
       font-size: 1.5vw;
