@@ -34,14 +34,12 @@ h1 {
   @media (max-width: 450px) {
     h1 {
       font-size: 30px; } }
-
 h2 {
   font-size: 34px;
   font-weight: 600; }
   @media (max-width: 650px) {
     h2 {
       font-size: 26px; } }
-
 h3,
 h4,
 h5,
@@ -54,7 +52,6 @@ h6 {
     h5,
     h6 {
       font-size: 20px; } }
-
 a {
   color: #404040;
   text-decoration: none;
@@ -322,7 +319,6 @@ figure {
       @media (max-width: 450px) {
         .page-home__content p {
           font-size: 16px; } }
-
 .page-portfolio__screenshot {
   position: absolute !important;
   transform: none;
