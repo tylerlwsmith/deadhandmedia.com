@@ -5,14 +5,8 @@
 	<ul class="header__menu">
 		{{- range .Site.Menus.main -}}
 			{{- $currentMenuItem := . -}}
-			{{- $isDraft := false -}}
 			{{- $path := .URL | relURL | plainify -}}
 			{{- $pathNoTrailingSlash := strings.TrimSuffix "/" $path -}}
-			{{/* 
-				Here we enter the scope of the current page to see if the page
-				is in draft. If it is, it will only be shown on the hugo server
-				and not on the live site.
-			 */}}
 			{{ $page := $.Site.GetPage $pathNoTrailingSlash }}
 			{{ $notHidden := not ($page.Param "hidden")	 }}
 			{{- if or (and $page $notHidden) (and $page $.Site.IsServer) -}}
