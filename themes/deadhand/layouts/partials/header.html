@@ -25,12 +25,25 @@
 					{{- $menuItemUrlLength := len $currentMenuItem.URL -}}
 					{{- $pageSubstr := substr $currentPage.RelPermalink 0 $menuItemUrlLength -}}
 					<li class="header__menu-item">
-						<a href="{{ $currentMenuItem.URL }}" class="header__menu-item-link{{ if eq $pageSubstr .RelPermalink }} header__menu-item-link--is-active{{end}}">{{ $currentMenuItem.Name }}</a>
+						<a 
+							href="{{ $currentMenuItem.URL }}" 
+							class="
+								header__menu-item-link
+								{{- if eq $pageSubstr .RelPermalink }} header__menu-item-link--is-active{{end}}
+							"
+						>
+							{{ $currentMenuItem.Name }}
+					</a>
 					</li>
 				{{- end -}}
 			{{- else -}}
 				<li class="header__menu-item">
-					<a href="{{ $currentMenuItem.URL }}" class="header__menu-item-link">{{ $currentMenuItem.Name }}</a>
+					<a
+						href="{{ $currentMenuItem.URL }}"
+						class="header__menu-item-link"
+					>
+						{{ $currentMenuItem.Name }}
+					</a>
 				</li>
 			{{- end -}}
 		{{- end -}}	
