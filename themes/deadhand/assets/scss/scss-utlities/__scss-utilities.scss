@@ -1,0 +1,12 @@
+@mixin site-padding {
+  padding-left: 4vw;
+  padding-right: 4vw;
+  @media (max-width: $breakpoint__md) {
+    padding-left: $padding__md;
+    padding-right: $padding__md;
+  }
+  @media (max-width: $breakpoint__sm) {
+    padding-left: $padding__sm;
+    padding-right: $padding__sm;
+  }
+}

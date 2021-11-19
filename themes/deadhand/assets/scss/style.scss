@@ -1,8 +1,7 @@
-@import "00-variables/_variables";
-@import "01-utlities/_utilities";
-@import "02-vendor/_vendor";
-@import "03-base/_base";
-@import "04-components/_components";
-@import "05-layouts/_layouts";
-@import "06-pages/_pages";
-@import "07-utility-classes/_utility-classes";
+@import "variables/_variables";
+@import "scss-utlities/_scss-utilities";
+@import "base/_base";
+@import "components/_components";
+@import "layout-components/_layout-components";
+@import "pages/_pages";
+@import "utility-classes/_utility-classes";
