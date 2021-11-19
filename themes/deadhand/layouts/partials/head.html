@@ -13,7 +13,7 @@
 	<meta property="og:title" content="{{- .Title }} - {{ .Site.Title -}}">
 	<meta property="og:description" content="{{- trim $description "\n" -}}">
 	<meta property="og:type" content="website">
-	<meta property="og:url" content="{{ .URL | absURL }}">
+	<meta property="og:url" content="{{ .Permalink | absURL }}">
 	<meta property="og:image" content="{{ "og-image.png" | absURL }}">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
@@ -21,13 +21,8 @@
 	<link href="{{ "favicon.png" | absURL }}" rel="icon">
 
 	<link href="https://fonts.googleapis.com/css?family=Bungee|Raleway:300,400,600" rel="stylesheet">
-	{{- if .Site.IsServer -}}
-	{{ $style := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" true) }}
+	{{ $style := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" .Site.IsServer) }}
 	<link href="{{ ($style).RelPermalink }}" rel="stylesheet">
-	{{- else -}}
-	{{ $style := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" false) }}
-	<link href="{{ ($style).RelPermalink }}" rel="stylesheet">
-	{{ end }}
 
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
