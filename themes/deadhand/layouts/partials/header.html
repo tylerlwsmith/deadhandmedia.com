@@ -8,7 +8,7 @@
 			{{- $path := .URL | relURL | plainify -}}
 			{{- $pathNoTrailingSlash := strings.TrimSuffix "/" $path -}}
 			{{ $page := $.Site.GetPage $pathNoTrailingSlash }}
-			{{ $notHidden := not $page.Param "hidden" }}
+			{{ $notHidden := not ($page.Param "hidden") }}
 			{{- if or (and $page $notHidden) (and $page $.Site.IsServer) -}}
 				{{/* 
 					Grab the length of menu item, get a substring of the 
