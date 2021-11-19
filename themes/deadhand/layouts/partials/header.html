@@ -8,7 +8,7 @@
 			{{- $currentMenuItem := . -}}
 			{{- $isDraft := false -}}
 			{{- $path := .URL | relURL | plainify -}}
-			{{ $pathNoTrailingSlash := strings.TrimSuffix "/" $path  }}
+			{{- $pathNoTrailingSlash := strings.TrimSuffix "/" $path -}}
 
 			{{/* 
 				Here we enter the scope of the current page to see if the page
@@ -24,13 +24,17 @@
 						they're the same. If they are, it means that the
 						current page is a child or the same page and should be active.
 					 */}}
-					{{ $menuItemUrlLength := len $currentMenuItem.URL }}
-					{{ $pageSubstr := substr $currentPage.URL 0 $menuItemUrlLength }}
+					{{- $menuItemUrlLength := len $currentMenuItem.URL -}}
+					{{- $pageSubstr := substr $currentPage.URL 0 $menuItemUrlLength -}}
 					<li class="header__menu-item">
 						<a href="{{ $currentMenuItem.URL }}" class="header__menu-item-link{{ if eq $pageSubstr .URL }} header__menu-item-link--is-active{{end}}">{{ $currentMenuItem.Name }}</a>
 					</li>
 				{{- end -}}
+			{{- else -}}
+				<li class="header__menu-item">
+					<a href="{{ $currentMenuItem.URL }}" class="header__menu-item-link">{{ $currentMenuItem.Name }}</a>
+				</li>
 			{{- end -}}
-		{{ end }}	
+		{{- end -}}	
 	</ul>
 </header>
