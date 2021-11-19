@@ -211,6 +211,9 @@ figure {
   text-align: center;
   font-weight: 600; }
 
+#footer-year {
+  font-variant-numeric: tabular-nums; }
+
 .page-home {
   background-color: #d4cbe5;
   color: #fff; }
