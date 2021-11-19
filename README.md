@@ -20,7 +20,7 @@ Committing to the main branch will trigger a new build & deploy on Netlify.
 
 ## State of the site
 
-Most of the pages on this site are hidden when it is deployed. I originally built this site for my freelance business, but I stopped accepting new clients in late 2019, and the portfolio is tragically out of date. I've hidden all pages except the homepage by using a combination of the `draft` front matter property and conditional checks on the `.Site.IsServer` property in the templates.
+Most of the pages on this site are hidden when it is deployed. I originally built this site for my freelance business, but I stopped accepting new clients in late 2019, and the portfolio is tragically out of date. I've hidden many by using a combination of the `draft` front matter property and conditional checks on the `.Site.IsServer` property in the templates.
 
 ## Why the stupid name... what even _is_ a dead hand?
 
