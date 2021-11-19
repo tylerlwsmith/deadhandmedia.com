@@ -7,7 +7,7 @@
 		{{- range .Site.Menus.main -}}
 			{{- $currentMenuItem := . -}}
 			{{- $isDraft := false -}}
-			{{- $path := .Params.url | relURL | plainify -}}
+			{{- $path := .URL | relURL | plainify -}}
 			{{- $pathNoTrailingSlash := strings.TrimSuffix "/" $path -}}
 			{{/* 
 				Here we enter the scope of the current page to see if the page
@@ -23,14 +23,14 @@
 						current page is a child or the same page and should be active.
 					 */}}
 					{{- $menuItemUrlLength := len $currentMenuItem.URL -}}
-					{{- $pageSubstr := substr $currentPage.Params.url 0 $menuItemUrlLength -}}
+					{{- $pageSubstr := substr $currentPage.RelPermalink 0 $menuItemUrlLength -}}
 					<li class="header__menu-item">
-						<a href="{{ $currentMenuItem.Params.url }}" class="header__menu-item-link{{ if eq $pageSubstr .Params.url }} header__menu-item-link--is-active{{end}}">{{ $currentMenuItem.Name }}</a>
+						<a href="{{ $currentMenuItem.URL }}" class="header__menu-item-link{{ if eq $pageSubstr .RelPermalink }} header__menu-item-link--is-active{{end}}">{{ $currentMenuItem.Name }}</a>
 					</li>
 				{{- end -}}
 			{{- else -}}
 				<li class="header__menu-item">
-					<a href="{{ $currentMenuItem.Params.url }}" class="header__menu-item-link">{{ $currentMenuItem.Name }}</a>
+					<a href="{{ $currentMenuItem.URL }}" class="header__menu-item-link">{{ $currentMenuItem.Name }}</a>
 				</li>
 			{{- end -}}
 		{{- end -}}	
