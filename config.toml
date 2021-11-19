@@ -19,7 +19,7 @@ enableInlineShortcodes = true
      weight = 2
 
    [[menu.main]]
-     name = "My Resume"
+     name = "Resume"
      url = "https://raspberrytyler.com"
      weight = 2
 
