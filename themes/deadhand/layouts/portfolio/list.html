@@ -7,8 +7,8 @@
 
 	{{ range.Pages }}
 		<article>
-			<h3><a href="{{ .URL }}">{{.Title}}</a></h3>
-			<a href="{{ .URL }}">
+			<h3><a href="{{ .Permalink }}">{{.Title}}</a></h3>
+			<a href="{{ .Permalink }}">
 				{{ partial "portfolio-screenshot" . }}
 			</a>
 		</article>
