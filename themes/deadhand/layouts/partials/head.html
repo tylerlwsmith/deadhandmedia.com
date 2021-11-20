@@ -1,4 +1,5 @@
 <head>
+	{{ `<!-- Wanna look under the hood? Visit https://github.com/tylerlwsmith/deadhandmedia.com to see this site's source. -->` | safeHTML }}
 	<title>{{ .Title }} - {{ .Site.Title }}</title>
 
 	{{- $description :=  replace .Content "\n" "" -}}
