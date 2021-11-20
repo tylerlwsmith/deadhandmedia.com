@@ -1,12 +1,12 @@
-{{ $screenshot := .Resources.GetMatch (.Param "screenshot") }}
-{{ if $screenshot }}
-	{{ $resized := $screenshot.Resize "610x" }}
-	{{ $resized2x := $screenshot.Resize "1220x" }}
+{{- $screenshot := .Resources.GetMatch (.Param "screenshot") -}}
+{{- if $screenshot -}}
+	{{- $resized := $screenshot.Resize "610x" -}}
+	{{- $resized2x := $screenshot.Resize "1220x" -}}
 	{{- $width := float $resized.Width -}}
 	{{- $height := float $resized.Height -}}
 	<div 
 		class="page-portfolio__screenshot-wrapper"
-		style="padding-bottom: {{ mul (div $height $width) 100}}%;"
+		style="padding-bottom: {{ mul (div $height $width) 100 }}%;"
 	>
 		<img 
 			src="{{- $resized.RelPermalink -}}" 
@@ -15,4 +15,4 @@
 			class="page-portfolio__screenshot"
 		>
 	</div>
-{{ end }}
+{{- end -}}
