@@ -1,5 +1,4 @@
 {{ define "main" }}
-	
 	{{ partial "breadcrumbs" . }}
 
 	<h1 class="page__title">{{ .Name }}</h1>
@@ -7,25 +6,29 @@
 	{{ partial "portfolio-screenshot" . }}
 
 	<div>
-		<div><strong>Scope of Work:</strong></div>
+		<div>
+			<strong>Scope of Work:</strong>
+		</div>
 
 		<ul class="pill__wrapper">
-		{{ range .Param "Services" }}
-			<li class="pill">{{ . }}</li>
-		{{ end }}
+			{{ range .Param "Services" }}
+				<li class="pill">{{ . }}</li>
+			{{ end }}
 		</ul>
 	</div>
 
 	<div>
-		<div><strong>Technologies:</strong></div>
+		<div>
+			<strong>Technologies:</strong>
+		</div>
 
 		<ul class="pill__wrapper">
-		{{ range .Param "technologies" }}
-			<li class="pill">{{ . }}</li>
-		{{ end }}
+			{{ range .Param "technologies" }}
+				<li class="pill">{{ . }}</li>
+			{{ end }}
 		</ul>
-
 	</div>
+
 	{{ .Content }}
 
 	<div class="button__wrapper text-center">
@@ -35,5 +38,4 @@
 	<aside class="back-link">
 		<a href="/portfolio/"><span aria-hidden="true">&#8592; </span>Back to porfolio</a>
 	</aside>
-
 {{ end }}

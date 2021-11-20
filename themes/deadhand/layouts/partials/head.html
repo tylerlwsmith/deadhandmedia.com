@@ -5,9 +5,9 @@
 	{{ "<!-- Wanna look under the hood? Visit https://github.com/tylerlwsmith/deadhandmedia.com to see this site's source. -->" | safeHTML }}
 	<title>{{ .Title }} - {{ .Site.Title }}</title>
 
-	{{ if (.Param "hidden") }} 
+	{{ if (.Param "hidden") -}} 
 	<meta name="robots" content="noindex, follow">
-	{{ end }}
+	{{ end -}}
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="{{- trim $description "\n" -}}">
