@@ -11,32 +11,33 @@
 		 */
 		const styleTag = document.createElement('style');
 		styleTag.innerHTML = `
-			.animate-fade-in {
+			.animate\\:fade-in {
 				opacity: 0;
 				transform: translateX(20px);
 				transition-property: opacity, transform;
 				transition-duration: 0.3s;
 			}
 			@media (max-width: 650px) {
-				.animate-fade-in {
+				.animate\\:fade-in {
 					transform: translateY(20px);
 				}
 			}
-			.animate-fade-in--initialized {
+			.animate\\:fade-in--initialized {
 				opacity: 1;
 				transform: translateX(0);
 			}
-		`
+		`;
 		const headElement = document.querySelector('head');
 		if (headElement) headElement.appendChild(styleTag);
 
 		document.addEventListener('DOMContentLoaded', function() {
-			window.setInterval(function() {
-				const animatable = [...document.querySelectorAll('.animate-fade-in')];
+			window.setTimeout(function() {
+				const animatable = [...document.querySelectorAll('.animate\\:fade-in')];
+				console.log(animatable);
 				let currentIndex = 0;
 				const interval = window.setInterval(function() {
 					if (currentIndex + 1 >= animatable.length) window.clearInterval(interval);
-					animatable[currentIndex].classList.add('animate-fade-in--initialized');
+					animatable[currentIndex].classList.add('animate:fade-in--initialized');
 					currentIndex++;
 				}, 120)
 			}, 100);
@@ -52,12 +53,12 @@
 		<main>
 			<article>
 				<header>
-					<h1 class="page-home__heading animate-fade-in">Tyler Smith</h1>
-					<h2 class="page-home__sub-heading animate-intro animate-fade-in">
+					<h1 class="page-home__heading animate:fade-in">Tyler Smith</h1>
+					<h2 class="page-home__sub-heading animate:fade-in">
 						Software Engineer
 					</h2>
 				</header>
-				<div class="page-home__content animate-fade-in">
+				<div class="page-home__content animate:fade-in">
 					{{ .Content }}
 				</div>
 			</article>
