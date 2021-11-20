@@ -17,6 +17,11 @@
 				transition-property: opacity, transform;
 				transition-duration: 0.3s;
 			}
+			@media (max-width: 650px) {
+				.animate-fade-in {
+					transform: translateY(20px);
+				}
+			}
 			.animate-fade-in--initialized {
 				opacity: 1;
 				transform: translateX(0);
