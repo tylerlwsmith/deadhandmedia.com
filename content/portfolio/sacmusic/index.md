@@ -26,6 +26,7 @@ technologies:
     "Docker",
     "Docker Compose",
     "Jenkins",
+    "Cloudflare",
   ]
 screenshot: sacmusic.png
 draft: false
@@ -63,24 +64,6 @@ For a better user experience, I also opted to list open mics by day-of-the-week 
 
 {{< figure src="mobile.png" alt="An app like design on mobile browsers." width="250" >}}
 
-## Technical Approach
-
-The site uses Django REST Framework for the back-end, Express.js + Next.js + Tailwind CSS for the front-end, PostgreSQL as the database, and Nginx as the webserver. Because there are so many services in the app, each runs its own Docker container, then all the containers are orchestrated using Docker Compose.
-
-Express was used in conjunction with Next.js on the front-end to enable the site to effortlessly generate XML sitemaps on the fly. To enable hot-reloading of the Express server, Express hooks directly into Next's Webpack config for TypeScript compilation, then Chokidar is used in a server boot script for module cache invalidation.
-
-The back-end is a near-vanilla install of Django with REST Framework used for endpoint serialization. For local development, the Django app has a command for pulling all of the event data from the production API to the local development environment to ensure the that development and production are always in sync.
-
-Nginx is run in a container, and handles reverse proxying for both the front-end and back-end. In production, the server runs its own copy of Nginx that proxys to the container. While the setup is redundant, it allows easy configuration of Certbot on the host machine for automatic SSL certificate renewals.
-
-To keep the feedback cycle fast, every commit to the main branch is run through Jenkins. Jenkins builds development containers then runs its tests. If the tests pass, it build production containers, puts them in a private Docker Hub registry, then restarts the services on the production server using the new images. Jenkins also has another task that backs up the database once a day and places the backup on S3 compatable object stoarge.
-
-### Previous iterations
-
-SacMusic.com has been through several iterations. I originally built SacMusic.com with WordPress because my familiarity with the platform allowed me to develop the site quickly. After building the site with the Sage starter theme to use Blade templates then migrating to Timber for the Twig templating engine, I wanted to leverage the power of a modern JavaScript framework for a more app-like experience.
-
-I rebuilt the front-end using Next.js and Emotion for styles, while continuing to use to use WordPress as its data source. WordPress's REST API is famously slow, so when the data is updated, WordPress synced its data to the Node.js server where it could be delivered to the user in milliseconds.
-
 ## Detailed Event Information
 
 The site lists sign-up time, start time and end time for every event. The current days open mics are always displayed at the very top, so a musician who is free tonight can quickly find an event. Visitors can also see if there is alcohol available at an event.
@@ -92,6 +75,24 @@ The Sacramento region is comprised of many cities spanning multiple counties, so
 Finally, the venue's address is on every listing's full page, along with an interactive map and a button to get directions.
 
 {{< image "event-details.png" "Each event has details summarized before you ever click in." >}}
+
+## Technical Approach
+
+The site uses Django REST Framework for the back-end, Express.js + Next.js + Tailwind CSS for the front-end, PostgreSQL as the database, and Nginx as the webserver. Because there are so many services in the app, each runs in its own Docker container, then all the containers are orchestrated using Docker Compose.
+
+Express is used in conjunction with Next.js on the front-end to allow the site to effortlessly generate XML sitemaps on the fly. To enable hot-reloading of the Express server, Express hooks directly into Next's Webpack config for TypeScript compilation, then Chokidar is used in a boot script for cache invalidation of server modules.
+
+The back-end is a near-vanilla installation of Django with REST Framework used for endpoint serialization. For local development, the Django app has a command for pulling all of the event data from the production API to the local development environment, ensuring that development and production are always in sync.
+
+Nginx acts as a reverse proxy for both the front-end and back-end. In production, the host server runs its own copy of Nginx that proxys to the Nginx container. While the setup is redundant, it allows easy configuration of Certbot on the host machine for automatic SSL certificate renewals.
+
+To keep the feedback cycle fast, every commit to the main branch is run through a Jenkins declarative pipeline. Jenkins builds development containers then runs its tests. If the tests pass, Jenkins builds production containers, puts them in a private Docker Hub registry, then restarts the services on the production server using the new images. Jenkins also has another task that backs up the database once a day, then it places the backup on S3 compatible object storage.
+
+### Previous technical approaches
+
+SacMusic.com has been through several iterations. I originally built the site with WordPress because my familiarity with the platform allowed me to develop the site quickly. After building the original version using the Blade-powered Sage starter theme, I rebuilt the theme with Timber to try the Twig templating engine. After that, I wanted to leverage the power of a modern JavaScript framework for a more app-like experience.
+
+In the next iteration, I rebuilt the front-end using Next.js with Emotion for styling. Next.js continued to use WordPress as its data source via the REST API. WordPress's REST API is famously slow, so when the data was updated, WordPress synced its data to the Node.js server where it could be delivered to the user in milliseconds.
 
 ## Performance Optimizations
 
