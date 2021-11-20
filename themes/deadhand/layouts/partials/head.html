@@ -1,9 +1,9 @@
+{{- $description :=  replace .Content "\n" "" | plainify | truncate 160 -}}
+{{- $style := resources.Get "scss/style.scss" | 
+	            toCSS (dict "targetPath" "css/style.css" "enableSourceMap" .Site.IsServer) }}
 <head>
-	{{ `<!-- Wanna look under the hood? Visit https://github.com/tylerlwsmith/deadhandmedia.com to see this site's source. -->` | safeHTML }}
+	{{ "<!-- Wanna look under the hood? Visit https://github.com/tylerlwsmith/deadhandmedia.com to see this site's source. -->" | safeHTML }}
 	<title>{{ .Title }} - {{ .Site.Title }}</title>
-
-	{{- $description :=  replace .Content "\n" "" -}}
-	{{- $description :=  $description | plainify | truncate 160 -}}
 
 	{{ if (.Param "hidden") }} 
 	<meta name="robots" content="noindex, follow">
@@ -22,7 +22,6 @@
 	<link href="{{ "favicon.png" | absURL }}" rel="icon">
 
 	<link href="https://fonts.googleapis.com/css?family=Bungee|Raleway:300,400,600" rel="stylesheet">
-	{{ $style := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" .Site.IsServer) }}
 	<link href="{{ ($style).RelPermalink }}" rel="stylesheet">
 
 	<script>
