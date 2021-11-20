@@ -1,41 +1,43 @@
 {{ define "main" }}
-	{{ partial "breadcrumbs" . }}
+	<main class="content-wrapper">
+		{{ partial "breadcrumbs" . }}
 
-	<h1 class="page__title">{{ .Name }}</h1>
+		<h1 class="page__title">{{ .Name }}</h1>
 
-	{{ partial "portfolio-screenshot" . }}
+		{{ partial "portfolio-screenshot" . }}
 
-	<div>
 		<div>
-			<strong>Scope of Work:</strong>
+			<div>
+				<strong>Scope of Work:</strong>
+			</div>
+
+			<ul class="pill__wrapper">
+				{{ range .Param "Services" }}
+					<li class="pill">{{ . }}</li>
+				{{ end }}
+			</ul>
 		</div>
 
-		<ul class="pill__wrapper">
-			{{ range .Param "Services" }}
-				<li class="pill">{{ . }}</li>
-			{{ end }}
-		</ul>
-	</div>
-
-	<div>
 		<div>
-			<strong>Technologies:</strong>
+			<div>
+				<strong>Technologies:</strong>
+			</div>
+
+			<ul class="pill__wrapper">
+				{{ range .Param "technologies" }}
+					<li class="pill">{{ . }}</li>
+				{{ end }}
+			</ul>
 		</div>
 
-		<ul class="pill__wrapper">
-			{{ range .Param "technologies" }}
-				<li class="pill">{{ . }}</li>
-			{{ end }}
-		</ul>
-	</div>
+		{{ .Content }}
 
-	{{ .Content }}
+		<div class="button__wrapper text-center">
+			<a href="{{ .Param "projectUrl" }}" class="button">Visit {{ .Name }}</a>
+		</div>
 
-	<div class="button__wrapper text-center">
-		<a href="{{ .Param "projectUrl" }}" class="button">Visit {{ .Name }}</a>
-	</div>
-
-	<aside class="back-link">
-		<a href="/portfolio/"><span aria-hidden="true">&#8592; </span>Back to porfolio</a>
-	</aside>
+		<aside class="back-link">
+			<a href="/portfolio/"><span aria-hidden="true">&#8592; </span>Back to porfolio</a>
+		</aside>
+	</main>
 {{ end }}

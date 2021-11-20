@@ -1,12 +1,14 @@
 {{ define "main" }}
-	<article>
-		<h1 class="page__title">{{ .Title }}</h1>
-		{{ .Content }}
-	</article>
-
-	{{ range.Pages }}
+	<main class="content-wrapper">
 		<article>
-			<h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+			<h1 class="page__title">{{ .Title }}</h1>
+			{{ .Content }}
 		</article>
-	{{ end }}
+
+		{{ range.Pages }}
+			<article>
+				<h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+			</article>
+		{{ end }}
+	</main>
 {{ end }}
