@@ -33,7 +33,6 @@
 		document.addEventListener('DOMContentLoaded', function() {
 			window.setTimeout(function() {
 				const animatable = [...document.querySelectorAll('.animate\\:fade-in')];
-				console.log(animatable);
 				let currentIndex = 0;
 				const interval = window.setInterval(function() {
 					if (currentIndex + 1 >= animatable.length) window.clearInterval(interval);
