@@ -1,3 +1,4 @@
+/* previous: #684c9f */
 * {
   box-sizing: border-box; }
 
@@ -55,10 +56,10 @@ h6 {
 a {
   color: #404040;
   text-decoration: none;
-  border-bottom: solid 2px #684c9f;
+  border-bottom: solid 2px #59389b;
   padding-bottom: 2px; }
   a:hover, a:focus {
-    color: #684c9f;
+    color: #59389b;
     border-bottom-width: 3px; }
 
 strong {
@@ -78,7 +79,7 @@ figure {
   margin-bottom: .5em;
   margin-right: 3px;
   color: #fff;
-  background-color: #6c5893;
+  background-color: #5d4390;
   font-weight: 600; }
   @media (max-width: 450px) {
     .pill {
@@ -108,11 +109,11 @@ figure {
   padding: 10px 20px;
   border: none;
   color: #fff;
-  background-color: #544573;
+  background-color: #46326e;
   border-radius: 4px; }
   .button:hover, .button:focus {
     color: #fff;
-    background-color: #684c9f; }
+    background-color: #59389b; }
   .button:active {
     color: #fff;
     background-color: #d4cbe5; }
@@ -124,7 +125,7 @@ figure {
 
 .page-wrapper {
   min-height: 100vh;
-  border-top: 4px solid #684c9f; }
+  border-top: 4px solid #59389b; }
 
 .header {
   display: flex;
@@ -211,12 +212,15 @@ figure {
   text-align: center;
   font-weight: 600; }
 
+#footer-year {
+  font-variant-numeric: tabular-nums; }
+
 .page-home {
   background-color: #d4cbe5;
   color: #fff; }
   @media (max-width: 650px) {
     .page-home {
-      background-color: #684c9f; } }
+      background-color: #59389b; } }
   .page-home a {
     color: #fff;
     border-bottom-color: #fff; }
@@ -256,7 +260,7 @@ figure {
         background-color: #d4cbe5; } }
   .page-home__content-container {
     position: relative;
-    background-color: #684c9f;
+    background-color: #59389b;
     float: right;
     width: 60%;
     min-height: 100vh;
