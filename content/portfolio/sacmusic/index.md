@@ -69,7 +69,7 @@ The site uses Django REST Framework for the back-end, Express.js + Next.js + Tai
 
 Express was used in conjunction with Next.js on the front-end to enable the site to effortlessly generate XML sitemaps on the fly. To enable hot-reloading of the Express server, Express hooks directly into Next's Webpack config for TypeScript compilation, then Chokidar is used in a server boot script for module cache invalidation.
 
-The back-end is a near-Vanilla install of Django with REST Framework used for endpoint serialization. For local development, the Django app has a command for pulling all of the event data from the production API to the local development environment to ensure the that development and production are always in sync.
+The back-end is a near-vanilla install of Django with REST Framework used for endpoint serialization. For local development, the Django app has a command for pulling all of the event data from the production API to the local development environment to ensure the that development and production are always in sync.
 
 Nginx is run in a container, and handles reverse proxying for both the front-end and back-end. In production, the server runs its own copy of Nginx that proxys to the container. While the setup is redundant, it allows easy configuration of Certbot on the host machine for automatic SSL certificate renewals.
 
