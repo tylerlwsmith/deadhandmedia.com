@@ -5,4 +5,4 @@ draft: false
 hidden: true
 ---
 
-Below is a small sample of my work. Let's build something together so I can add your next website to this list.
+Here are some of the interesting projects I've worked on that I can share.
