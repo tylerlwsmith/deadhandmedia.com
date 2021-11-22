@@ -38,14 +38,14 @@
 					if (currentIndex + 1 >= animatable.length) window.clearInterval(interval);
 					animatable[currentIndex].classList.add('animate:fade-in--initialized');
 					currentIndex++;
-				}, 120)
+				}, 120);
 			}, 100);
 		}, false);
 	})();
 </script>
 <body class="page-home">
 	<div class="page-home__head-container" aria-label="Tyler's Giant Head">
-		<!-- Head image in the background CSS -->
+		{{ "<!-- Head image in the background CSS -->" | safeHTML }}
 	</div>
 	<div class="page-home__content-container">
 		{{  partial "header.html" . }}
