@@ -49,18 +49,16 @@
 	</div>
 	<div class="page-home__content-container">
 		{{  partial "header.html" . }}
-		<main>
-			<article>
-				<header>
-					<h1 class="page-home__heading animate:fade-in">Tyler Smith</h1>
-					<h2 class="page-home__sub-heading animate:fade-in">
-						Software Engineer
-					</h2>
-				</header>
-				<div class="page-home__content animate:fade-in">
-					{{ .Content }}
-				</div>
-			</article>
+		<main class="page-home__main">
+			<header>
+				<h1 class="page-home__heading animate:fade-in">Tyler Smith</h1>
+				<h2 class="page-home__sub-heading animate:fade-in">
+					Software Engineer
+				</h2>
+			</header>
+			<div class="page-home__content animate:fade-in">
+				{{ .Content }}
+			</div>
 		</main>
 		{{ partial "footer.html" . }}
 	</div>
