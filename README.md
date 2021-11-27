@@ -25,7 +25,7 @@ You can view the [Hugo documentation here](https://gohugo.io/documentation/).
 To create a new portfolio item, run the following:
 
 ```sh
-hugo new portfolio/my-project/index.md
+hugo new portfolio/{my-project}/index.md
 ```
 
 To publish the portfolio item, be sure to set `draft` and `hidden` to true in the front matter.
