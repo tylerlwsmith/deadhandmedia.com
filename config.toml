@@ -1,7 +1,6 @@
 baseURL = "https://deadhandmedia.com/"
 languageCode = "en-us"
 title = "DeadHand Media"
-theme = "deadhand"
 enableInlineShortcodes = true
 
 [taxonomies]
