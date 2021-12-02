@@ -31,7 +31,7 @@ technologies:
 screenshot: sacmusic.png
 weight: 1
 draft: false
-hidden: true
+hidden: false
 ---
 
 I've been performing at open mics and jams for over a decade, but finding information about these events has always been troublesome. I wanted to build a web site that could help the Sacramento music community find all the open mics and jams in the region.
