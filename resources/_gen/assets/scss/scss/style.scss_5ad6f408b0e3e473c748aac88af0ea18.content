@@ -3,7 +3,10 @@
   box-sizing: border-box; }
 
 html {
-  min-height: 100vh; }
+  height: 0;
+  /* Needed so children can use 100% height */
+  min-height: 100vh;
+  min-height: -webkit-fill-available; }
 
 body {
   background-color: #f4f3f5;
@@ -124,7 +127,6 @@ figure {
   padding-top: 20px; }
 
 .page-wrapper {
-  min-height: 100vh;
   border-top: 4px solid #59389b; }
 
 .header {
@@ -174,7 +176,7 @@ figure {
   font-size: 18px; }
   @media (max-width: 450px) {
     .content-wrapper {
-      padding-top: 20px 16px 80px;
+      padding: 20px 16px 60px;
       font-size: 16px; } }
   .content-wrapper img {
     position: relative;
@@ -204,10 +206,6 @@ figure {
   margin: 0 !important; }
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   padding: 10px 4vw;
   text-align: center;
   font-weight: 600; }
@@ -220,7 +218,11 @@ figure {
   color: #fff; }
   @media (max-width: 650px) {
     .page-home {
-      background-color: #59389b; } }
+      background-color: #59389b;
+      display: flex;
+      flex-direction: column;
+      justify-content: stretch;
+      height: 100%; } }
   .page-home a {
     color: #fff;
     border-bottom-color: #fff; }
@@ -265,7 +267,6 @@ figure {
     width: 60%;
     min-height: 100vh;
     box-sizing: border-box;
-    padding-bottom: 50px;
     padding-left: 4vw;
     padding-right: 4vw; }
     @media (max-width: 650px) {
@@ -280,7 +281,16 @@ figure {
       .page-home__content-container {
         width: 100%;
         min-height: 0;
-        text-align: center; } }
+        text-align: center;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; } }
+  .page-home__main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
   .page-home__heading {
     font-size: 7vw;
     margin: 0.5em 0 0.6vw;
@@ -323,6 +333,14 @@ figure {
       @media (max-width: 450px) {
         .page-home__content p {
           font-size: 16px; } }
+  .page-home .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+    @media (max-width: 650px) {
+      .page-home .footer {
+        position: initial; } }
 .page-portfolio__screenshot {
   position: absolute !important;
   transform: none;

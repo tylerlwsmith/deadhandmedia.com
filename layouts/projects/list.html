@@ -1,0 +1,15 @@
+{{ define "main" }}
+<main class="content-wrapper">
+  <article>
+    <h1 class="page__title">{{ .Title }}</h1>
+    {{ .Content }}
+  </article>
+
+  {{ range.Pages }}
+  <article>
+    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+    <a href="{{ .Permalink }}"> {{ partial "project-screenshot" . }} </a>
+  </article>
+  {{ end }}
+</main>
+{{ end }}
