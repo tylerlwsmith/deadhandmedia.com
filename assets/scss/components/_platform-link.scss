@@ -7,6 +7,7 @@
   &:hover,
   &:focus {
     * {
+      transition-duration: 0.1s;
       transform: translateY(-3px);
     }
   }
@@ -24,6 +25,6 @@
   }
   * {
     transition-property: transform;
-    transition-duration: 0.2s;
+    transition-duration: 0.3s;
   }
 }
