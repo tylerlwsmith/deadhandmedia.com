@@ -1,0 +1,30 @@
+{{ define "main" }}
+	<main>
+		<article style="padding: 60px 0;">
+			<h1 class="page__title sr-only">{{ .Name }}</h1>
+			<div class="iframe-wrapper" style="display: flex; justify-content: center;">
+				<iframe
+					src="https://raspberrytyler.com/?iframe"
+					frameborder="0"
+					id="iframe"
+					style="width: 100%; max-width: calc(8.5in + 6px); margin: 0 auto;"
+					allowtransparency="true"
+				></iframe>
+			</div>
+			<script>
+				const iframe = document.getElementById("iframe");
+				const origin = new URL(iframe.src).origin;
+				window.addEventListener('message', function(message) {
+					if(message.origin == origin) {
+						const pageHeight = message.data;
+						console.log(pageHeight)
+						iframe.style.height = `${pageHeight}px`;
+						iframe.style.background = pageHeight < 1100
+							? "#fff"
+							: "transparent";
+					}
+				});
+			</script>
+		</article>
+	</main>
+{{ end }}
