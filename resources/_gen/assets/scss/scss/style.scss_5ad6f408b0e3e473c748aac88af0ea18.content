@@ -74,6 +74,29 @@ img {
 figure {
   margin: 0; }
 
+.platform-link {
+  text-decoration: none;
+  line-height: 1;
+  font-size: 36px;
+  border-bottom: 0;
+  padding-bottom: 0; }
+  .platform-link:hover *, .platform-link:focus * {
+    transform: translateY(-3px); }
+  .platform-link__list {
+    list-style: none;
+    margin: 0;
+    padding: 24px 0 60px;
+    padding-left: 0;
+    display: flex;
+    gap: 18px; }
+    @media (max-width: 650px) {
+      .platform-link__list {
+        justify-content: center;
+        padding-bottom: 20px; } }
+  .platform-link * {
+    transition-property: transform;
+    transition-duration: 0.2s; }
+
 .pill {
   border-radius: 4px;
   font-size: 14px;

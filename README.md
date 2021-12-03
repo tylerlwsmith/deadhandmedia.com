@@ -20,19 +20,23 @@ Committing to the main branch will trigger a new build & deploy on Netlify.
 
 You can view the [Hugo documentation here](https://gohugo.io/documentation/).
 
-## Create new portfolio items
+## Create new project items
 
-To create a new portfolio item, run the following:
+To create a new project item, run the following:
 
 ```sh
-hugo new portfolio/{my-project}/index.md
+hugo new project/{my-project}/index.md
 ```
 
-To publish the portfolio item, be sure to set `draft` and `hidden` to true in the front matter.
+To publish the project item, be sure to set `draft` and `hidden` to true in the front matter.
 
 ## State of the site
 
 Most of the pages on this site are hidden when it is deployed. I originally built this site for my freelance business, but I stopped accepting new clients in late 2019, and the portfolio is tragically out of date. I've hidden many pages by using a combination of the `draft` front matter property and conditional checks on the `.Site.IsServer` property in the templates.
+
+## Hugo page reload cache issues
+
+Sometimes Hugo clears changes to the CSS when reloaded. When this happens, run the server with the `--noHTTPCache` flag.
 
 ## Why the stupid name... what even _is_ a dead hand?
 

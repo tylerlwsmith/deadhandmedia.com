@@ -19,9 +19,8 @@ enableInlineShortcodes = true
 
    [[menu.main]]
      name = "Resume"
-     url = "https://raspberrytyler.com"
+     url = "https://raspberrytyler.com/generated/tyler-smith-resume.pdf"
      weight = 2
-
 
   [[menu.main]]
     name = "Contact"

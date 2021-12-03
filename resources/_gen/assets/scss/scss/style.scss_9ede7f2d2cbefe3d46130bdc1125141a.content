@@ -213,6 +213,15 @@ figure {
 #footer-year {
   font-variant-numeric: tabular-nums; }
 
+.platform-link {
+  text-decoration: none;
+  font-size: 20px; }
+  .platform-link__list {
+    list-style: none; }
+
+* {
+  display: none !important; }
+
 .page-home {
   background-color: #d4cbe5;
   color: #fff; }

@@ -59,6 +59,20 @@
 			<div class="page-home__content animate:fade-in">
 				{{ .Content }}
 			</div>
+			<ul class="platform-link__list">
+				{{ range .Param "links" }}
+					<li class="platform-link__wrapper animate:fade-in">
+						<a
+							href="{{ .link }}"
+							rel="noreferrer noopener"
+							class="platform-link"
+						>
+							<span class="fab {{ .icon }}" aria-label="{{ .platform }}"></span>
+						</a>
+					</li>
+				{{ end }}
+			</ul>
+			
 		</main>
 		{{ partial "footer.html" . }}
 	</div>
