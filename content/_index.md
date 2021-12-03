@@ -6,7 +6,7 @@ links:
     link: https://github.com/tylerlwsmith
     icon: "fab fa-github-square"
   - platform: Dev.to
-    link: https://dev.to/dashboard
+    link: https://dev.to/tylerlwsmith
     icon: "fab fa-dev"
   - platform: Twitter
     link: https://twitter.com/tylerlwsmith
