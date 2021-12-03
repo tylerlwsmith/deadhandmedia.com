@@ -1,6 +1,9 @@
 # Hugo default output directory
 /public
 
+# This directory is a cache for processed assets
+/resources
+
 # Node Modules
 node_modules
 
