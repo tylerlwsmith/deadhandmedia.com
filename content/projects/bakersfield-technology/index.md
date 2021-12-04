@@ -1,15 +1,15 @@
 ---
 title: "Bakersfield Technology"
 date: 2021-11-19T21:27:41-08:00
-projectUrl: https://bakersfield-technology.com
+projectUrl: https://bakersfieldtechnology.com
 repositoryUrl: https://github.com/tylerlwsmith/bakersfieldtechnology.com
 services: ["Front-End Development", "Design", "Content Writing"]
 technologies:
   ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "Heroicons", "Netlify"]
-screenshot: /projects/bakersfield-technology.jpg
+screenshot: bakersfield-technology.png
 weight: 3
-draft: true
-hidden: true
+draft: false
+hidden: false
 ---
 
 Bakersfield has largely not participated in California's tech boom. Most software engineers that are from this city move to regions where tech jobs are more abundant. As far as I can tell, there isn't even a single full-stack software development consultancy in the city.
