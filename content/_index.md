@@ -14,7 +14,7 @@ links:
   - platform: LinkedIn
     link: https://www.linkedin.com/in/tylerlwsmith/
     icon: "fab fa-linkedin"
-  - plaform: email
+  - platform: Email
     link: mailto:tyler@deadhandmedia.com
     icon: "fas fa-envelope-square"
 ---
