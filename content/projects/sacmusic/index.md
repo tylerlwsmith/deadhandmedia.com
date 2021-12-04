@@ -20,6 +20,8 @@ technologies:
     "TypeScript",
     "Chokidar",
     "Tailwind CSS",
+    "Sass",
+    "CSS Modules",
     "PostgreSQL",
     "NGINX",
     "Certbot",
