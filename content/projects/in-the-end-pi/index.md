@@ -5,7 +5,7 @@ projectUrl: https://in-the-end-pi.com
 services: ["Tinkering"]
 technologies: ["Raspberry Pi", "Midi"]
 screenshot: /projects/in-the-end-pi.jpg
-weight: 3
+weight: 10
 draft: true
 hidden: true
 ---

@@ -5,7 +5,7 @@ projectUrl: https://matrix-maker.com
 services: ["Mobile Development", "UI Design"]
 technologies: ["React Native", "Expo"]
 screenshot: /projects/matrix-maker.jpg
-weight: 3
+weight: 10
 draft: true
 hidden: true
 ---

@@ -17,7 +17,7 @@ technologies:
     "Mailgun",
   ]
 screenshot: /projects/catalytic-crime.jpg
-weight: 3
+weight: 10
 draft: true
 hidden: true
 ---

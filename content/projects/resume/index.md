@@ -5,7 +5,7 @@ projectUrl: https://raspberrytyler.com
 services: ["Front-End Development"]
 technologies: ["HTML", "CSS", "JavaScript"]
 screenshot: /projects/resume.jpg
-weight: 3
+weight: 10
 draft: true
 hidden: true
 ---

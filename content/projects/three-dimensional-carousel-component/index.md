@@ -5,7 +5,7 @@ projectUrl: https://three-dimensional-carousel-component.com
 services: ["Front-End Development"]
 technologies: ["Next.js"]
 screenshot: /projects/three-dimensional-carousel-component.jpg
-weight: 3
+weight: 10
 draft: true
 hidden: true
 ---

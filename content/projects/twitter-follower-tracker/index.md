@@ -5,7 +5,7 @@ projectUrl: https://twitter-follower-tracker.com
 services: ["Front-End Development"]
 technologies: ["Next.js"]
 screenshot: /projects/twitter-follower-tracker.jpg
-weight: 3
+weight: 10
 draft: true
 hidden: true
 ---
