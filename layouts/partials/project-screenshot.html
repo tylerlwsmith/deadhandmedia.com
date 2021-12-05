@@ -1,7 +1,7 @@
 {{- $screenshot := .Resources.GetMatch (.Param "screenshot") -}}
 {{- if $screenshot -}}
-	{{- $resized := $screenshot.Resize "610x" -}}
-	{{- $resized2x := $screenshot.Resize "1220x" -}}
+	{{- $resized := $screenshot.Resize "610x jpg q95" -}}
+	{{- $resized2x := $screenshot.Resize "1220x jpg q95" -}}
 	{{- $width := float $resized.Width -}}
 	{{- $height := float $resized.Height -}}
 	<div 
