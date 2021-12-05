@@ -1,7 +1,11 @@
 {{ define "main" }}
 	<main class="content-wrapper">
 		{{ partial "breadcrumbs" . }}
-
+		{{ if eq hugo.Environment "development" }}
+			<a href="vscode://file/{{ os.Getenv "PWD" }}/content/{{ .File.Path }}">
+				Edit
+			</a>
+		{{ end }}
 		<h1 class="page__title">{{ .Name }}</h1>
 
 		{{ partial "project-screenshot" . }}
