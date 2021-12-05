@@ -14,7 +14,6 @@ technologies:
     "Isotope",
     "Fancybox",
     "Scss",
-    "ES6 Modules",
     "Laravel Mix",
   ]
 screenshot: northgate-2.png
