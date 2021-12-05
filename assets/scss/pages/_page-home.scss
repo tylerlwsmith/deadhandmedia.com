@@ -84,10 +84,16 @@
     justify-content: center;
   }
 
+  &__heading-wrapper {
+    margin-top: 3.5vw;
+    margin-bottom: 2vw;
+  }
+
   &__heading {
     font-size: 7vw;
-    margin: 0.5em 0 0.2vw;
-    padding-top: 0;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0.2vw;
     @media (max-width: $breakpoint__md) {
       font-size: 56px;
     }
@@ -98,7 +104,7 @@
 
   &__sub-heading {
     font-size: 3.2vw;
-    margin: 0 0 2vw;
+    margin: 0;
     line-height: 1.2;
     padding-top: 0;
     font-family: $font-family__headings;
