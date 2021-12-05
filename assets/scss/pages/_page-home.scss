@@ -86,7 +86,7 @@
 
   &__heading {
     font-size: 7vw;
-    margin: 0.5em 0 0.6vw;
+    margin: 0.5em 0 0.2vw;
     padding-top: 0;
     @media (max-width: $breakpoint__md) {
       font-size: 56px;
@@ -111,25 +111,21 @@
   }
 
   &__content {
-    max-width: 75%;
+    max-width: 70%;
+    font-size: 1.5vw;
+    font-weight: 300;
+    line-height: 1.6;
     @media (max-width: $breakpoint__xl) {
       max-width: 540px;
+      font-size: 20px;
     }
     @media (max-width: $breakpoint__md) {
       max-width: initial;
       margin-left: auto;
       margin-right: auto;
     }
-    p {
-      font-size: 1.5vw;
-      font-weight: 300;
-      line-height: 135%;
-      @media (max-width: $breakpoint__xl) {
-        font-size: 20px;
-      }
-      @media (max-width: $breakpoint__sm) {
-        font-size: 16px;
-      }
+    @media (max-width: $breakpoint__sm) {
+      font-size: 16px;
     }
   }
   .footer {
