@@ -9,7 +9,15 @@
     <ul class="project-preview__list">
       {{ range .Pages }}
         {{ $category := .Param "category" }}
-        {{ $technologies := .Param "technologies" }}
+        {{ $technologies := newScratch }}
+        {{ $technologies.Set "featured" slice }}
+
+				{{ range .Param "technologies" }}
+					{{ if (reflect.IsMap .) }}
+						{{ $technologies.Add "featured" .featured }}
+					{{ end }}
+				{{ end }}
+
         <li class="project-preview">
           <div class="project-preview__thumbnail-wrapper">
             <img 
@@ -35,8 +43,9 @@
               </dl>     
             {{ end }}
 
+            <p class="sr-only">Technologies used:</p>
             <ul class="project-preview__technology-list">
-              {{ range $technologies }}
+              {{ range $technologies.Get "featured" }}
                 <li class="project-preview__technology">{{ . }}</li>
               {{ end }}
             </ul>

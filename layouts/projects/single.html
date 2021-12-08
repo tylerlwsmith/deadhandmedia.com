@@ -29,7 +29,13 @@
 
 			<ul class="pill__wrapper">
 				{{ range .Param "technologies" }}
-					<li class="pill">{{ . }}</li>
+					{{ $technology := . }}
+					{{ if (reflect.IsMap $technology) }}
+						{{ $technology = $technology.featured }}
+					{{ end }}
+					<li class="pill">
+						{{ $technology }}
+					</li>
 				{{ end }}
 			</ul>
 		</div>
