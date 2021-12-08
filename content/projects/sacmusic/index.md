@@ -82,12 +82,6 @@ Nginx acts as a reverse proxy for both the front-end and back-end. In production
 
 To keep the feedback cycle fast, every commit to the main branch is run through a Jenkins declarative pipeline. Jenkins builds development containers then runs its tests. If the tests pass, Jenkins builds production containers, puts them in a private Docker Hub registry, then restarts the services on the production server using the new images. Jenkins also has another task that backs up the database once a day, then it places the backup on S3 compatible object storage.
 
-### Previous technical approaches
-
-SacMusic.com has been through several iterations. I originally built the site with WordPress because my familiarity with the platform allowed me to develop the site quickly. After building the original version using the Blade-powered Sage starter theme, I rebuilt the theme with Timber to try the Twig templating engine. After that, I wanted to leverage the power of a modern JavaScript framework for a more app-like experience.
-
-In the next iteration, I rebuilt the front-end using Next.js with Emotion for styling. Next.js continued to use WordPress as its data source via the REST API. WordPress's REST API is famously slow, so when the data was updated, WordPress synced its data to the Node.js server where it could be delivered to the user in milliseconds.
-
 ## Performance Optimizations
 
 Node.js is known for its speed, and this site reaps the benefits of its performance. Next.js's server-side rendering allows users on slower devices to get content before the JavaScript has finished parsing. Because Tailwind uses Purge CSS, production the CSS bundle is very small.
