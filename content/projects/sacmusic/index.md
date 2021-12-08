@@ -48,14 +48,6 @@ There are also hundreds of local open mic websites across the country. These are
 
 To build a site that would be truly useful to the Sacramento music community, I would need to source the event data myself and design a site that displays important event details upfront.
 
-## Branding Considerations
-
-Though dozens of new top level domains (TLDs) like **.photography** and **.co** have joined the classics like **.net** and **.org**, the **.com** TLD still carries the most perceived credibility among users. [An academic study on domain names](https://poseidon01.ssrn.com/delivery.php?ID=223117004126126088065070123080015018056013034051087067098002112113091067068013003006012058017121015012035003004082100112122120039069054051084095092125113098111067024041095124103069126127092093114077119095104081010080015072110115113004105086019003070&EXT=pdf) tells us that every character after seven characters in a domain (excluding the TLD) leads to a two percent reduction in site traffic.
-
-The industry best practices suggest that successful domains are short, memorable and non-hyphenated.
-
-I purchased the SacMusic.com domain because it was short, descriptive, memorable and non-hyphenated.
-
 ## Design
 
 I decided I would use [mobile-first](https://www.lukew.com/ff/entry.asp?933) design on this site. I wanted the site to look and feel like an app, as many of the users would be coming from mobile devices. The desktop site has the same general feel, but uses [responsive design](https://alistapart.com/article/responsive-web-design) techniques to fit larger screens.
