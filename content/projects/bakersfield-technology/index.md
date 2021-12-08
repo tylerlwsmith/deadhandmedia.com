@@ -2,6 +2,7 @@
 title: "Bakersfield Technology"
 date: 2021-11-19T21:27:41-08:00
 projectUrl: https://bakersfieldtechnology.com
+category: "Front-End Development"
 repositoryUrl: https://github.com/tylerlwsmith/bakersfieldtechnology.com
 services: ["Front-End Development", "Design", "Content Writing"]
 technologies:

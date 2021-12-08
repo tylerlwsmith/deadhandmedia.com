@@ -2,6 +2,7 @@
 title: "SacMusic.com"
 date: 2019-01-14T00:36:29-08:00
 projectUrl: https://sacmusic.com
+category: "Full-Stack Development"
 services:
   [
     "Full-Stack Development",
@@ -60,7 +61,7 @@ For a better user experience, I also opted to list open mics by day-of-the-week 
 
 ## Detailed Event Information
 
-The site lists sign-up time, start time and end time for every event. The current days open mics are always displayed at the very top, so a musician who is free tonight can quickly find an event. Visitors can also see if there is alcohol available at an event.
+The site lists sign-up time, start time and end time for every event. The current day's open mics are always displayed at the very top, so a musician who is free tonight can quickly find an event. Visitors can also see if there is alcohol available at an event.
 
 Age restrictions are displayed prominently so that young musicians can participate in the music scene. House instruments are explicitly listed to show instrumentalists where they can perform without having to go through the ordeal of moving heavy gear.
 

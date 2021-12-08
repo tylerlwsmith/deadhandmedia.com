@@ -2,6 +2,7 @@
 title: "Northgate Commercial Real Estate"
 date: 2019-01-13T21:45:45-08:00
 projectUrl: https://northgatecre.com
+category: "Freelance"
 services:
   ["Design Consultation", "Custom Theme Development", "Data Migration", "SEO"]
 technologies:

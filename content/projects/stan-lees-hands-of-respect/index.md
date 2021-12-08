@@ -2,6 +2,7 @@
 title: "Stan Lee's Hands of Respect"
 date: 2021-11-19T21:29:34-08:00
 projectUrl: https://handsofrespect.com
+category: "Freelance"
 services: ["Design", "Custom Theme Development", "Site Migration"]
 technologies:
   ["WordPress", "Advanced Custom Fields", "Yoast SEO", "Sass", "Grunt"]
