@@ -5,11 +5,55 @@
     {{ .Content }}
   </article>
 
-  {{ range.Pages }}
-  <article>
-    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-    <a href="{{ .Permalink }}"> {{ partial "project-screenshot" . }} </a>
-  </article>
+  {{ if not hugo.IsProduction }}
+    <ul class="project-preview__list">
+      {{ range .Pages }}
+        {{ $category := .Param "category" }}
+        {{ $technologies := .Param "technologies" }}
+        <li class="project-preview">
+          <div class="project-preview__thumbnail-wrapper">
+            <img 
+              src="{{ (.Resources.GetMatch (.Param "screenshot")).RelPermalink }}" 
+              alt="Screenshot of {{ .Title }}" 
+              class="project-preview__thumbnail"
+            >
+          </div>
+          <div class="project-preview__content-container">
+            <h2 class="project-preview__title">
+              <a 
+                href="{{ .Permalink }}"
+                class="project-preview__link"
+              >
+                {{ .Title }}
+              </a>
+            </h2>
+
+            {{ if $category }}
+              <dl  class="project-preview__category-wrapper">
+                <dt class="sr-only">Project Category</dt>
+                <dd class="project-preview__category">{{ $category }}</dd>
+              </dl>     
+            {{ end }}
+
+            <ul class="project-preview__technology-list">
+              {{ range $technologies }}
+                <li class="project-preview__technology">{{ . }}</li>
+              {{ end }}
+            </ul>
+          
+        </div>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+
+  {{ if hugo.IsProduction }}
+    {{ range.Pages }}
+      <article>
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        <a href="{{ .Permalink }}"> {{ partial "project-screenshot" . }} </a>
+      </article>
+    {{ end }}
   {{ end }}
 </main>
 {{ end }}
