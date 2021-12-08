@@ -7,7 +7,7 @@ services: ["Front-End Development", "Design", "Content Writing"]
 technologies:
   ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "Heroicons", "Netlify"]
 screenshot: bakersfield-technology.png
-weight: 3
+weight: 4
 draft: false
 hidden: false
 ---
