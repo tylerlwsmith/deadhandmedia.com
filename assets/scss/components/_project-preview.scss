@@ -27,6 +27,7 @@
     position: relative;
     background: $color__black;
     overflow: hidden;
+    border: 1px solid #e7e7e7;
     &:after {
       transition-timing-function: ease-out;
       content: "View Project";
