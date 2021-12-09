@@ -1,8 +1,8 @@
 {{ define "main" }}
   {{ if not hugo.IsProduction }}
-    <div class="container">
-      <main class="content-wrapper">
-        <article>
+    <div class="page-project-list__container">
+      <main>
+        <article class="content-wrapper">
           <h1 class="page__title">{{ .Title }}</h1>
           {{ .Content }}
         </article>

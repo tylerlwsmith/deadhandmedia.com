@@ -6,7 +6,12 @@ category: "Front-End Development"
 repositoryUrl: https://github.com/tylerlwsmith/bakersfieldtechnology.com
 services: ["Front-End Development", "Design", "Content Writing"]
 technologies:
-  ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "Heroicons", "Netlify"]
+  - featured: "Next.js"
+  - featured: "React.js"
+  - featured: "TypeScript"
+  - featured: "Tailwind CSS"
+  - "Heroicons"
+  - "Netlify"
 screenshot: bakersfield-technology.png
 weight: 4
 draft: false

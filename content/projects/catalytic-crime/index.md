@@ -6,20 +6,19 @@ category: "Full-Stack Development"
 repositoryUrl: https://github.com/tylerlwsmith/catalyticcrime.com
 services: ["Full-Stack Development", "Data Aggregation", "Continous Delivery"]
 technologies:
-  [
-    "Laravel",
-    "Livewire",
-    "Alpine.js",
-    "Tailwind CSS",
-    "Docker",
-    "Docker Compose",
-    "Jenkins",
-    "Cloudflare",
-    "DigitalOcean Spaces",
-    "Mailgun",
-    "MailHog",
-    "Nginx",
-  ]
+  - featured: "Laravel"
+  - featured: "Livewire"
+  - featured: "Alpine.js"
+  - featured: "Tailwind CSS"
+  - featured: "Jenkins"
+  - featured: "DigitalOcean Spaces"
+  - featured: "Mailgun"
+  - "MailHog"
+  - featured: "Nginx"
+  - "Certbot"
+  - featured: "Docker"
+  - "Docker Compose"
+
 screenshot: catalytic-crime.png
 weight: 3
 draft: false

@@ -13,24 +13,21 @@ services:
     "Continuous Deployment",
   ]
 technologies:
-  [
-    "Django REST Framework",
-    "Next.js",
-    "React.js",
-    "Express.js",
-    "TypeScript",
-    "Chokidar",
-    "Tailwind CSS",
-    "Sass",
-    "CSS Modules",
-    "PostgreSQL",
-    "NGINX",
-    "Certbot",
-    "Docker",
-    "Docker Compose",
-    "Jenkins",
-    "Cloudflare",
-  ]
+  - featured: "Django REST Framework"
+  - featured: "Next.js"
+  - featured: "React.js"
+  - "Express.js"
+  - featured: "TypeScript"
+  - "Chokidar"
+  - featured: "Tailwind CSS"
+  - "Sass"
+  - "CSS Modules"
+  - "PostgreSQL"
+  - featured: "Nginx"
+  - "Certbot"
+  - featured: "Docker"
+  - "Docker Compose"
+  - featured: "Jenkins"
 screenshot: sacmusic.png
 weight: 1
 draft: false

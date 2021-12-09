@@ -6,17 +6,18 @@ category: "Freelance"
 services:
   ["Design Consultation", "Custom Theme Development", "Data Migration", "SEO"]
 technologies:
-  [
-    "WordPress",
-    "jQuery",
-    "Bootstrap 4",
-    "GSAP",
-    "Flickity",
-    "Isotope",
-    "Fancybox",
-    "Scss",
-    "Laravel Mix",
-  ]
+  - featured: "WordPress"
+  - "Advanced Custom Fields"
+  - "Yoast SEO"
+  - "Beaver Builder"
+  - "jQuery"
+  - featured: "Bootstrap"
+  - "GSAP"
+  - featured: "Flickity"
+  - featured: "Isotope"
+  - featured: "Fancybox"
+  - "Scss"
+  - "Laravel Mix"
 screenshot: northgate-2.png
 weight: 2
 draft: false

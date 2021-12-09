@@ -5,7 +5,11 @@ projectUrl: https://handsofrespect.com
 category: "Freelance"
 services: ["Design", "Custom Theme Development", "Site Migration"]
 technologies:
-  ["WordPress", "Advanced Custom Fields", "Yoast SEO", "Sass", "Grunt"]
+  - featured: "WordPress"
+  - featured: "Advanced Custom Fields"
+  - featured: "Yoast SEO"
+  - featured: "Scss"
+  - featured: "Grunt"
 screenshot: hands-of-respect.png
 weight: 5
 draft: false

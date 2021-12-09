@@ -1,6 +1,8 @@
 .page-project-list {
-  @include site-padding;
   &__container {
-    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    @include site-padding;
+    max-width: 780px;
   }
 }

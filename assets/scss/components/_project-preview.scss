@@ -1,8 +1,12 @@
 .project-preview {
+  $breakpoint: 550px;
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
-  margin: 0;
+  margin: 0 0 46px;
+  @media (max-width: $breakpoint) {
+    margin-bottom: 60px;
+  }
   &__list {
     list-style: none;
     margin: 0;
@@ -13,6 +17,9 @@
     align-items: center;
     flex-basis: 260px;
     position: relative;
+    @media (max-width: $breakpoint) {
+      flex-basis: 100%;
+    }
   }
   &__thumbnail {
     width: 100%;
@@ -22,8 +29,10 @@
     order: -1;
   }
   &__category {
-    margin: 0;
+    margin: 0 0 4px;
     font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
   }
   &__content-container {
     display: flex;
@@ -33,14 +42,24 @@
     justify-content: center;
     align-items: stretch;
     padding-left: 32px;
+    @media (max-width: $breakpoint) {
+      padding: 20px 0 30px;
+      @at-root .project-preview:not(:last-child) & {
+        content: "";
+        border-bottom: 1px solid #ccc;
+      }
+    }
   }
   &__title {
     font-size: 32px;
     margin: 0;
     padding: 0;
+    font-weight: 400;
+    margin-bottom: 24px;
+    letter-spacing: 0.05em;
   }
   &__link {
-    color: blue;
+    color: $color__black;
   }
   &__technology-list {
     display: flex;
@@ -51,6 +70,9 @@
   }
   &__technology {
     font-size: 12px;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    color: #7c7c7c;
     &:not(:last-child):after {
       content: ", ";
       margin-right: 3px;
