@@ -10,19 +10,59 @@
   &__list {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 20px 0 40px;
+    @media (max-width: $breakpoint) {
+      padding-bottom: 0;
+    }
   }
-  &__thumbnail-wrapper {
+  &__thumbnail-container {
     display: flex;
     align-items: center;
     flex-basis: 260px;
-    position: relative;
     @media (max-width: $breakpoint) {
       flex-basis: 100%;
     }
   }
+  &__thumbnail-wrapper {
+    position: relative;
+    background: $color__black;
+    overflow: hidden;
+    &:after {
+      transition-timing-function: ease-out;
+      content: "View Project";
+      text-shadow: 0 0 4px $color__black;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      pointer-events: none;
+      z-index: 10;
+      text-align: center;
+      left: 0;
+      right: 0;
+      top: 50%;
+      position: absolute;
+      color: #fff;
+      opacity: 0;
+      transform: translateY(0);
+      transition-property: all;
+      transition-duration: 0.4s;
+      @at-root .project-preview--hover & {
+        opacity: 1;
+        top: 50%;
+        transform: translateY(-50%);
+        transition-duration: 0.2s;
+      }
+    }
+  }
   &__thumbnail {
+    transition-timing-function: ease-out;
+    transition-property: opacity;
+    transition-duration: 0.4s;
+    display: block;
     width: 100%;
+    @at-root .project-preview--hover & {
+      transition-duration: 0.2s;
+      opacity: 0.3;
+    }
   }
   &__category-wrapper {
     margin: 0;
