@@ -10,7 +10,10 @@
     height: 100%;
   }
 
-  a {
+  a,
+  a:hover,
+  a:focus,
+  a:active {
     color: #fff;
     border-bottom-color: #fff;
   }
@@ -90,6 +93,7 @@
   }
 
   &__heading {
+    font-family: $font-family__headings;
     font-size: 7vw;
     padding: 0;
     margin-top: 0;
@@ -103,11 +107,11 @@
   }
 
   &__sub-heading {
+    font-family: $font-family__headings;
     font-size: 3.2vw;
     margin: 0;
     line-height: 1.2;
     padding-top: 0;
-    font-family: $font-family__headings;
     @media (max-width: $breakpoint__md) {
       font-size: 24px;
     }

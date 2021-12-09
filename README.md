@@ -32,7 +32,7 @@ To publish the project item, be sure to set `draft` and `hidden` to true in the 
 
 ## State of the site
 
-Most of the pages on this site are hidden when it is deployed. I originally built this site for my freelance business, but I stopped accepting new clients in late 2019, and the portfolio is tragically out of date. I've hidden many pages by using a combination of the `draft` front matter property and conditional checks on the `.Site.IsServer` property in the templates.
+As of December 2021, this site is under active development. Currently, most of the projects on hidden when the site is deployed because they are in `draft` mode.
 
 ## Hugo page reload cache issues
 

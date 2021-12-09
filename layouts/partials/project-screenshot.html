@@ -5,14 +5,14 @@
 	{{- $width := float $resized.Width -}}
 	{{- $height := float $resized.Height -}}
 	<div 
-		class="page-portfolio__screenshot-wrapper"
+		class="page-project__screenshot-wrapper"
 		style="padding-bottom: {{ mul (div $height $width) 100 }}%;"
 	>
 		<img 
 			src="{{- $resized.RelPermalink -}}" 
 			srcset="{{- $resized2x.RelPermalink }} 2x" 
 			alt="{{- .Name }} Screenshot" 
-			class="page-portfolio__screenshot"
+			class="page-project__screenshot"
 		>
 	</div>
 {{- end -}}

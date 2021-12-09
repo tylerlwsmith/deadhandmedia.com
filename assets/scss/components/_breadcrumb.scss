@@ -1,17 +1,20 @@
 .breadcrumb {
-	display: inline;
-	font-size: 16px;
-	@media(max-width: $breakpoint__md) {
-		font-size: 14px;
-	}
-	&+&:before{
-		display: inline;
-		padding: 0 5px;
-		content: "/";
-	}
-	&__wrapper {
-		margin: 0;
-		padding-left: 0;
-		list-style: none;
-	}
+  display: inline;
+  font-size: 16px;
+  a {
+    color: #754cc7;
+  }
+  @media (max-width: $breakpoint__md) {
+    font-size: 14px;
+  }
+  & + &:before {
+    display: inline;
+    padding: 0 5px;
+    content: "/";
+  }
+  &__wrapper {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+  }
 }
