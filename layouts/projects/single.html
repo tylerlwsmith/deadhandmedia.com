@@ -1,7 +1,7 @@
 {{ define "main" }}
 	<div class="container">
 		<main>
-			{{ partial "breadcrumbs" . }}
+			{{/* partial "breadcrumbs" . */}}
 			{{ if eq hugo.Environment "development" }}
 				<a href="vscode://file/{{ os.Getenv "PWD" }}/content/{{ .File.Path }}">
 					Edit
