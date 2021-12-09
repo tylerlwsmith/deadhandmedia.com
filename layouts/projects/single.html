@@ -1,55 +1,57 @@
 {{ define "main" }}
-	<main class="content-wrapper">
-		{{ partial "breadcrumbs" . }}
-		{{ if eq hugo.Environment "development" }}
-			<a href="vscode://file/{{ os.Getenv "PWD" }}/content/{{ .File.Path }}">
-				Edit
-			</a>
-		{{ end }}
-		<h1 class="page__title">{{ .Name }}</h1>
+	<div class="container">
+		<main class="content-wrapper">
+			{{ partial "breadcrumbs" . }}
+			{{ if eq hugo.Environment "development" }}
+				<a href="vscode://file/{{ os.Getenv "PWD" }}/content/{{ .File.Path }}">
+					Edit
+				</a>
+			{{ end }}
+			<h1 class="page__title">{{ .Name }}</h1>
 
-		{{ partial "project-screenshot" . }}
+			{{ partial "project-screenshot" . }}
 
-		<div>
 			<div>
-				<strong>Scope of Work:</strong>
-			</div>
+				<div>
+					<strong>Scope of Work:</strong>
+				</div>
 
-			<ul class="pill__wrapper">
-				{{ range .Param "Services" }}
-					<li class="pill">{{ . }}</li>
-				{{ end }}
-			</ul>
-		</div>
-
-		<div>
-			<div>
-				<strong>Technologies:</strong>
-			</div>
-
-			<ul class="pill__wrapper">
-				{{ range .Param "technologies" }}
-					{{ $technology := . }}
-					{{ if (reflect.IsMap $technology) }}
-						{{ $technology = $technology.featured }}
+				<ul class="pill__wrapper">
+					{{ range .Param "Services" }}
+						<li class="pill">{{ . }}</li>
 					{{ end }}
-					<li class="pill">
-						{{ $technology }}
-					</li>
-				{{ end }}
-			</ul>
-		</div>
-
-		{{ .Content }}
-
-		{{- if .Param "projectUrl" -}}
-			<div class="button__wrapper text-center">
-				<a href="{{ .Param "projectUrl" }}" class="button">Visit {{ .Name }}</a>
+				</ul>
 			</div>
-		{{- end -}}
 
-		<aside class="back-link">
-			<a href="/projects/"><span aria-hidden="true">&#8592; </span>Back to projects</a>
-		</aside>
-	</main>
+			<div>
+				<div>
+					<strong>Technologies:</strong>
+				</div>
+
+				<ul class="pill__wrapper">
+					{{ range .Param "technologies" }}
+						{{ $technology := . }}
+						{{ if (reflect.IsMap $technology) }}
+							{{ $technology = $technology.featured }}
+						{{ end }}
+						<li class="pill">
+							{{ $technology }}
+						</li>
+					{{ end }}
+				</ul>
+			</div>
+
+			{{ .Content }}
+
+			{{- if .Param "projectUrl" -}}
+				<div class="button__wrapper text-center">
+					<a href="{{ .Param "projectUrl" }}" class="button">Visit {{ .Name }}</a>
+				</div>
+			{{- end -}}
+
+			<aside class="back-link">
+				<a href="/projects/"><span aria-hidden="true">&#8592; </span>Back to projects</a>
+			</aside>
+		</main>
+	</div>
 {{ end }}

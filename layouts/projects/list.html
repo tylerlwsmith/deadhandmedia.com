@@ -1,68 +1,84 @@
 {{ define "main" }}
-<main class="content-wrapper">
-  <article>
-    <h1 class="page__title">{{ .Title }}</h1>
-    {{ .Content }}
-  </article>
+  <div class="container">
+    <main class="content-wrapper">
+      <article>
+        <h1 class="page__title">{{ .Title }}</h1>
+        {{ .Content }}
+      </article>
 
-  {{ if not hugo.IsProduction }}
-    <ul class="project-preview__list">
-      {{ range .Pages }}
-        {{ $category := .Param "category" }}
-        {{ $technologies := newScratch }}
-        {{ $technologies.Set "featured" slice }}
+      {{ if not hugo.IsProduction }}
+        <ul class="project-preview__list">
+          {{ range .Pages }}
+            {{ $category := .Param "category" }}
+            {{ $technologies := newScratch }}
+            {{ $technologies.Set "featured" slice }}
 
-				{{ range .Param "technologies" }}
-					{{ if (reflect.IsMap .) }}
-						{{ $technologies.Add "featured" .featured }}
-					{{ end }}
-				{{ end }}
-
-        <li class="project-preview">
-          <div class="project-preview__thumbnail-wrapper">
-            <img 
-              src="{{ (.Resources.GetMatch (.Param "screenshot")).RelPermalink }}" 
-              alt="Screenshot of {{ .Title }}" 
-              class="project-preview__thumbnail"
-            >
-          </div>
-          <div class="project-preview__content-container">
-            <h2 class="project-preview__title">
-              <a 
-                href="{{ .Permalink }}"
-                class="project-preview__link"
-              >
-                {{ .Title }}
-              </a>
-            </h2>
-
-            {{ if $category }}
-              <dl  class="project-preview__category-wrapper">
-                <dt class="sr-only">Project Category</dt>
-                <dd class="project-preview__category">{{ $category }}</dd>
-              </dl>     
+            {{ range .Param "technologies" }}
+              {{ if (reflect.IsMap .) }}
+                {{ $technologies.Add "featured" .featured }}
+              {{ end }}
             {{ end }}
 
-            <p class="sr-only">Technologies used:</p>
-            <ul class="project-preview__technology-list">
-              {{ range $technologies.Get "featured" }}
-                <li class="project-preview__technology">{{ . }}</li>
-              {{ end }}
-            </ul>
-          
-        </div>
-        </li>
-      {{ end }}
-    </ul>
-  {{ end }}
+            <li class="project-preview">
+              <div class="project-preview__thumbnail-wrapper">
+                <img 
+                  src="{{ (.Resources.GetMatch (.Param "screenshot")).RelPermalink }}" 
+                  alt="Screenshot of {{ .Title }}" 
+                  class="project-preview__thumbnail"
+                >
+              </div>
+              <div class="project-preview__content-container">
+                <h2 class="project-preview__title">
+                  <a 
+                    href="{{ .Permalink }}"
+                    class="project-preview__link"
+                  >
+                    {{ .Title }}
+                  </a>
+                </h2>
 
-  {{ if hugo.IsProduction }}
-    {{ range.Pages }}
-      <article>
-        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        <a href="{{ .Permalink }}"> {{ partial "project-screenshot" . }} </a>
-      </article>
-    {{ end }}
-  {{ end }}
-</main>
+                {{ if $category }}
+                  <dl  class="project-preview__category-wrapper">
+                    <dt class="sr-only">Project Category</dt>
+                    <dd class="project-preview__category">{{ $category }}</dd>
+                  </dl>     
+                {{ end }}
+
+                <p class="sr-only">Technologies used:</p>
+                <ul class="project-preview__technology-list">
+                  {{ range $technologies.Get "featured" }}
+                    <li class="project-preview__technology">{{ . }}</li>
+                  {{ end }}
+                </ul>
+              
+            </div>
+            </li>
+          {{ end }}
+        </ul>
+        <script>
+          (function makeThumbnailsClickable(){
+            const thumbnails = document.querySelectorAll('.project-preview__thumbnail');
+            const handleThumbnailClick = (event) => event
+              .target
+              .closest('.project-preview')
+              .querySelector('a')
+              .click();
+            thumbnails.forEach(thumbnail => {
+              thumbnail.addEventListener('click', handleThumbnailClick);
+              thumbnail.classList.add('hover--pointer')
+            });
+          })();
+        </script>
+      {{ end }}
+
+      {{ if hugo.IsProduction }}
+        {{ range.Pages }}
+          <article>
+            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+            <a href="{{ .Permalink }}"> {{ partial "project-screenshot" . }} </a>
+          </article>
+        {{ end }}
+      {{ end }}
+    </main>
+  </div>
 {{ end }}

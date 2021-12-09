@@ -1,0 +1,8 @@
+.container {
+  margin: 0 auto;
+  padding: 50px $padding__md 120px;
+  max-width: $breakpoint__md;
+  @media (max-width: $breakpoint__sm) {
+    padding: 20px $padding__sm 60px;
+  }
+}

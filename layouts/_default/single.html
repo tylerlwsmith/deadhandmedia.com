@@ -1,8 +1,10 @@
 {{ define "main" }}
-	<main class="content-wrapper">
-		<article>
-			<h1 class="page__title">{{ .Name }}</h1>
-			{{ .Content }}
-		</article>
-	</main>
+	<div class="container">
+		<main class="content-wrapper">
+			<article>
+				<h1 class="page__title">{{ .Name }}</h1>
+				{{ .Content }}
+			</article>
+		</main>
+	</div>
 {{ end }}
