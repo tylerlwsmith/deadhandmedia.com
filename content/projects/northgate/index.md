@@ -7,9 +7,6 @@ services:
   ["Design Consultation", "Custom Theme Development", "Data Migration", "SEO"]
 technologies:
   - featured: "WordPress"
-  - "Advanced Custom Fields"
-  - "Yoast SEO"
-  - "Beaver Builder"
   - "jQuery"
   - featured: "Bootstrap"
   - "GSAP"
