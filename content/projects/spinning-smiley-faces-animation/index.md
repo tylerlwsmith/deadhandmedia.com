@@ -2,7 +2,7 @@
 title: "Spinning Smiley Faces Animation"
 date: 2021-11-27T12:37:57-08:00
 projectUrl: https://codesandbox.io/s/github/tylerlwsmith/spinning-smiley-faces-animation/tree/main/
-respositoryUrl: https://github.com/tylerlwsmith/spinning-smiley-faces-animation
+repositoryUrl: https://github.com/tylerlwsmith/spinning-smiley-faces-animation
 category: "Tinkering"
 services: ["Front-End Development"]
 technologies:
