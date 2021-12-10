@@ -90,15 +90,20 @@
             .classList
             .add(hoverClassName);
 
-          const removeHoverClass = (event) => event
-            .target
-            .closest('.project-preview')
-            .classList
-            .remove("project-preview--hover");
+          const removeHoverClass = (event) => 
+            ! event.target.closest('.project-preview').contains(
+              document.activeElement 
+            ) && event
+              .target
+              .closest('.project-preview')
+              .classList
+              .remove("project-preview--hover");
 
           hoverables.forEach(hoverable => {
-            hoverable.addEventListener('mouseover', addHoverClass);
+            hoverable.addEventListener('mouseover', addHoverClass)
             hoverable.addEventListener('mouseout', removeHoverClass);
+            hoverable.addEventListener('focus', addHoverClass);
+            hoverable.addEventListener('blur', removeHoverClass);
           })
         })();
       </script>
