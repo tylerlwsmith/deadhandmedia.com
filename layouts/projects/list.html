@@ -32,6 +32,11 @@
                     class="project-preview__thumbnail"
                   >
                 {{- end -}}
+                {{- if and (eq hugo.Environment "development") (.Param "repositoryUrl") -}}
+                  <span class="project-preview__open-source-badge">
+                    Open Source
+                  </span>
+                {{- end -}}
               </div>
             </div>
             <div class="project-preview__content-container">

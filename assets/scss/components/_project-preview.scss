@@ -56,6 +56,16 @@
       }
     }
   }
+  &__open-source-badge {
+    display: inline-block;
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 2px 5px;
+    color: #fff;
+    background-color: $color__purple;
+  }
   &__thumbnail {
     transition-timing-function: ease-out;
     transition-property: opacity;
