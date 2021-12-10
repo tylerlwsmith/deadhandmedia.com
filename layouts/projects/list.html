@@ -62,50 +62,64 @@
         {{ end }}
       </ul>
       <script>
-        (function makeThumbnailsClickable(){
+        window.addEventListener("DOMContentLoaded", function makeThumbnailsLinks() {
           const thumbnails = document.querySelectorAll(
             '.project-preview__thumbnail'
           );
           const handleThumbnailClick = (event) => event
             .target
             .closest('.project-preview')
-            .querySelector('a')
+            .querySelector("a")
             .click();
           thumbnails.forEach(thumbnail => {
-            thumbnail.addEventListener('click', handleThumbnailClick);
-            thumbnail.classList.add('hover--pointer')
+            thumbnail.addEventListener("click", handleThumbnailClick);
+            thumbnail.classList.add("hover--pointer")
           });
-        })();
-
-        (function addHoverClassToProject() {
+        })
+  
+        window.addEventListener("DOMContentLoaded", function addHoverClass() {
+          const projectClassName = "project-preview"
           const hoverClassName = "project-preview--hover";
           const hoverables = [
-            ...document.querySelectorAll('.project-preview__thumbnail'),
-            ...document.querySelectorAll('.project-preview__link')
+            ...document.querySelectorAll(".project-preview__thumbnail"),
+            ...document.querySelectorAll(".project-preview__link")
           ];
 
           const addHoverClass = (event) => event
             .target
-            .closest('.project-preview')
+            .closest(`.${projectClassName}`)
             .classList
             .add(hoverClassName);
 
           const removeHoverClass = (event) => 
-            ! event.target.closest('.project-preview').contains(
+            ! event.target.closest(`.${projectClassName}`).contains(
               document.activeElement 
             ) && event
               .target
-              .closest('.project-preview')
+              .closest(`.${projectClassName}`)
               .classList
-              .remove("project-preview--hover");
+              .remove(hoverClassName);
 
           hoverables.forEach(hoverable => {
             hoverable.addEventListener('mouseover', addHoverClass)
             hoverable.addEventListener('mouseout', removeHoverClass);
             hoverable.addEventListener('focus', addHoverClass);
             hoverable.addEventListener('blur', removeHoverClass);
+            hoverable.addEventListener('click', removeHoverClass);
           })
-        })();
+        });
+  
+        window.addEventListener("unload", function removeHoverClassOnPageUnload() {
+          alert("bleep");
+          const hoverClassName = "project-preview--hover";
+          const hoverables = [
+            ...document.querySelectorAll('hoverClassName'),
+          ];
+
+          hoverables.forEach(hoverable => {
+            hoverable.classList.remove(hoverClassName)
+          });
+        });
       </script>
     </main>
   </div>
