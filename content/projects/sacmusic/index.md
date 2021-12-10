@@ -14,7 +14,7 @@ services:
   ]
 technologies:
   - featured: "Django REST Framework"
-  - featured: "Next.js"
+  - "Next.js"
   - featured: "React.js"
   - "Express.js"
   - featured: "TypeScript"
