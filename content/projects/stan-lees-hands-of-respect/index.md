@@ -9,7 +9,7 @@ technologies:
   - featured: "Scss"
   - featured: "Grunt"
 screenshot: hands-of-respect.png
-weight: 5
+weight: 8
 draft: false
 hidden: false
 ---

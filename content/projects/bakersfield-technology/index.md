@@ -13,7 +13,7 @@ technologies:
   - "Heroicons"
   - "Netlify"
 screenshot: bakersfield-technology.png
-weight: 4
+weight: 5
 draft: false
 hidden: false
 ---
