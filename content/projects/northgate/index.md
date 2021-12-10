@@ -70,11 +70,3 @@ In commercial real estate, paper is preferred by many agents and buyers alike. I
 Northgate was pleased with the results. In particular, the individual property page and the report page looked like they were designed specifically for print.
 
 {{< image "northgate-printed.png" "A property listing and property report printed side-by-side." >}}
-
-## Performance Optimizations
-
-To keep the size of images down, the WP Smush plugin was added to compress photos as they are loaded into the site.
-
-To keep the load time of the site as fast as possible, I compiled and minified all theme JavaScript and CSS into one script and one stylesheet file. I also only included parts of the Bootstrap 4 framework that were actually used on the site, which substantially reduced the size of the files.
-
-The site's frontend dependencies are managed by NPM and compiled with Laravel Mix.
