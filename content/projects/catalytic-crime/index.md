@@ -39,7 +39,7 @@ During the two weeks that I worked on this project, I completed the following:
 - **I set up an admin-approval process for new reports**, where admins are notified of new reports via email then can approve them using the web app.
 - **I created a paginated reports index page** for reports and a single report page.
 - **I created a sparce-but-functional UI** using Tailwind CSS, along with its form and typography plugins.
-- **I set up DigitalOcean Spaces for S3-compatible object storage** and used it for storing user uploads.
+- **I set up S3-compatible object storage** using DigitalOcean Spaces and configured it for storing user uploads.
 - **I wrote integration tests** that must pass before the site can deploy.
 - **I set up CI/CD with Jenkins** deploying to a $5/mo DigitalOcean droplet.
 
