@@ -38,6 +38,20 @@ As of December 2021, this site is under active development. Currently, most of t
 
 Sometimes Hugo clears changes to the CSS when reloaded. When this happens, run the server with the `--noHTTPCache` flag.
 
+## Accessing from another network device while developing
+
+To test the site from a phone while developing, you'll need to pass in some additional parameters while starting the development server.
+
+```sh
+hugo server --bind "0.0.0.0" --baseUrl={DEVICE_IP}
+```
+
+To get the device IP on a Mac, you can run the following:
+
+```sh
+ifconfig | egrep "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
+```
+
 ## Why the stupid name... what even _is_ a dead hand?
 
 Dead Hand is a Soviet Doomsday device that was built just before the fall of the Soviet Union. It guaranteed second-strike capabilities in the event of an all-out nuclear assault by the United States. To the best of my understanding, it was a near-fully automated system that would be able to detect if the Soviet Union was under attack and could respond with total destruction of the US. However, the system was not _fully_ automated: when the time came, an activation button would light up, and a small handful of soldiers would be tasked with deciding whether or not to press it and kill every man, woman and child in the United States. The system is thought to still be operational to this day.
