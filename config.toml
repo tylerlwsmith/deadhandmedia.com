@@ -2,6 +2,7 @@ baseURL = "https://deadhandmedia.com/"
 languageCode = "en-us"
 title = "DeadHand Media"
 enableInlineShortcodes = true
+disableKinds = ["RSS"]
 
 [taxonomies]
 
