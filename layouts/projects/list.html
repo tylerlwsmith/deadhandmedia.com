@@ -30,7 +30,7 @@
                     srcset="{{- $resized2x.RelPermalink }} 2x" 
                     alt="Screenshot of {{ .Title }}" 
                     class="project-preview__thumbnail"
-                    style="aspect-ratio: {{- div (float $resized.Width) (float $resized.Height) -}}"
+                    style="aspect-ratio: {{- div (float $resized.Width) (float $resized.Height) -}}; height: initial;"
                   >
                 {{- end -}}
                 {{- if and (eq hugo.Environment "development") (.Param "repositoryUrl") -}}
