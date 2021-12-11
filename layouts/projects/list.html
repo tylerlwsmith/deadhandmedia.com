@@ -27,10 +27,7 @@
                 <div 
                   class="project-preview__thumbnail-wrapper"
                   style="
-                    position: relative;
-                    height: 0;
-                    width: 100%;
-                    padding-bottom: {{- mul (div (float $resized.Height) (float $resized.Width)) 100 -}}%;
+                    padding-bottom: calc({{ mul (div (float $resized.Height) (float $resized.Width)) 100 }}% - 2px);
                   "
                 >
                   <img 
@@ -38,7 +35,7 @@
                     srcset="{{- $resized2x.RelPermalink }} 2x" 
                     alt="Screenshot of {{ .Title }}" 
                     class="project-preview__thumbnail"
-                    style="position: absolute; height: 100%; width: 100%;"
+                    style="position: absolute; inset: 0;"
                   >
                 {{- if and (eq hugo.Environment "development") (.Param "repositoryUrl") -}}
                   <span class="project-preview__open-source-badge">
