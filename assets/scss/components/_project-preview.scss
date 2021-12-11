@@ -16,12 +16,13 @@
     }
   }
   &__open-source-badge {
+    pointer-events: none;
     display: inline-block;
     font-size: 12px;
     position: absolute;
     bottom: 0;
     left: 0;
-    padding: 2px 5px;
+    padding: 2px 8px;
     color: #fff;
     background-color: $color__purple;
   }
@@ -120,7 +121,7 @@
     font-size: 24px;
     margin: 0;
     padding: 0;
-    font-weight: 400;
+    font-weight: 600;
     margin-bottom: 24px;
     letter-spacing: 0.05em;
   }
