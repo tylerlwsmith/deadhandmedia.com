@@ -20,25 +20,33 @@
 
           <li class="project-preview">
             <div class="project-preview__thumbnail-container">
-              <div class="project-preview__thumbnail-wrapper">
-                {{- $screenshot := .Resources.GetMatch (.Param "screenshot") -}}
-                {{- if $screenshot -}}
-                  {{- $resized := $screenshot.Resize "550x jpg q95" -}}
-                  {{- $resized2x := $screenshot.Resize "1100x jpg q95" -}}
+              {{- $screenshot := .Resources.GetMatch (.Param "screenshot") -}}
+              {{- if $screenshot -}}
+                {{- $resized := $screenshot.Resize "550x jpg q95" -}}
+                {{- $resized2x := $screenshot.Resize "1100x jpg q95" -}}
+                <div 
+                  class="project-preview__thumbnail-wrapper"
+                  style="
+                    position: relative;
+                    height: 0;
+                    width: 100%;
+                    padding-bottom: {{- mul (div (float $resized.Height) (float $resized.Width)) 100 -}}%;
+                  "
+                >
                   <img 
                     src="{{- $resized.RelPermalink -}}" 
                     srcset="{{- $resized2x.RelPermalink }} 2x" 
                     alt="Screenshot of {{ .Title }}" 
                     class="project-preview__thumbnail"
-                    style="aspect-ratio: {{- div (float $resized.Width) (float $resized.Height) -}}; height: initial;"
+                    style="position: absolute; height: 100%; width: 100%;"
                   >
-                {{- end -}}
                 {{- if and (eq hugo.Environment "development") (.Param "repositoryUrl") -}}
                   <span class="project-preview__open-source-badge">
                     Open Source
                   </span>
                 {{- end -}}
               </div>
+              {{- end -}}
             </div>
             <div class="project-preview__content-container">
               <h2 class="project-preview__title">
