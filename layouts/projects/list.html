@@ -24,11 +24,10 @@
               {{- if $screenshot -}}
                 {{- $resized := $screenshot.Resize "550x jpg q95" -}}
                 {{- $resized2x := $screenshot.Resize "1100x jpg q95" -}}
+                {{- $imageRatio := div (float $resized.Height) (float $resized.Width) -}}
                 <div 
                   class="project-preview__thumbnail-wrapper"
-                  style="
-                    padding-bottom: calc({{ mul (div (float $resized.Height) (float $resized.Width)) 100 }}% - 2px);
-                  "
+                  style="padding-bottom: calc({{ mul $imageRatio 100 }}% - 2px);"
                 >
                   <img 
                     src="{{- $resized.RelPermalink -}}" 
@@ -37,12 +36,14 @@
                     class="project-preview__thumbnail"
                     style="position: absolute; inset: 0;"
                   >
-                {{- if and (eq hugo.Environment "development") (.Param "repositoryUrl") -}}
-                  <span class="project-preview__open-source-badge">
-                    Open Source
-                  </span>
-                {{- end -}}
-              </div>
+                  {{- if eq hugo.Environment "development" -}}
+                    {{- if  (.Param "repositoryUrl") -}}
+                      <span class="project-preview__open-source-badge">
+                        Open Source
+                      </span>
+                    {{- end -}}
+                  {{- end -}}
+                </div>
               {{- end -}}
             </div>
             <div class="project-preview__content-container">
