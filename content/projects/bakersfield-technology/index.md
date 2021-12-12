@@ -22,25 +22,13 @@ Bakersfield has largely not participated in California's tech boom. Most softwar
 
 I built BakersfieldTechnology.com to discover if there was demand for custom software development in the Bakersfield region.
 
-## The Challenge
+## Three-Day Timeline
 
-Because Bakersfield might not have demand for custom software development, investing time in building a website offering development services in the city could be a wasted effort. My challenge was to build a website that assessed the interest while using minimal time & effort.
+Because Bakersfield might not have demand for custom software development, investing time in building a website offering development services in the city could be a wasted effort. I gave myself three days to build & deploy a single-page website that focused on generating leads, and I would use these leads as the indicator of demand. I could continue to iterate on the site once it was live.
 
-I gave myself three days to build & deploy a single-page website that focused on generating leads, and I would use these leads as the indicator of demand. I could continue to iterate on the site once it was live.
+## Moving Fast with Next & Tailwind
 
-## Technical Approach
-
-My main consideration for choosing my stack was picking technologies that would allow me to develop and deploy the site quickly. Using Next.js and Tailwind CSS empowered me to do just that. While these tools could be considered overkill for a simple static site, React's component model combined with Tailwind's styles-in-markup approach enabled me to develop much quicker than I would be able to if I had used a more traditional toolset.
-
-<!--
-Next.js allows me to leverage React's component model, gives me TypeScript compilation for free, has a Taildwind starter project, and can render down to static HTML files for easy hosting.
-
-Tailwind allowed me to build the whole app without writing nearly any custom CSS or quibbling over pixel values. It enabled me to move fast by defining styles on the components themselves rather than in a separate CSS file.
- -->
-
-## Design
-
-I designed the whole site in the browser by applying Tailwind's utility classes to semantic markup. To add visual interest to the page, I used an IntersectionObserver to trigger animations on scroll.
+My main consideration for choosing my stack was picking tools that would allow me to develop quickly. Using Next.js with Tailwind CSS empowered me to do just that. Combining React's component model with Tailwind's styles-in-markup approach enabled me to develop much quicker than I would be able to if I had used a static HTML file with custom CSS.
 
 ## SEO Considerations
 
