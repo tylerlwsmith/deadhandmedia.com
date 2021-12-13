@@ -43,13 +43,19 @@ Sometimes Hugo clears changes to the CSS when reloaded. When this happens, run t
 To test the site from a phone while developing, you'll need to pass in some additional parameters while starting the development server.
 
 ```sh
-hugo server --bind "0.0.0.0" --baseUrl={DEVICE_IP}
+hugo server --bind "0.0.0.0" --baseUrl "http://${DEVICE_IP}"
 ```
 
 To get the device IP on a Mac, you can run the following:
 
 ```sh
 ifconfig | egrep "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
+```
+
+Conversely, you could use the following command on Mac to do it all in one pass:
+
+```sh
+hugo server --bind "0.0.0.0" --baseUrl "http://$(ipconfig getifaddr en0)"
 ```
 
 ## Skipping builds on Netlify
