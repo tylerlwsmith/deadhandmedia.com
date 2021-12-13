@@ -30,7 +30,7 @@ I built the project with React Native using Expo so that I could leverage my ski
 
 The app's **matrix screen** accepts user input via an on-screen piano and displays the generated matrix. When a user taps a key, it is added to the matrix. If the user taps a key that is already on the Matrix, it is removed and the notes after it move up to fill its space.
 
-{{< figure src="incomplete-grid.png" caption="The app's matrix screen" >}}
+{{< figure src="incomplete-grid.png" width="250" caption="The app's matrix screen" >}}
 
 As I used the app, I found deleting all of the notes to reset the matrix was tedious, so I added a **hidden menu** that slides down when you tap the matrix and reveals a "Clear Matrix" button.
 
@@ -38,7 +38,7 @@ As I used the app, I found deleting all of the notes to reset the matrix was ted
 
 The **settings screen** contains only one setting: a toggle that switches the notes between sharps, flats and note numbers. When I originally started building the app I had this setting on the matrix screen, but I found it took away too much space from the matrix itself on small devices.
 
-{{< figure src="settings.png" caption="The app's settings screen" >}}
+{{< figure src="settings.png" width="250"  caption="The app's settings screen" >}}
 
 I knew I needed help designing an app icon, so I worked with
 [a designer on Fiverr](https://www.fiverr.com/bima28). I'm incredibly happy with the result.
