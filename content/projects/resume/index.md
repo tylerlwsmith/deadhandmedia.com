@@ -18,7 +18,7 @@ draft: false
 hidden: false
 ---
 
-I rewrote my resume using web technologies in late 2019. The resume started as an HTML and CSS file that was exclusively designed for print, and it has since evolved into a feature-rich statically-deployed website with a Puppeteer-driven asset build process that uses Express.js during development.
+I rewrote my resume using web technologies in late 2019. The resume started as an HTML and CSS file, and it was exclusively designed for print. It has since evolved into a statically-deployed website with a Puppeteer-driven asset build process that uses Express.js during development.
 
 ## Designed for Print First
 
