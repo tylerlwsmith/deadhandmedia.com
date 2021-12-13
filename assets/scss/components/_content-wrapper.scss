@@ -59,13 +59,15 @@
   }
 
   img {
+    $max-width: 30px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    max-width: calc(100% + 30px);
+    max-width: calc(100% + #{$max-width});
     height: auto;
     margin-top: 20px;
     margin-bottom: 12px;
+    margin-right: -($max-width / 2);
     filter: drop-shadow(0 10px 10px rgba(64, 64, 64, 0.3));
   }
 }
