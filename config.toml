@@ -9,12 +9,17 @@ disableKinds = ["RSS"]
 [menu]
 
    [[menu.main]]
+     name = "Blog"
+     url = "/blog/"
+     weight = 1
+
+   [[menu.main]]
      name = "Projects"
      url = "/projects/"
-     weight = 2
+     weight = 1
 
    [[menu.main]]
      name = "Resume"
      url = "/resume/"
-     weight = 2
+     weight = 3
 
