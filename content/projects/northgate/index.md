@@ -29,9 +29,9 @@ Northgate needed to integrate all of their content into a single easy-to-use pla
 
 Northgate was fortunate to have a talented designer on staff who was eager to design the new website. I provided basic website design guidance and ultimately was presented with one of the most clean and intuitive designs I've built to date.
 
-## Technical Approach
+## Leveraging WordPress
 
-Given Northgate's needs, WordPress was the obvious platform of choice. WordPress has a 15-year history and powers almost a third of the Internet, so it's unlikely to lose popularity the way that ColdFusion did.
+Given Northgate's needs, WordPress was the obvious platform of choice. WordPress has a 15-year history and powered almost a third of the Internet at the time, so it was unlikely to lose popularity the way that ColdFusion did.
 
 The new site needed several content types with structured data. Some content types needed relationships with other types of content, such as relating property listings to their agents. I used the Advanced Custom Fields Pro plugin to implement the necessary fields and relationships for each post type.
 
