@@ -34,7 +34,6 @@
                     srcset="{{- $resized2x.RelPermalink }} 2x" 
                     alt="Screenshot of {{ .Title }}" 
                     class="project-preview__thumbnail"
-                    style="position: absolute; inset: 0;"
                   >
                   {{- if eq hugo.Environment "development" -}}
                     {{- if  (.Param "repositoryUrl") -}}

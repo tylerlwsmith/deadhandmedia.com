@@ -90,6 +90,8 @@
   &__thumbnail {
     display: block;
     width: 100%;
+    position: absolute;
+    inset: 0;
   }
   &__category-wrapper {
     margin: 0;
