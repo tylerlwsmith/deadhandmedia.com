@@ -4,8 +4,14 @@
 # This directory is a cache for processed assets
 /resources
 
-# Node Modules
-node_modules
+# Node modules
+/node_modules
+
 
 # OSX
 .DS_Store
+
+# Hugo internals
+.hugo_build.lock
+
+/themes
