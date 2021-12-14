@@ -18,7 +18,25 @@
 							<h2 data-year-heading>{{ $yearIndex }}</h2>
 						{{ end }}
 						<article data-tags="{{ jsonify .tag_list }}">
-							<h3><a href="{{ .url }}">{{ .title }}</a></h3>
+							<h3>
+								<a href="{{ .url }}">{{ .title }}</a>
+							</h3>
+							{{ if eq hugo.Environment "development" }}
+								<time datetime="{{ time.Format "2006-01-02" .published_at }}">
+									{{ time.Format "Jan 2, 2006" .published_at }}
+								</time>
+								<ul>
+									{{ range .tag_list }}
+										<li>#{{ . }}</li>
+									{{ end }}
+								</ul>
+								<dl>
+									<dt>comments</dt>
+									<dd>{{ .comments_count }}</dd>
+									<dt>reacts</dt>
+									<dd>{{ .public_reactions_count }}</dd>
+								</dl>
+							{{ end }}
 						</article>
 					{{ end }}
 				</div>
@@ -38,78 +56,27 @@
 						{{ end }}
 					{{ end }}
 					<aside style="order: -1; padding: 0 20px 0 0; min-width: 200px;">
-						<button id="clear-filters">Clear Filters</button>
-						<ul style="margin: 0; list-style: none; padding: 0; font-size: 14px;">
+						<button id="reset-filters" class="blog-filter__reset-button">
+							Reset Filters
+						</button>
+
+						<h3>Tags</h3>
+						<ul class="blog-filter__list">
 							{{ range sort ($tags.Get "withCount") "tag" "asc" }}
-								<li>
+								<li class="blog-filter__wrapper">
 									<input 
 										type="checkbox"
 										name="{{ .tag }}"
 										id="tag:{{ .tag }}"
-										class="blog-tag"
+										class="blog-filter"
+										data-blog-tag
 									>
-									<label for="tag:{{ .tag }}">{{ .tag }}: {{ .count }}</label>
+									<label for="tag:{{ .tag }}" class="blog-filter__label">{{ .tag }}: {{ .count }}</label>
 								</li>
 							{{ end }}
 						</ul>
 					</aside>
-
-					<script>
-						(function() {
-							const checkboxSelector = ".blog-tag";
-
-							[...getCheckboxes()].forEach(tag => {
-								tag.addEventListener('click', filterPosts);
-							});
-
-							document.getElementById("clear-filters").addEventListener("click", function() {
-								[...getCheckboxes()].forEach(checkBox => checkBox.checked = false);
-								filterPosts();
-							});
-
-							// Refires filters when navigating back from dev.to
-							window.addEventListener('pageshow', function() {
-								filterPosts();
-							})
-							function getCheckboxes () {
-								return document.querySelectorAll(checkboxSelector);
-							}
-							function getActiveTags () {
-								return [...document.querySelectorAll(checkboxSelector + ":checked")]
-									.map(checkbox => checkbox.name);
-							}
-							function getPosts () {
-								return document.querySelectorAll('[data-tags]');
-							}
-							function getYearHeadings() {
-								return document.querySelectorAll(['[data-year-heading]'])
-							}
-							function hideYearHeadings() {
-								return [...getYearHeadings()].forEach(heading => heading.style.display = "none")
-							}
-							function showYearHeadings() {
-								return [...getYearHeadings()].forEach(heading => heading.style.display = "block")
-							}
-							function filterPosts() {
-								const activeTags = getActiveTags();
-								[...getPosts()].forEach(post => {
-									if (activeTags.length === 0) {
-										post.style.display = "block"; 
-										showYearHeadings();
-										return;
-									}
-
-									const postTags = JSON.parse(post.dataset.tags);
-									const matchingTags = activeTags.filter(activeTag => postTags.indexOf(activeTag) > -1);
-
-									hideYearHeadings();
-									post.style.display = matchingTags.length 
-										? "block"
-										: "none";
-								});
-							}
-						})();
-					</script>
+					<script src="{{- (resources.Get "js/blog.js").RelPermalink -}}"></script>
 				{{ end }}
 			</div>
 		</main>
