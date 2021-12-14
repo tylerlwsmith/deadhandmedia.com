@@ -19,18 +19,20 @@
 
 				{{ if eq hugo.Environment "development" }}
 					{{ $tags := newScratch }}	
+					{{ $tags.Set "allTags" (slice)}} 
 					{{ range $posts }}
 						{{ range .tag_list }}
-							{{ if isset ($tags.Get "all") . }}
-								{{ $tags.SetInMap "all" . (dict "tag" . "count" (add (index ($tags.Get "all") .).count 1))  }}
+							{{ if in ($tags.Get "allTags") . }}
+								{{ $tags.SetInMap "withCount" . (dict "tag" . "count" (add (index ($tags.Get "withCount") .).count 1))  }}
 							{{ else }}
-								{{ $tags.SetInMap "all" . (dict "tag" . "count" 1)  }}
+								{{ $tags.SetInMap "withCount" . (dict "tag" . "count" 1)  }}
 							{{ end }}
+							{{ $tags.Add "allTags" . }}
 						{{ end }}
 					{{ end }}
 					<aside style="order: -1; font-size: 14px;">
-						<ul style="margin: 0; padding: 0 20px 0 0; list-style: none; wo">
-							{{ range sort ($tags.Get "all") "count" "desc" }}
+						<ul style="margin: 0; padding: 0 20px 0 0; list-style: none;">
+							{{ range sort ($tags.Get "withCount") "count" "desc" }}
 								<li>{{ .tag }}: {{ .count }}</li>
 							{{ end }}
 						</ul>
