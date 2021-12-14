@@ -30,13 +30,30 @@
 							{{ $tags.Add "allTags" . }}
 						{{ end }}
 					{{ end }}
-					<aside style="order: -1; font-size: 14px;">
-						<ul style="margin: 0; padding: 0 20px 0 0; list-style: none;">
-							{{ range sort ($tags.Get "withCount") "count" "desc" }}
-								<li>{{ .tag }}: {{ .count }}</li>
+					<aside style="order: -1; padding: 0 20px 0 0; min-width: 200px;">
+						<ul style="margin: 0; list-style: none; padding: 0; font-size: 14px;">
+							{{ range sort ($tags.Get "withCount") "tag" "asc" }}
+								<li 
+									class="blog-tag"
+									data-tag="{{ .tag }}"
+								>{{ .tag }}: {{ .count }}</li>
 							{{ end }}
 						</ul>
 					</aside>
+
+					<script>
+						[...document.querySelectorAll('.blog-tag')].forEach(tag => {
+							tag.addEventListener('click', function (event) {
+								[...document.querySelectorAll('[data-tags]')].forEach(post => {
+									console.log(tag.dataset);
+									const hasTag = JSON.parse(post.dataset.tags).indexOf(tag.dataset.tag) > -1;
+									post.style.display = hasTag 
+										? "block"
+										: "none";
+								});
+							});
+						});
+					</script>
 				{{ end }}
 			</div>
 		</main>
