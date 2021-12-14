@@ -10,7 +10,13 @@
 
 			<div style="display: flex;">
 				<div>
+					{{ $yearIndex := "" }}
 					{{ range $posts }}
+						{{ $postYear :=  time.Format "2006" .published_at }}
+						{{ if ne $yearIndex $postYear }}
+							{{ $yearIndex = $postYear }}
+							<h2 data-year-heading>{{ $yearIndex }}</h2>
+						{{ end }}
 						<article data-tags="{{ jsonify .tag_list }}">
 							<h3><a href="{{ .url }}">{{ .title }}</a></h3>
 						</article>
@@ -75,14 +81,28 @@
 							function getPosts () {
 								return document.querySelectorAll('[data-tags]');
 							}
+							function getYearHeadings() {
+								return document.querySelectorAll(['[data-year-heading]'])
+							}
+							function hideYearHeadings() {
+								return [...getYearHeadings()].forEach(heading => heading.style.display = "none")
+							}
+							function showYearHeadings() {
+								return [...getYearHeadings()].forEach(heading => heading.style.display = "block")
+							}
 							function filterPosts() {
 								const activeTags = getActiveTags();
 								[...getPosts()].forEach(post => {
-									if (activeTags.length === 0) return post.style.display = "block"; 
+									if (activeTags.length === 0) {
+										post.style.display = "block"; 
+										showYearHeadings();
+										return;
+									}
 
 									const postTags = JSON.parse(post.dataset.tags);
 									const matchingTags = activeTags.filter(activeTag => postTags.indexOf(activeTag) > -1);
 
+									hideYearHeadings();
 									post.style.display = matchingTags.length 
 										? "block"
 										: "none";
