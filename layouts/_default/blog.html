@@ -22,6 +22,7 @@
 					{{ $tags.Set "allTags" (slice)}} 
 					{{ range $posts }}
 						{{ range .tag_list }}
+							{{/* Can't use isSet: checks to see if a key's value is null, not if a key exists. */}}
 							{{ if in ($tags.Get "allTags") . }}
 								{{ $tags.SetInMap "withCount" . (dict "tag" . "count" (add (index ($tags.Get "withCount") .).count 1))  }}
 							{{ else }}
@@ -31,28 +32,63 @@
 						{{ end }}
 					{{ end }}
 					<aside style="order: -1; padding: 0 20px 0 0; min-width: 200px;">
+						<button id="clear-filters">Clear Filters</button>
 						<ul style="margin: 0; list-style: none; padding: 0; font-size: 14px;">
 							{{ range sort ($tags.Get "withCount") "tag" "asc" }}
-								<li 
-									class="blog-tag"
-									data-tag="{{ .tag }}"
-								>{{ .tag }}: {{ .count }}</li>
+								<li>
+									<input 
+										type="checkbox"
+										name="{{ .tag }}"
+										id="tag:{{ .tag }}"
+										class="blog-tag"
+									>
+									<label for="tag:{{ .tag }}">{{ .tag }}: {{ .count }}</label>
+								</li>
 							{{ end }}
 						</ul>
 					</aside>
 
 					<script>
-						[...document.querySelectorAll('.blog-tag')].forEach(tag => {
-							tag.addEventListener('click', function (event) {
-								[...document.querySelectorAll('[data-tags]')].forEach(post => {
-									console.log(tag.dataset);
-									const hasTag = JSON.parse(post.dataset.tags).indexOf(tag.dataset.tag) > -1;
-									post.style.display = hasTag 
+						(function() {
+							const checkboxSelector = ".blog-tag";
+
+							[...getCheckboxes()].forEach(tag => {
+								tag.addEventListener('click', filterPosts);
+							});
+
+							document.getElementById("clear-filters").addEventListener("click", function() {
+								[...getCheckboxes()].forEach(checkBox => checkBox.checked = false);
+								filterPosts();
+							});
+
+							// Refires filters when navigating back from dev.to
+							window.addEventListener('pageshow', function() {
+								filterPosts();
+							})
+							function getCheckboxes () {
+								return document.querySelectorAll(checkboxSelector);
+							}
+							function getActiveTags () {
+								return [...document.querySelectorAll(checkboxSelector + ":checked")]
+									.map(checkbox => checkbox.name);
+							}
+							function getPosts () {
+								return document.querySelectorAll('[data-tags]');
+							}
+							function filterPosts() {
+								const activeTags = getActiveTags();
+								[...getPosts()].forEach(post => {
+									if (activeTags.length === 0) return post.style.display = "block"; 
+
+									const postTags = JSON.parse(post.dataset.tags);
+									const matchingTags = activeTags.filter(activeTag => postTags.indexOf(activeTag) > -1);
+
+									post.style.display = matchingTags.length 
 										? "block"
 										: "none";
 								});
-							});
-						});
+							}
+						})();
 					</script>
 				{{ end }}
 			</div>
