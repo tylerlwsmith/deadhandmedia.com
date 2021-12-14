@@ -58,6 +58,10 @@ Conversely, you could use the following command on Mac to do it all in one pass:
 hugo server --bind "0.0.0.0" --baseUrl "http://$(ipconfig getifaddr en0)"
 ```
 
+## Manually clearing the getJSON cache
+
+To delete the cached posts from DEV, stop the server then delete the `resources/cache` directory. The data will be refetched the next time you start the server.
+
 ## Skipping builds on Netlify
 
 On commits that don't require a new build (like when making edits to the README), you can add `[skip ci]` or `[skip netlify]` to anywhere in the commit message. Netlify won't build that commit until a newer commit without that string in the commit message arrives, which conserves the monthly build minutes. You can read more about this in the [Netlify docs](https://docs.netlify.com/site-deploys/manage-deploys/#skip-a-deploy).

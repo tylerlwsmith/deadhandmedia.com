@@ -4,6 +4,11 @@ title = "DeadHand Media"
 enableInlineShortcodes = true
 disableKinds = ["RSS"]
 
+[caches]
+  [caches.getjson]
+    dir = ':resourceDir/cache/'
+    maxAge = "10m"
+
 [taxonomies]
 
 [menu]
