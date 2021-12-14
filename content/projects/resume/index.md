@@ -44,7 +44,7 @@ I wanted to add a download button to the site so recruiters could [download a fo
 
 I wanted the website's preview link to look nice when I sent it to prospective employers, and I wanted to use the Puppeteer build pipeline to automatically generate a preview of my resume on the social share image. Text scales down poorly, so I dynamically create a low-fidelity image that replaces the resume's text with rectangles.
 
-{{< tweet 1466551826921054211 >}}
+{{< tweet user="tylerlwsmith" id="1466551826921054211" >}}
 
 ## An Embeddable, Resizable iframe
 
