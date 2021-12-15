@@ -3,7 +3,7 @@ on: push
 
 jobs:
   build:
-    name: Request Netlify Webhook
+    name: Request Netlify Webhook!
     runs-on: ubuntu-latest
     steps:
       - name: Curl request
