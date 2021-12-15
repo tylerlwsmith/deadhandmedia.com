@@ -9,9 +9,43 @@
     margin: 0 !important;
   }
   &__label {
+    cursor: pointer;
     font-size: 14px;
+    &:hover,
+    &:focus,
+    &:active {
+      color: $color__purple;
+    }
+    &:before {
+      content: "";
+      position: relative;
+      top: 1px;
+      display: inline-block;
+      height: 12px;
+      width: 12px;
+      border: 1px solid $color__purple;
+      margin-right: 8px;
+    }
+    @at-root .blog-filter:checked + &:before {
+      background: $color__purple;
+    }
+    @at-root .blog-filter:focus + &:before {
+      outline: 1px solid blue;
+    }
   }
   &__reset-button {
-    margin-top: 10px;
+    margin-top: 16px;
+    border: 1px solid;
+    color: $color__purple;
+    width: 100%;
+    padding: 3px;
+    appearance: none;
+    background: transparent;
+    &:hover,
+    &:focus,
+    &:active {
+      color: #fff;
+      background: $color__purple;
+    }
   }
 }

@@ -1,0 +1,25 @@
+.active-filter {
+  display: inline-block;
+  color: #fff;
+  background: $color__purple;
+  font-size: 12px;
+  padding: 3px 8px;
+  margin-right: 5px;
+  border: 0;
+  appearance: none;
+  cursor: pointer;
+  &__label {
+    font-size: 14px;
+    margin-right: 6px;
+    font-weight: 600;
+  }
+  &__list {
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    background: $color__background;
+    @media (max-width: $breakpoint__md) {
+      display: none !important;
+    }
+  }
+}

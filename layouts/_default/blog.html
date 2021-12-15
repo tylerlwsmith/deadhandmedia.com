@@ -8,6 +8,9 @@
 				{{ .Content }}
 			</article>
 
+			<div data-active-filter-list class="active-filter__list">
+				{{/*  Intentionally blank  */}}
+			</div>
 			{{ $yearIndex := "" }}
 			{{ range $posts }}
 				{{ $postYear :=  time.Format "2006" .published_at }}
@@ -77,8 +80,8 @@
 							type="checkbox"
 							name="{{ .tag }}"
 							id="tag:{{ .tag }}"
-							class="blog-filter"
-							data-blog-tag
+							class="blog-filter sr-only"
+							data-blog-tag="{{ .tag }}"
 						>
 						<label for="tag:{{ .tag }}" class="blog-filter__label">{{ .tag }}: {{ .count }}</label>
 					</li>
