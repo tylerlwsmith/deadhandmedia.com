@@ -72,6 +72,9 @@
           </li>
         {{ end }}
       </ul>
+      <div class="content-wrapper">
+        {{ .Content }}
+      </div>
       <script>
         window.addEventListener("DOMContentLoaded", function makeThumbnailsLinks() {
           const thumbnails = document.querySelectorAll(
