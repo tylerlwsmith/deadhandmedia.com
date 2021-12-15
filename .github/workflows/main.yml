@@ -3,11 +3,11 @@ on: push
 
 jobs:
   build:
-    name: Request Netlify Webhook!
+    name: Request Netlify Webhook
     runs-on: ubuntu-latest
     steps:
       - name: Curl request
         shell: bash
         env:
-          NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK_DOES_NOT_EXIST }}
+          NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
         run: curl -X POST -d {} "$NETLIFY_BUILD_HOOK"
