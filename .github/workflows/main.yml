@@ -9,5 +9,5 @@ jobs:
       - name: Curl request
         shell: bash
         env:
-          NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+          NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK_DOES_NOT_EXIST }}
         run: curl -X POST -d {} "$NETLIFY_BUILD_HOOK"
