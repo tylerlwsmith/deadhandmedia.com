@@ -22,7 +22,42 @@ window.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("pageshow", function () {
       filterPosts();
     });
+
+    makeScrollToTopButton();
   })();
+
+  function makeScrollToTopButton() {
+    const scrollButton = document.createElement("button");
+    scrollButton.classList.add("scroll-to-top-button");
+    scrollButton.style.display = "none";
+    scrollButton.innerHTML = `<span class="fas fa-arrow-alt-circle-up"></span>`;
+    scrollButton.addEventListener("click", () => window.scrollTo(0, 0));
+    document.body.append(scrollButton);
+
+    // const bleep = debounce(() => console.log("scrolling"), 100);
+    // window.addEventListener("scroll", bleep);
+    requestAnimationFrame(function checkScroll() {
+      const { innerHeight, scrollY } = window;
+      if (scrollY < innerHeight / 3) {
+        scrollButton.style.display = "none";
+      } else {
+        scrollButton.style.display = "block";
+      }
+      requestAnimationFrame(checkScroll);
+    });
+  }
+
+  // Thanks, Josh.
+  // https://www.joshwcomeau.com/snippets/javascript/debounce/
+  function debounce(callback, wait) {
+    let timeoutId = null;
+    return function (...args) {
+      window.clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(() => {
+        callback.apply(null, args);
+      }, wait);
+    };
+  }
 
   function getCheckboxes() {
     return document.querySelectorAll(checkboxSelector);
