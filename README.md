@@ -66,6 +66,10 @@ To delete the cached posts from DEV, stop the server then delete the `resources/
 
 On commits that don't require a new build (like when making edits to the README), you can add `[skip ci]` or `[skip netlify]` to anywhere in the commit message. Netlify won't build that commit until a newer commit without that string in the commit message arrives, which conserves the monthly build minutes. You can read more about this in the [Netlify docs](https://docs.netlify.com/site-deploys/manage-deploys/#skip-a-deploy).
 
+## Daily rebuilds
+
+A GitHub action rebuilds the site daily to make sure the site has the latest blog posts and comment counts. The action was based off of [a blog post by Eric Jinks](https://ericjinks.com/blog/2019/netlify-scheduled-build/).
+
 ## Why the stupid name... what even _is_ a dead hand?
 
 Dead Hand is a Soviet Doomsday device that was built just before the fall of the Soviet Union. It guaranteed second-strike capabilities in the event of an all-out nuclear assault by the United States. To the best of my understanding, it was a near-fully automated system that would be able to detect if the Soviet Union was under attack and could respond with total destruction of the US. However, the system was not _fully_ automated: when the time came, an activation button would light up, and a small handful of soldiers would be tasked with deciding whether or not to press it and kill every man, woman and child in the United States. The system is thought to still be operational to this day.
