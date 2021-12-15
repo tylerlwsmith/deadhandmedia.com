@@ -8,6 +8,7 @@ jobs:
     steps:
       - name: Curl request
         shell: bash
+        environment: default
         env:
           NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
         run: curl -X POST -d {} "$NETLIFY_BUILD_HOOK"
