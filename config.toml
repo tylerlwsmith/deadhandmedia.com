@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "DeadHand Media"
 enableInlineShortcodes = true
 disableKinds = ["RSS"]
+googleAnalytics = 'UA-100417057-1'
 
 [caches]
   [caches.getjson]
