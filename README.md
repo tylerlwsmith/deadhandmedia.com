@@ -58,9 +58,11 @@ Conversely, you could use the following command on Mac to do it all in one pass:
 hugo server --bind "0.0.0.0" --baseUrl "http://$(ipconfig getifaddr en0)"
 ```
 
-## Manually clearing the getJSON cache
+## Manually clearing the getJSON for blog posts on DEV
 
-To delete the cached posts from DEV, stop the server then delete the `resources/cache` directory. The data will be refetched the next time you start the server.
+**The following recommendations may not always work: DEV uses aggressive caching on their API server at the time of writing (December 2021) which returns cached results for hours.**
+
+To delete the cached posts from DEV, stop the server then delete the `resources/cache` directory. The data will be refetched the next time you start the server. You can also run Hugo with the `--ignoreCache` or `--gc` flags, which should clear
 
 ## Skipping builds on Netlify
 
