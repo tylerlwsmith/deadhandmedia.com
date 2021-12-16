@@ -1,22 +1,22 @@
-{{ define "main" }}
+{{- define "main" -}}
   <div class="page-project-list__container">
     <main>
       <article class="content-wrapper">
-        <h1 class="page__title">{{ .Title }}</h1>
+        <h1 class="page__title">{{- .Title -}}</h1>
         {{/* .Content */}}
       </article>
 
       <ul class="project-preview__list">
-        {{ range .Pages }}
-          {{ $category := .Param "category" }}
-          {{ $technologies := newScratch }}
-          {{ $technologies.Set "featured" slice }}
+        {{- range .Pages -}}
+          {{- $category := .Param "category" -}}
+          {{- $technologies := newScratch -}}
+          {{- $technologies.Set "featured" slice -}}
 
-          {{ range .Param "technologies" }}
-            {{ if (reflect.IsMap .) }}
-              {{ $technologies.Add "featured" .featured }}
-            {{ end }}
-          {{ end }}
+          {{- range .Param "technologies" -}}
+            {{- if (reflect.IsMap .) -}}
+              {{- $technologies.Add "featured" .featured -}}
+            {{- end -}}
+          {{- end -}}
 
           <li class="project-preview">
             <div class="project-preview__thumbnail-container">
@@ -48,29 +48,29 @@
             <div class="project-preview__content-container">
               <h2 class="project-preview__title">
                 <a 
-                  href="{{ .Permalink }}"
+                  href="{{- .Permalink -}}"
                   class="project-preview__link"
                 >
-                  {{ .Title }}
+                  {{- .Title -}}
                 </a>
               </h2>
 
-              {{ if $category }}
+              {{- if $category -}}
                 <dl  class="project-preview__category-wrapper">
                   <dt class="sr-only">Project Category</dt>
-                  <dd class="project-preview__category">{{ $category }}</dd>
+                  <dd class="project-preview__category">{{- $category -}}</dd>
                 </dl>     
               {{ end }}
 
               <p class="sr-only">Technologies used:</p>
               <ul class="project-preview__technology-list">
-                {{ range $technologies.Get "featured" }}
-                  <li class="project-preview__technology">{{ . }}</li>
-                {{ end }}
+                {{- range $technologies.Get "featured" -}}
+                  <li class="project-preview__technology">{{- . -}}</li>
+                {{- end -}}
               </ul>
             </div>
           </li>
-        {{ end }}
+        {{- end -}}
       </ul>
       <div class="content-wrapper">
         {{/* .Content */}}
@@ -137,4 +137,4 @@
       </script>
     </main>
   </div>
-{{ end }}
+{{- end -}}

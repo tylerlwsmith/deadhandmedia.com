@@ -1,19 +1,19 @@
-{{ define "main" }}
+{{- define "main" }}
 	<div class="container">
 		<main>
 			{{/* partial "breadcrumbs" . */}}
-			{{ if eq hugo.Environment "development" }}
-				<a href="vscode://file/{{ os.Getenv "PWD" }}/content/{{ .File.Path }}">
+			{{- if eq hugo.Environment "development" -}}
+				<a href="vscode://file/{{- os.Getenv "PWD" }}/content/{{- .File.Path -}}">
 					Edit
 				</a>
-			{{ end }}
+			{{- end -}}
 			<article>
 				<header>
 					<div class="content-wrapper">
-						<h1 class="page__title">{{ .Name }}</h1>
+						<h1 class="page__title">{{- .Name -}}</h1>
 					</div>
 
-					{{ partial "project-screenshot" . }}
+					{{- partial "project-screenshot" . -}}
 
 					{{/*
 					<div>
@@ -29,28 +29,27 @@
 					</div>
 					*/}}
 
-
 					<div>
 						<div>
 							<strong>Technologies:</strong>
 						</div>
 
 						<ul class="pill__wrapper">
-							{{ range .Param "technologies" }}
-								{{ $technology := . }}
-								{{ if (reflect.IsMap $technology) }}
-									{{ $technology = $technology.featured }}
-								{{ end }}
+							{{- range .Param "technologies" -}}
+								{{- $technology := . -}}
+								{{- if (reflect.IsMap $technology) -}}
+									{{- $technology = $technology.featured -}}
+								{{- end -}}
 								<li class="pill">
-									{{ $technology }}
+									{{- $technology -}}
 								</li>
-							{{ end }}
+							{{- end -}}
 						</ul>
 					</div>
 				</header>
 
 				<div class="content-wrapper">
-					{{ .Content }}
+					{{- .Content -}}
 				</div>
 
 				{{- if .Param "projectUrl" -}}
@@ -65,4 +64,4 @@
 			</main>
 		</article>
 	</div>
-{{ end }}
+{{- end -}}

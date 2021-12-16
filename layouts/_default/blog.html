@@ -1,19 +1,20 @@
 {{ define "main" }}
 	{{ $posts := getJSON "https://dev.to/api/articles?username=tylerlwsmith&per_page=1000" }}
+
 	<div class="page-blog-list">
-		{{ $tags := newScratch }}	
-		{{ $tags.Set "allTags" (slice)}} 
-		{{ range $posts }}
-			{{ range .tag_list }}
+		{{- $tags := newScratch -}}	
+		{{- $tags.Set "allTags" (slice) -}} 
+		{{- range $posts -}}
+			{{- range .tag_list -}}
 				{{/* Can't use isSet: checks to see if a key's value is null, not if a key exists. */}}
-				{{ if in ($tags.Get "allTags") . }}
-					{{ $tags.SetInMap "withCount" . (dict "tag" . "count" (add (index ($tags.Get "withCount") .).count 1))  }}
-				{{ else }}
-					{{ $tags.SetInMap "withCount" . (dict "tag" . "count" 1)  }}
-				{{ end }}
-				{{ $tags.Add "allTags" . }}
-			{{ end }}
-		{{ end }}
+				{{- if in ($tags.Get "allTags") . -}}
+					{{- $tags.SetInMap "withCount" . (dict "tag" . "count" (add (index ($tags.Get "withCount") .).count 1))  -}}
+				{{- else -}}
+					{{- $tags.SetInMap "withCount" . (dict "tag" . "count" 1)  -}}
+				{{- end -}}
+				{{- $tags.Add "allTags" . -}}
+			{{- end -}}
+		{{- end -}}
 		<aside class="page-blog-list__sidebar">
 			<div>
 				<h3>Filter by Topic</h3>
