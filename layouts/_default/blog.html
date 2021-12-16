@@ -2,41 +2,44 @@
 	{{ $posts := getJSON "https://dev.to/api/articles?username=tylerlwsmith&per_page=1000" }}
 
 	<div class="page-blog-list">
-		{{- $tags := newScratch -}}	
-		{{- $tags.Set "allTags" (slice) -}} 
-		{{- range $posts -}}
-			{{- range .tag_list -}}
-				{{/* Can't use isSet: checks to see if a key's value is null, not if a key exists. */}}
-				{{- if in ($tags.Get "allTags") . -}}
-					{{- $tags.SetInMap "withCount" . (dict "tag" . "count" (add (index ($tags.Get "withCount") .).count 1))  -}}
-				{{- else -}}
-					{{- $tags.SetInMap "withCount" . (dict "tag" . "count" 1)  -}}
+		{{- if false -}}
+			{{- $tags := newScratch -}}	
+			{{- $tags.Set "allTags" (slice) -}} 
+			{{- range $posts -}}
+				{{- range .tag_list -}}
+					{{/* Can't use isSet: checks to see if a key's value is null, not if a key exists. */}}
+					{{- if in ($tags.Get "allTags") . -}}
+						{{- $tags.SetInMap "withCount" . (dict "tag" . "count" (add (index ($tags.Get "withCount") .).count 1))  -}}
+					{{- else -}}
+						{{- $tags.SetInMap "withCount" . (dict "tag" . "count" 1)  -}}
+					{{- end -}}
+					{{- $tags.Add "allTags" . -}}
 				{{- end -}}
-				{{- $tags.Add "allTags" . -}}
 			{{- end -}}
+			<aside class="page-blog-list__sidebar">
+				<div>
+					<h3>Filter by Topic</h3>
+					<button id="reset-filters" class="blog-filter__reset-button">
+						Reset Filters
+					</button>
+					<ul class="blog-filter__list">
+						{{ range sort ($tags.Get "withCount") "tag" "asc" }}
+							<li class="blog-filter__wrapper">
+								<input 
+									type="checkbox"
+									name="{{ .tag }}"
+									id="tag:{{ .tag }}"
+									class="blog-filter sr-only"
+									data-blog-tag="{{ .tag }}"
+								>
+								<label for="tag:{{ .tag }}" class="blog-filter__label">{{ .tag }}: {{ .count }}</label>
+							</li>
+						{{ end }}
+					</ul>
+				</div>
+			</aside>
+			<script src="{{- (resources.Get "js/blog.js").RelPermalink -}}"></script>
 		{{- end -}}
-		<aside class="page-blog-list__sidebar">
-			<div>
-				<h3>Filter by Topic</h3>
-				<button id="reset-filters" class="blog-filter__reset-button">
-					Reset Filters
-				</button>
-				<ul class="blog-filter__list">
-					{{ range sort ($tags.Get "withCount") "tag" "asc" }}
-						<li class="blog-filter__wrapper">
-							<input 
-								type="checkbox"
-								name="{{ .tag }}"
-								id="tag:{{ .tag }}"
-								class="blog-filter sr-only"
-								data-blog-tag="{{ .tag }}"
-							>
-							<label for="tag:{{ .tag }}" class="blog-filter__label">{{ .tag }}: {{ .count }}</label>
-						</li>
-					{{ end }}
-				</ul>
-			</div>
-		</aside>
 		<main class="page-blog-list__container">
 			<article class="content-wrapper">
 				<h1 class="page__title">{{ .Title }}</h1>
@@ -51,7 +54,9 @@
 				{{ $postYear :=  time.Format "2006" .published_at }}
 				{{ if ne $yearIndex $postYear }}
 					{{ $yearIndex = $postYear }}
-					<h2 data-year-heading class="page-blog-list__year">{{ $yearIndex }}</h2>
+					<h2 data-year-heading="{{ $yearIndex }}" class="page-blog-list__year">
+						{{ $yearIndex }}
+					</h2>
 				{{ end }}
 				<article data-tags="{{ jsonify .tag_list }}" class="blog-preview">
 					<ul class="blog-preview__tag-list">
@@ -66,6 +71,7 @@
 					<time 
 						class="blog-preview__published_date"
 						datetime="{{ time.Format "2006-01-02" .published_at }}"
+						data-published-date="{{ time.Format "2006-01-02" .published_at }}"
 					>
 						{{ time.Format "Jan 2, 2006" .published_at }}
 					</time>
@@ -93,5 +99,21 @@
 			{{ end }}
 		</main>
 	</div>
-	<script src="{{- (resources.Get "js/blog.js").RelPermalink -}}"></script>
+	<script>
+		(function() {
+			[...document.querySelectorAll('[data-year-heading]')]
+				.forEach(yearHeading => {
+					const year = yearHeading.dataset.yearHeading;
+					const matchingCount = [
+						...document.querySelectorAll("[data-published-date]")
+					].map(el => el.dateTime.substr(0, 4))
+					 .filter(postYear => postYear === year)
+					 .length;
+					
+					yearHeading.innerHTML = `${year} <small style="float: right; font-size: 14px; margin-top: 9px;">${matchingCount} ${
+						matchingCount === 1 ? "post" : "posts"
+					}</small>`;
+				});
+		})();
+	</script>
 {{ end }}
