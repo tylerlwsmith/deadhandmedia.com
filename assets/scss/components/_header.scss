@@ -6,7 +6,7 @@
   justify-content: space-between;
   padding-top: 16px;
   padding-bottom: 16px;
-  border-top: 4px solid #8f67dd;
+  border-top: 4px solid $color__purple--bright;
   &--absolute {
     position: absolute;
     top: 0;
@@ -50,14 +50,16 @@
   }
   &__menu-item-link {
     color: rgb(150, 150, 150);
-    &:hover {
-      color: $color__purple;
-    }
     &--is-active,
     &--is-active:hover,
     &--is-active:focus,
     &--is-active:active {
-      color: #404040;
+      color: #70638b;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      color: $color__purple--bright;
     }
     @at-root .header--light & {
       color: #fff;
