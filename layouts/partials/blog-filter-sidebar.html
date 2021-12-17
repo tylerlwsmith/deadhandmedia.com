@@ -1,14 +1,14 @@
-{{- $tags := newScratch -}}	
-{{- $tags.Set "allTags" (slice) -}} 
+{{- $scratch := newScratch -}}	
+{{- $scratch.Set "allTags" (slice) -}} 
 {{- range (.Scratch.Get "posts") -}}
   {{- range .tag_list -}}
     {{/* Can't use isSet: checks to see if a key's value is null, not if a key exists. */}}
-    {{- if in ($tags.Get "allTags") . -}}
-      {{- $tags.SetInMap "withCount" . (dict "tag" . "count" (add (index ($tags.Get "withCount") .).count 1))  -}}
+    {{- if in ($scratch.Get "allTags") . -}}
+      {{- $scratch.SetInMap "tagCount" . (dict "tag" . "count" (add (index ($scratch.Get "tagCount") .).count 1))  -}}
     {{- else -}}
-      {{- $tags.SetInMap "withCount" . (dict "tag" . "count" 1)  -}}
+      {{- $scratch.SetInMap "tagCount" . (dict "tag" . "count" 1)  -}}
     {{- end -}}
-    {{- $tags.Add "allTags" . -}}
+    {{- $scratch.Add "allTags" . -}}
   {{- end -}}
 {{- end -}}
 <aside class="page-blog-list__sidebar">
@@ -18,7 +18,7 @@
       Reset Filters
     </button>
     <ul class="blog-filter__list">
-      {{ range sort ($tags.Get "withCount") "tag" "asc" }}
+      {{ range sort ($scratch.Get "tagCount") "tag" "asc" }}
         <li class="blog-filter__wrapper">
           <input 
             type="checkbox"
