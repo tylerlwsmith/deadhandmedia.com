@@ -5,7 +5,6 @@
 }
 
 html {
-  height: 0; /* Needed so children can use 100% height */
   min-height: 100vh;
   min-height: -webkit-fill-available;
 }

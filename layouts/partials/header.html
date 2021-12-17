@@ -1,4 +1,6 @@
-<header class="header">
+{{ $headerVariation := .Scratch.Get "headerVariation" }}
+{{/* Ternaries in Hugo are wild. */}}
+<header class="header{{ cond (gt (len (print $headerVariation)) 0) (print " " $headerVariation) "" }}">
 	{{ if not .IsHome }}
 		<a href="/" class="header__title">Tyler Smith</a>
 	{{ end }}

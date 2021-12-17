@@ -1,7 +1,8 @@
 .page-home {
   background-color: $color__purple--light;
   color: #fff;
-
+  display: flex;
+  align-items: stretch;
   @media (max-width: $breakpoint__md) {
     background-color: $color__purple;
     display: flex;
@@ -10,41 +11,17 @@
     height: 100%;
   }
 
-  a,
-  a:hover,
-  a:focus,
-  a:active {
-    color: #fff;
-    border-bottom-color: #fff;
-  }
-
-  .header {
-    padding-left: 0;
-    padding-right: 0;
-    background: none;
-  }
-
   .header__menu {
-    float: none;
-    text-align: right;
-    padding-left: 0;
     @media (max-width: $breakpoint__md) {
       text-align: center;
-    }
-  }
-
-  .header__menu-item {
-    @media (max-width: $breakpoint__md) {
-      margin: 10px 10px 0;
+      margin-top: 6px;
     }
   }
 
   &__head-container {
-    float: left;
     width: 40%;
     height: 100%;
     min-height: 100vh;
-    position: absolute;
     padding: 20px;
     background-image: url("/tylers-giant-head.svg");
     background-repeat: no-repeat;
@@ -54,7 +31,7 @@
     @media (max-width: $breakpoint__md) {
       width: 100%;
       height: 0;
-      height: 83vw;
+      height: 59vw;
       min-height: 0;
       position: initial;
       background-color: $color__purple--light;
@@ -64,7 +41,6 @@
   &__content-container {
     position: relative;
     background-color: $color__purple;
-    float: right;
     width: 60%;
     min-height: 100vh;
     box-sizing: border-box;
@@ -125,6 +101,13 @@
     font-size: 1.5vw;
     font-weight: 300;
     line-height: 1.6;
+    a,
+    a:hover,
+    a:focus,
+    a:active {
+      color: #fff;
+      border-bottom-color: #fff;
+    }
     @media (max-width: $breakpoint__xl) {
       max-width: 540px;
       font-size: 20px;

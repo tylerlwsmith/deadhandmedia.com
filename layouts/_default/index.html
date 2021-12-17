@@ -48,7 +48,8 @@
 		{{ "<!-- Head image in the background CSS -->" | safeHTML }}
 	</div>
 	<div class="page-home__content-container">
-		{{  partial "header.html" . }}
+		{{ .Scratch.Set "headerVariation" "header--light header--no-horizontal-padding" }}
+		{{ partial "header.html" . }}
 		<main class="page-home__main">
 			<header class="page-home__heading-wrapper">
 				<h1 class="page-home__heading animate:fade-in">Tyler Smith</h1>

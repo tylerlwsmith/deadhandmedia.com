@@ -1,16 +1,22 @@
 .header {
+  $space-between-items: 18px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding-top: 16px;
   padding-bottom: 16px;
+  border-top: 4px solid #59389b;
   @include site-padding;
+  &--no-horizontal-padding {
+    padding-left: 0;
+    padding-right: 0;
+  }
   &__title {
     display: inline-block;
-    border-bottom: none;
     font-family: $font-family__headings;
     font-size: 22px;
     padding-bottom: 0;
+    margin-right: 50px;
     color: $color__black;
     &:hover,
     &:focus,
@@ -20,23 +26,22 @@
   }
   &__menu {
     margin: 0;
-    padding-left: 40px;
+    padding-left: 0;
     font-size: 16px;
     list-style: none;
     flex-grow: 1;
     flex-basis: auto;
     text-align: right;
+    margin-left: -($space-between-items / 2);
+    margin-right: -($space-between-items / 2);
   }
   &__menu-item {
     display: inline-block;
-    margin-left: 18px;
+    padding-left: $space-between-items / 2;
+    padding-right: $space-between-items / 2;
   }
   &__menu-item-link {
-    color: #666;
-    border-bottom-width: 0;
-    border-bottom-color: $color__purple;
-    border-bottom-style: solid;
-    padding-bottom: 2px;
+    color: rgb(150, 150, 150);
     &:hover {
       color: $color__purple;
     }
@@ -45,7 +50,9 @@
     &--is-active:focus,
     &--is-active:active {
       color: #404040;
-      border-bottom-width: 4px;
+    }
+    @at-root .header--light & {
+      color: #fff;
     }
   }
 }
