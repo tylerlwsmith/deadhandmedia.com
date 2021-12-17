@@ -1,0 +1,36 @@
+{{- $tags := newScratch -}}	
+{{- $tags.Set "allTags" (slice) -}} 
+{{- range (.Scratch.Get "posts") -}}
+  {{- range .tag_list -}}
+    {{/* Can't use isSet: checks to see if a key's value is null, not if a key exists. */}}
+    {{- if in ($tags.Get "allTags") . -}}
+      {{- $tags.SetInMap "withCount" . (dict "tag" . "count" (add (index ($tags.Get "withCount") .).count 1))  -}}
+    {{- else -}}
+      {{- $tags.SetInMap "withCount" . (dict "tag" . "count" 1)  -}}
+    {{- end -}}
+    {{- $tags.Add "allTags" . -}}
+  {{- end -}}
+{{- end -}}
+<aside class="page-blog-list__sidebar">
+  <div>
+    <h3>Filter by Topic</h3>
+    <button id="reset-filters" class="blog-filter__reset-button">
+      Reset Filters
+    </button>
+    <ul class="blog-filter__list">
+      {{ range sort ($tags.Get "withCount") "tag" "asc" }}
+        <li class="blog-filter__wrapper">
+          <input 
+            type="checkbox"
+            name="{{ .tag }}"
+            id="tag:{{ .tag }}"
+            class="blog-filter sr-only"
+            data-blog-tag="{{ .tag }}"
+          >
+          <label for="tag:{{ .tag }}" class="blog-filter__label">{{ .tag }}: {{ .count }}</label>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+</aside>
+<script src="{{- (resources.Get "js/blog-filter-sidebar.js").RelPermalink -}}"></script>
