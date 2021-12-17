@@ -3,8 +3,11 @@
 		<main>
 			{{/* partial "breadcrumbs" . */}}
 			{{- if eq hugo.Environment "development" -}}
-				<a href="vscode://file/{{- os.Getenv "PWD" }}/content/{{- .File.Path -}}">
-					Edit
+				<a 
+					href="vscode://file/{{- os.Getenv "PWD" }}/content/{{- .File.Path -}}"
+					class="edit-page-button"
+				>
+					Edit Page
 				</a>
 			{{- end -}}
 			<article>
