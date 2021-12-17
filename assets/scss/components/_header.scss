@@ -1,16 +1,20 @@
 .header {
   $space-between-items: 22px;
+  @include site-padding;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding-top: 16px;
   padding-bottom: 16px;
-  border-top: 4px solid #59389b;
-  @include site-padding;
-  &--no-horizontal-padding {
-    padding-left: 0;
-    padding-right: 0;
+  border-top: 4px solid #8f67dd;
+  &--absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
   }
+
   &__title {
     display: inline-block;
     font-family: $font-family__headings;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 {{- partial "head.html" . -}}
 <script>
   /** Animate the homepage text. */
@@ -48,7 +48,7 @@
 		{{ "<!-- Head image in the background CSS -->" | safeHTML }}
 	</div>
 	<div class="page-home__content-container">
-		{{ .Scratch.Set "headerVariation" "header--light header--no-horizontal-padding" }}
+		{{ .Scratch.Set "headerVariation" "header--light header--absolute" }}
 		{{ partial "header.html" . }}
 		<main class="page-home__main">
 			<header class="page-home__heading-wrapper">
@@ -61,7 +61,7 @@
 				{{ .Content }}
 			</div>
 			<ul class="platform-link__list">
-				{{ range .Param "links" }}
+				{{- range .Param "links" -}}
 					<li class="platform-link__wrapper animate:fade-in">
 						<a
 							href="{{ .link }}"
@@ -71,9 +71,8 @@
 							<span class="fab {{ .icon }}" aria-label="{{ .platform }}"></span>
 						</a>
 					</li>
-				{{ end }}
+				{{- end -}}
 			</ul>
-			
 		</main>
 		{{ partial "footer.html" . }}
 	</div>

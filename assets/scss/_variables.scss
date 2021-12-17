@@ -8,6 +8,7 @@ $color__purple--dark: desaturate(darken($color__purple, 10%), 10%);
 $color__black: #404040;
 
 $color__background: lighten(desaturate($color__purple--light, 25%), 11%);
+$color__background: #fff;
 
 $breakpoint__xl: 1400px;
 $breakpoint__md: 650px;
