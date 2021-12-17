@@ -1,5 +1,19 @@
 {{ define "main" }}
-	{{ .Scratch.Set "posts" ( getJSON "https://dev.to/api/articles?username=tylerlwsmith&per_page=1000") }}
+	{{- .Scratch.Set "posts" ( getJSON "https://dev.to/api/articles?username=tylerlwsmith&per_page=1000") -}}
+
+	{{/*  Must use newScratch instead of .Scratch: .Scratch doesn't work in range in Hugo 0.93.  */}}
+	{{- $scratch := newScratch -}}	
+	{{- $scratch.Set "allYears" (slice) -}} 
+	{{- range (.Scratch.Get "posts") -}}
+		{{- $year := time.Format "2006" .published_at -}}
+		{{/* Can't use isSet: checks to see if a key's value is null, not if a key exists. */}}
+		{{- if in ($scratch.Get "allYears") $year -}}
+			{{- $scratch.SetInMap "yearCounts" $year (dict "year" $year "count" (add (index ($scratch.Get "yearCounts") $year).count 1))  -}}
+		{{- else -}}
+			{{- $scratch.SetInMap "yearCounts" $year (dict "year" $year "count" 1)  -}}
+		{{- end -}}
+		{{- $scratch.Add "allYears" $year -}}
+	{{- end -}}
 
 	<div class="page-blog-list">
 
@@ -21,6 +35,9 @@
 					{{ $yearIndex = $postYear }}
 					<h2 data-year-heading="{{ $yearIndex }}" class="page-blog-list__year">
 						<span>{{ $yearIndex }}</span>
+						<span class="page-blog-list__year-count">
+							{{ (index ($scratch.Get "yearCounts") $yearIndex).count }} posts
+						</span>
 					</h2>
 				{{ end }}
 				<article data-tags="{{ jsonify .tag_list }}" class="blog-preview">
@@ -64,21 +81,4 @@
 			{{ end }}
 		</main>
 	</div>
-	<script>
-		(function() {
-			[...document.querySelectorAll('[data-year-heading]')]
-				.forEach(yearHeading => {
-					const year = yearHeading.dataset.yearHeading;
-					const matchingCount = [
-						...document.querySelectorAll("[data-published-date]")
-					].map(el => el.dateTime.substr(0, 4))
-					 .filter(postYear => postYear === year)
-					 .length;
-					
-					yearHeading.innerHTML = `${year} <small style="float: right; font-size: 14px; margin-top: 9px;">${matchingCount} ${
-						matchingCount === 1 ? "post" : "posts"
-					}</small>`;
-				});
-		})();
-	</script>
 {{ end }}

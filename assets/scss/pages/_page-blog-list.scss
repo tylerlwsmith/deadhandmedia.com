@@ -19,6 +19,10 @@
     position: relative;
     margin-bottom: 40px;
     font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
     &:after {
       top: calc(100% + 4px);
       left: 0;
@@ -27,8 +31,12 @@
       position: absolute;
       width: calc(100%);
     }
+    // Display even if filters are enabled.
     @media (max-width: $breakpoint__md) {
-      display: block !important;
+      display: flex !important;
     }
+  }
+  &__year-count {
+    font-size: 14px;
   }
 }
