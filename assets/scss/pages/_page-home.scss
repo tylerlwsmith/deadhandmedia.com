@@ -13,8 +13,8 @@
 
   .header__menu {
     @media (max-width: $breakpoint__md) {
-      text-align: center;
-      margin-top: 6px;
+      justify-content: center;
+      top: 0;
     }
   }
 

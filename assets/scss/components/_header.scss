@@ -1,5 +1,5 @@
 .header {
-  $space-between-items: 18px;
+  $space-between-items: 22px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -25,6 +25,8 @@
     }
   }
   &__menu {
+    display: flex;
+    justify-content: flex-end;
     margin: 0;
     padding-left: 0;
     font-size: 16px;
@@ -36,6 +38,8 @@
     margin-right: -($space-between-items / 2);
   }
   &__menu-item {
+    position: relative;
+    top: 5px;
     display: inline-block;
     padding-left: $space-between-items / 2;
     padding-right: $space-between-items / 2;
