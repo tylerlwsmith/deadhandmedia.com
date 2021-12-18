@@ -21,7 +21,7 @@
 				{{ .Content }}
 			</div>
 			<ul class="platform-link__list">
-				{{- range .Param "links" -}}
+				{{- range .Site.Data.platform_links -}}
 					<li class="platform-link__wrapper animate:fade-in">
 						<a
 							href="{{ .link }}"
