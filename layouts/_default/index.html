@@ -20,21 +20,25 @@
 			<div class="page-home__content animate:fade-in">
 				{{ .Content }}
 			</div>
-			<ul class="platform-link__list">
-				{{- range .Site.Data.platform_links -}}
-					<li class="platform-link__wrapper animate:fade-in">
-						<a
-							href="{{ .link }}"
-							rel="noreferrer noopener"
-							class="platform-link"
-						>
-							<span class="fab {{ .icon }}" aria-label="{{ .platform }}"></span>
-						</a>
-					</li>
-				{{- end -}}
-			</ul>
+			<div class="page-home__platform-link-wrapper">
+				<ul class="platform-link__list platform-link__list--gap-wide">
+					{{- range .Site.Data.platform_links -}}
+						<li class="platform-link__wrapper animate:fade-in">
+							<a
+								href="{{ .link }}"
+								rel="noreferrer noopener"
+								class="platform-link"
+							>
+								<span class="fab {{ .icon }}" aria-label="{{ .platform }}"></span>
+							</a>
+						</li>
+					{{- end -}}
+				</ul>
+			</div>
 		</main>
-		{{ partial "footer.html" . }}
+		<footer class="page-home__footer">
+			{{ partial "copyright.html" . }}
+		</footer>
 	</div>
 </body>
 </html>

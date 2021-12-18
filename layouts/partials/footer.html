@@ -1,8 +1,20 @@
 <footer class="footer">
-	&copy;<span id="footer-year">{{ dateFormat "2006" now }}</span> Tyler Smith
-	
-	<script>
-		var year = new Date().getFullYear();
-		document.getElementById('footer-year').innerHTML = year;
-	</script>
+	<div class="footer__copyright-wrapper">
+		{{ partial "copyright.html" }}
+	</div>
+	<div class="footer__platform-link-wrapper">
+		<ul class="platform-link__list">
+			{{- range .Site.Data.platform_links -}}
+				<li class="platform-link__wrapper">
+					<a
+						href="{{ .link }}"
+						rel="noreferrer noopener"
+						class="platform-link"
+					>
+						<span class="fab {{ .icon }}" aria-label="{{ .platform }}"></span>
+					</a>
+				</li>
+			{{- end -}}
+		</ul>
+	</div>
 </footer>

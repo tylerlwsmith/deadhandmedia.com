@@ -122,7 +122,35 @@
       font-size: 16px;
     }
   }
-  .footer {
+  &__platform-link-wrapper {
+    padding: 24px 0 60px;
+    font-size: 40px;
+    @media (max-width: $breakpoint__md) {
+      justify-content: center;
+      padding-bottom: 20px;
+    }
+    a {
+      color: #fff;
+      &:hover,
+      &:focus {
+        * {
+          transition-duration: 0.1s;
+          transform: translateY(-3px);
+        }
+      }
+      * {
+        transition-property: transform;
+        transition-duration: 0.3s;
+      }
+    }
+  }
+
+  &__footer {
+    @include site-padding;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-weight: 600;
     position: absolute;
     bottom: 0;
     left: 0;

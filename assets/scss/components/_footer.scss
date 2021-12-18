@@ -1,7 +1,22 @@
 .footer {
-  padding: 10px 4vw;
-  text-align: center;
+  @include site-padding;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  &__copyright-wrapper {
+    padding-right: 16px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  &__platform-link-wrapper {
+    font-size: 24px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
 }
 #footer-year {
   font-variant-numeric: tabular-nums;
