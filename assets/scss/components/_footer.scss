@@ -1,7 +1,9 @@
 .footer {
   @include site-padding;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  $vertical-padding: 20px;
+  $children-vertical-padding: 5px;
+  padding-top: $vertical-padding;
+  padding-bottom: $vertical-padding;
   font-weight: 600;
   display: flex;
   justify-content: space-between;
@@ -9,13 +11,26 @@
   flex-wrap: wrap;
   &__copyright-wrapper {
     padding-right: 16px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: $children-vertical-padding;
+    padding-bottom: $children-vertical-padding;
+    color: #797581;
+    font-size: 15px;
   }
   &__platform-link-wrapper {
-    font-size: 24px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    // font-size: 24px;
+    padding-top: $children-vertical-padding;
+    padding-bottom: $children-vertical-padding;
+    .fa-stack {
+      margin: 0 -4px;
+    }
+    a {
+      color: #c0ade7;
+      &:hover,
+      &:focus,
+      &:active {
+        color: $color__purple--bright;
+      }
+    }
   }
 }
 #footer-year {

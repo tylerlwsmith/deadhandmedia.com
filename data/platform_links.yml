@@ -1,20 +1,20 @@
 - platform: GitHub
   link: https://github.com/tylerlwsmith
   icon: "fab fa-github-square"
-  icon-alt: "fab fa-github"
+  iconAlt: "fab fa-github"
 - platform: Dev.to
   link: https://dev.to/tylerlwsmith
   icon: "fab fa-dev"
-  icon-alt: "fab fa-dev"
+  iconAlt: "fab fa-dev"
 - platform: Twitter
   link: https://twitter.com/tylerlwsmith
   icon: "fab fa-twitter-square"
-  icon-alt: "fab fa-twitter"
+  iconAlt: "fab fa-twitter"
 - platform: LinkedIn
   link: https://www.linkedin.com/in/tylerlwsmith/
   icon: "fab fa-linkedin"
-  icon-alt: "fab fa-linkedin-in"
+  iconAlt: "fab fa-linkedin-in"
 - platform: Email
   link: mailto:tyler@deadhandmedia.com
   icon: "fas fa-envelope-square"
-  icon-alt: "fas fa-envelope"
+  iconAlt: "fas fa-envelope"
