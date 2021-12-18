@@ -22,11 +22,6 @@
     padding-bottom: 0;
     margin-right: 50px;
     color: $color__black;
-    &:hover,
-    &:focus,
-    &:active {
-      color: $color__purple;
-    }
   }
   &__menu {
     display: flex;
@@ -49,18 +44,14 @@
     padding-right: $space-between-items / 2;
   }
   &__menu-item-link {
-    color: rgb(150, 150, 150);
+    color: #746f85;
     &--is-active,
     &--is-active:hover,
     &--is-active:focus,
     &--is-active:active {
-      color: #70638b;
+      color: #7e44ed;
     }
-    &:hover,
-    &:focus,
-    &:active {
-      color: $color__purple--bright;
-    }
+
     @at-root .header--light & {
       color: #fff;
     }

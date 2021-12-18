@@ -1,6 +1,6 @@
 .footer {
   @include site-padding;
-  $vertical-padding: 20px;
+  $vertical-padding: 26px;
   $children-vertical-padding: 5px;
   padding-top: $vertical-padding;
   padding-bottom: $vertical-padding;
@@ -9,22 +9,27 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  @media (max-width: $breakpoint__sm) {
+    & > * {
+      flex-basis: 100%;
+      text-align: center;
+    }
+  }
   &__copyright-wrapper {
     padding-right: 16px;
-    padding-top: $children-vertical-padding;
-    padding-bottom: $children-vertical-padding;
-    color: #797581;
+    color: #95939d;
     font-size: 15px;
   }
   &__platform-link-wrapper {
-    // font-size: 24px;
-    padding-top: $children-vertical-padding;
-    padding-bottom: $children-vertical-padding;
+    @media (max-width: $breakpoint__sm) {
+      order: -1;
+      margin-bottom: 24px;
+    }
     .fa-stack {
       margin: 0 -4px;
     }
     a {
-      color: #c0ade7;
+      color: #dad8df;
       &:hover,
       &:focus,
       &:active {
