@@ -99,9 +99,16 @@
   }
   &__category {
     margin: 0 0 4px;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.05em;
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 5px;
+    margin-bottom: 12px;
+    line-height: 1;
+    background: #7e44ed;
+    color: #fff;
   }
   &__content-container {
     display: flex;
