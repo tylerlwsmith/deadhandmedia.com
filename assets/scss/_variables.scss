@@ -3,13 +3,15 @@ $font-family__body: "raleway", sans-serif;
 
 $color__purple: #59389b; /* previous: #684c9f */
 $color__purple--bright: #8f67dd;
+// $color__purple--bright: #945cff;
 $color__purple--light: #d4cbe5;
 $color__purple--dark: desaturate(darken($color__purple, 10%), 10%);
 
 $color__black: #404040;
 
 $color__background: lighten(desaturate($color__purple--light, 25%), 11%);
-$color__background: #fff;
+// $color__background: #fff;
+$color__background: #f9f9f9;
 
 $breakpoint__xl: 1400px;
 $breakpoint__md: 650px;
