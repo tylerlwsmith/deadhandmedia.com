@@ -34,8 +34,6 @@ window.addEventListener("DOMContentLoaded", function () {
     scrollButton.addEventListener("click", () => window.scrollTo(0, 0));
     document.body.append(scrollButton);
 
-    // const bleep = debounce(() => console.log("scrolling"), 100);
-    // window.addEventListener("scroll", bleep);
     requestAnimationFrame(function checkScroll() {
       const { innerHeight, scrollY } = window;
       if (scrollY < innerHeight / 3) {
@@ -104,10 +102,6 @@ window.addEventListener("DOMContentLoaded", function () {
     const target = event.target;
 
     if (!target.hasAttribute("data-active-filter")) return;
-    console.log(
-      "handling",
-      document.querySelector([`[data-blog-tag=${target.dataset.activeFilter}]`])
-    );
     document.querySelector([
       `[data-blog-tag=${target.dataset.activeFilter}]`,
     ]).checked = false;
@@ -139,8 +133,6 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 window.addEventListener("keypress", (event) => {
-  console.log(event);
-  console.log(event.key, event.key.toUpperCase());
   if (event.key.toUpperCase() !== "F") return;
   document.querySelector(".blog-filter__sidebar").classList.toggle("hidden");
 });
