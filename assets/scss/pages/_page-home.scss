@@ -3,6 +3,7 @@
   color: #fff;
   display: flex;
   align-items: stretch;
+  flex-direction: row;
   @media (max-width: $breakpoint__md) {
     background-color: $color__purple;
     display: flex;

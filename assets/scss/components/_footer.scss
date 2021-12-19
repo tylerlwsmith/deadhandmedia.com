@@ -1,7 +1,8 @@
 .footer {
-  @include site-padding;
   $vertical-padding: 26px;
   $children-vertical-padding: 5px;
+  @include site-padding;
+  margin-top: auto;
   padding-top: $vertical-padding;
   padding-bottom: $vertical-padding;
   font-weight: 600;
