@@ -30,10 +30,6 @@ hugo new projects/{my-project}/index.md
 
 To publish the project item, be sure to set `draft` and `hidden` to true in the front matter.
 
-## State of the site
-
-As of December 2021, this site is under active development. Currently, most of the projects on hidden when the site is deployed because they are in `draft` mode.
-
 ## Hugo page reload cache issues
 
 Sometimes Hugo clears changes to the CSS when reloaded. When this happens, run the server with the `--noHTTPCache` flag.
@@ -71,6 +67,15 @@ On commits that don't require a new build (like when making edits to the README)
 ## Daily rebuilds
 
 A GitHub action rebuilds the site daily to make sure the site has the latest blog posts and comment counts. The action was based off of [a blog post by Eric Jinks](https://ericjinks.com/blog/2019/netlify-scheduled-build/).
+
+## Rough edges
+
+As of mid-December 2021, I'm in a mad dash to get this site finished and I'm cutting a few corners. I'm putting this list in here as a reminder of what I need to fix later.
+
+- Homepage should use `baseof.html` and currently doesn't. Script tags added to `baseof` don't automatically end up on the homepage and that's a problem.
+- Colors should be extracted to variables.
+- Styles for layout padding and margins across the pages were copied and pasted. Those should be extracted to reusuable components.
+- The blog filters component's vanilla JS implementation is fragile and tightly coupled to the markup and styles. If I want to add a single additional feature to it, I need to migrate to Alpine JS or React.
 
 ## Why the stupid name... what even _is_ a dead hand?
 
