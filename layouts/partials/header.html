@@ -1,6 +1,9 @@
 {{ $headerVariation := .Scratch.Get "headerVariation" }}
 {{/* Ternaries in Hugo are wild. */}}
 <header class="header{{ cond (ne $headerVariation nil) (print " " $headerVariation) "" }}">
+	{{ if eq hugo.Environment "development" }}
+		<a href="#main" id="skip-to-content">Skip to Content</a>
+	{{ end }}
 	{{ if not .IsHome }}
 		<a href="/" class="header__title">Tyler Smith</a>
 	{{ end }}
