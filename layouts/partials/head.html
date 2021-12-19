@@ -8,7 +8,7 @@
 {{- $style := resources.Get "scss/style.scss" | toCSS $styleOptions -}}
 <head>
 	{{ "<!-- Wanna look under the hood? Visit https://github.com/tylerlwsmith/deadhandmedia.com to see this site's source. -->" | safeHTML }}
-	<title>{{ .Title }} - {{ .Site.Title }}</title>
+	<title>{{ if not .IsHome }}{{- .Title }} - {{ end }}{{ .Site.Title -}}</title>
 
 	{{ if (.Param "hidden") -}} 
 	<meta name="robots" content="noindex, follow">
@@ -16,7 +16,7 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="{{- trim $description "\n" -}}">
-	<meta property="og:title" content="{{- .Title }} - {{ .Site.Title -}}">
+	<meta property="og:title" content="{{ if not .IsHome }}{{- .Title }} - {{ end }}{{ .Site.Title -}}">
 	<meta property="og:description" content="{{- trim $description "\n" -}}">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="{{ .Permalink | absURL }}">
