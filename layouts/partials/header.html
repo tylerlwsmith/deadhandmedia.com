@@ -7,45 +7,47 @@
 	{{ if not .IsHome }}
 		<a href="/" class="header__title">Tyler Smith</a>
 	{{ end }}
-	<ul class="header__menu">
-		{{- range .Site.Menus.main -}}
-			{{- $currentMenuItem := . -}}
-			{{- $path := .URL | relURL | plainify -}}
-			{{- $pathNoTrailingSlash := strings.TrimSuffix "/" $path -}}
-			{{ $page := $.Site.GetPage $pathNoTrailingSlash }}
-			{{ $notHidden := not ($page.Param "hidden") }}
-			{{- if or (and $page $notHidden) (and $page $.Site.IsServer) -}}
-				{{/* 
-					Grab the length of menu item, get a substring of the 
-					current page url the length of the menu item and see if
-					they're the same. If they are, it means that the
-					current page is a child or the same page and should be active.
-					*/}}
-				{{- $menuItemUrlLength := len $currentMenuItem.URL -}}
-				{{- $pageSubstr := substr $.Page.RelPermalink 0 $menuItemUrlLength -}}
-				<li class="header__menu-item">
-					<a 
-						href="{{ $currentMenuItem.URL }}" 
-						class="
-							header__menu-item-link
-							{{- if eq $pageSubstr $page.RelPermalink }} header__menu-item-link--is-active{{end}}
-						"
-					>
-						{{ $currentMenuItem.Name }}
-					</a>
-				</li>
-			{{- else if and (not $page) (findRE "^https?://" $currentMenuItem.URL) -}}
-				<li class="header__menu-item">
-					<a
-						href="{{ $currentMenuItem.URL }}"
-						class="header__menu-item-link"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						{{ $currentMenuItem.Name }}
-					</a>
-				</li>
-			{{- end -}}
-		{{- end -}}	
-	</ul>
+	<nav class="header__navigation">
+		<ul class="header__menu">
+			{{- range .Site.Menus.main -}}
+				{{- $currentMenuItem := . -}}
+				{{- $path := .URL | relURL | plainify -}}
+				{{- $pathNoTrailingSlash := strings.TrimSuffix "/" $path -}}
+				{{ $page := $.Site.GetPage $pathNoTrailingSlash }}
+				{{ $notHidden := not ($page.Param "hidden") }}
+				{{- if or (and $page $notHidden) (and $page $.Site.IsServer) -}}
+					{{/* 
+						Grab the length of menu item, get a substring of the 
+						current page url the length of the menu item and see if
+						they're the same. If they are, it means that the
+						current page is a child or the same page and should be active.
+						*/}}
+					{{- $menuItemUrlLength := len $currentMenuItem.URL -}}
+					{{- $pageSubstr := substr $.Page.RelPermalink 0 $menuItemUrlLength -}}
+					<li class="header__menu-item">
+						<a 
+							href="{{ $currentMenuItem.URL }}" 
+							class="
+								header__menu-item-link
+								{{- if eq $pageSubstr $page.RelPermalink }} header__menu-item-link--is-active{{end}}
+							"
+						>
+							{{ $currentMenuItem.Name }}
+						</a>
+					</li>
+				{{- else if and (not $page) (findRE "^https?://" $currentMenuItem.URL) -}}
+					<li class="header__menu-item">
+						<a
+							href="{{ $currentMenuItem.URL }}"
+							class="header__menu-item-link"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							{{ $currentMenuItem.Name }}
+						</a>
+					</li>
+				{{- end -}}
+			{{- end -}}	
+		</ul>
+	</nav>
 </header>

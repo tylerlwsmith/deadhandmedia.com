@@ -18,8 +18,14 @@
 
   .header__menu {
     @media (max-width: $breakpoint__md) {
-      justify-content: center;
       top: 0;
+    }
+  }
+
+  .header__navigation {
+    margin-left: auto;
+    @media (max-width: $breakpoint__md) {
+      margin: auto;
     }
   }
 
