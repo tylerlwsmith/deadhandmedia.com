@@ -1,6 +1,10 @@
 {{- $description :=  replace .Content "\n" "" | plainify | truncate 160 -}}
-{{- $style := resources.Get "scss/style.scss" | 
-	            toCSS (dict "targetPath" "css/style.css" "enableSourceMap" .Site.IsServer) }}
+{{- $styleOptions := (dict 
+	"targetPath" "css/style.css"
+	"enableSourceMap" .Site.IsServer
+	"includePaths" (slice ".")
+) -}}
+{{- $style := resources.Get "scss/style.scss" | toCSS $styleOptions -}}
 <head>
 	{{ "<!-- Wanna look under the hood? Visit https://github.com/tylerlwsmith/deadhandmedia.com to see this site's source. -->" | safeHTML }}
 	<title>{{ .Title }} - {{ .Site.Title }}</title>
