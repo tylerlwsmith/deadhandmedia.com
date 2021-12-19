@@ -33,11 +33,13 @@
 				{{ $postYear :=  time.Format "2006" .published_at }}
 				{{ if ne $yearIndex $postYear }}
 					{{ $yearIndex = $postYear }}
-					<h2 data-year-heading="{{ $yearIndex }}" class="page-blog-list__year">
-						<span>{{ $yearIndex }}</span>
-						<span class="page-blog-list__year-count">
-							{{ (index ($scratch.Get "yearCounts") $yearIndex).count }} posts
-						</span>
+					<h2 data-year-heading="{{ $yearIndex }}" class="page-blog-list__year-heading">
+						<div class="page-blog-list__year-heading-inner">
+							<span class="page-blog-list__year">{{ $yearIndex }}</span>
+							<span class="page-blog-list__year-count">
+								{{ (index ($scratch.Get "yearCounts") $yearIndex).count }} posts
+							</span>
+						</div>
 					</h2>
 				{{ end }}
 				<article data-tags="{{ jsonify .tag_list }}" class="blog-preview">

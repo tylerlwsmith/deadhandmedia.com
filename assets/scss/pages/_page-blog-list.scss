@@ -13,29 +13,43 @@
     max-width: 720px;
     width: 100%;
   }
-  &__year {
+  &__year-heading {
     position: relative;
     margin-bottom: 40px;
-    font-weight: 400;
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     flex-wrap: wrap;
-    &:after {
-      top: calc(100% + 4px);
-      left: 0;
-      content: "";
-      border-bottom: 1px solid #ccc;
-      position: absolute;
-      width: calc(100%);
+    text-align: center;
+    &:not(:first-of-type) {
+      margin-top: 100px;
     }
     /** Display even if filters are enabled. */
     @media (max-width: $breakpoint__md) {
       display: flex !important;
     }
   }
+  &__year-heading-inner {
+    background: $color__background;
+    padding: 0 10px;
+    &:after {
+      content: "";
+      z-index: -5;
+      top: 50%;
+      left: 10px;
+      right: 10px;
+      color: #ccc;
+      border-bottom: 1px solid;
+      position: absolute;
+    }
+  }
+  &__year {
+    display: block;
+    font-weight: 400;
+  }
   &__year-count {
+    font-weight: 400;
     font-size: 14px;
     color: #746f85;
+    display: block;
   }
 }
