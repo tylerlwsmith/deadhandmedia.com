@@ -37,7 +37,8 @@
 						<div class="page-blog-list__year-heading-inner">
 							<span class="page-blog-list__year">{{ $yearIndex }}</span>
 							<span class="page-blog-list__year-count">
-								{{ (index ($scratch.Get "yearCounts") $yearIndex).count }} posts
+								{{ $count := (index ($scratch.Get "yearCounts") $yearIndex).count }}
+								{{ $count }} {{cond (eq $count 1) "post" "posts" }}
 							</span>
 						</div>
 					</h2>
