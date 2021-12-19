@@ -133,7 +133,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
       hideYearHeadings();
 
-      post.classList[matchingTags.length ? "add" : "remove"]("hidden");
+      post.classList[matchingTags.length ? "remove" : "add"]("hidden");
     });
   }
 });
