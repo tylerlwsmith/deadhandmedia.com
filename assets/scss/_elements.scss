@@ -4,11 +4,6 @@
   box-sizing: border-box;
 }
 
-html {
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
-}
-
 body {
   background-color: $color__background;
   font-family: $font-family__body;
