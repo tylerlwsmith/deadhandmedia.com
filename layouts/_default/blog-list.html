@@ -17,7 +17,7 @@
 
 	<div class="page-blog-list">
 
-		{{/*  {{ partial "blog-filter-sidebar.html" . }}  */}}
+		{{ partial "blog-filter-sidebar.html" . }}
 
 		<main class="page-blog-list__container">
 			<article class="content-area">
@@ -49,34 +49,36 @@
 					<h3 class="blog-preview__title">
 						<a href="{{ .url }}" class="blog-preview__link">{{ .title }}</a>
 					</h3>
+					
+					<div class="blog-preview__meta-wrapper">
+						<time 
+							class="blog-preview__published_date"
+							datetime="{{ time.Format "2006-01-02" .published_at }}"
+							data-published-date="{{ time.Format "2006-01-02" .published_at }}"
+						>
+							{{ time.Format "Jan 2, 2006" .published_at }}
+						</time>
+						<dl class="blog-preview__meta-list">
+							{{ if .public_reactions_count }}
+								<div class="blog-preview__meta-list-item">
+									<dt class="blog-preview__meta-term">reactions</dt>
+									<dd class="blog-preview__meta-detail">
+										{{ .public_reactions_count }}
+									</dd>
+								</div>
+							{{ end }}
+	
+							{{ if .comments_count }}
+								<div class="blog-preview__meta-list-item">
+									<dt class="blog-preview__meta-term">comments</dt>
+									<dd class="blog-preview__meta-detail">
+										{{ .comments_count }}
+									</dd>
+								</div>
+							{{ end }}
+						</dl>
+					</div>
 
-					<time 
-						class="blog-preview__published_date"
-						datetime="{{ time.Format "2006-01-02" .published_at }}"
-						data-published-date="{{ time.Format "2006-01-02" .published_at }}"
-					>
-						{{ time.Format "Jan 2, 2006" .published_at }}
-					</time>
-
-					<dl class="blog-preview__meta-list">
-						{{ if .public_reactions_count }}
-							<div class="blog-preview__meta-list-item">
-								<dt class="blog-preview__meta-term">reactions</dt>
-								<dd class="blog-preview__meta-detail">
-									{{ .public_reactions_count }}
-								</dd>
-							</div>
-						{{ end }}
-
-						{{ if .comments_count }}
-							<div class="blog-preview__meta-list-item">
-								<dt class="blog-preview__meta-term">comments</dt>
-								<dd class="blog-preview__meta-detail">
-									{{ .comments_count }}
-								</dd>
-							</div>
-						{{ end }}
-					</dl>
 				</article>
 			{{ end }}
 		</main>

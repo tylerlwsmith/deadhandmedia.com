@@ -84,7 +84,9 @@
             .target
             .closest('.project-preview')
             .querySelector("a")
-            .click();
+            .dispatchEvent(
+              new MouseEvent(event.type, event)
+            );
           thumbnails.forEach(thumbnail => {
             thumbnail.addEventListener("click", handleThumbnailClick);
             thumbnail.classList.add("hover--pointer")

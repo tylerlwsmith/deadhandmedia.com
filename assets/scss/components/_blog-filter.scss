@@ -1,5 +1,12 @@
 .blog-filter {
   font-size: 14px;
+  &__sidebar {
+    padding: 20px 20px 0 4vw;
+    min-width: 200px;
+    @media (max-width: $breakpoint__md) {
+      display: none !important;
+    }
+  }
   &__list {
     margin: 16px 0 0;
     list-style: none;
@@ -15,7 +22,7 @@
     &:hover,
     &:focus,
     &:active {
-      color: $color__purple;
+      color: #7e44ed;
     }
     &:before {
       content: "";
@@ -24,11 +31,11 @@
       display: inline-block;
       height: 12px;
       width: 12px;
-      border: 1px solid $color__purple;
+      border: 1px solid #7e44ed;
       margin-right: 8px;
     }
     @at-root .blog-filter:checked + &:before {
-      background: $color__purple;
+      background: #7e44ed;
     }
     @at-root .blog-filter:focus + &:before {
       outline: 1px solid blue;
@@ -38,7 +45,7 @@
     position: sticky;
     top: 4px;
     border: 1px solid;
-    color: $color__purple;
+    color: #7e44ed;
     width: 100%;
     padding: 3px;
     appearance: none;
@@ -48,7 +55,7 @@
     &:focus,
     &:active {
       color: #fff;
-      background: $color__purple;
+      background: #7e44ed;
     }
   }
 }

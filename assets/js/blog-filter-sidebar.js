@@ -29,7 +29,7 @@ window.addEventListener("DOMContentLoaded", function () {
   function makeScrollToTopButton() {
     const scrollButton = document.createElement("button");
     scrollButton.classList.add("scroll-to-top-button");
-    scrollButton.style.display = "none";
+    scrollButton.classList.add("hidden");
     scrollButton.innerHTML = `<span class="fas fa-arrow-alt-circle-up"></span>`;
     scrollButton.addEventListener("click", () => window.scrollTo(0, 0));
     document.body.append(scrollButton);
@@ -39,9 +39,9 @@ window.addEventListener("DOMContentLoaded", function () {
     requestAnimationFrame(function checkScroll() {
       const { innerHeight, scrollY } = window;
       if (scrollY < innerHeight / 3) {
-        scrollButton.style.display = "none";
+        scrollButton.classList.add("hidden");
       } else {
-        scrollButton.style.display = "block";
+        scrollButton.classList.remove("hidden");
       }
       requestAnimationFrame(checkScroll);
     });
@@ -74,13 +74,13 @@ window.addEventListener("DOMContentLoaded", function () {
     return document.querySelectorAll(["[data-year-heading]"]);
   }
   function hideYearHeadings() {
-    return [...getYearHeadings()].forEach(
-      (heading) => (heading.style.display = "none")
+    return [...getYearHeadings()].forEach((heading) =>
+      heading.classList.add("hidden")
     );
   }
   function showYearHeadings() {
-    return [...getYearHeadings()].forEach(
-      (heading) => (heading.style.display = "block")
+    return [...getYearHeadings()].forEach((heading) =>
+      heading.classList.remove("hidden")
     );
   }
   function getActiveFilterContainer() {
@@ -120,7 +120,7 @@ window.addEventListener("DOMContentLoaded", function () {
       if (activeFilters.length === 0) {
         // Scroll jumps, so we need to manually set it.
         const currentScroll = window.scrollY;
-        post.style.display = "block";
+        post.classList.remove("hidden");
         showYearHeadings();
         window.scrollTo(0, currentScroll);
         return;
@@ -132,7 +132,15 @@ window.addEventListener("DOMContentLoaded", function () {
       );
 
       hideYearHeadings();
-      post.style.display = matchingTags.length ? "block" : "none";
+
+      post.classList[matchingTags.length ? "add" : "remove"]("hidden");
     });
   }
+});
+
+window.addEventListener("keypress", (event) => {
+  console.log(event);
+  console.log(event.key, event.key.toUpperCase());
+  if (event.key.toUpperCase() !== "F") return;
+  document.querySelector(".blog-filter__sidebar").classList.toggle("hidden");
 });
