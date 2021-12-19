@@ -1,6 +1,6 @@
 baseURL = "https://deadhandmedia.com/"
 languageCode = "en-us"
-title = "DeadHand Media"
+title = "Tyler Smith"
 enableInlineShortcodes = true
 disableKinds = ["RSS"]
 googleAnalytics = 'UA-100417057-1'
