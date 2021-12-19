@@ -25,9 +25,11 @@
                 {{- $resized := $screenshot.Resize "550x jpg q95" -}}
                 {{- $resized2x := $screenshot.Resize "1100x jpg q95" -}}
                 {{- $imageRatio := div (float $resized.Height) (float $resized.Width) -}}
-                <div 
+                <a 
+                  href="{{- .Permalink -}}"
                   class="project-preview__thumbnail-wrapper"
                   style="padding-bottom: calc({{ mul $imageRatio 100 }}% - 2px);"
+                  tabindex="-1"
                 >
                   <img 
                     src="{{- $resized.RelPermalink -}}" 
@@ -42,7 +44,7 @@
                       </span>
                     {{- end -}}
                   {{- end -}}
-                </div>
+                </a>
               {{- end -}}
             </div>
             <div class="project-preview__content-container">
@@ -76,23 +78,6 @@
         {{/* .Content */}}
       </div>
       <script>
-        window.addEventListener("DOMContentLoaded", function makeThumbnailsLinks() {
-          const thumbnails = document.querySelectorAll(
-            '.project-preview__thumbnail'
-          );
-          const handleThumbnailClick = (event) => event
-            .target
-            .closest('.project-preview')
-            .querySelector("a")
-            .dispatchEvent(
-              new MouseEvent(event.type, event)
-            );
-          thumbnails.forEach(thumbnail => {
-            thumbnail.addEventListener("click", handleThumbnailClick);
-            thumbnail.classList.add("hover--pointer")
-          });
-        })
-  
         window.addEventListener("DOMContentLoaded", function addHoverClass() {
           const projectClassName = "project-preview"
           const hoverClassName = "project-preview--hover";
