@@ -7,7 +7,19 @@
 	{{ if not .IsHome }}
 		<a href="/" class="header__title">Tyler Smith</a>
 	{{ end }}
-	<nav class="header__navigation">
+	{{/*  <button 
+		id="navigation-toggle"
+		class="hamburger hamburger--squeeze" 
+		type="button"
+		aria-label="Menu"
+		aria-controls="navigation"
+		aria-expanded="false"
+	>
+		<span class="hamburger-box">
+			<span class="hamburger-inner"></span>
+		</span>
+	</button>  */}}
+	<nav id="navigation" class="header__navigation">
 		<ul class="header__menu">
 			{{- range .Site.Menus.main -}}
 				{{- $currentMenuItem := . -}}

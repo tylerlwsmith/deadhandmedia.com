@@ -7,6 +7,12 @@
   padding-top: 16px;
   padding-bottom: 16px;
   border-top: 4px solid $color__purple--bright;
+  @if $feature-flag__mobile-nav {
+    @media (max-width: $breakpoint__md) {
+      align-items: center;
+    }
+  }
+
   &--absolute {
     position: absolute;
     top: 0;
@@ -14,17 +20,26 @@
     right: 0;
     z-index: 10;
   }
-
   &__title {
     display: inline-block;
     font-family: $font-family__headings;
     font-size: 22px;
     padding-bottom: 0;
-    margin-right: 50px;
+    @if not $feature-flag__mobile-nav {
+      margin-right: 50px;
+    }
     color: $color__black;
   }
   &__navigation {
-    // TODO
+    @if $feature-flag__mobile-nav {
+      @media (max-width: $breakpoint__md) {
+        padding-top: 12px;
+        flex-basis: 100%;
+        @at-root #navigation-toggle:not([aria-expanded="true"]) + & {
+          display: none;
+        }
+      }
+    }
   }
   &__menu {
     display: flex;
@@ -35,16 +50,31 @@
     list-style: none;
     flex-grow: 1;
     flex-basis: auto;
-    text-align: right;
     margin-left: -($space-between-items / 2);
     margin-right: -($space-between-items / 2);
+    @if $feature-flag__mobile-nav {
+      @media (max-width: $breakpoint__md) {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-left: -20px;
+        margin-right: -20px;
+        border-top: 1px solid #ccc;
+      }
+    }
   }
   &__menu-item {
     position: relative;
     top: 5px;
-    display: inline-block;
     padding-left: $space-between-items / 2;
     padding-right: $space-between-items / 2;
+    @if $feature-flag__mobile-nav {
+      @media (max-width: $breakpoint__md) {
+        top: 0;
+        flex-basis: 100%;
+        padding: 0;
+        border-bottom: 1px solid #ccc;
+      }
+    }
   }
   &__menu-item-link {
     color: #746f85;
@@ -54,7 +84,12 @@
     &--is-active:active {
       color: #7e44ed;
     }
-
+    @if $feature-flag__mobile-nav {
+      @media (max-width: $breakpoint__md) {
+        display: block;
+        padding: 14px 20px;
+      }
+    }
     @at-root .header--light & {
       color: #fff;
     }

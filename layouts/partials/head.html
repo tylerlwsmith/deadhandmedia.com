@@ -1,4 +1,5 @@
 {{- $description :=  replace .Content "\n" "" | plainify | truncate 160 -}}
+
 {{- $styleOptions := (dict 
 	"targetPath" "css/style.css"
 	"enableSourceMap" .Site.IsServer

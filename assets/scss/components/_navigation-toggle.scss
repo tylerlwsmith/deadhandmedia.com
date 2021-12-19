@@ -1,0 +1,7 @@
+#navigation-toggle {
+  display: none;
+  @media (max-width: $breakpoint__md) {
+    display: inline-flex !important;
+    align-items: center;
+  }
+}
