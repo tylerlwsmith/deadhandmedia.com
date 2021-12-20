@@ -3,7 +3,7 @@
 		<article style="padding: 60px 0;">
 			<h1 class="page__title sr-only">{{ .Name }}</h1>
 			<div class="iframe-wrapper" style="display: flex; justify-content: center;">
-				{{- $resumeOrigin := or (os.Getenv "RESUME_ORIGIN") "https://raspberrytyler.com" -}}
+				{{- $resumeOrigin := or (os.Getenv "RESUME_ORIGIN") "https://resume.deadhandmedia.com" -}}
 				<iframe
 					src="{{- $resumeOrigin -}}/?iframe"
 					frameborder="0"

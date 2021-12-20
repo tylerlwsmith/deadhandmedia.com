@@ -1,7 +1,7 @@
 ---
 title: "My Over-Engineered Resume"
 date: 2021-11-19T21:27:54-08:00
-projectUrl: https://raspberrytyler.com
+projectUrl: https://resume.deadhandmedia.com
 repositoryUrl: https://github.com/tylerlwsmith/resume
 category: "Tinkering"
 services: ["Front-End Development", "Image Generation", "PDF Generation"]
@@ -28,7 +28,7 @@ The original iteration of my resume consisted of an HTML file and a CSS file tha
 
 ## Retooled into a Mobile-Responsive Website
 
-I was interested to see if I could build a mobile-responsive website using the same codebase while keeping the print styles intact. I made a few tweaks and deployed [the website](https://raspberrytyler.com) to Netlify.
+I was interested to see if I could build a mobile-responsive website using the same codebase while keeping the print styles intact. I made a few tweaks and deployed [the website](https://resume.deadhandmedia.com) to Netlify.
 
 {{< figure src="resume-website-desktop.png" width="500" caption="The website on desktop" >}}
 
@@ -36,9 +36,9 @@ I was interested to see if I could build a mobile-responsive website using the s
 
 ## Build-Time PDF and PNG Generation with Puppeteer
 
-I wanted to add a download button to the site so recruiters could [download a formatted PDF](https://raspberrytyler.com/generated/tyler-smith-resume.pdf) of the resume. I set up Puppeteer to generate a PDF and PNG of the resume, and used Express to serve the HTML and CSS to Puppeteer. Netlify runs this as part of the build on every deploy so that the generated assets are always up-to-date.
+I wanted to add a download button to the site so recruiters could [download a formatted PDF](https://resume.deadhandmedia.com/generated/tyler-smith-resume.pdf) of the resume. I set up Puppeteer to generate a PDF and PNG of the resume, and used Express to serve the HTML and CSS to Puppeteer. Netlify runs this as part of the build on every deploy so that the generated assets are always up-to-date.
 
-{{< figure src="https://raspberrytyler.com/generated/tyler-smith-resume.png" width="400" caption="My current resume, generated at build time, being pulled in from the resume website" >}}
+{{< figure src="https://resume.deadhandmedia.com/generated/tyler-smith-resume.png" width="400" caption="My current resume, generated at build time, being pulled in from the resume website" >}}
 
 ## Social Share Image Generation
 
