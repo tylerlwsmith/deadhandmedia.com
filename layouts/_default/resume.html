@@ -3,8 +3,9 @@
 		<article style="padding: 60px 0;">
 			<h1 class="page__title sr-only">{{ .Name }}</h1>
 			<div class="iframe-wrapper" style="display: flex; justify-content: center;">
+				{{- $resumeOrigin := or (os.Getenv "RESUME_ORIGIN") "https://raspberrytyler.com" -}}
 				<iframe
-					src="https://raspberrytyler.com/?iframe"
+					src="{{- $resumeOrigin -}}/?iframe"
 					frameborder="0"
 					id="iframe"
 					style="width: 100%; max-width: calc(8.5in + 6px); margin: 0 auto;"

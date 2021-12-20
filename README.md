@@ -68,6 +68,14 @@ On commits that don't require a new build (like when making edits to the README)
 
 A GitHub action rebuilds the site daily to make sure the site has the latest blog posts and comment counts. The action was based off of [a blog post by Eric Jinks](https://ericjinks.com/blog/2019/netlify-scheduled-build/).
 
+## Changing the location of the resume embed for development
+
+You can change where the site looks for the resume embed by setting the `RESUME_LOCATION` environment variable. If you were running a development copy of the resume locally and wanted to load that instead of the live site, you could start the Hugo server with the following command:
+
+```sh
+RESUME_ORIGIN="http://localhost:3000" hugo server
+```
+
 ## Rough edges
 
 As of mid-December 2021, I'm in a mad dash to get this site finished and I'm cutting a few corners. I'm putting this list in here as a reminder of what I need to fix later.
@@ -76,6 +84,7 @@ As of mid-December 2021, I'm in a mad dash to get this site finished and I'm cut
 - Colors should be extracted to variables.
 - Styles for layout padding and margins across the pages were copied and pasted. Those should be extracted to reusuable components.
 - The blog filters component's vanilla JS implementation is fragile and tightly coupled to the markup and styles. If I want to add a single additional feature to it, I need to migrate to Alpine JS or React.
+- I implemented a mobile nav and didn't like it, so I hid it using a combination of Sass variables and commenting out the Hugo/Sass code. In an ideal world, I could set an environment variable that would enable/disable all of it, but making sharing environment variables with Sass isn't trival.
 
 ## Why the stupid name... what even _is_ a dead hand?
 
