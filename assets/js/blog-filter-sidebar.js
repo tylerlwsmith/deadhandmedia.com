@@ -91,12 +91,12 @@ window.addEventListener("DOMContentLoaded", function () {
         `
         <div class="active-filter__list">
           <span class="active-filter__label">Active Filters:</span> 
-            ${activeFilters.map((filter) => `
-                <button 
-                  class="active-filter" 
-                  data-active-filter="${filter}"
-                >&times; ${filter}</button>`
-              ).join("")}
+          ${activeFilters.map((filter) => `
+            <button 
+              class="active-filter" 
+              data-active-filter="${filter}"
+            >&times; ${filter}</button>`
+          ).join("")}
         </div>`
       : "";
   }
