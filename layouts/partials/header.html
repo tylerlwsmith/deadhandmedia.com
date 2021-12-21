@@ -40,8 +40,8 @@
 						<a 
 							href="{{ $currentMenuItem.URL }}" 
 							class="
-								header__menu-item-link
-								{{- if eq $pageSubstr $page.RelPermalink }} header__menu-item-link--is-active{{end}}
+								{{- "header__menu-item-link" -}}
+								{{- cond (eq $pageSubstr $page.RelPermalink) " header__menu-item-link--is-active"  "" -}}
 							"
 						>
 							{{ $currentMenuItem.Name }}
