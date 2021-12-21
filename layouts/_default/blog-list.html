@@ -44,14 +44,15 @@
 					</h2>
 				{{ end }}
 				<article data-tags="{{ jsonify .tag_list }}" class="blog-preview">
+					<h3 class="blog-preview__title">
+						<a href="{{ .url }}" class="blog-preview__link">{{ .title }}</a>
+					</h3>
+
 					<ul class="blog-preview__tag-list">
 						{{ range .tag_list }}
 							<li class="blog-preview__tag">#{{ . }}</li>
 						{{ end }}
 					</ul>
-					<h3 class="blog-preview__title">
-						<a href="{{ .url }}" class="blog-preview__link">{{ .title }}</a>
-					</h3>
 					
 					<div class="blog-preview__meta-wrapper">
 						<time 
