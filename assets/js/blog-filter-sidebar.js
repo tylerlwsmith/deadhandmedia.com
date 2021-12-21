@@ -49,7 +49,14 @@ window.addEventListener("DOMContentLoaded", function () {
 
     requestAnimationFrame(function checkScroll() {
       const { innerHeight, scrollY } = window;
+      const scrollHeight = document.body.scrollHeight;
+
+      /** Bottom pixel of current scroll */
+      const currentScrollBottom = innerHeight + scrollY;
+
       if (scrollY < innerHeight / 3) {
+        scrollButton.classList.add("hidden");
+      } else if (scrollHeight - currentScrollBottom < 100) {
         scrollButton.classList.add("hidden");
       } else {
         scrollButton.classList.remove("hidden");
