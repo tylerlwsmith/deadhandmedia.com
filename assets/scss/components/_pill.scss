@@ -6,7 +6,7 @@ $offset: 10px;
   display: inline-block;
   margin-bottom: 0.5em;
   margin-right: 3px;
-  color: #fff;
+  color: $color__white;
   background-color: $color__purple;
   font-weight: 600;
   @media (max-width: $breakpoint__sm) {

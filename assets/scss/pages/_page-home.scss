@@ -1,6 +1,6 @@
 .page-home {
   background-color: $color__purple--light;
-  color: #fff;
+  color: $color__white;
   display: flex;
   align-items: stretch;
   flex-direction: row;
@@ -122,8 +122,8 @@
     a:hover,
     a:focus,
     a:active {
-      color: #fff;
-      border-bottom-color: #fff;
+      color: $color__white;
+      border-bottom-color: $color__white;
     }
     @media (max-width: $breakpoint__xl) {
       max-width: 540px;
@@ -146,7 +146,7 @@
       padding-bottom: 20px;
     }
     a {
-      color: #fff;
+      color: $color__white;
       &:hover,
       &:focus {
         * {
