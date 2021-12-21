@@ -1,127 +1,129 @@
 {{- define "main" -}}
-  <div class="page-project-list__container">
-    <main id="main">
-      <article class="content-area">
-        <h1 class="page__title">{{- .Title -}}</h1>
-        {{/* .Content */}}
-      </article>
+  <div class="page-project-list">
+    <div class="page-project-list__container">
+      <main id="main">
+        <article class="content-area">
+          <h1 class="page__title">{{- .Title -}}</h1>
+          {{/* .Content */}}
+        </article>
 
-      <ul class="project-preview__list">
-        {{- range .Pages -}}
-          {{- $category := .Param "category" -}}
-          {{- $technologies := newScratch -}}
-          {{- $technologies.Set "featured" slice -}}
+        <ul class="project-preview__list">
+          {{- range .Pages -}}
+            {{- $category := .Param "category" -}}
+            {{- $technologies := newScratch -}}
+            {{- $technologies.Set "featured" slice -}}
 
-          {{- range .Param "technologies" -}}
-            {{- if (reflect.IsMap .) -}}
-              {{- $technologies.Add "featured" .featured -}}
-            {{- end -}}
-          {{- end -}}
-
-          <li class="project-preview">
-            <div class="project-preview__thumbnail-container">
-              {{- $screenshot := .Resources.GetMatch (.Param "screenshot") -}}
-              {{- if $screenshot -}}
-                {{- $resized := $screenshot.Resize "550x jpg q95" -}}
-                {{- $resized2x := $screenshot.Resize "1100x jpg q95" -}}
-                {{- $imageRatio := div (float $resized.Height) (float $resized.Width) -}}
-                <a 
-                  href="{{- .Permalink -}}"
-                  class="project-preview__thumbnail-wrapper"
-                  style="padding-bottom: calc({{ mul $imageRatio 100 }}% - 2px);"
-                  tabindex="-1"
-                >
-                  <img 
-                    src="{{- $resized.RelPermalink -}}" 
-                    srcset="{{- $resized2x.RelPermalink }} 2x" 
-                    alt="Screenshot of {{ .Title }}" 
-                    class="project-preview__thumbnail"
-                  >
-                  {{- if eq hugo.Environment "development" -}}
-                    {{- if  (.Param "repositoryUrl") -}}
-                      <span class="project-preview__open-source-badge">
-                        Open Source
-                      </span>
-                    {{- end -}}
-                  {{- end -}}
-                </a>
+            {{- range .Param "technologies" -}}
+              {{- if (reflect.IsMap .) -}}
+                {{- $technologies.Add "featured" .featured -}}
               {{- end -}}
-            </div>
-            <div class="project-preview__content-container">
-              <h2 class="project-preview__title">
-                <a 
-                  href="{{- .Permalink -}}"
-                  class="project-preview__link"
-                >
-                  {{- .Title -}}
-                </a>
-              </h2>
+            {{- end -}}
 
-              {{- if $category -}}
-                <dl  class="project-preview__category-wrapper">
-                  <dt class="sr-only">Project Category</dt>
-                  <dd class="project-preview__category">{{- $category -}}</dd>
-                </dl>     
-              {{ end }}
-
-              <p class="sr-only">Technologies used:</p>
-              <ul class="project-preview__technology-list">
-                {{- range $technologies.Get "featured" -}}
-                  <li class="project-preview__technology">{{- . -}}</li>
+            <li class="project-preview">
+              <div class="project-preview__thumbnail-container">
+                {{- $screenshot := .Resources.GetMatch (.Param "screenshot") -}}
+                {{- if $screenshot -}}
+                  {{- $resized := $screenshot.Resize "550x jpg q95" -}}
+                  {{- $resized2x := $screenshot.Resize "1100x jpg q95" -}}
+                  {{- $imageRatio := div (float $resized.Height) (float $resized.Width) -}}
+                  <a 
+                    href="{{- .Permalink -}}"
+                    class="project-preview__thumbnail-wrapper"
+                    style="padding-bottom: calc({{ mul $imageRatio 100 }}% - 2px);"
+                    tabindex="-1"
+                  >
+                    <img 
+                      src="{{- $resized.RelPermalink -}}" 
+                      srcset="{{- $resized2x.RelPermalink }} 2x" 
+                      alt="Screenshot of {{ .Title }}" 
+                      class="project-preview__thumbnail"
+                    >
+                    {{- if eq hugo.Environment "development" -}}
+                      {{- if  (.Param "repositoryUrl") -}}
+                        <span class="project-preview__open-source-badge">
+                          Open Source
+                        </span>
+                      {{- end -}}
+                    {{- end -}}
+                  </a>
                 {{- end -}}
-              </ul>
-            </div>
-          </li>
-        {{- end -}}
-      </ul>
-      <div class="content-area">
-        {{/* .Content */}}
-      </div>
-      <script>
-        window.addEventListener("DOMContentLoaded", function addHoverClass() {
-          const projectClassName = "project-preview"
-          const hoverClassName = "project-preview--hover";
-          const hoverables = [
-            ...document.querySelectorAll(".project-preview__thumbnail"),
-            ...document.querySelectorAll(".project-preview__link")
-          ];
+              </div>
+              <div class="project-preview__content-container">
+                <h2 class="project-preview__title">
+                  <a 
+                    href="{{- .Permalink -}}"
+                    class="project-preview__link"
+                  >
+                    {{- .Title -}}
+                  </a>
+                </h2>
 
-          const addHoverClass = (event) => event
-            .target
-            .closest(`.${projectClassName}`)
-            .classList
-            .add(hoverClassName);
+                {{- if $category -}}
+                  <dl  class="project-preview__category-wrapper">
+                    <dt class="sr-only">Project Category</dt>
+                    <dd class="project-preview__category">{{- $category -}}</dd>
+                  </dl>     
+                {{ end }}
 
-          const removeHoverClass = (event) => 
-            ! event.target.closest(`.${projectClassName}`).contains(
-              document.activeElement 
-            ) && event
+                <p class="sr-only">Technologies used:</p>
+                <ul class="project-preview__technology-list">
+                  {{- range $technologies.Get "featured" -}}
+                    <li class="project-preview__technology">{{- . -}}</li>
+                  {{- end -}}
+                </ul>
+              </div>
+            </li>
+          {{- end -}}
+        </ul>
+        <div class="content-area">
+          {{/* .Content */}}
+        </div>
+        <script>
+          window.addEventListener("DOMContentLoaded", function addHoverClass() {
+            const projectClassName = "project-preview"
+            const hoverClassName = "project-preview--hover";
+            const hoverables = [
+              ...document.querySelectorAll(".project-preview__thumbnail"),
+              ...document.querySelectorAll(".project-preview__link")
+            ];
+
+            const addHoverClass = (event) => event
               .target
               .closest(`.${projectClassName}`)
               .classList
-              .remove(hoverClassName);
+              .add(hoverClassName);
 
-          hoverables.forEach(hoverable => {
-            hoverable.addEventListener('mouseover', addHoverClass)
-            hoverable.addEventListener('mouseout', removeHoverClass);
-            hoverable.addEventListener('focus', addHoverClass);
-            hoverable.addEventListener('blur', removeHoverClass);
-            hoverable.addEventListener('click', removeHoverClass);
-          })
-        });
-  
-        window.addEventListener("unload", function removeHoverClassOnPageUnload() {
-          alert("bleep");
-          const hoverClassName = "project-preview--hover";
-          const hoverables = [
-            ...document.querySelectorAll('hoverClassName'),
-          ];
+            const removeHoverClass = (event) => 
+              ! event.target.closest(`.${projectClassName}`).contains(
+                document.activeElement 
+              ) && event
+                .target
+                .closest(`.${projectClassName}`)
+                .classList
+                .remove(hoverClassName);
 
-          hoverables.forEach(hoverable => {
-            hoverable.classList.remove(hoverClassName)
+            hoverables.forEach(hoverable => {
+              hoverable.addEventListener('mouseover', addHoverClass)
+              hoverable.addEventListener('mouseout', removeHoverClass);
+              hoverable.addEventListener('focus', addHoverClass);
+              hoverable.addEventListener('blur', removeHoverClass);
+              hoverable.addEventListener('click', removeHoverClass);
+            })
           });
-        });
-      </script>
-    </main>
+    
+          window.addEventListener("unload", function removeHoverClassOnPageUnload() {
+            alert("bleep");
+            const hoverClassName = "project-preview--hover";
+            const hoverables = [
+              ...document.querySelectorAll('hoverClassName'),
+            ];
+
+            hoverables.forEach(hoverable => {
+              hoverable.classList.remove(hoverClassName)
+            });
+          });
+        </script>
+      </main>
+    </div>
   </div>
 {{- end -}}

@@ -1,4 +1,5 @@
 .page-project-list {
+  @include page-padding-bottom;
   &__container {
     margin-left: auto;
     margin-right: auto;

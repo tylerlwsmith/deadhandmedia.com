@@ -1,5 +1,6 @@
 .page-resume {
   padding-top: 60px;
+  @include page-padding-bottom;
   @media (max-width: $breakpoint__md) {
     padding-top: 30px;
   }

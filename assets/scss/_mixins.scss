@@ -10,3 +10,7 @@
     padding-right: $padding__sm;
   }
 }
+
+@mixin page-padding-bottom {
+  padding-bottom: 40px;
+}
