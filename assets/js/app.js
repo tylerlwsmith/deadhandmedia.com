@@ -20,16 +20,13 @@
   if (!navigationToggle) return;
 
   navigationToggle.addEventListener("click", function () {
-    console.log("i am here");
     const ariaExpanded = "aria-expanded";
     const isExpanded = JSON.parse(this.getAttribute(ariaExpanded));
     console.log({ isExpanded });
     if (isExpanded) {
-      console.log("is expanded");
       navigationToggle.classList.remove("is-active");
       navigationToggle.setAttribute(ariaExpanded, false);
     } else {
-      console.log("is not expanded");
       navigationToggle.classList.add("is-active");
       navigationToggle.setAttribute(ariaExpanded, true);
     }
