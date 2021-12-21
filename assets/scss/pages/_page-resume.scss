@@ -1,0 +1,14 @@
+.page-resume {
+  &__resume-container {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+    @media (max-width: $breakpoint__sm) {
+      padding: 0 6px;
+    }
+    .tyler-smith-resume-wrapper {
+      width: 100%;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
