@@ -1,36 +1,36 @@
 {{- $description :=  replace .Content "\n" "" | plainify | truncate 160 -}}
 
 {{- $styleOptions := (dict 
-	"targetPath" "css/style.css"
-	"enableSourceMap" .Site.IsServer
-	"includePaths" (slice ".")
+  "targetPath" "css/style.css"
+  "enableSourceMap" .Site.IsServer
+  "includePaths" (slice ".")
 ) -}}
 {{- $style := resources.Get "scss/style.scss" | toCSS $styleOptions -}}
 <head>
-	{{ "<!-- Wanna look under the hood? Visit https://github.com/tylerlwsmith/deadhandmedia.com to see this site's source. -->" | safeHTML }}
-	<title>{{ if not .IsHome }}{{- .Title }} - {{ end }}{{ .Site.Title -}}</title>
+  {{ "<!-- Wanna look under the hood? Visit https://github.com/tylerlwsmith/deadhandmedia.com to see this site's source. -->" | safeHTML }}
+  <title>{{ if not .IsHome }}{{- .Title }} - {{ end }}{{ .Site.Title -}}</title>
 
-	{{ if (.Param "hidden") -}} 
-	<meta name="robots" content="noindex, follow">
-	{{ end -}}
+  {{ if (.Param "hidden") -}} 
+  <meta name="robots" content="noindex, follow">
+  {{ end -}}
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="{{- trim $description "\n" -}}">
-	<meta property="og:title" content="{{ if not .IsHome }}{{- .Title }} - {{ end }}{{ .Site.Title -}}">
-	<meta property="og:description" content="{{- trim $description "\n" -}}">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="{{ .Permalink | absURL }}">
-	<meta property="og:image" content="{{ "og-image.png" | absURL }}">
-	<meta property="og:image:width" content="1200">
-	<meta property="og:image:height" content="630">
-	<meta name="twitter:card" content="summary_large_image">
-	<link href="{{ "favicon.png" | absURL }}" rel="icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{- trim $description "\n" -}}">
+  <meta property="og:title" content="{{ if not .IsHome }}{{- .Title }} - {{ end }}{{ .Site.Title -}}">
+  <meta property="og:description" content="{{- trim $description "\n" -}}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ .Permalink | absURL }}">
+  <meta property="og:image" content="{{ "og-image.png" | absURL }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link href="{{ "favicon.png" | absURL }}" rel="icon">
 
-	<link href="https://fonts.googleapis.com/css?family=Bungee|Raleway:300,400,600&display=block" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/e37b089b64.js" crossorigin="anonymous"></script>
-	<link href="{{ ($style).RelPermalink }}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bungee|Raleway:300,400,600&display=block" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/e37b089b64.js" crossorigin="anonymous"></script>
+  <link href="{{ ($style).RelPermalink }}" rel="stylesheet">
 
-	{{- if eq hugo.Environment "production" -}}
-		{{ template "_internal/google_analytics.html" . }}
-	{{- end -}}
+  {{- if eq hugo.Environment "production" -}}
+    {{ template "_internal/google_analytics.html" . }}
+  {{- end -}}
 </head>

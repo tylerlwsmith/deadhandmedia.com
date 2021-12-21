@@ -1,14 +1,14 @@
 {{ define "main" }}
-	{{- $resumeOrigin := or (os.Getenv "RESUME_ORIGIN") "https://resume.deadhandmedia.com" -}}
-	<main id="main">
-		<article style="padding: 60px 0;">
-			<h1 class="page__title sr-only">{{ .Name }}</h1>
+  {{- $resumeOrigin := or (os.Getenv "RESUME_ORIGIN") "https://resume.deadhandmedia.com" -}}
+  <main id="main">
+    <article style="padding: 60px 0;">
+      <h1 class="page__title sr-only">{{ .Name }}</h1>
 
-			<div class="page-resume__resume-container">
-					<script src="{{- $resumeOrigin -}}/embed.js"></script>
+      <div class="page-resume__resume-container">
+          <script src="{{- $resumeOrigin -}}/embed.js"></script>
 
-			</div>
+      </div>
 
-		</article>
-	</main>
+    </article>
+  </main>
 {{ end }}

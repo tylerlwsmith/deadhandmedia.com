@@ -1,90 +1,90 @@
 {{ define "main" }}
-	{{- .Scratch.Set "posts" ( getJSON "https://dev.to/api/articles?username=tylerlwsmith&per_page=1000") -}}
+  {{- .Scratch.Set "posts" ( getJSON "https://dev.to/api/articles?username=tylerlwsmith&per_page=1000") -}}
 
-	{{/*  Must use newScratch instead of .Scratch: .Scratch doesn't work in range in Hugo 0.93.  */}}
-	{{- $scratch := newScratch -}}	
-	{{- $scratch.Set "allYears" (slice) -}} 
-	{{- range (.Scratch.Get "posts") -}}
-		{{- $year := time.Format "2006" .published_at -}}
-		{{/* Can't use isSet: checks to see if a key's value is null, not if a key exists. */}}
-		{{- if in ($scratch.Get "allYears") $year -}}
-			{{- $scratch.SetInMap "yearCounts" $year (dict "year" $year "count" (add (index ($scratch.Get "yearCounts") $year).count 1))  -}}
-		{{- else -}}
-			{{- $scratch.SetInMap "yearCounts" $year (dict "year" $year "count" 1)  -}}
-		{{- end -}}
-		{{- $scratch.Add "allYears" $year -}}
-	{{- end -}}
+  {{/*  Must use newScratch instead of .Scratch: .Scratch doesn't work in range in Hugo 0.93.  */}}
+  {{- $scratch := newScratch -}}  
+  {{- $scratch.Set "allYears" (slice) -}} 
+  {{- range (.Scratch.Get "posts") -}}
+    {{- $year := time.Format "2006" .published_at -}}
+    {{/* Can't use isSet: checks to see if a key's value is null, not if a key exists. */}}
+    {{- if in ($scratch.Get "allYears") $year -}}
+      {{- $scratch.SetInMap "yearCounts" $year (dict "year" $year "count" (add (index ($scratch.Get "yearCounts") $year).count 1))  -}}
+    {{- else -}}
+      {{- $scratch.SetInMap "yearCounts" $year (dict "year" $year "count" 1)  -}}
+    {{- end -}}
+    {{- $scratch.Add "allYears" $year -}}
+  {{- end -}}
 
-	<div class="page-blog-list">
+  <div class="page-blog-list">
 
-		{{ partial "blog-filter-sidebar.html" . }}
+    {{ partial "blog-filter-sidebar.html" . }}
 
-		<main id="main" class="page-blog-list__container">
-			<article class="content-area">
-				<h1 class="page__title">{{ .Title }}</h1>
-				{{ .Content }}
-			</article>
+    <main id="main" class="page-blog-list__container">
+      <article class="content-area">
+        <h1 class="page__title">{{ .Title }}</h1>
+        {{ .Content }}
+      </article>
 
-			<div data-active-filter-list class="active-filter__container">
-				{{/*  Intentionally blank  */}}
-			</div>
-			{{ $yearIndex := "" }}
-			{{ range .Scratch.Get "posts" }}
-				{{ $postYear :=  time.Format "2006" .published_at }}
-				{{ if ne $yearIndex $postYear }}
-					{{ $yearIndex = $postYear }}
-					<h2 data-year-heading="{{ $yearIndex }}" class="page-blog-list__year-heading">
-						<div class="page-blog-list__year-heading-inner">
-							<span class="page-blog-list__year">{{ $yearIndex }}</span>
-							<span class="page-blog-list__year-count">
-								{{ $count := (index ($scratch.Get "yearCounts") $yearIndex).count }}
-								{{ $count }} {{cond (eq $count 1) "post" "posts" }}
-							</span>
-						</div>
-					</h2>
-				{{ end }}
-				<article data-tags="{{ jsonify .tag_list }}" class="blog-preview">
-					<h3 class="blog-preview__title">
-						<a href="{{ .url }}" class="blog-preview__link">{{ .title }}</a>
-					</h3>
+      <div data-active-filter-list class="active-filter__container">
+        {{/*  Intentionally blank  */}}
+      </div>
+      {{ $yearIndex := "" }}
+      {{ range .Scratch.Get "posts" }}
+        {{ $postYear :=  time.Format "2006" .published_at }}
+        {{ if ne $yearIndex $postYear }}
+          {{ $yearIndex = $postYear }}
+          <h2 data-year-heading="{{ $yearIndex }}" class="page-blog-list__year-heading">
+            <div class="page-blog-list__year-heading-inner">
+              <span class="page-blog-list__year">{{ $yearIndex }}</span>
+              <span class="page-blog-list__year-count">
+                {{ $count := (index ($scratch.Get "yearCounts") $yearIndex).count }}
+                {{ $count }} {{cond (eq $count 1) "post" "posts" }}
+              </span>
+            </div>
+          </h2>
+        {{ end }}
+        <article data-tags="{{ jsonify .tag_list }}" class="blog-preview">
+          <h3 class="blog-preview__title">
+            <a href="{{ .url }}" class="blog-preview__link">{{ .title }}</a>
+          </h3>
 
-					<ul class="blog-preview__tag-list">
-						{{ range .tag_list }}
-							<li class="blog-preview__tag">#{{ . }}</li>
-						{{ end }}
-					</ul>
-					
-					<div class="blog-preview__meta-wrapper">
-						<time 
-							class="blog-preview__published_date"
-							datetime="{{ time.Format "2006-01-02" .published_at }}"
-							data-published-date="{{ time.Format "2006-01-02" .published_at }}"
-						>
-							{{ time.Format "Jan 2, 2006" .published_at }}
-						</time>
-						<dl class="blog-preview__meta-list">
-							{{ if .public_reactions_count }}
-								<div class="blog-preview__meta-list-item">
-									<dt class="blog-preview__meta-term">reactions</dt>
-									<dd class="blog-preview__meta-detail">
-										{{ .public_reactions_count }}
-									</dd>
-								</div>
-							{{ end }}
-	
-							{{ if .comments_count }}
-								<div class="blog-preview__meta-list-item">
-									<dt class="blog-preview__meta-term">comments</dt>
-									<dd class="blog-preview__meta-detail">
-										{{ .comments_count }}
-									</dd>
-								</div>
-							{{ end }}
-						</dl>
-					</div>
+          <ul class="blog-preview__tag-list">
+            {{ range .tag_list }}
+              <li class="blog-preview__tag">#{{ . }}</li>
+            {{ end }}
+          </ul>
+          
+          <div class="blog-preview__meta-wrapper">
+            <time 
+              class="blog-preview__published_date"
+              datetime="{{ time.Format "2006-01-02" .published_at }}"
+              data-published-date="{{ time.Format "2006-01-02" .published_at }}"
+            >
+              {{ time.Format "Jan 2, 2006" .published_at }}
+            </time>
+            <dl class="blog-preview__meta-list">
+              {{ if .public_reactions_count }}
+                <div class="blog-preview__meta-list-item">
+                  <dt class="blog-preview__meta-term">reactions</dt>
+                  <dd class="blog-preview__meta-detail">
+                    {{ .public_reactions_count }}
+                  </dd>
+                </div>
+              {{ end }}
+  
+              {{ if .comments_count }}
+                <div class="blog-preview__meta-list-item">
+                  <dt class="blog-preview__meta-term">comments</dt>
+                  <dd class="blog-preview__meta-detail">
+                    {{ .comments_count }}
+                  </dd>
+                </div>
+              {{ end }}
+            </dl>
+          </div>
 
-				</article>
-			{{ end }}
-		</main>
-	</div>
+        </article>
+      {{ end }}
+    </main>
+  </div>
 {{ end }}

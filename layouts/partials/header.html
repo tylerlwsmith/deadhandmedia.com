@@ -1,64 +1,64 @@
 {{ $headerVariation := .Scratch.Get "headerVariation" }}
 {{/* Ternaries in Hugo are wild. */}}
 <header class="header{{ cond (ne $headerVariation nil) (print " " $headerVariation) "" }}">
-	<a href="#main" id="skip-to-content">Skip to Content</a>
+  <a href="#main" id="skip-to-content">Skip to Content</a>
 
-	{{ if not .IsHome }}
-		<a href="/" class="header__title">Tyler Smith</a>
-	{{ end }}
-	{{/*  <button 
-		id="navigation-toggle"
-		class="hamburger hamburger--squeeze" 
-		type="button"
-		aria-label="Menu"
-		aria-controls="navigation"
-		aria-expanded="false"
-	>
-		<span class="hamburger-box">
-			<span class="hamburger-inner"></span>
-		</span>
-	</button>  */}}
-	<nav id="navigation" class="header__navigation">
-		<ul class="header__menu">
-			{{- range .Site.Menus.main -}}
-				{{- $currentMenuItem := . -}}
-				{{- $path := .URL | relURL | plainify -}}
-				{{- $pathNoTrailingSlash := strings.TrimSuffix "/" $path -}}
-				{{ $page := $.Site.GetPage $pathNoTrailingSlash }}
-				{{ $notHidden := not ($page.Param "hidden") }}
-				{{- if or (and $page $notHidden) (and $page $.Site.IsServer) -}}
-					{{/* 
-						Grab the length of menu item, get a substring of the 
-						current page url the length of the menu item and see if
-						they're the same. If they are, it means that the
-						current page is a child or the same page and should be active.
-						*/}}
-					{{- $menuItemUrlLength := len $currentMenuItem.URL -}}
-					{{- $pageSubstr := substr $.Page.RelPermalink 0 $menuItemUrlLength -}}
-					<li class="header__menu-item">
-						<a 
-							href="{{ $currentMenuItem.URL }}" 
-							class="
-								{{- "header__menu-item-link" -}}
-								{{- cond (eq $pageSubstr $page.RelPermalink) " header__menu-item-link--is-active"  "" -}}
-							"
-						>
-							{{ $currentMenuItem.Name }}
-						</a>
-					</li>
-				{{- else if and (not $page) (findRE "^https?://" $currentMenuItem.URL) -}}
-					<li class="header__menu-item">
-						<a
-							href="{{ $currentMenuItem.URL }}"
-							class="header__menu-item-link"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							{{ $currentMenuItem.Name }}
-						</a>
-					</li>
-				{{- end -}}
-			{{- end -}}	
-		</ul>
-	</nav>
+  {{ if not .IsHome }}
+    <a href="/" class="header__title">Tyler Smith</a>
+  {{ end }}
+  {{/*  <button 
+    id="navigation-toggle"
+    class="hamburger hamburger--squeeze" 
+    type="button"
+    aria-label="Menu"
+    aria-controls="navigation"
+    aria-expanded="false"
+  >
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+  </button>  */}}
+  <nav id="navigation" class="header__navigation">
+    <ul class="header__menu">
+      {{- range .Site.Menus.main -}}
+        {{- $currentMenuItem := . -}}
+        {{- $path := .URL | relURL | plainify -}}
+        {{- $pathNoTrailingSlash := strings.TrimSuffix "/" $path -}}
+        {{ $page := $.Site.GetPage $pathNoTrailingSlash }}
+        {{ $notHidden := not ($page.Param "hidden") }}
+        {{- if or (and $page $notHidden) (and $page $.Site.IsServer) -}}
+          {{/* 
+            Grab the length of menu item, get a substring of the 
+            current page url the length of the menu item and see if
+            they're the same. If they are, it means that the
+            current page is a child or the same page and should be active.
+            */}}
+          {{- $menuItemUrlLength := len $currentMenuItem.URL -}}
+          {{- $pageSubstr := substr $.Page.RelPermalink 0 $menuItemUrlLength -}}
+          <li class="header__menu-item">
+            <a 
+              href="{{ $currentMenuItem.URL }}" 
+              class="
+                {{- "header__menu-item-link" -}}
+                {{- cond (eq $pageSubstr $page.RelPermalink) " header__menu-item-link--is-active"  "" -}}
+              "
+            >
+              {{ $currentMenuItem.Name }}
+            </a>
+          </li>
+        {{- else if and (not $page) (findRE "^https?://" $currentMenuItem.URL) -}}
+          <li class="header__menu-item">
+            <a
+              href="{{ $currentMenuItem.URL }}"
+              class="header__menu-item-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ $currentMenuItem.Name }}
+            </a>
+          </li>
+        {{- end -}}
+      {{- end -}} 
+    </ul>
+  </nav>
 </header>

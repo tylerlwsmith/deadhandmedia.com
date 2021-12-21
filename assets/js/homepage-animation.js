@@ -10,22 +10,22 @@
    */
   const styleTag = document.createElement("style");
   styleTag.innerHTML = `
-			.animate\\:fade-in {
-				opacity: 0;
-				transform: translateX(20px);
-				transition-property: opacity, transform;
-				transition-duration: 0.3s;
-			}
-			@media (max-width: 650px) {
-				.animate\\:fade-in {
-					transform: translateY(20px);
-				}
-			}
-			.animate\\:fade-in--initialized {
-				opacity: 1;
-				transform: translateX(0);
-			}
-		`;
+    .animate\\:fade-in {
+      opacity: 0;
+      transform: translateX(20px);
+      transition-property: opacity, transform;
+      transition-duration: 0.3s;
+    }
+    @media (max-width: 650px) {
+      .animate\\:fade-in {
+        transform: translateY(20px);
+      }
+    }
+    .animate\\:fade-in--initialized {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  `;
   const headElement = document.querySelector("head");
   if (headElement) headElement.appendChild(styleTag);
 

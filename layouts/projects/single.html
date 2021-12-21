@@ -1,70 +1,70 @@
 {{- define "main" }}
-	<div class="container">
-		<main id="main">
-			{{/* partial "breadcrumbs" . */}}
-			{{- if eq hugo.Environment "development" -}}
-				<a 
-					href="vscode://file/{{- os.Getenv "PWD" }}/content/{{- .File.Path -}}"
-					class="edit-page-button"
-				>
-					Edit Page
-				</a>
-			{{- end -}}
-			<article>
-				<header>
-					<div class="content-area">
-						<h1 class="page-project__title">{{- .Name -}}</h1>
-					</div>
+  <div class="container">
+    <main id="main">
+      {{/* partial "breadcrumbs" . */}}
+      {{- if eq hugo.Environment "development" -}}
+        <a 
+          href="vscode://file/{{- os.Getenv "PWD" }}/content/{{- .File.Path -}}"
+          class="edit-page-button"
+        >
+          Edit Page
+        </a>
+      {{- end -}}
+      <article>
+        <header>
+          <div class="content-area">
+            <h1 class="page-project__title">{{- .Name -}}</h1>
+          </div>
 
-					{{- partial "project-screenshot" . -}}
+          {{- partial "project-screenshot" . -}}
 
-					{{/*
-					<div>
-						<div>
-							<strong>Scope of Work:</strong>
-						</div>
+          {{/*
+          <div>
+            <div>
+              <strong>Scope of Work:</strong>
+            </div>
 
-						<ul class="pill__wrapper pill__wrapper--scroll">
-							{{ range .Param "Services" }}
-								<li class="pill">{{ . }}</li>
-							{{ end }}
-						</ul>
-					</div>
-					*/}}
+            <ul class="pill__wrapper pill__wrapper--scroll">
+              {{ range .Param "Services" }}
+                <li class="pill">{{ . }}</li>
+              {{ end }}
+            </ul>
+          </div>
+          */}}
 
-					<div>
-						<div>
-							<strong>Technologies:</strong>
-						</div>
+          <div>
+            <div>
+              <strong>Technologies:</strong>
+            </div>
 
-						<ul class="pill__wrapper">
-							{{- range .Param "technologies" -}}
-								{{- $technology := . -}}
-								{{- if (reflect.IsMap $technology) -}}
-									{{- $technology = $technology.featured -}}
-								{{- end -}}
-								<li class="pill">
-									{{- $technology -}}
-								</li>
-							{{- end -}}
-						</ul>
-					</div>
-				</header>
+            <ul class="pill__wrapper">
+              {{- range .Param "technologies" -}}
+                {{- $technology := . -}}
+                {{- if (reflect.IsMap $technology) -}}
+                  {{- $technology = $technology.featured -}}
+                {{- end -}}
+                <li class="pill">
+                  {{- $technology -}}
+                </li>
+              {{- end -}}
+            </ul>
+          </div>
+        </header>
 
-				<div class="content-area">
-					{{- .Content -}}
-				</div>
+        <div class="content-area">
+          {{- .Content -}}
+        </div>
 
-				{{- if .Param "projectUrl" -}}
-					<div class="button__wrapper text-center">
-						<a href="{{ .Param "projectUrl" }}" class="button">Visit {{ .Name }}</a>
-					</div>
-				{{- end -}}
+        {{- if .Param "projectUrl" -}}
+          <div class="button__wrapper text-center">
+            <a href="{{ .Param "projectUrl" }}" class="button">Visit {{ .Name }}</a>
+          </div>
+        {{- end -}}
 
-				<aside class="back-link">
-					<a href="/projects/"><span aria-hidden="true">&#8592; </span>Back to projects</a>
-				</aside>
-			</main>
-		</article>
-	</div>
+        <aside class="back-link">
+          <a href="/projects/"><span aria-hidden="true">&#8592; </span>Back to projects</a>
+        </aside>
+      </main>
+    </article>
+  </div>
 {{- end -}}

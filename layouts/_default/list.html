@@ -1,16 +1,16 @@
 {{ define "main" }}
-	<div class="container">
-		<main id="main" class="content-area">
-			<article>
-				<h1 class="page__title">{{ .Title }}</h1>
-				{{ .Content }}
-			</article>
+  <div class="container">
+    <main id="main" class="content-area">
+      <article>
+        <h1 class="page__title">{{ .Title }}</h1>
+        {{ .Content }}
+      </article>
 
-			{{ range.Pages }}
-				<article>
-					<h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-				</article>
-			{{ end }}
-		</main>
-	</div>
+      {{ range.Pages }}
+        <article>
+          <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        </article>
+      {{ end }}
+    </main>
+  </div>
 {{ end }}

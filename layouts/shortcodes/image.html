@@ -2,21 +2,21 @@
 {{- $alt := .Get 1 -}}
 {{- $imageResource := .Page.Resources.GetMatch $img -}}
 {{- if $imageResource -}}
-	{{- $resized := $imageResource.Resize "640x" -}}
-	{{- $resized2x := $imageResource.Resize "1280x" -}}
-	{{- $width := float $resized.Width -}}
-	{{- $height := float $resized.Height -}}
-	<div class="content-image__wrapper-outer">
-		<div 
-			class="content-image__wrapper-inner"
-			style="padding-bottom: {{ mul (div $height $width) 100}}%;"
-		>
-			<img 
-				src="{{- $resized.RelPermalink }}" 
-				srcset="{{- $resized2x.RelPermalink }} 2x" 
-				alt="{{- $alt -}}"
-				class="content-image"
-			>
-		</div>
-	</div>
+  {{- $resized := $imageResource.Resize "640x" -}}
+  {{- $resized2x := $imageResource.Resize "1280x" -}}
+  {{- $width := float $resized.Width -}}
+  {{- $height := float $resized.Height -}}
+  <div class="content-image__wrapper-outer">
+    <div
+      class="content-image__wrapper-inner"
+      style="padding-bottom: {{ mul (div $height $width) 100}}%;"
+    >
+      <img
+        src="{{- $resized.RelPermalink }}" 
+        srcset="{{- $resized2x.RelPermalink }} 2x" 
+        alt="{{- $alt -}}"
+        class="content-image"
+      >
+    </div>
+  </div>
 {{- end -}}
