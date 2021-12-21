@@ -6,7 +6,7 @@
   align-items: stretch;
   flex-direction: row;
   @media (max-width: $breakpoint__md) {
-    background-color: $color__purple;
+    background-color: $color__purple--500;
     display: flex;
     flex-direction: column;
     justify-content: stretch;
@@ -60,7 +60,7 @@
   &__content-container {
     padding-top: 62px;
     position: relative;
-    background-color: $color__purple;
+    background-color: $color__purple--500;
     width: 60%;
     min-height: 100vh;
     @include site-padding;

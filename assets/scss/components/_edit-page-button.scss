@@ -3,8 +3,8 @@
   bottom: 30px;
   right: 30px;
   color: $color__white;
-  background: $color__purple;
-  border: 1px solid $color__purple;
+  background: $color__purple--500;
+  border: 1px solid $color__purple--500;
   padding: 4px 20px;
   border-radius: 1000px;
   font-size: 14px;
@@ -12,7 +12,7 @@
   &:hover,
   &:focus,
   &:active {
-    color: $color__purple;
+    color: $color__purple--500;
     background: $color__white;
   }
   @media (max-width: $breakpoint__md) {

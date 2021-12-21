@@ -24,7 +24,7 @@
     left: 0;
     padding: 2px 8px;
     color: $color__white;
-    background-color: $color__purple--common;
+    background-color: $color__purple--400;
   }
   &__thumbnail-container {
     display: flex;
@@ -107,9 +107,9 @@
     border-radius: 5px;
     margin-bottom: 12px;
     line-height: 1;
-    color: $color__purple--common;
-    border: 1px solid $color__purple--light;
-    background: $color__purple--lightest;
+    color: $color__purple--400;
+    border: 1px solid $color__purple--200;
+    background: #faf6ff;
   }
   &__content-container {
     display: flex;
@@ -123,7 +123,7 @@
       padding: 20px 0 30px;
       @at-root .project-preview:not(:last-child) & {
         content: "";
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid $color__gray--light;
       }
     }
   }

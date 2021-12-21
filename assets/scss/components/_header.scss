@@ -6,7 +6,7 @@
   justify-content: space-between;
   padding-top: 16px;
   padding-bottom: 16px;
-  border-top: 4px solid $color__purple--bright;
+  border-top: 4px solid $color__purple--300;
   @if $feature-flag__mobile-nav {
     @media (max-width: $breakpoint__md) {
       align-items: center;
@@ -82,7 +82,7 @@
     &--is-active:hover,
     &--is-active:focus,
     &--is-active:active {
-      color: $color__purple--common;
+      color: $color__purple--400;
     }
     @if $feature-flag__mobile-nav {
       @media (max-width: $breakpoint__md) {

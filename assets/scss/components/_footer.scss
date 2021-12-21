@@ -5,7 +5,7 @@
   margin-top: auto;
   padding-top: $vertical-padding;
   padding-bottom: $vertical-padding;
-  font-weight: 600;
+  font-weight: 400;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,7 +18,7 @@
   }
   &__copyright-wrapper {
     padding-right: 16px;
-    color: #95939d;
+    color: $color__muted;
     font-size: 15px;
   }
   &__platform-link-wrapper {
@@ -34,7 +34,7 @@
       &:hover,
       &:focus,
       &:active {
-        color: $color__purple--bright;
+        color: $color__purple--300;
       }
     }
   }

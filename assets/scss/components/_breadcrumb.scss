@@ -2,7 +2,7 @@
   display: inline;
   font-size: 16px;
   a {
-    color: #754cc7;
+    color: $color__purple--400;
   }
   @media (max-width: $breakpoint__md) {
     font-size: 14px;
