@@ -77,12 +77,12 @@
     }
   }
   &__menu-item-link {
-    color: #746f85;
+    color: $color__muted;
     &--is-active,
     &--is-active:hover,
     &--is-active:focus,
     &--is-active:active {
-      color: #7e44ed;
+      color: $color__purple--common;
     }
     @if $feature-flag__mobile-nav {
       @media (max-width: $breakpoint__md) {

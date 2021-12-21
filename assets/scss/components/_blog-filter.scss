@@ -22,7 +22,7 @@
     &:hover,
     &:focus,
     &:active {
-      color: #7e44ed;
+      color: $color__purple--common;
     }
     &:before {
       content: "";
@@ -31,11 +31,11 @@
       display: inline-block;
       height: 12px;
       width: 12px;
-      border: 1px solid #7e44ed;
+      border: 1px solid $color__purple--common;
       margin-right: 8px;
     }
     @at-root .blog-filter:checked + &:before {
-      background: #7e44ed;
+      background: $color__purple--common;
     }
     @at-root .blog-filter:focus + &:before {
       outline: 1px solid blue;
@@ -45,7 +45,7 @@
     position: sticky;
     top: 4px;
     border: 1px solid;
-    color: #7e44ed;
+    color: $color__purple--common;
     width: 100%;
     padding: 3px;
     appearance: none;
@@ -55,7 +55,7 @@
     &:focus,
     &:active {
       color: $color__white;
-      background: #7e44ed;
+      background: $color__purple--common;
     }
   }
 }

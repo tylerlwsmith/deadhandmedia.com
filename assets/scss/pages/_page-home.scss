@@ -1,5 +1,6 @@
 .page-home {
-  background-color: $color__purple--light;
+  $head-background-color: #d4cbe5;
+  background-color: $head-background-color;
   color: $color__white;
   display: flex;
   align-items: stretch;
@@ -40,7 +41,7 @@
       height: 0;
       height: 59vw;
       min-height: 0;
-      background-color: $color__purple--light;
+      background-color: $head-background-color;
       flex-grow: 1;
     }
   }

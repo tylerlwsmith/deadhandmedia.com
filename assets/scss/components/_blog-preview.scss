@@ -38,7 +38,7 @@
     &:hover,
     &:focus,
     &:active {
-      // color: #7e44ed;
+      // color: $color__purple--common;
       display: inline-block;
     }
   }
@@ -63,9 +63,9 @@
     border-radius: 5px;
     margin-bottom: 8px;
     line-height: 1;
-    color: #7e44ed;
-    border: 1px solid #d0b8ff;
-    background: #faf6ff;
+    color: $color__purple--common;
+    border: 1px solid $color__purple--light;
+    background: $color__purple--lightest;
     margin-right: 8px;
     @media (max-width: 450px) {
       padding: 0;
@@ -86,7 +86,7 @@
     margin: 0;
   }
   &__meta-list-item {
-    color: #746f85;
+    color: $color__muted;
     display: inline-flex;
     flex-wrap: nowrap;
     margin-right: 10px;

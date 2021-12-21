@@ -24,7 +24,7 @@
     left: 0;
     padding: 2px 8px;
     color: $color__white;
-    background-color: #7e44ed;
+    background-color: $color__purple--common;
   }
   &__thumbnail-container {
     display: flex;
@@ -107,9 +107,9 @@
     border-radius: 5px;
     margin-bottom: 12px;
     line-height: 1;
-    color: #7e44ed;
-    border: 1px solid #d0b8ff;
-    background: #faf6ff;
+    color: $color__purple--common;
+    border: 1px solid $color__purple--light;
+    background: $color__purple--lightest;
   }
   &__content-container {
     display: flex;
@@ -149,7 +149,7 @@
     font-size: 12px;
     letter-spacing: 0.05em;
     font-weight: 600;
-    color: #746f85;
+    color: $color__muted;
     &:not(:last-child):after {
       content: ", ";
       margin-right: 3px;
