@@ -16,14 +16,22 @@
     margin-right: 6px;
     font-weight: 600;
   }
-  &__list {
-    margin-bottom: 20px;
-    padding: 3px 0;
+  &__container {
     position: sticky;
     top: 0;
+    overflow-x: hidden;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  &__list {
+    margin-bottom: 20px;
+    padding: 3px 20px;
     background: $color__background;
     @media (max-width: $breakpoint__md) {
       display: none !important;
+    }
+    @at-root .active-filter__container--stuck & {
+      box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
     }
   }
 }

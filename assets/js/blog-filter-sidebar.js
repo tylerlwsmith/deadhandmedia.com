@@ -24,6 +24,19 @@ window.addEventListener("DOMContentLoaded", function () {
     });
 
     makeScrollToTopButton();
+
+    const observer = new IntersectionObserver(
+      ([e]) => {
+        console.log(e);
+        e.target.classList.toggle(
+          "active-filter__container--stuck",
+          e.intersectionRatio !== 1
+        );
+      },
+      { threshold: [0, 1], rootMargin: "-1px" }
+    );
+
+    observer.observe(document.querySelector(".active-filter__container"));
   })();
 
   function makeScrollToTopButton() {
