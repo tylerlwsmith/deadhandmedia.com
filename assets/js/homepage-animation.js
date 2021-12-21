@@ -1,5 +1,5 @@
 /**
- * Animate the homepage text. Must execute immediately: do not move into a
+ * Animate the homepage text. This must execute immediately: do not move into a
  * "DOMContentLoaded" callback.
  */
 (function () {
