@@ -16,8 +16,7 @@
   {{- end -}}
 
   <div class="page-blog-list">
-
-    {{ partial "blog-filter-sidebar.html" . }}
+    {{- partial "blog-filter-sidebar.html" . -}}
 
     <main id="main" class="page-blog-list__container">
       <article class="content-area">
@@ -28,30 +27,30 @@
       <div data-active-filter-list class="active-filter__container">
         {{/*  Intentionally blank  */}}
       </div>
-      {{ $yearIndex := "" }}
-      {{ range .Scratch.Get "posts" }}
-        {{ $postYear :=  time.Format "2006" .published_at }}
-        {{ if ne $yearIndex $postYear }}
-          {{ $yearIndex = $postYear }}
+      {{- $yearIndex := "" -}}
+      {{- range .Scratch.Get "posts" -}}
+        {{- $postYear :=  time.Format "2006" .published_at -}}
+        {{- if ne $yearIndex $postYear -}}
+          {{- $yearIndex = $postYear -}}
           <h2 data-year-heading="{{ $yearIndex }}" class="page-blog-list__year-heading">
             <div class="page-blog-list__year-heading-inner">
               <span class="page-blog-list__year">{{ $yearIndex }}</span>
               <span class="page-blog-list__year-count">
-                {{ $count := (index ($scratch.Get "yearCounts") $yearIndex).count }}
-                {{ $count }} {{cond (eq $count 1) "post" "posts" }}
+                {{- $count := (index ($scratch.Get "yearCounts") $yearIndex).count -}}
+                {{- $count }} {{cond (eq $count 1) "post" "posts" -}}
               </span>
             </div>
           </h2>
-        {{ end }}
+        {{- end -}}
         <article data-tags="{{ jsonify .tag_list }}" class="blog-preview">
           <h3 class="blog-preview__title">
             <a href="{{ .url }}" class="blog-preview__link">{{ .title }}</a>
           </h3>
 
           <ul class="blog-preview__tag-list">
-            {{ range .tag_list }}
+            {{- range .tag_list -}}
               <li class="blog-preview__tag">#{{ . }}</li>
-            {{ end }}
+            {{- end -}}
           </ul>
           
           <div class="blog-preview__meta-wrapper">
@@ -63,28 +62,27 @@
               {{ time.Format "Jan 2, 2006" .published_at }}
             </time>
             <dl class="blog-preview__meta-list">
-              {{ if .public_reactions_count }}
+              {{- if .public_reactions_count -}}
                 <div class="blog-preview__meta-list-item">
                   <dt class="blog-preview__meta-term">reactions</dt>
                   <dd class="blog-preview__meta-detail">
                     {{ .public_reactions_count }}
                   </dd>
                 </div>
-              {{ end }}
+              {{- end -}}
   
-              {{ if .comments_count }}
+              {{- if .comments_count -}}
                 <div class="blog-preview__meta-list-item">
                   <dt class="blog-preview__meta-term">comments</dt>
                   <dd class="blog-preview__meta-detail">
                     {{ .comments_count }}
                   </dd>
                 </div>
-              {{ end }}
+              {{- end -}}
             </dl>
           </div>
-
         </article>
-      {{ end }}
+      {{- end -}}
     </main>
   </div>
-{{ end }}
+{{- end -}}
