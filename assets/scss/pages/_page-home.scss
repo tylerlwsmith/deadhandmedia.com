@@ -70,6 +70,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     @media (max-width: $breakpoint__md) {
       width: 100%;
       min-height: auto;
@@ -82,6 +83,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @media (max-width: $breakpoint__md) {
+      max-width: 500px;
+    }
   }
 
   &__heading-wrapper {
