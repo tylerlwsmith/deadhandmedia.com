@@ -28,6 +28,9 @@
     margin-left: auto;
     @media (max-width: $breakpoint__md) {
       margin: auto;
+      a {
+        text-decoration: underline;
+      }
     }
   }
 
