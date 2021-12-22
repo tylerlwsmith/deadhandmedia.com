@@ -1,3 +1,11 @@
 .fa-inverse {
   color: $color__background;
 }
+
+// Hugo tweet component
+.twitter-tweet {
+  max-width: 100% !important;
+  * {
+    max-width: 100% !important;
+  }
+}
