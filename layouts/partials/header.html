@@ -1,6 +1,7 @@
 {{- $headerVariation := .Scratch.Get "headerVariation" -}}
-{{/* Ternaries in Hugo are wild. */}}
-<header class="header{{ cond (ne $headerVariation nil) (print " " $headerVariation) "" }}">
+<header class="header{{ 
+  cond (ne $headerVariation nil) (print " " $headerVariation) "" 
+}}">
   <a href="#main" id="skip-to-content">Skip to Content</a>
 
   {{- if not .IsHome -}}
@@ -40,7 +41,10 @@
               href="{{ $currentMenuItem.URL }}" 
               class="
                 {{- "header__menu-item-link" -}}
-                {{- cond (eq $pageSubstr $page.RelPermalink) " header__menu-item-link--is-active"  "" -}}
+                {{- cond (eq $pageSubstr $page.RelPermalink) 
+                  " header__menu-item-link--is-active"  
+                  "" 
+                -}}
               "
             >
               {{ $currentMenuItem.Name }}
