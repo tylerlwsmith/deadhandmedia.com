@@ -19,17 +19,17 @@
           {{- partial "project-screenshot" . -}}
 
           <div>
-            <div class="sr-only">
-              <strong>Stack:</strong>
-            </div>
+            <h2 class="sr-only">
+              Stack
+            </h2>
 
-            <ul class="pill__wrapper">
+            <ul class="technology-pill__wrapper">
               {{- range .Param "technologies" -}}
                 {{- $technology := . -}}
                 {{- if (reflect.IsMap $technology) -}}
                   {{- $technology = $technology.featured -}}
                 {{- end -}}
-                <li class="pill">
+                <li class="technology-pill">
                   {{- $technology -}}
                 </li>
               {{- end -}}

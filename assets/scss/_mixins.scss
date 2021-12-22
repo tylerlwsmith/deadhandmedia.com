@@ -14,3 +14,19 @@
 @mixin page-padding-bottom {
   padding-bottom: 40px;
 }
+
+@mixin pill {
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  margin-right: 8px;
+  line-height: 1;
+  color: $color__purple--400;
+  border: 1px solid $color__purple--200;
+  background: $color__purple--100;
+}

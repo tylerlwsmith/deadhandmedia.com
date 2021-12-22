@@ -96,20 +96,10 @@
   &__category-wrapper {
     margin: 0;
     order: -1;
+    margin-bottom: 4px;
   }
   &__category {
-    margin: 0 0 4px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    display: inline-block;
-    padding: 5px 14px;
-    border-radius: 5px;
-    margin-bottom: 12px;
-    line-height: 1;
-    color: $color__purple--400;
-    border: 1px solid $color__purple--200;
-    background: #faf6ff;
+    @include pill;
   }
   &__content-container {
     display: flex;

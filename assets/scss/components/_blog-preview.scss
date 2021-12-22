@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   @media (max-width: $breakpoint__md) {
-    display: block !important;
+    display: flex !important;
   }
   &__title {
     font-size: 24px;
@@ -47,18 +47,7 @@
     padding-bottom: 4px;
   }
   &__tag {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    display: inline-block;
-    padding: 5px 14px;
-    border-radius: 5px;
-    margin-bottom: 8px;
-    line-height: 1;
-    color: $color__purple--400;
-    border: 1px solid $color__purple--200;
-    background: $color__purple--100;
-    margin-right: 8px;
+    @include pill;
     @media (max-width: 450px) {
       padding: 0;
       border: none;

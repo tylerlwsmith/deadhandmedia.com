@@ -1,0 +1,20 @@
+$offset: 10px;
+.technology-pill {
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 2px 8px;
+  display: inline-block;
+  margin-bottom: 0.5em;
+  margin-right: 3px;
+  color: $color__white;
+  background-color: $color__purple--500;
+  font-weight: 600;
+  @media (max-width: $breakpoint__sm) {
+    font-size: 12px;
+  }
+  &__wrapper {
+    list-style-type: none;
+    padding: 0;
+    margin: 8px 0;
+  }
+}
