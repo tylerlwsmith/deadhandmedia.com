@@ -6,4 +6,4 @@ hidden: false
 ---
 
 Most of the projects listed here are things I hack on in my free time.
-If you want see my professional experience, check out my [resume](/resume).
+If you want to see my professional experience, check out my [resume](/resume).
