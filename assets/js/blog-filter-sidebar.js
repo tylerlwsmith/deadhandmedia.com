@@ -18,7 +18,8 @@ window.addEventListener("DOMContentLoaded", function () {
       handleActiveFilterClick
     );
 
-    // Refires filters when navigating back from dev.to
+    // Refire filters when navigating back from dev.to because Chrome/Firefox
+    // persist checkbox state, but do not persist modifications to the DOM.
     window.addEventListener("pageshow", function () {
       filterPosts();
     });
