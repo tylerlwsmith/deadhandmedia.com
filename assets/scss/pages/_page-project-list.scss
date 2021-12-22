@@ -1,7 +1,7 @@
 .page-project-list {
   &__content {
     font-size: 18px;
-    letter-spacing: 0.028em;
+    letter-spacing: 0.0315em;
     line-height: 2;
     color: $color__muted;
     margin-top: 80px;
@@ -17,14 +17,15 @@
     a {
       color: inherit;
       border-color: $color__purple--400;
+      letter-spacing: 0.02em; // hack to make sentence fit.
     }
   }
   @include page-padding-bottom;
   &__container {
+    @include site-padding;
+    box-sizing: content-box;
+    max-width: 610px;
     margin-left: auto;
     margin-right: auto;
-    @include site-padding;
-    max-width: 720px;
-    width: 100%;
   }
 }
