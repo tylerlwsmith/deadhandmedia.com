@@ -5,7 +5,11 @@
   "enableSourceMap" .Site.IsServer
   "includePaths" (slice ".")
 ) -}}
-{{- $style := resources.Get "scss/style.scss" | toCSS $styleOptions -}}
+{{- $style := resources.Get "scss/style.scss" 
+  | toCSS $styleOptions 
+  | resources.Fingerprint "md5" 
+-}}
+
 <head>
   {{ "<!-- Wanna look under the hood? Visit https://github.com/tylerlwsmith/deadhandmedia.com to see this site's source. -->" | safeHTML }}
   <title>{{ if not .IsHome }}{{- .Title }} - {{ end }}{{ .Site.Title -}}</title>
