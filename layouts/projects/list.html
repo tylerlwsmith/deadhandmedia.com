@@ -4,9 +4,6 @@
       <main id="main">
         <article class="content-area">
           <h1 class="page__title">{{- .Title -}}</h1>
-          <div class="page-project-list__content ">
-            {{ .Content }}
-          </div>
         </article>
 
         <ul class="project-preview__list">
@@ -76,8 +73,11 @@
             </li>
           {{- end -}}
         </ul>
+
         <div class="content-area">
-          {{/* .Content */}}
+          <div class="page-project-list__content">
+            {{ .Content }}
+          </div>
         </div>
         <script>
           window.addEventListener("DOMContentLoaded", function addHoverClass() {

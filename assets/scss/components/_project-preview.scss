@@ -103,7 +103,7 @@
     padding-left: 32px;
     @media (max-width: $breakpoint) {
       padding: 20px 0 30px;
-      @at-root .project-preview:not(:last-child) & {
+      @at-root .project-preview & {
         content: "";
         border-bottom: 1px solid $color__gray--light;
       }
