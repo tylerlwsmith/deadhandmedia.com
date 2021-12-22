@@ -16,23 +16,6 @@
           <div class="content-area">
             <h1 class="page-project__title">{{- .Name -}}</h1>
           </div>
-
-          {{- if (or $project $repo) -}}
-            <ul class="project-link__list">
-              {{- if $project -}}
-                <a href="{{ $project }}" class="project-link">
-                  <i class="fas fa-globe"></i>
-                  Visit project
-                </a>
-              {{- end -}}
-              {{- if $repo -}}
-                <a href="{{ $repo }}" class="project-link">
-                  <i class="fab fa-github"></i>
-                  Visit GitHub repo
-                </a>
-              {{- end -}}
-            </ul>
-          {{- end -}}
             
           {{- partial "project-screenshot" . -}}
 
@@ -59,15 +42,22 @@
           {{- .Content -}}
         </div>
 
-        {{- if $project -}}
-          <div class="button__wrapper text-center">
-            <a href="{{ $project }}" class="button">Visit {{ .Name }}</a>
-          </div>
-        {{- else if $repo -}}
-          <div class="button__wrapper text-center">
-            <a href="{{ $repo }}" class="button">Visit {{ .Name }} Repo</a>
-          </div>
-        {{- end -}}
+        {{- if (or $project $repo) -}}
+        <ul class="project-link__list">
+          {{- if $project -}}
+            <a href="{{ $project }}" class="project-link">
+              <i class="fas fa-globe"></i>
+              <span class="underline">Visit Website</span>
+            </a>
+          {{- end -}}
+          {{- if $repo -}}
+            <a href="{{ $repo }}" class="project-link">
+              <i class="fab fa-github"></i>
+              Visit GitHub Repo
+            </a>
+          {{- end -}}
+        </ul>
+      {{- end -}}
 
         <aside class="back-link">
           <a href="/projects/"><span aria-hidden="true">&#8592; </span>Back to projects</a>
