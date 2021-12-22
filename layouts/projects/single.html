@@ -1,7 +1,8 @@
 {{- define "main" }}
+  {{- $project := .Param "projectUrl" -}}
+  {{- $repo := .Param "repositoryUrl" -}}
   <div class="container">
     <main id="main">
-      {{/* partial "breadcrumbs" . */}}
       {{- if eq hugo.Environment "development" -}}
         <a 
           href="vscode://file/{{- os.Getenv "PWD" }}/content/{{- .File.Path -}}"
@@ -16,6 +17,23 @@
             <h1 class="page-project__title">{{- .Name -}}</h1>
           </div>
 
+          {{- if (or $project $repo) -}}
+            <ul class="project-link__list">
+              {{- if $project -}}
+                <a href="{{ $project }}" class="project-link">
+                  <i class="fas fa-globe"></i>
+                  Visit project
+                </a>
+              {{- end -}}
+              {{- if $repo -}}
+                <a href="{{ $repo }}" class="project-link">
+                  <i class="fab fa-github"></i>
+                  Visit GitHub repo
+                </a>
+              {{- end -}}
+            </ul>
+          {{- end -}}
+            
           {{- partial "project-screenshot" . -}}
 
           <div>
@@ -41,9 +59,13 @@
           {{- .Content -}}
         </div>
 
-        {{- if .Param "projectUrl" -}}
+        {{- if $project -}}
           <div class="button__wrapper text-center">
-            <a href="{{ .Param "projectUrl" }}" class="button">Visit {{ .Name }}</a>
+            <a href="{{ $project }}" class="button">Visit {{ .Name }}</a>
+          </div>
+        {{- else if $repo -}}
+          <div class="button__wrapper text-center">
+            <a href="{{ $repo }}" class="button">Visit {{ .Name }} Repo</a>
           </div>
         {{- end -}}
 

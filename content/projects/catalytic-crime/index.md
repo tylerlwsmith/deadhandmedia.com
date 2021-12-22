@@ -1,7 +1,7 @@
 ---
 title: "Catalytic Crime"
 date: 2021-11-19T20:27:02-08:00
-projectUrl: https://github.com/tylerlwsmith/catalyticcrime.com
+projectUrl: null
 category: "Full-Stack Development"
 repositoryUrl: https://github.com/tylerlwsmith/catalyticcrime.com
 services: ["Full-Stack Development", "Data Aggregation", "Continous Delivery"]

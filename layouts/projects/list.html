@@ -38,12 +38,11 @@
                       alt="Screenshot of {{ .Title }}" 
                       class="project-preview__thumbnail"
                     >
-                    {{- if eq hugo.Environment "development" -}}
-                      {{- if  (.Param "repositoryUrl") -}}
-                        <span class="project-preview__open-source-badge">
-                          Open Source
-                        </span>
-                      {{- end -}}
+
+                    {{- if  (.Param "repositoryUrl") -}}
+                      <span class="project-preview__open-source-badge">
+                        Open Source
+                      </span>
                     {{- end -}}
                   </a>
                 {{- end -}}
@@ -59,9 +58,9 @@
                 </h2>
 
                 {{- if $category -}}
-                  <dl  class="project-preview__category-wrapper">
+                  <dl  class="project-category__wrapper">
                     <dt class="sr-only">Project Category</dt>
-                    <dd class="project-preview__category">{{- $category -}}</dd>
+                    <dd class="project-category">{{- $category -}}</dd>
                   </dl>     
                 {{ end }}
 

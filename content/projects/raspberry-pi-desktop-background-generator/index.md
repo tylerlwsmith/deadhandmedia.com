@@ -1,7 +1,7 @@
 ---
 title: "Raspberry Pi Desktop Background Generator"
 date: 2021-12-10T17:18:23-08:00
-projectUrl: https://github.com/tylerlwsmith/pi-background-generator
+projectUrl: null
 repositoryUrl: https://github.com/tylerlwsmith/pi-background-generator
 category: "Tinkering"
 services: ["Tinkering"]

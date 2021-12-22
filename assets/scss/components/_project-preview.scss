@@ -93,14 +93,6 @@
     position: absolute;
     inset: 0;
   }
-  &__category-wrapper {
-    margin: 0;
-    order: -1;
-    margin-bottom: 4px;
-  }
-  &__category {
-    @include pill;
-  }
   &__content-container {
     display: flex;
     flex-wrap: wrap;
