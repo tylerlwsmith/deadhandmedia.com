@@ -5,6 +5,7 @@
   "enableSourceMap" .Site.IsServer
   "includePaths" (slice ".")
 ) -}}
+{{- /* md5 fingerprint is for cache busting */ -}}
 {{- $style := resources.Get "scss/style.scss" 
   | toCSS $styleOptions 
   | resources.Fingerprint "md5" 

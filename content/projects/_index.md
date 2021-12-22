@@ -5,4 +5,5 @@ draft: false
 hidden: false
 ---
 
-Most of the projects listed here are hobby projects that I work on in my free time. If you want to learn about projects I've done professionally, take a look at my [resume](/resume).
+Most of the projects listed here are things I hack on in my free time.
+If you want see my professional experience, check out my [resume](/resume).
