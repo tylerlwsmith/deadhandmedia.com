@@ -1,8 +1,13 @@
 .container {
-  margin: 0 auto;
-  padding: 50px $padding__md 120px;
-  max-width: $breakpoint__md;
+  padding-top: 50px;
+  padding-bottom: 120px;
+  @include site-padding;
+  box-sizing: content-box;
+  max-width: 610px;
+  margin-left: auto;
+  margin-right: auto;
   @media (max-width: $breakpoint__sm) {
-    padding: 20px $padding__sm 60px;
+    padding-top: 20px;
+    padding-bottom: 60px;
   }
 }
