@@ -1,7 +1,9 @@
 #navigation-toggle {
   display: none;
   @media (max-width: $breakpoint__md) {
-    display: inline-flex !important;
-    align-items: center;
+    @at-root .header--collapse & {
+      display: inline-flex !important;
+      align-items: center;
+    }
   }
 }

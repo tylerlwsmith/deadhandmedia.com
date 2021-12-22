@@ -7,12 +7,11 @@
   padding-top: 16px;
   padding-bottom: 16px;
   border-top: 4px solid $color__purple--300;
-  @if $feature-flag__mobile-nav {
+  @at-root .header--collapse & {
     @media (max-width: $breakpoint__md) {
       align-items: center;
     }
   }
-
   &--absolute {
     position: absolute;
     top: 0;
@@ -31,11 +30,13 @@
     color: $color__black;
   }
   &__navigation {
-    @if $feature-flag__mobile-nav {
+    @at-root .header--collapse & {
       @media (max-width: $breakpoint__md) {
         padding-top: 12px;
         flex-basis: 100%;
-        @at-root #navigation-toggle:not([aria-expanded="true"]) + & {
+        @at-root .header--collapse
+            #navigation-toggle:not([aria-expanded="true"])
+            + .header__navigation {
           display: none;
         }
       }
@@ -52,7 +53,7 @@
     flex-basis: auto;
     margin-left: -($space-between-items / 2);
     margin-right: -($space-between-items / 2);
-    @if $feature-flag__mobile-nav {
+    @at-root .header--collapse & {
       @media (max-width: $breakpoint__md) {
         flex-wrap: wrap;
         justify-content: flex-start;
@@ -67,7 +68,7 @@
     top: 5px;
     padding-left: $space-between-items / 2;
     padding-right: $space-between-items / 2;
-    @if $feature-flag__mobile-nav {
+    @at-root .header--collapse & {
       @media (max-width: $breakpoint__md) {
         top: 0;
         flex-basis: 100%;
@@ -84,7 +85,7 @@
     &--is-active:active {
       color: $color__purple--400;
     }
-    @if $feature-flag__mobile-nav {
+    @at-root .header--collapse & {
       @media (max-width: $breakpoint__md) {
         display: block;
         padding: 14px 20px;

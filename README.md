@@ -82,7 +82,6 @@ As of mid-December 2021, I'm in a mad dash to get this site finished and I'm cut
 
 - Homepage should use `baseof.html` and currently doesn't. Script tags added to `baseof` don't automatically end up on the homepage and that's a problem.
 - The blog filters component's vanilla JS implementation is fragile and tightly coupled to the markup and styles. If I want to add a single additional feature to it, I need to migrate to Alpine JS or React.
-- I implemented a mobile nav and didn't like it, so I hid it using a combination of Sass variables and commenting out the Hugo/Sass code. In an ideal world, I could set an environment variable that would enable/disable all of it, but making sharing environment variables with Sass isn't trival.
 
 ## Why the stupid name... what even _is_ a dead hand?
 

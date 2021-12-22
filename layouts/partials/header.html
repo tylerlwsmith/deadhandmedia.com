@@ -6,7 +6,7 @@
   {{- if not .IsHome -}}
     <a href="/" class="header__title">Tyler Smith</a>
   {{- end -}}
-  {{/*  <button 
+  <button 
     id="navigation-toggle"
     class="hamburger hamburger--squeeze" 
     type="button"
@@ -17,7 +17,7 @@
     <span class="hamburger-box">
       <span class="hamburger-inner"></span>
     </span>
-  </button>  */}}
+  </button>
   <nav id="navigation" class="header__navigation">
     <ul class="header__menu">
       {{- range .Site.Menus.main -}}
@@ -32,7 +32,7 @@
             current page url the length of the menu item and see if
             they're the same. If they are, it means that the
             current page is a child or the same page and should be active.
-            */}}
+          */}}
           {{- $menuItemUrlLength := len $currentMenuItem.URL -}}
           {{- $pageSubstr := substr $.Page.RelPermalink 0 $menuItemUrlLength -}}
           <li class="header__menu-item">
