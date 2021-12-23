@@ -78,9 +78,9 @@ RESUME_ORIGIN="http://localhost:3000" hugo server
 
 ## Rough edges
 
-As of mid-December 2021, I'm in a mad dash to get this site finished and I'm cutting a few corners. I'm putting this list in here as a reminder of what I need to fix later.
+This site has a couple of rough edges that I'd like to fix when I get time. I'm listing them here so I remember them the next time I resume active development on this site.
 
-- Homepage should use `baseof.html` and currently doesn't. Script tags added to `baseof` don't automatically end up on the homepage and that's a problem.
+- The homepage should use `baseof.html` and currently doesn't. The script tags in `baseof` don't automatically end up on the homepage, and I worry I may forget to add them to the homepage template.
 - The blog filters component's vanilla JS implementation is fragile and tightly coupled to the markup and styles. If I want to add a single additional feature to it, I need to migrate to Alpine JS or React.
 
 ## Why the stupid name... what even _is_ a dead hand?
