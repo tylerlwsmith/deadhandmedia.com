@@ -15,10 +15,10 @@
     {{- $scratch.Add "allYears" $year -}}
   {{- end -}}
 
-  <div class="page-blog-list">
+  <div class="page-blog-list container">
     {{- partial "blog-filter-sidebar.html" . -}}
 
-    <main id="main" class="page-blog-list__container">
+    <main id="main" class="content-column">
       <article class="content-area">
         <h1 class="page__title">{{ .Title }}</h1>
         {{ .Content }}

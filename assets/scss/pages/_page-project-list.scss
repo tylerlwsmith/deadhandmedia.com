@@ -21,11 +21,4 @@
     }
   }
   @include page-padding-bottom;
-  &__container {
-    @include site-padding;
-    box-sizing: content-box;
-    max-width: 610px;
-    margin-left: auto;
-    margin-right: auto;
-  }
 }

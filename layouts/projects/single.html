@@ -1,8 +1,8 @@
 {{- define "main" }}
   {{- $project := .Param "projectUrl" -}}
   {{- $repo := .Param "repositoryUrl" -}}
-  <div class="container">
-    <main id="main">
+  <div class="container vertical-page-padding">
+    <main id="main" class="content-column">
       {{- if eq hugo.Environment "development" -}}
         <a 
           href="vscode://file/{{- os.Getenv "PWD" }}/content/{{- .File.Path -}}"
@@ -62,7 +62,7 @@
         <aside class="back-link">
           <a href="/projects/"><span aria-hidden="true">&#8592; </span>Back to projects</a>
         </aside>
-      </main>
-    </article>
+      </article>
+    </main>
   </div>
 {{- end -}}
