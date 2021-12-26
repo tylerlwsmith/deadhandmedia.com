@@ -6,7 +6,9 @@
   <script src="{{- (resources.Get "js/homepage-animation.js").RelPermalink -}}"></script>
   <div class="page-home__head-container" aria-label="Tyler's Giant Head">
     {{/*  {{ partial "header.html" . }}  */}}
-    <div class="page-home__head"></div>
+    <div class="page-home__head">
+      {{ os.ReadFile "tylers-giant-head.svg" | safeHTML }}
+    </div>
   </div>
   <div class="page-home__content-container">
     {{- .Scratch.Set "headerVariation" "header--light header--absolute" -}}
