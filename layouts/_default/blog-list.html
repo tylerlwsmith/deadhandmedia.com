@@ -47,7 +47,7 @@
             <a href="{{ .url }}" class="blog-preview__link">{{ .title }}</a>
           </h3>
 
-          <ul class="blog-preview__tag-list">
+          <ul class="blog-preview__tag-list hidden">
             {{- range .tag_list -}}
               <li class="blog-preview__tag">#{{ . }}</li>
             {{- end -}}
@@ -61,7 +61,7 @@
             >
               {{ time.Format "Jan 2, 2006" .published_at }}
             </time>
-            <dl class="blog-preview__meta-list">
+            <dl class="blog-preview__meta-list hidden">
               {{- if .public_reactions_count -}}
                 <div class="blog-preview__meta-list-item">
                   <dt class="blog-preview__meta-term">reactions</dt>
