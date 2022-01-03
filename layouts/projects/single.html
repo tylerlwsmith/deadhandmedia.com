@@ -45,16 +45,20 @@
         {{- if (or $project $repo) -}}
         <ul class="project-link__list">
           {{- if $project -}}
-            <a href="{{ $project }}" class="project-link">
-              <i class="fas fa-globe"></i>
-              <span class="underline">Visit Website</span>
-            </a>
+            <li class="project-link__list-item">
+              <a href="{{ $project }}" class="project-link">
+                <i class="fas fa-globe"></i>
+                <span class="underline">Visit Website</span>
+              </a>
+            </li>
           {{- end -}}
           {{- if $repo -}}
-            <a href="{{ $repo }}" class="project-link">
-              <i class="fab fa-github"></i>
-              Visit GitHub Repo
-            </a>
+            <li class="project-link__list-item">
+              <a href="{{ $repo }}" class="project-link">
+                <i class="fab fa-github"></i>
+                Visit GitHub Repo
+              </a>
+            </li>
           {{- end -}}
         </ul>
       {{- end -}}

@@ -33,13 +33,13 @@
         {{- if ne $yearIndex $postYear -}}
           {{- $yearIndex = $postYear -}}
           <h2 data-year-heading="{{ $yearIndex }}" class="page-blog-list__year-heading">
-            <div class="page-blog-list__year-heading-inner">
+            <span class="page-blog-list__year-heading-inner">
               <span class="page-blog-list__year">{{ $yearIndex }}</span>
               <span class="page-blog-list__year-count">
                 {{- $count := (index ($scratch.Get "yearCounts") $yearIndex).count -}}
                 {{- $count }} {{cond (eq $count 1) "post" "posts" -}}
               </span>
-            </div>
+            </span>
           </h2>
         {{- end -}}
         <article data-tags="{{ jsonify .tag_list }}" class="blog-preview">
