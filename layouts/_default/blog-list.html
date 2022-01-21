@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{- .Scratch.Set "posts" ( getJSON "https://dev.to/api/articles?username=tylerlwsmith&per_page=999") -}}
+  {{- .Scratch.Set "posts" ( getJSON "https://dev.to/api/articles?username=tylerlwsmith&per_page=1000") -}}
 
   {{/*  Must use newScratch instead of .Scratch: .Scratch doesn't work in range in Hugo 0.93.  */}}
   {{- $scratch := newScratch -}}  
