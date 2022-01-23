@@ -25,9 +25,15 @@
     >
       Reset Filters
     </button>
+    <!-- <button x-on:click="sortOrder = 'alphabetical'">Alphabetical</button>
+    <button x-on:click="sortOrder = 'numerical'">Article Quantity</button> -->
     <ul class="blog-filter__list">
       {{ range sort ($scratch.Get "tagCount") "tag" "asc" }}
-        <li class="blog-filter__wrapper">
+        <li 
+          class="blog-filter__wrapper"
+          x-data="{ count: {{ .count }} }"
+          x-bind:style="sortOrder === 'numerical' && `order: -${count}`"
+        >
           <input 
             type="checkbox"
             name="{{ .tag }}"
