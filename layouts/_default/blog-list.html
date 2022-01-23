@@ -16,7 +16,24 @@
     {{- $scratch.Add "allYears" $year -}}
   {{- end -}}
 
-  <div class="page-blog-list container">
+  <div 
+    class="page-blog-list container"
+    x-data="{
+      activeFilters: [],
+      resetFilters() {
+        this.activeFilters = [];
+      },
+      classBinder() {
+        return this.activeFilters.length > 0 && this.tagList.filter(tag => this.activeFilters.includes(tag)).length === 0 ? 'hidden' : ''
+      }
+    }"
+    x-init="
+      setTimeout(() => {
+        activeFilters = [...document.querySelectorAll(`input[type='checkbox'][x-model='activeFilters']`)]
+        .filter(el => el.checked)
+        .map(el => el.value);
+      }, 0);
+    ">
     {{- partial "blog-filter-sidebar.html" . -}}
 
     <main id="main" class="content-column">
@@ -25,15 +42,30 @@
         {{ .Content }}
       </article>
 
-      <div data-active-filter-list class="active-filter__container">
-        {{/*  Intentionally blank  */}}
+      <div class="active-filter__container">
+        <template x-if="activeFilters.length > 0">
+          <div class="active-filter__list">
+            <span class="active-filter__label">Active Filters:</span> 
+            <template x-for="activeFilter in activeFilters">
+              <button 
+                class="active-filter"
+                data="{activeFilter: activeFilter}"
+                x-text="`&times; ${activeFilter}`"
+                x-on:click="activeFilters = activeFilters.filter(filter => filter !== activeFilter)"
+              ></button>`
+            </template>
+          </div>
+        </template>
       </div>
       {{- $yearIndex := "" -}}
       {{- range .Scratch.Get "posts" -}}
         {{- $postYear :=  time.Format "2006" .published_at -}}
         {{- if ne $yearIndex $postYear -}}
           {{- $yearIndex = $postYear -}}
-          <h2 data-year-heading="{{ $yearIndex }}" class="page-blog-list__year-heading">
+          <h2
+            class="page-blog-list__year-heading"
+            x-bind:class="activeFilters.length > 0 ? 'hidden' : ''"
+          >
             <span class="page-blog-list__year-heading-inner">
               <span class="page-blog-list__year">{{ $yearIndex }}</span>
               <span class="page-blog-list__year-count">
@@ -43,7 +75,11 @@
             </span>
           </h2>
         {{- end -}}
-        <article data-tags="{{ jsonify .tag_list }}" class="blog-preview">
+        <article 
+          x-data="{tagList: {{ jsonify .tag_list }}}"
+          class="blog-preview"
+          x-bind:class="classBinder()"
+        >
           <h3 class="blog-preview__title">
             <a href="{{ .url }}" class="blog-preview__link">{{ .title }}</a>
           </h3>
@@ -58,7 +94,6 @@
             <time 
               class="blog-preview__published_date"
               datetime="{{ time.Format "2006-01-02" .published_at }}"
-              data-published-date="{{ time.Format "2006-01-02" .published_at }}"
             >
               {{ time.Format "Jan 2, 2006" .published_at }}
             </time>
@@ -86,4 +121,62 @@
       {{- end -}}
     </main>
   </div>
+
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.store('sidebar', {
+        isOpen: false,
+        toggle() {
+          this.isOpen = ! this.isOpen
+        }
+      });
+
+      window.addEventListener("keypress", (event) => {
+        if (event.key.toUpperCase() !== "F") return;
+        Alpine.store('sidebar').toggle();
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", function makeScrollToTopButton() {
+      const scrollButton = document.createElement("button");
+      scrollButton.classList.add("scroll-to-top-button");
+      scrollButton.classList.add("hidden");
+      scrollButton.innerHTML = `<span class="fas fa-arrow-alt-circle-up"></span>`;
+      scrollButton.addEventListener("click", () => window.scrollTo(0, 0));
+      document.body.append(scrollButton);
+
+      requestAnimationFrame(function checkScroll() {
+        const { innerHeight, scrollY } = window;
+        const scrollHeight = document.body.scrollHeight;
+
+        /** Bottom pixel of current scroll */
+        const currentScrollBottom = innerHeight + scrollY;
+
+        if (scrollY < innerHeight / 3) {
+          scrollButton.classList.add("hidden");
+        } else if (scrollHeight - currentScrollBottom < 100) {
+          scrollButton.classList.add("hidden");
+        } else {
+          scrollButton.classList.remove("hidden");
+        }
+        requestAnimationFrame(checkScroll);
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", function makeActiveFiltersShadow() {
+      const observer = new IntersectionObserver(
+        ([e]) => {
+          console.log(e);
+          e.target.classList.toggle(
+            "active-filter__container--stuck",
+            e.intersectionRatio !== 1
+          );
+        },
+        { threshold: [0, 1], rootMargin: "-1px" }
+      );
+
+      observer.observe(document.querySelector(".active-filter__container"));
+    });
+  </script>
+  <script src="//unpkg.com/alpinejs" defer></script>
 {{- end -}}

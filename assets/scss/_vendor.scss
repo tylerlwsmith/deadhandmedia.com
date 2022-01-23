@@ -19,3 +19,8 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
 $hamburger-types: (squeeze);
 
 @import "node_modules/hamburgers/_sass/hamburgers/hamburgers";
+
+// Alpine.js
+[x-cloak] {
+  display: none !important;
+}

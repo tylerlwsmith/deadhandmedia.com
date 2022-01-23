@@ -11,10 +11,18 @@
     {{- $scratch.Add "allTags" . -}}
   {{- end -}}
 {{- end -}}
-<aside class="blog-filter__sidebar hidden">
+<aside
+  class="blog-filter__sidebar"
+  x-cloak
+  x-bind:class="! $store.sidebar.isOpen ? 'hidden' : ''"
+>
   <div>
     <h3>Filter by Tag</h3>
-    <button id="reset-filters" class="blog-filter__reset-button">
+    <button
+      id="reset-filters"
+      class="blog-filter__reset-button"
+      x-on:click="resetFilters"
+    >
       Reset Filters
     </button>
     <ul class="blog-filter__list">
@@ -25,7 +33,8 @@
             name="{{ .tag }}"
             id="tag:{{ .tag }}"
             class="blog-filter sr-only"
-            data-blog-tag="{{ .tag }}"
+            value="{{ .tag }}"
+            x-model="activeFilters"
           >
           <label for="tag:{{ .tag }}" class="blog-filter__label">{{ .tag }}: {{ .count }}</label>
         </li>
@@ -33,4 +42,3 @@
     </ul>
   </div>
 </aside>
-<script src="{{- (resources.Get "js/blog-filter-sidebar.js").RelPermalink -}}"></script>
