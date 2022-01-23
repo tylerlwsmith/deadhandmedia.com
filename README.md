@@ -73,7 +73,7 @@ A GitHub action rebuilds the site daily to make sure the site has the latest blo
 You can change where the site looks for the resume embed by setting the `RESUME_LOCATION` environment variable. If you were running a development copy of the resume locally and wanted to load that instead of the live site, you could start the Hugo server with the following command:
 
 ```sh
-RESUME_ORIGIN="http://localhost:3000" hugo server
+HUGO_RESUME_ORIGIN="http://localhost:3000" hugo server
 ```
 
 ## Rough edges

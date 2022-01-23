@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{- $resumeOrigin := or (os.Getenv "RESUME_ORIGIN") "https://resume.deadhandmedia.com" -}}
+  {{- $resumeOrigin := or (os.Getenv "HUGO_RESUME_ORIGIN") "https://resume.deadhandmedia.com" -}}
   <main id="main" class="page-resume">
     <h1 class="page__title sr-only">{{ .Name }}</h1>
 

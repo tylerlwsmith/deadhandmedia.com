@@ -29,3 +29,6 @@ googleAnalytics = 'UA-100417057-1'
      url = "/resume/"
      weight = 3
 
+[security]
+  [security.funcs]
+    getenv = ['^HUGO_', 'PWD']
