@@ -56,9 +56,13 @@ hugo server --bind "0.0.0.0" --baseUrl "http://$(ipconfig getifaddr en0)"
 
 ## Manually clearing the getJSON for blog posts on DEV
 
-**The following recommendations may not always work: DEV uses aggressive caching on their API server at the time of writing (December 2021) which returns cached results for hours.**
+**The following recommendations may not always work: DEV uses aggressive caching on their API server at the time of writing (December 2021) which returns cached results for hours. Confusingly, the cache may work on a per-client basis. This means it's possible that a local development environment might show current data while Netlify's build servers receive a stale cache.**
 
-To delete the cached posts from DEV, stop the server then delete the `resources/cache` directory. The data will be refetched the next time you start the server. You can also run Hugo with the `--ignoreCache` or `--gc` flags, which should clear
+**To make matters even more confusing, Hugo also keeps a local cache.**
+
+To delete the locally cached posts from DEV, stop the server then delete the `resources/cache` directory. The data will be refetched the next time you start the server. You can also run Hugo with the `--ignoreCache` or `--gc` flags, which will clear the local cache. However, this will not clear DEV's aggressive server-side caching.
+
+Sometimes, changing the number of articles requested from the DEV API will cause it to return more recent data. By default, Hugo requests 1000 articles (the max which DEV's API will return), but you can override this by setting the `HUGO_POSTS_PER_PAGE` environment variable to another value (like `999`).
 
 ## Skipping builds on Netlify
 
