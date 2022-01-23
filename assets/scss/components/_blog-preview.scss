@@ -39,6 +39,9 @@
     margin: 0;
     padding: 0;
     padding-bottom: 4px;
+    @media (max-width: $breakpoint__md) {
+      display: none;
+    }
   }
   &__tag {
     @include pill;
@@ -60,6 +63,9 @@
   }
   &__meta-list {
     margin: 0;
+    @media (max-width: $breakpoint__md) {
+      display: none;
+    }
   }
   &__meta-list-item {
     color: $color__muted;
