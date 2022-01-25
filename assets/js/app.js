@@ -22,7 +22,6 @@
   navigationToggle.addEventListener("click", function () {
     const ariaExpanded = "aria-expanded";
     const isExpanded = JSON.parse(this.getAttribute(ariaExpanded));
-    console.log({ isExpanded });
     if (isExpanded) {
       navigationToggle.classList.remove("is-active");
       navigationToggle.setAttribute(ariaExpanded, false);

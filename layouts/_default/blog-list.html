@@ -9,9 +9,9 @@
     {{- $year := time.Format "2006" .published_at -}}
     {{/* Can't use isSet: checks to see if a key's value is null, not if a key exists. */}}
     {{- if in ($scratch.Get "allYears") $year -}}
-      {{- $scratch.SetInMap "yearCounts" $year (dict "year" $year "count" (add (index ($scratch.Get "yearCounts") $year).count 1))  -}}
+      {{- $scratch.SetInMap "yearCounts" $year (dict "year" $year "count" (add (index ($scratch.Get "yearCounts") $year).count 1)) -}}
     {{- else -}}
-      {{- $scratch.SetInMap "yearCounts" $year (dict "year" $year "count" 1)  -}}
+      {{- $scratch.SetInMap "yearCounts" $year (dict "year" $year "count" 1) -}}
     {{- end -}}
     {{- $scratch.Add "allYears" $year -}}
   {{- end -}}
@@ -38,7 +38,12 @@
 
     <main id="main" class="content-column">
       <article class="content-area">
-        <h1 class="page__title">{{ .Title }}</h1>
+        <h1 
+          class="page__title" 
+          data-total-posts="{{ len (.Scratch.Get "posts") }}"
+        >
+          {{ .Title }}
+        </h1>
         {{ .Content }}
       </article>
 
@@ -175,7 +180,6 @@
     document.addEventListener("DOMContentLoaded", function makeActiveFiltersShadow() {
       const observer = new IntersectionObserver(
         ([e]) => {
-          console.log(e);
           e.target.classList.toggle(
             "active-filter__container--stuck",
             e.intersectionRatio !== 1
