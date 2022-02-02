@@ -25,14 +25,56 @@
     >
       Reset Filters
     </button>
-    <!-- <button x-on:click="sortOrder = 'alphabetical'">Alphabetical</button>
-    <button x-on:click="sortOrder = 'numerical'">Article Quantity</button> -->
-    <ul class="blog-filter__list">
+    <div
+      class="blog-filter__sort-button-wrapper"
+      x-data="{ activeSort: 'name' }"
+    >
+      <button
+        class="blog-filter__sort-button"
+        x-on:click="sortFiltersByName"
+        x-bind:class="activeSort === 'name' ? 'blog-filter__sort-button--active' : ''"
+      >
+        Sort by name
+      </button>
+      <button
+        class="blog-filter__sort-button"
+        x-on:click="sortFiltersByCount"
+        x-bind:class="activeSort === 'count' ? 'blog-filter__sort-button--active' : ''"
+      >
+        Sort by count
+      </button>
+      <script>
+        function sortFiltersByName(){
+          list = document.querySelector('[data-filter-list]');
+          listItems = [...list.querySelectorAll('li[data-filter-name]')];
+          getName = (el) => el.dataset.filterName;
+
+          listItems
+            .sort((a, b) => getName(a).localeCompare(getName(b)))
+            .forEach(el => list.appendChild(el));
+
+          this.activeSort = 'name';
+        }
+
+        function sortFiltersByCount(){
+          list = document.querySelector('[data-filter-list]');
+          listItems = [...list.querySelectorAll('li[data-filter-count]')];
+          getCount = (el) => el.dataset.filterCount;
+
+          listItems
+            .sort((a, b) => getCount(b) - getCount(a))
+            .forEach(el => list.appendChild(el));
+
+          this.activeSort = 'count';
+        }
+      </script>
+    </div>
+    <ul class="blog-filter__list" data-filter-list>
       {{ range sort ($scratch.Get "tagCount") "tag" "asc" }}
         <li 
           class="blog-filter__wrapper"
-          x-data="{ count: {{ .count }} }"
-          x-bind:style="sortOrder === 'numerical' && `order: -${count}`"
+          data-filter-count="{{ .count }}"
+          data-filter-name="{{ .tag }}"
         >
           <input 
             type="checkbox"
