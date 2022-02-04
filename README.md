@@ -54,6 +54,14 @@ Conversely, you could use the following command on Mac to do it all in one pass:
 hugo server --bind "0.0.0.0" --baseUrl "http://$(ipconfig getifaddr en0)"
 ```
 
+## Running the production build locally
+
+To test the production build locally, run the following command from the main project directory:
+
+```sh
+hugo && python3 -m http.server 1314 -d public
+```
+
 ## Manually clearing the getJSON for blog posts on DEV
 
 **The following recommendations may not always work: DEV uses aggressive caching on their API server at the time of writing (December 2021) which returns cached results for hours. Confusingly, the cache may work on a per-client basis. This means it's possible that a local development environment might show current data while Netlify's build servers receive a stale cache.**
