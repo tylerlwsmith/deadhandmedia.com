@@ -34,8 +34,19 @@
   <link href="https://fonts.googleapis.com/css?family=Bungee|Raleway:300,400,600&display=block" rel="stylesheet">
   <script src="https://kit.fontawesome.com/e37b089b64.js" crossorigin="anonymous"></script>
   <link href="{{ ($style).RelPermalink }}" rel="stylesheet">
-
+  
   {{- if eq hugo.Environment "production" -}}
-    {{ template "_internal/google_analytics.html" . }}
+  {{ template "_internal/google_analytics.html" . }}
   {{- end -}}
+  
+  {{ $defines := dict "process.env.NODE_ENV" (hugo.Environment | printf "'%s'") }}
+  {{ $opts := dict "defines" $defines }}
+  <script 
+    src="{{ (resources.Get "js/app.js" | js.Build $opts).RelPermalink }}" 
+    defer
+  ></script>
+  <script 
+    src="{{ (resources.Get "js/homepage-animation.js" | js.Build $opts).RelPermalink }}" 
+  ></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
 </head>

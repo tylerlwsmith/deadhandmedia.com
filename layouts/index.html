@@ -2,8 +2,6 @@
 <html lang="en-US">
 {{- partial "head.html" . -}}
 <body class="page-home">
-  {{- /*  Do not move this tag from the top of the page.  */ -}}
-  <script src="{{- (resources.Get "js/homepage-animation.js").RelPermalink -}}"></script>
   <div class="page-home__head-container" aria-label="Tyler's Giant Head">
     {{/*  {{ partial "header.html" . }}  */}}
     <div class="page-home__head">
@@ -43,6 +41,5 @@
       {{- partial "copyright.html" . -}}
     </footer>
   </div>
-  <script src="{{- (resources.Get "js/app.js").RelPermalink -}}"></script>
 </body>
 </html>

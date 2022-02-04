@@ -1,3 +1,4 @@
+import { loadEvent } from "./settings";
 /**
  * Animate the homepage text. This must execute immediately: do not move into a
  * "DOMContentLoaded" callback.
@@ -8,29 +9,33 @@
    * visible on load if JS is disabled. Placing script before the affected
    * DOM elements prevents a flash text before the animation starts.
    */
-  const styleTag = document.createElement("style");
-  styleTag.innerHTML = `
-    .animate\\:fade-in {
-      opacity: 0;
-      transform: translateX(20px);
-      transition-property: opacity, transform;
-      transition-duration: 0.3s;
-    }
-    @media (max-width: 650px) {
+  const styleTagId = "homepage-animation-styles";
+  if (!document.getElementById(styleTagId)) {
+    const styleTag = document.createElement("style");
+    styleTag.id = styleTagId;
+    styleTag.innerHTML = `
       .animate\\:fade-in {
-        transform: translateY(20px);
+        opacity: 0;
+        transform: translateX(20px);
+        transition-property: opacity, transform;
+        transition-duration: 0.3s;
       }
-    }
-    .animate\\:fade-in--initialized {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  `;
-  const headElement = document.querySelector("head");
-  if (headElement) headElement.appendChild(styleTag);
+      @media (max-width: 650px) {
+        .animate\\:fade-in {
+          transform: translateY(20px);
+        }
+      }
+      .animate\\:fade-in--initialized {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    `;
+    const headElement = document.querySelector("head");
+    if (headElement) headElement.appendChild(styleTag);
+  }
 
   document.addEventListener(
-    "DOMContentLoaded",
+    loadEvent,
     function () {
       window.setTimeout(function () {
         const animatable = [...document.querySelectorAll(".animate\\:fade-in")];

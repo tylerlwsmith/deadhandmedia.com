@@ -1,33 +1,22 @@
-(function skipToContent() {
-  const skipToContent = document.getElementById("skip-to-content");
-  const main = document.getElementById("main");
+import { skipToContent } from "./skip-to-content";
+import { toggleNavigation } from "./toggle-navigation";
+import { loadEvent, useTurbolinks } from "./settings";
+import {
+  addHoverClass,
+  removeHoverClassOnPageUnload,
+} from "./project-preview-hover-class";
+import Turbolinks from "turbolinks";
 
-  if (!skipToContent) return;
-  if (!main) {
-    return skipToContent.classList.add("hidden");
-  }
+if (useTurbolinks) Turbolinks.start();
 
-  skipToContent.addEventListener("click", function (event) {
-    event.preventDefault();
-    main.tabIndex = -1;
-    main.focus();
-  });
-})();
+document.addEventListener(loadEvent, function () {
+  skipToContent();
+  toggleNavigation();
+  addHoverClass();
+});
 
-(function toggleNavigation() {
-  const navigationToggle = document.getElementById("navigation-toggle");
-
-  if (!navigationToggle) return;
-
-  navigationToggle.addEventListener("click", function () {
-    const ariaExpanded = "aria-expanded";
-    const isExpanded = JSON.parse(this.getAttribute(ariaExpanded));
-    if (isExpanded) {
-      navigationToggle.classList.remove("is-active");
-      navigationToggle.setAttribute(ariaExpanded, false);
-    } else {
-      navigationToggle.classList.add("is-active");
-      navigationToggle.setAttribute(ariaExpanded, true);
-    }
-  });
-})();
+if (useTurbolinks) {
+  document.addEventListener(loadEvent, removeHoverClassOnPageUnload);
+} else {
+  window.addEventListener("unload", removeHoverClassOnPageUnload);
+}
