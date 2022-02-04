@@ -25,12 +25,3 @@ export function addHoverClass() {
     hoverable.addEventListener("click", removeHoverClass);
   });
 }
-
-export function removeHoverClassOnPageUnload() {
-  const hoverClassName = "project-preview--hover";
-  const hoverables = [...document.querySelectorAll("hoverClassName")];
-
-  hoverables.forEach((hoverable) => {
-    hoverable.classList.remove(hoverClassName);
-  });
-}

@@ -40,6 +40,7 @@ import { loadEvent } from "./settings";
       window.setTimeout(function () {
         const animatable = [...document.querySelectorAll(".animate\\:fade-in")];
         let currentIndex = 0;
+        if (animatable.length === 0) return;
         const interval = window.setInterval(function () {
           if (currentIndex + 1 >= animatable.length)
             window.clearInterval(interval);
