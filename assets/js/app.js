@@ -4,6 +4,7 @@ import { skipToContent } from "./skip-to-content";
 import { toggleNavigation } from "./toggle-navigation";
 import { loadEvent, useTurbolinks } from "./settings";
 import { addHoverClass } from "./project-preview-hover-class";
+import "./blog-page";
 
 window.Alpine = Alpine;
 Alpine.start();
