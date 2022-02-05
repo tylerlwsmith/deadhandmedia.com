@@ -5,11 +5,17 @@
   "enableSourceMap" .Site.IsServer
   "includePaths" (slice ".")
 ) -}}
+
 {{- /* md5 fingerprint is for cache busting */ -}}
 {{- $style := resources.Get "scss/style.scss" 
   | toCSS $styleOptions 
   | resources.Fingerprint "md5" 
 -}}
+
+{{- $scriptOptions := (dict 
+  "defines" (dict "process.env.NODE_ENV" (hugo.Environment | printf "'%s'"))
+  "minify" (cond (eq hugo.Environment "production") true false)
+) -}}
 
 <head>
   {{ "<!-- Wanna look under the hood? Visit https://github.com/tylerlwsmith/deadhandmedia.com to see this site's source. -->" | safeHTML }}
@@ -38,15 +44,13 @@
   {{- if eq hugo.Environment "production" -}}
   {{ template "_internal/google_analytics.html" . }}
   {{- end -}}
-  
-  {{ $defines := dict "process.env.NODE_ENV" (hugo.Environment | printf "'%s'") }}
-  {{ $opts := dict "defines" $defines }}
+
   <script 
-    src="{{ (resources.Get "js/app.js" | js.Build $opts).RelPermalink }}" 
+    src="{{ (resources.Get "js/app.js" | js.Build $scriptOptions).RelPermalink }}" 
     defer
   ></script>
   <script 
-    src="{{ (resources.Get "js/homepage-animation.js" | js.Build $opts).RelPermalink }}" 
+    src="{{ (resources.Get "js/homepage-animation.js" | js.Build $scriptOptions).RelPermalink }}" 
   ></script>
   <meta name="turbolinks-cache-control" content="no-cache">
 </head>
