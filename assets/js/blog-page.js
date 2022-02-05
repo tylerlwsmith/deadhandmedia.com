@@ -1,10 +1,3 @@
-import Alpine from "alpinejs";
-
-export function toggleSidebar(event) {
-  if (event.key.toUpperCase() !== "F") return;
-  Alpine.store("sidebar").toggle();
-}
-
 export function makeActiveFiltersShadow() {
   const observer = new IntersectionObserver(
     ([e]) => {

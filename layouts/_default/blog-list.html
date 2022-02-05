@@ -20,6 +20,11 @@
     class="page-blog-list container"
     x-data="{
       activeFilters: $persist([]).as('active-blog-filters'),
+      sidebarIsOpen: $persist(false).as('blog-sidebar-is-open'),
+      toggleSidebar() {
+        if (event.key.toUpperCase() !== 'F') return;
+        this.sidebarIsOpen = !this.sidebarIsOpen;
+      },
       resetFilters() {
         this.activeFilters = [];
       },
@@ -33,7 +38,9 @@
         .filter(el => el.checked)
         .map(el => el.value);
       }, 0);
-    ">
+    "
+    x-on:keypress.document="toggleSidebar"
+    >
     {{- partial "blog-filter-sidebar.html" . -}}
 
     <main id="main" class="content-column">
