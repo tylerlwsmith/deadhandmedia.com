@@ -19,7 +19,7 @@
   <div 
     class="page-blog-list container"
     x-data="{
-      activeFilters: [],
+      activeFilters: $persist([]).as('active-blog-filters'),
       resetFilters() {
         this.activeFilters = [];
       },

@@ -1,4 +1,5 @@
 import Alpine from "alpinejs";
+import persist from "@alpinejs/persist";
 import Turbolinks from "turbolinks";
 
 import { whenPath } from "./helpers";
@@ -22,6 +23,7 @@ Alpine.store("sidebar", {
     this.isOpen = !this.isOpen;
   },
 });
+Alpine.plugin(persist);
 Alpine.start();
 
 /**
