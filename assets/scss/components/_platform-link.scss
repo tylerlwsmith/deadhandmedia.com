@@ -3,20 +3,20 @@
   border-bottom: 0;
   padding-bottom: 0;
   line-height: 1;
-  &__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 10px;
-    &--gap-wide {
-      gap: 20px;
-    }
-    @media (max-width: $breakpoint__md) {
-      justify-content: center;
-    }
+}
+.platform-link__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+  &--gap-wide {
+    gap: 20px;
   }
-  &__wrapper {
-    line-height: 1;
+  @media (max-width: $breakpoint__md) {
+    justify-content: center;
   }
+}
+.platform-link__wrapper {
+  line-height: 1;
 }

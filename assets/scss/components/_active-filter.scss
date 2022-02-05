@@ -11,27 +11,27 @@
   cursor: pointer;
   font-weight: 600;
   border-radius: 5px;
-  &__label {
-    font-size: 14px;
-    margin-right: 6px;
-    font-weight: 600;
+}
+.active-filter__label {
+  font-size: 14px;
+  margin-right: 6px;
+  font-weight: 600;
+}
+.active-filter__container {
+  position: sticky;
+  top: 0;
+  overflow-x: hidden;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.active-filter__list {
+  margin-bottom: 20px;
+  padding: 3px 20px;
+  background: $color__background;
+  @media (max-width: $breakpoint__md) {
+    display: none !important;
   }
-  &__container {
-    position: sticky;
-    top: 0;
-    overflow-x: hidden;
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-  &__list {
-    margin-bottom: 20px;
-    padding: 3px 20px;
-    background: $color__background;
-    @media (max-width: $breakpoint__md) {
-      display: none !important;
-    }
-    @at-root .active-filter__container--stuck & {
-      box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
-    }
+  @at-root .active-filter__container--stuck & {
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
   }
 }

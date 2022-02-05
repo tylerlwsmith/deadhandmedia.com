@@ -44,7 +44,7 @@
         Sort by count
       </button>
       <script>
-        function sortFiltersByName(){
+        function sortFiltersByName() {
           list = document.querySelector('[data-filter-list]');
           listItems = [...list.querySelectorAll('li[data-filter-name]')];
           getName = (el) => el.dataset.filterName;
@@ -56,7 +56,7 @@
           this.activeSort = 'name';
         }
 
-        function sortFiltersByCount(){
+        function sortFiltersByCount() {
           list = document.querySelector('[data-filter-list]');
           listItems = [...list.querySelectorAll('li[data-filter-count]')];
           getCount = (el) => el.dataset.filterCount;
