@@ -1,24 +1,24 @@
 .page-project-list {
-  &__content {
-    font-size: 18px;
-    letter-spacing: 0.0315em;
-    line-height: 2;
-    color: $color__muted;
-    margin-top: 80px;
-    margin-bottom: 40px;
-    @media (max-width: $breakpoint__md) {
-      margin-top: 0;
-    }
-    @media (max-width: $breakpoint__sm) {
-      font-size: 16px;
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-    a {
-      color: inherit;
-      border-color: $color__purple--400;
-      letter-spacing: 0.02em; // hack to make sentence fit.
-    }
-  }
   @include page-padding-bottom;
+}
+.page-project-list__content {
+  font-size: 18px;
+  letter-spacing: 0.0315em;
+  line-height: 2;
+  color: $color__muted;
+  margin-top: 80px;
+  margin-bottom: 40px;
+  @media (max-width: $breakpoint__md) {
+    margin-top: 0;
+  }
+  @media (max-width: $breakpoint__sm) {
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  a {
+    color: inherit;
+    border-color: $color__purple--400;
+    letter-spacing: 0.02em; // hack to make sentence fit.
+  }
 }

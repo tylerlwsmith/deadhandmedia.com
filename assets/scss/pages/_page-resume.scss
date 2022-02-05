@@ -4,30 +4,31 @@
   @media (max-width: $breakpoint__md) {
     padding-top: 30px;
   }
-  &__resume-container {
-    display: flex;
-    justify-content: center;
-    padding: 0 20px;
-    @media (max-width: $breakpoint__sm) {
-      padding: 0 0;
+}
+.page-resume__resume-container {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  min-height: 11in;
+  @media (max-width: $breakpoint__sm) {
+    padding: 0 0;
+  }
+  .tyler-smith-resume-wrapper {
+    width: 100%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+    // 800px is a little after the resume breaks to mobile. Not exact.
+    @media (max-width: 800px) {
+      border: 1px solid #e9e9e9;
     }
-    .tyler-smith-resume-wrapper {
-      width: 100%;
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 
-      // 800px is a little after the resume breaks to mobile. Not exact.
-      @media (max-width: 800px) {
-        border: 1px solid #e9e9e9;
-      }
+    @media (max-width: $breakpoint__md) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
 
-      @media (max-width: $breakpoint__md) {
-        padding-left: 10px;
-        padding-right: 10px;
-      }
-
-      @media (max-width: $breakpoint__sm) {
-        padding: 0;
-      }
+    @media (max-width: $breakpoint__sm) {
+      padding: 0;
     }
   }
 }

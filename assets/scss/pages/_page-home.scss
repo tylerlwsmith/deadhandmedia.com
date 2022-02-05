@@ -1,40 +1,39 @@
-.page-home {
+@at-root {
   $head-background-color: #d4cbe5;
-  background-color: $head-background-color;
-  color: $color__white;
-  display: flex;
-  align-items: stretch;
-  flex-direction: row;
-  @media (max-width: $breakpoint__md) {
-    background-color: $color__purple--500;
+  .page-home {
+    background-color: $head-background-color;
+    color: $color__white;
     display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    height: 100%;
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-    @media (pointer: fine) {
+    align-items: stretch;
+    flex-direction: row;
+    @media (max-width: $breakpoint__md) {
+      background-color: $color__purple--500;
+      display: flex;
+      flex-direction: column;
+      justify-content: stretch;
+      height: 100%;
       min-height: 100vh;
+      min-height: -webkit-fill-available;
+      @media (pointer: fine) {
+        min-height: 100vh;
+      }
     }
-  }
-
-  .header__menu {
-    @media (max-width: $breakpoint__md) {
-      top: 0;
+    .header__menu {
+      @media (max-width: $breakpoint__md) {
+        top: 0;
+      }
     }
-  }
-
-  .header__navigation {
-    margin-left: auto;
-    @media (max-width: $breakpoint__md) {
-      margin: auto;
-      a {
-        text-decoration: underline;
+    .header__navigation {
+      margin-left: auto;
+      @media (max-width: $breakpoint__md) {
+        margin: auto;
+        a {
+          text-decoration: underline;
+        }
       }
     }
   }
-
-  &__head-container {
+  .page-home__head-container {
     position: relative;
     width: 40%;
     height: 100%;
@@ -48,10 +47,8 @@
       flex-grow: 1;
     }
   }
-
-  &__head {
+  .page-home__head {
     padding: 20px;
-    // background-image: url("/tylers-giant-head.svg");
     background-repeat: no-repeat;
     background-position: 50% 0;
     background-size: contain;
@@ -64,8 +61,7 @@
       object-fit: contain;
     }
   }
-
-  &__content-container {
+  .page-home__content-container {
     padding-top: 62px;
     position: relative;
     background-color: $color__purple--500;
@@ -83,8 +79,7 @@
       flex-shrink: 1;
     }
   }
-
-  &__main {
+  .page-home__main {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -92,13 +87,11 @@
       max-width: 500px;
     }
   }
-
-  &__heading-wrapper {
+  .page-home__heading-wrapper {
     margin-top: 3.5vw;
     margin-bottom: 2vw;
   }
-
-  &__heading {
+  .page-home__heading {
     font-family: $font-family__headings;
     font-size: 7vw;
     padding: 0;
@@ -111,8 +104,7 @@
       font-size: 32px;
     }
   }
-
-  &__sub-heading {
+  .page-home__sub-heading {
     font-family: $font-family__headings;
     font-size: 3.2vw;
     margin: 0;
@@ -125,8 +117,7 @@
       font-size: 20px;
     }
   }
-
-  &__content {
+  .page-home__content {
     max-width: 70%;
     font-size: 1.5vw;
     font-weight: 300;
@@ -151,7 +142,7 @@
       font-size: 16px;
     }
   }
-  &__platform-link-wrapper {
+  .page-home__platform-link-wrapper {
     padding: 24px 0 60px;
     font-size: 40px;
     @media (max-width: $breakpoint__md) {
@@ -173,8 +164,7 @@
       }
     }
   }
-
-  &__footer {
+  .page-home__footer {
     @include site-padding;
     padding-top: 10px;
     padding-bottom: 10px;

@@ -1,12 +1,14 @@
-.page-blog-list {
+@at-root {
   $breakpoint: 550px;
-  position: relative;
-  display: flex;
-  padding-bottom: 40px;
-  @media (max-width: $breakpoint) {
-    padding-bottom: 0;
+  .page-blog-list {
+    position: relative;
+    display: flex;
+    padding-bottom: 40px;
+    @media (max-width: $breakpoint) {
+      padding-bottom: 0;
+    }
   }
-  &__year-heading {
+  .page-blog-list__year-heading {
     position: relative;
     margin-bottom: 40px;
     display: flex;
@@ -21,7 +23,7 @@
       display: flex !important;
     }
   }
-  &__year-heading-inner {
+  .page-blog-list__year-heading-inner {
     background: $color__background;
     padding: 0 10px;
     &:after {
@@ -35,11 +37,11 @@
       position: absolute;
     }
   }
-  &__year {
+  .page-blog-list__year {
     display: block;
     font-weight: 400;
   }
-  &__year-count {
+  .page-blog-list__year-count {
     font-weight: 400;
     font-size: 14px;
     color: $color__muted;
