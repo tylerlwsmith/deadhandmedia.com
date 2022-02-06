@@ -21,6 +21,7 @@
     x-data="{
       activeFilters: $persist([]).as('active-blog-filters'),
       sidebarIsOpen: $persist(false).as('blog-sidebar-is-open'),
+      sortFiltersBy: $persist('name').as('blog-sort-filters-by'),
       toggleSidebar() {
         if (event.key.toUpperCase() !== 'F') return;
         this.sidebarIsOpen = !this.sidebarIsOpen;
@@ -30,13 +31,40 @@
       },
       classBinder() {
         return this.activeFilters.length > 0 && this.tagList.filter(tag => this.activeFilters.includes(tag)).length === 0 ? 'hidden' : ''
+      },
+      _sortFilters(sortBy) {
+        try {
+          ({
+            name() {
+              list = document.querySelector('[data-filter-list]');
+              listItems = [...list.querySelectorAll('li[data-filter-name]')];
+              getName = (el) => el.dataset.filterName;
+      
+              listItems
+                .sort((a, b) => getName(a).localeCompare(getName(b)))
+                .forEach(el => list.appendChild(el));
+            },
+            count() {
+              list = document.querySelector('[data-filter-list]');
+              listItems = [...list.querySelectorAll('li[data-filter-count]')];
+              getCount = (el) => el.dataset.filterCount;
+      
+              listItems
+                .sort((a, b) => getCount(b) - getCount(a))
+                .forEach(el => list.appendChild(el));
+            }
+          })[sortBy]();
+        } catch(e) {
+          console.log(e);
+        }
       }
     }"
+    x-effect="_sortFilters(sortFiltersBy)"
     x-init="
       setTimeout(() => {
         activeFilters = [...document.querySelectorAll(`input[type='checkbox'][x-model='activeFilters']`)]
-        .filter(el => el.checked)
-        .map(el => el.value);
+          .filter(el => el.checked)
+          .map(el => el.value);
       }, 0);
     "
     x-on:keypress.document="toggleSidebar"
