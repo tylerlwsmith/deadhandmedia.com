@@ -2,7 +2,28 @@
 <header class="header{{ 
   cond (ne $headerVariation nil) (print " " $headerVariation) "" 
 }}">
-  <a href="#main" id="skip-to-content">Skip to Content</a>
+  <a 
+    href="#main"
+    id="skip-to-content"
+    x-data="{
+      hasMainElement: true,
+      getMainElement() {
+        return document.getElementById('main');
+      },
+      skipToContent(event) {
+        event.preventDefault();
+
+        const main = this.getMainElement();
+        main.tabIndex = -1;
+        main.focus();
+      },
+    }"
+    x-bind:class="hasMainElement ? '' : 'hidden'"
+    x-on:click="skipToContent"
+    x-bind:x-on:turbolinks:load="hasMainElement = !!getMainElement()"
+  >
+    Skip to Content
+  </a>
 
   {{- if not .IsHome -}}
     <a href="/" class="header__title">Tyler Smith</a>

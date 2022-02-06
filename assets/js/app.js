@@ -3,7 +3,6 @@ import persist from "@alpinejs/persist";
 import Turbolinks from "turbolinks";
 
 import { whenPath } from "./helpers";
-import { skipToContent } from "./skip-to-content";
 import { toggleNavigation } from "./toggle-navigation";
 import { loadEvent, useTurbolinks } from "./settings";
 import { makeScrollToTopButton, makeActiveFiltersShadow } from "./blog-page";
@@ -23,7 +22,6 @@ if (useTurbolinks) Turbolinks.start();
 /**
  * Site-wide JS.
  */
-document.addEventListener(loadEvent, skipToContent);
 document.addEventListener(loadEvent, toggleNavigation);
 
 /**
