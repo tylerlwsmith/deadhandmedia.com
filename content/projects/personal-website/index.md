@@ -8,6 +8,7 @@ services: ["Front-End Development"]
 technologies:
   - featured: "Hugo"
   - featured: "Turbolinks"
+  - featured: "Alpine.js"
   - "Scss"
   - featured: "GitHub Actions"
   - "Netlify"
