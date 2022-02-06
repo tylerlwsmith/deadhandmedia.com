@@ -45,7 +45,6 @@
   }
 }
 .blog-filter__reset-button {
-  position: sticky;
   top: 4px;
   border: 1px solid;
   color: $color__purple--400;
@@ -54,11 +53,18 @@
   appearance: none;
   background: $color__background;
   z-index: 10;
-  &:hover,
-  &:focus,
-  &:active {
-    color: $color__white;
-    background: $color__purple--400;
+  &:not(:disabled) {
+    position: sticky;
+    cursor: pointer;
+    &:hover,
+    &:focus,
+    &:active {
+      color: $color__white;
+      background: $color__purple--400;
+    }
+  }
+  &:disabled {
+    color: $color__gray--light;
   }
 }
 .blog-filter__sort-button-wrapper {
