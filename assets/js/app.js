@@ -6,7 +6,6 @@ import { whenPath } from "./helpers";
 import { skipToContent } from "./skip-to-content";
 import { toggleNavigation } from "./toggle-navigation";
 import { loadEvent, useTurbolinks } from "./settings";
-import { addHoverClass } from "./project-preview-hover-class";
 import { makeScrollToTopButton, makeActiveFiltersShadow } from "./blog-page";
 
 /**
@@ -26,11 +25,6 @@ if (useTurbolinks) Turbolinks.start();
  */
 document.addEventListener(loadEvent, skipToContent);
 document.addEventListener(loadEvent, toggleNavigation);
-
-/**
- * Projects list page.
- */
-document.addEventListener(loadEvent, addHoverClass);
 
 /**
  * Blog page.

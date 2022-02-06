@@ -17,7 +17,25 @@
             {{- end -}}
           {{- end -}}
 
-          <li class="project-preview">
+          <li
+            x-data="{
+              isHovering: false,
+              projectClassName: 'project-preview',
+              addHoverClass() {
+                this.isHovering = true
+              },
+              removeHoverClass(event) {
+                const containsActiveEl = event.target
+                  .closest(`.${this.projectClassName}`)
+                  .contains(document.activeElement);
+
+                if (containsActiveEl) return;
+                this.isHovering = false;
+              }
+            }"
+            x-bind:class="isHovering ? 'project-preview--hover' : ''"
+            class="project-preview"
+          >
             <div class="project-preview__thumbnail-container">
               {{- $screenshot := .Resources.GetMatch (.Param "screenshot") -}}
               {{- if $screenshot -}}
@@ -35,6 +53,11 @@
                     srcset="{{- $resized2x.RelPermalink }} 2x" 
                     alt="Screenshot of {{ .Title }}" 
                     class="project-preview__thumbnail"
+                    x-on:mouseover="addHoverClass"
+                    x-on:focus="addHoverClass"
+                    x-on:mouseout="removeHoverClass"
+                    x-on:blur="removeHoverClass"
+                    x-on:click="removeHoverClass"
                   >
 
                   {{- if  (.Param "repositoryUrl") -}}
@@ -50,6 +73,11 @@
                 <a 
                   href="{{- .Permalink -}}"
                   class="project-preview__link"
+                  x-on:mouseover="addHoverClass"
+                  x-on:focus="addHoverClass"
+                  x-on:mouseout="removeHoverClass"
+                  x-on:blur="removeHoverClass"
+                  x-on:click="removeHoverClass"
                 >
                   {{- .Title -}}
                 </a>
