@@ -58,6 +58,27 @@
   <meta name="turbolinks-cache-control" content="no-cache">
   
   {{- if eq hugo.Environment "production" -}}
-  {{ template "_internal/google_analytics.html" . }}
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-100417057-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '{{ .Site.GoogleAnalytics }}');
+  </script>
+  
+  <!-- Track Turbolinks navigation changes -->
+  <script>
+    (function trackPageChanges() {
+      let isInitialLoad = true;
+      document.addEventListener("turbolinks:load", () => {
+        if (isInitialLoad) return isInitialLoad = false;
+        gtag('config', '{{ .Site.GoogleAnalytics }}', {
+          page_path: window.location.pathname,
+        });
+      });
+    })();
+  </script>
   {{- end -}}
 </head>
