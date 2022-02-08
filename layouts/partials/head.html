@@ -68,17 +68,14 @@
     gtag('config', '{{ .Site.GoogleAnalytics }}');
   </script>
   
-  <!-- Track Turbolinks navigation changes -->
-  <script>
-    (function trackPageChanges() {
-      let isInitialLoad = true;
-      document.addEventListener("turbolinks:load", () => {
-        if (isInitialLoad) return isInitialLoad = false;
-        gtag('config', '{{ .Site.GoogleAnalytics }}', {
-          page_path: window.location.pathname,
-        });
+  <script id="turbolinks-navigation-analytics" type="module">
+    let isInitialLoad = true;
+    document.addEventListener("turbolinks:load", () => {
+      if (isInitialLoad) return isInitialLoad = false;
+      gtag('config', '{{ .Site.GoogleAnalytics }}', {
+        page_path: window.location.pathname,
       });
-    })();
+    });
   </script>
   {{- end -}}
 </head>
