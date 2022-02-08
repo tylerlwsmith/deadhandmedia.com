@@ -31,6 +31,28 @@
 <head>
   {{ "<!-- Wanna look under the hood? Visit https://github.com/tylerlwsmith/deadhandmedia.com to see this site's source. -->" | safeHTML }}
   <title>{{ if not .IsHome }}{{- .Title }} - {{ end }}{{ .Site.Title -}}</title>
+  
+  {{- if eq hugo.Environment "production" -}}
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '{{ .Site.GoogleAnalytics }}');
+  </script>
+  
+  <script id="turbolinks-navigation-analytics" type="module">
+    let isInitialLoad = true;
+    document.addEventListener("turbolinks:load", () => {
+      if (isInitialLoad) return isInitialLoad = false;
+      gtag('config', '{{ .Site.GoogleAnalytics }}', {
+        page_path: window.location.pathname,
+      });
+    });
+  </script>
+  {{- end -}}
 
   {{ if (.Param "hidden") -}} 
   <meta name="robots" content="noindex, follow">
@@ -68,26 +90,4 @@
   ></script>
 
   <meta name="turbolinks-cache-control" content="no-cache">
-  
-  {{- if eq hugo.Environment "production" -}}
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', '{{ .Site.GoogleAnalytics }}');
-  </script>
-  
-  <script id="turbolinks-navigation-analytics" type="module">
-    let isInitialLoad = true;
-    document.addEventListener("turbolinks:load", () => {
-      if (isInitialLoad) return isInitialLoad = false;
-      gtag('config', '{{ .Site.GoogleAnalytics }}', {
-        page_path: window.location.pathname,
-      });
-    });
-  </script>
-  {{- end -}}
 </head>
