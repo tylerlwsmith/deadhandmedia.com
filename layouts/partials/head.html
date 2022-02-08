@@ -51,9 +51,21 @@
   <link href="https://fonts.googleapis.com/css?family=Bungee|Raleway:300,400,600&display=block" rel="stylesheet">
   <script src="https://kit.fontawesome.com/e37b089b64.js" crossorigin="anonymous"></script>
 
-  <link href="{{ $style.RelPermalink }}" rel="stylesheet">
-  <script src="{{ $mainScript.RelPermalink }}" defer></script>
-  <script src="{{ $homepageScript.RelPermalink }}"{{/* Do not defer */}}></script>
+  <link 
+    href="{{ $style.RelPermalink }}"
+    rel="stylesheet"
+    data-turbolinks-track="reload"
+  >
+  <script 
+    src="{{ $mainScript.RelPermalink }}"
+    data-turbolinks-track="reload"
+    defer
+  ></script>
+  <script
+    src="{{ $homepageScript.RelPermalink }}"
+    data-turbolinks-track="reload"
+    {{- /* Do not defer */}}
+  ></script>
 
   <meta name="turbolinks-cache-control" content="no-cache">
   
