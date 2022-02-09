@@ -1,9 +1,12 @@
+import { unloadEvent } from "./event-names";
+
 export const blogPageInitData = () => ({
   activeFilters: Alpine.$persist([]).as("active-blog-filters"),
   sidebarIsOpen: Alpine.$persist(false).as("blog-sidebar-is-open"),
   sortFiltersBy: Alpine.$persist("name").as("blog-sort-filters-by"),
   init() {
     setTimeout(() => {
+      this._makeActiveFiltersShadow.bind(this)();
       this.activeFilters = [
         ...document.querySelectorAll(
           `input[type='checkbox'][x-model='activeFilters']`
@@ -53,23 +56,22 @@ export const blogPageInitData = () => ({
       console.log(e);
     }
   },
+  _makeActiveFiltersShadow() {
+    const observer = new IntersectionObserver(
+      ([e]) => {
+        e.target.classList.toggle(
+          "active-filter__container--stuck",
+          e.intersectionRatio !== 1
+        );
+      },
+      { threshold: [0, 1], rootMargin: "-1px" }
+    );
+
+    observer.observe(document.querySelector(".active-filter__container"));
+
+    document.addEventListener(unloadEvent, function cleanup() {
+      observer.disconnect();
+      document.removeEventListener(unloadEvent, cleanup);
+    });
+  },
 });
-
-export function makeActiveFiltersShadow() {
-  const observer = new IntersectionObserver(
-    ([e]) => {
-      e.target.classList.toggle(
-        "active-filter__container--stuck",
-        e.intersectionRatio !== 1
-      );
-    },
-    { threshold: [0, 1], rootMargin: "-1px" }
-  );
-
-  observer.observe(document.querySelector(".active-filter__container"));
-
-  document.addEventListener("turbolinks:before-render", function cleanup() {
-    observer.disconnect();
-    document.removeEventListener("turbolinks:before-render", cleanup);
-  });
-}

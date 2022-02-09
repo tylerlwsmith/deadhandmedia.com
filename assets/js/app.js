@@ -4,8 +4,8 @@ import Turbolinks from "turbolinks";
 
 import { whenPath } from "./helpers";
 import { toggleNavigation } from "./toggle-navigation";
-import { loadEvent, useTurbolinks } from "./settings";
-import { makeActiveFiltersShadow, blogPageInitData } from "./blog-page";
+import { loadEvent, useTurbolinks } from "./event-names";
+import { blogPageInitData } from "./blog-page";
 import { makeScrollToTopButton } from "./scroll-to-top-button";
 
 /**
@@ -33,8 +33,5 @@ document.addEventListener(loadEvent, toggleNavigation);
 /**
  * Blog page.
  */
-document.addEventListener(
-  loadEvent,
-  whenPath("/blog/", makeActiveFiltersShadow)
-);
+
 document.addEventListener(loadEvent, whenPath("/blog/", makeScrollToTopButton));

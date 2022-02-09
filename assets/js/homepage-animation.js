@@ -1,4 +1,4 @@
-import { loadEvent } from "./settings";
+import { loadEvent } from "./event-names";
 /**
  * Animate the homepage text. This must execute immediately: do not move into a
  * "DOMContentLoaded" callback.

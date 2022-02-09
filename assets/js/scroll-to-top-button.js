@@ -1,3 +1,5 @@
+import { unloadEvent } from "./event-names";
+
 export function makeScrollToTopButton() {
   const scrollButton = document.createElement("button");
   scrollButton.classList.add("scroll-to-top-button");
@@ -23,8 +25,8 @@ export function makeScrollToTopButton() {
     requestAnimationFrame(checkScroll);
   });
 
-  document.addEventListener("turbolinks:before-render", function cleanup() {
+  document.addEventListener(unloadEvent, function cleanup() {
     scrollButton.remove();
-    document.removeEventListener("turbolinks:before-render", cleanup);
+    document.removeEventListener(unloadEvent, cleanup);
   });
 }
