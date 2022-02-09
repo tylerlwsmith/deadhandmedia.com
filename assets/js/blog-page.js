@@ -1,3 +1,60 @@
+export const blogPageInitData = () => ({
+  activeFilters: Alpine.$persist([]).as("active-blog-filters"),
+  sidebarIsOpen: Alpine.$persist(false).as("blog-sidebar-is-open"),
+  sortFiltersBy: Alpine.$persist("name").as("blog-sort-filters-by"),
+  init() {
+    setTimeout(() => {
+      this.activeFilters = [
+        ...document.querySelectorAll(
+          `input[type='checkbox'][x-model='activeFilters']`
+        ),
+      ]
+        .filter((el) => el.checked)
+        .map((el) => el.value);
+    }, 0);
+  },
+  toggleSidebar(event) {
+    if (event.key.toUpperCase() !== "F") return;
+    this.sidebarIsOpen = !this.sidebarIsOpen;
+  },
+  resetFilters() {
+    this.activeFilters = [];
+  },
+  classBinder() {
+    return this.activeFilters.length > 0 &&
+      this.tagList.filter((tag) => this.activeFilters.includes(tag)).length ===
+        0
+      ? "hidden"
+      : "";
+  },
+  _sortFilters(sortBy) {
+    try {
+      ({
+        name() {
+          list = document.querySelector("[data-filter-list]");
+          listItems = [...list.querySelectorAll("li[data-filter-name]")];
+          getName = (el) => el.dataset.filterName;
+
+          listItems
+            .sort((a, b) => getName(a).localeCompare(getName(b)))
+            .forEach((el) => list.appendChild(el));
+        },
+        count() {
+          list = document.querySelector("[data-filter-list]");
+          listItems = [...list.querySelectorAll("li[data-filter-count]")];
+          getCount = (el) => el.dataset.filterCount;
+
+          listItems
+            .sort((a, b) => getCount(b) - getCount(a))
+            .forEach((el) => list.appendChild(el));
+        },
+      }[sortBy]());
+    } catch (e) {
+      console.log(e);
+    }
+  },
+});
+
 export function makeActiveFiltersShadow() {
   const observer = new IntersectionObserver(
     ([e]) => {
@@ -13,37 +70,6 @@ export function makeActiveFiltersShadow() {
 
   document.addEventListener("turbolinks:before-render", function cleanup() {
     observer.disconnect();
-    document.removeEventListener("turbolinks:before-render", cleanup);
-  });
-}
-
-export function makeScrollToTopButton() {
-  const scrollButton = document.createElement("button");
-  scrollButton.classList.add("scroll-to-top-button");
-  scrollButton.classList.add("hidden");
-  scrollButton.innerHTML = `<span class="fas fa-arrow-alt-circle-up"></span>`;
-  scrollButton.addEventListener("click", () => window.scrollTo(0, 0));
-  document.body.append(scrollButton);
-
-  requestAnimationFrame(function checkScroll() {
-    const { innerHeight, scrollY } = window;
-    const scrollHeight = document.body.scrollHeight;
-
-    /** Bottom pixel of current scroll */
-    const currentScrollBottom = innerHeight + scrollY;
-
-    if (scrollY < innerHeight / 3) {
-      scrollButton.classList.add("hidden");
-    } else if (scrollHeight - currentScrollBottom < 100) {
-      scrollButton.classList.add("hidden");
-    } else {
-      scrollButton.classList.remove("hidden");
-    }
-    requestAnimationFrame(checkScroll);
-  });
-
-  document.addEventListener("turbolinks:before-render", function cleanup() {
-    scrollButton.remove();
     document.removeEventListener("turbolinks:before-render", cleanup);
   });
 }
