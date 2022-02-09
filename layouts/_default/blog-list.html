@@ -35,7 +35,10 @@
         {{ .Content }}
       </article>
 
-      <div class="active-filter__container">
+      <div 
+        class="active-filter__container" 
+        x-bind:class="activeFilterContainerSticky ? 'active-filter__container--stuck' : ''"
+      >
         <template x-if="activeFilters.length > 0">
           <div class="active-filter__list">
             <span class="active-filter__label">Active Filters:</span> 
@@ -72,7 +75,7 @@
         <article 
           x-data="{tagList: {{ jsonify .tag_list }}}"
           class="blog-preview"
-          x-bind:class="classBinder()"
+          x-bind:class="postVisibilityClass"
         >
           <h3 class="blog-preview__title">
             <a href="{{ .url }}" class="blog-preview__link">{{ .title }}</a>

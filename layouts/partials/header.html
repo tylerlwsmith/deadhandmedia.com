@@ -17,10 +17,12 @@
         main.tabIndex = -1;
         main.focus();
       },
+      init() {
+        $nextTick(() => this.hasMainElement = !!this.getMainElement());
+      }
     }"
     x-bind:class="hasMainElement ? '' : 'hidden'"
     x-on:click="skipToContent"
-    x-bind:x-on:turbolinks:load="hasMainElement = !!getMainElement()"
   >
     Skip to Content
   </a>

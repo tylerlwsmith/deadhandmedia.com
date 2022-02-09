@@ -1,11 +1,13 @@
+import Alpine from "alpinejs";
 import { unloadEvent } from "./event-names";
 
 export const blogPageInitData = () => ({
   activeFilters: Alpine.$persist([]).as("active-blog-filters"),
   sidebarIsOpen: Alpine.$persist(false).as("blog-sidebar-is-open"),
   sortFiltersBy: Alpine.$persist("name").as("blog-sort-filters-by"),
+  activeFilterContainerSticky: false,
   init() {
-    setTimeout(() => {
+    Alpine.nextTick(() => {
       this._makeActiveFiltersShadow.bind(this)();
       this.activeFilters = [
         ...document.querySelectorAll(
@@ -14,7 +16,7 @@ export const blogPageInitData = () => ({
       ]
         .filter((el) => el.checked)
         .map((el) => el.value);
-    }, 0);
+    });
   },
   toggleSidebar(event) {
     if (event.key.toUpperCase() !== "F") return;
@@ -23,7 +25,7 @@ export const blogPageInitData = () => ({
   resetFilters() {
     this.activeFilters = [];
   },
-  classBinder() {
+  postVisibilityClass() {
     return this.activeFilters.length > 0 &&
       this.tagList.filter((tag) => this.activeFilters.includes(tag)).length ===
         0
@@ -58,11 +60,9 @@ export const blogPageInitData = () => ({
   },
   _makeActiveFiltersShadow() {
     const observer = new IntersectionObserver(
-      ([e]) => {
-        e.target.classList.toggle(
-          "active-filter__container--stuck",
-          e.intersectionRatio !== 1
-        );
+      ([observerEntry]) => {
+        this.activeFilterContainerSticky =
+          observerEntry.intersectionRatio !== 1;
       },
       { threshold: [0, 1], rootMargin: "-1px" }
     );
