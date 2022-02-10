@@ -45,8 +45,8 @@
   
   <script id="turbolinks-navigation-analytics" type="module">
     let isInitialLoad = true;
-    document.addEventListener("turbolinks:load", () => {
-      if (isInitialLoad) return isInitialLoad = false;
+    document.addEventListener('turbolinks:load', () => {
+      if (isInitialLoad){isInitialLoad = false; return;}
       gtag('config', '{{ .Site.GoogleAnalytics }}', {
         page_path: window.location.pathname,
       });
