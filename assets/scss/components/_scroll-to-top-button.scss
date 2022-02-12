@@ -1,5 +1,7 @@
 .scroll-to-top-button {
   cursor: pointer;
+  display: block;
+  opacity: 1;
   appearance: none;
   border: none;
   font-size: 50px;
@@ -11,4 +13,8 @@
   right: 25px;
   background: rgba(255, 255, 255, 1);
   color: $color__purple--400;
+  transition: opacity 400ms;
+  &--hidden {
+    opacity: 0;
+  }
 }
