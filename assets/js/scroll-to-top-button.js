@@ -7,7 +7,9 @@ export function makeScrollToTopButton() {
   scrollButton.classList.add("scroll-to-top-button");
   scrollButton.classList.add(hiddenClassName);
   scrollButton.innerHTML = `<span class="fas fa-arrow-alt-circle-up"></span>`;
-  scrollButton.addEventListener("click", () => window.scrollTo(0, 0));
+  scrollButton.addEventListener("click", () =>
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+  );
   document.body.append(scrollButton);
 
   scrollButton.addEventListener("transitionend", function hideButton(event) {
