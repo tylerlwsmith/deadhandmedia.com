@@ -25,12 +25,12 @@ export const blogPageInitData = () => ({
   resetFilters() {
     this.activeFilters = [];
   },
-  postVisibilityClass() {
+  postIsVisible() {
     return this.activeFilters.length > 0 &&
       this.tagList.filter((tag) => this.activeFilters.includes(tag)).length ===
         0
-      ? "hidden"
-      : "";
+      ? false
+      : true;
   },
   _sortFilters(sortBy) {
     try {

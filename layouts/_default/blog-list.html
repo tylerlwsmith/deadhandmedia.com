@@ -61,7 +61,7 @@
           {{- $yearIndex = $postYear -}}
           <h2
             class="page-blog-list__year-heading"
-            x-bind:class="activeFilters.length > 0 ? 'hidden' : ''"
+            x-show="activeFilters.length === 0"
           >
             <span class="page-blog-list__year-heading-inner">
               <span class="page-blog-list__year">{{ $yearIndex }}</span>
@@ -75,7 +75,7 @@
         <article 
           x-data="{tagList: {{ jsonify .tag_list }}}"
           class="blog-preview"
-          x-bind:class="postVisibilityClass"
+          x-show="postIsVisible"
         >
           <h3 class="blog-preview__title">
             <a href="{{ .url }}" class="blog-preview__link">{{ .title }}</a>
@@ -84,7 +84,7 @@
           <ul 
             class="blog-preview__tag-list"
             x-cloak
-            x-bind:class="activeFilters.length === 0 ? 'hidden' : ''"
+            x-show="activeFilters.length > 0"
           >
             {{- range .tag_list -}}
               <li class="blog-preview__tag">#{{ . }}</li>
@@ -101,7 +101,7 @@
             <dl 
               class="blog-preview__meta-list"
               x-cloak
-              x-bind:class="activeFilters.length === 0 ? 'hidden' : ''"
+              x-show="activeFilters.length > 0"
             >
               {{- if .public_reactions_count -}}
                 <div class="blog-preview__meta-list-item">
