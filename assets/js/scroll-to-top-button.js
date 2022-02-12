@@ -1,10 +1,11 @@
 import { unloadEvent } from "./event-names";
 
 export function makeScrollToTopButton() {
+  const buttonClassName = "scroll-to-top-button";
   const hiddenClassName = "scroll-to-top-button--hidden";
 
   const scrollButton = document.createElement("button");
-  scrollButton.classList.add("scroll-to-top-button");
+  scrollButton.classList.add(buttonClassName);
   scrollButton.classList.add(hiddenClassName);
   scrollButton.innerHTML = `<span class="fas fa-arrow-alt-circle-up"></span>`;
   scrollButton.addEventListener("click", () =>
@@ -32,6 +33,9 @@ export function makeScrollToTopButton() {
       scrollButton.classList.add(hiddenClassName);
     } else {
       scrollButton.style.removeProperty("display");
+      // Without a timeout, the animation will fire before the browser
+      // registers that the display property has been removed. This will
+      // cause the animation to be skipped entirely.
       setTimeout(() => {
         scrollButton.classList.remove(hiddenClassName);
       }, 0);
