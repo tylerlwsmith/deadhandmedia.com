@@ -11,57 +11,57 @@
     {{- $scratch.Add "allTags" . -}}
   {{- end -}}
 {{- end -}}
-<aside
-  class="blog-filter__sidebar"
-  x-cloak
-  x-show="sidebarIsOpen"
->
-  <div>
-    <h3>Filter by Tag</h3>
-    <button
-      id="reset-filters"
-      class="blog-filter__reset-button"
-      x-on:click="resetFilters"
-      x-bind:disabled="activeFilters.length === 0"
-    >
-      Reset Filters
-    </button>
-    <div
-      class="blog-filter__sort-button-wrapper"
-    >
+<div x-cloak>
+  <aside
+    class="blog-filter__sidebar"
+  >
+    <div class="blog-filter__sidebar-inner">
+      <h3>Filter by Tag</h3>
       <button
-        class="blog-filter__sort-button"
-        x-on:click="sortFiltersBy = 'name'"
-        x-bind:class="sortFiltersBy === 'name' ? 'blog-filter__sort-button--active' : ''"
+        id="reset-filters"
+        class="blog-filter__reset-button"
+        x-on:click="resetFilters"
+        x-bind:disabled="activeFilters.length === 0"
       >
-        Sort by name
+        Reset Filters
       </button>
-      <button
-        class="blog-filter__sort-button"
-        x-on:click="sortFiltersBy = 'count'"
-        x-bind:class="sortFiltersBy === 'count' ? 'blog-filter__sort-button--active' : ''"
+      <div
+        class="blog-filter__sort-button-wrapper"
       >
-        Sort by count
-      </button>
-    </div>
-    <ul class="blog-filter__list" data-filter-list>
-      {{ range sort ($scratch.Get "tagCount") "tag" "asc" }}
-        <li 
-          class="blog-filter__wrapper"
-          data-filter-count="{{ .count }}"
-          data-filter-name="{{ .tag }}"
+        <button
+          class="blog-filter__sort-button"
+          x-on:click="sortFiltersBy = 'name'"
+          x-bind:class="sortFiltersBy === 'name' ? 'blog-filter__sort-button--active' : ''"
         >
-          <input 
-            type="checkbox"
-            name="{{ .tag }}"
-            id="tag:{{ .tag }}"
-            class="blog-filter sr-only"
-            value="{{ .tag }}"
-            x-model="activeFilters"
+          Sort by name
+        </button>
+        <button
+          class="blog-filter__sort-button"
+          x-on:click="sortFiltersBy = 'count'"
+          x-bind:class="sortFiltersBy === 'count' ? 'blog-filter__sort-button--active' : ''"
+        >
+          Sort by count
+        </button>
+      </div>
+      <ul class="blog-filter__list" data-filter-list>
+        {{ range sort ($scratch.Get "tagCount") "tag" "asc" }}
+          <li 
+            class="blog-filter__wrapper"
+            data-filter-count="{{ .count }}"
+            data-filter-name="{{ .tag }}"
           >
-          <label for="tag:{{ .tag }}" class="blog-filter__label">{{ .tag }}: {{ .count }}</label>
-        </li>
-      {{ end }}
-    </ul>
-  </div>
-</aside>
+            <input 
+              type="checkbox"
+              name="{{ .tag }}"
+              id="tag:{{ .tag }}"
+              class="blog-filter sr-only"
+              value="{{ .tag }}"
+              x-model="activeFilters"
+            >
+            <label for="tag:{{ .tag }}" class="blog-filter__label">{{ .tag }}: {{ .count }}</label>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </aside>
+</div>
