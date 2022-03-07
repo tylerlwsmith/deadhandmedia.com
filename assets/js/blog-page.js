@@ -6,28 +6,34 @@ import { unloadEvent } from "./event-names";
  * TODO: There's a bug here somewhere. If the page starts on mobile with the
  *       sidebar hidden by the media query, the animation completel breaks.
  */
-const sidebarOpenTimeline = gsap
-  .timeline({ paused: true })
-  .from(".blog-filter__sidebar", { display: "none", duration: 0 }, "closed")
-  .from(
-    ".blog-filter__sidebar",
-    { width: 0, display: "block", duration: 0.2 },
-    "closed"
-  )
-  .to(
-    ".blog-filter__sidebar",
-    { width: "auto", duration: 0 }, // duration: 0 prevents start delay on reverse.
-    "open"
-  );
+
+function makeSidebarTimeline() {
+  return gsap
+    .timeline({ paused: true })
+    .from(".blog-filter__sidebar", { display: "none", duration: 0 }, "closed")
+    .from(
+      ".blog-filter__sidebar",
+      { width: 0, display: "block", duration: 0.2 },
+      "closed"
+    )
+    .to(
+      ".blog-filter__sidebar",
+      { width: "auto", duration: 0 }, // duration: 0 prevents start delay on reverse.
+      "open"
+    );
+}
 
 export const blogPageInitData = () => ({
   activeFilters: Alpine.$persist([]).as("active-blog-filters"),
   sidebarIsOpen: Alpine.$persist(false).as("blog-sidebar-is-open"),
   sortFiltersBy: Alpine.$persist("name").as("blog-sort-filters-by"),
   activeFilterContainerSticky: false,
+  sidebarOpenTimeline: null,
   init() {
+    this.sidebarOpenTimeline = makeSidebarTimeline();
+
     if (this.sidebarIsOpen) {
-      sidebarOpenTimeline.tweenTo("open").duration(0);
+      this.sidebarOpenTimeline.tweenTo("open").duration(0);
     }
 
     Alpine.nextTick(() => {
@@ -45,9 +51,9 @@ export const blogPageInitData = () => ({
     if (event.key.toUpperCase() !== "F") return;
     this.sidebarIsOpen = !this.sidebarIsOpen;
     if (this.sidebarIsOpen) {
-      sidebarOpenTimeline.play();
+      this.sidebarOpenTimeline.play();
     } else {
-      sidebarOpenTimeline.reverse();
+      this.sidebarOpenTimeline.reverse();
     }
   },
   resetFilters() {
