@@ -4,9 +4,9 @@
   {{- range .tag_list -}}
     {{/* Can't use isSet: checks to see if a key's value is null, not if a key exists. */}}
     {{- if in ($scratch.Get "allTags") . -}}
-      {{- $scratch.SetInMap "tagCount" . (dict "tag" . "count" (add (index ($scratch.Get "tagCount") .).count 1))  -}}
+      {{- $scratch.SetInMap "tagCount" . (dict "tag" . "count" (add (index ($scratch.Get "tagCount") .).count 1)) -}}
     {{- else -}}
-      {{- $scratch.SetInMap "tagCount" . (dict "tag" . "count" 1)  -}}
+      {{- $scratch.SetInMap "tagCount" . (dict "tag" . "count" 1) -}}
     {{- end -}}
     {{- $scratch.Add "allTags" . -}}
   {{- end -}}
@@ -45,23 +45,34 @@
         </button>
       </div>
       <ul class="blog-filter__list" data-filter-list>
-        {{ range sort ($scratch.Get "tagCount") "count" "desc" }}
-          <li 
-            class="blog-filter__wrapper"
-            data-filter-count="{{ .count }}"
-            data-filter-name="{{ .tag }}"
-          >
-            <input 
-              type="checkbox"
-              name="{{ .tag }}"
-              id="tag:{{ .tag }}"
-              class="blog-filter sr-only"
-              value="{{ .tag }}"
-              x-model="activeFilters"
+        {{- range sort ($scratch.Get "tagCount") "count" "desc" -}}
+          {{/* 
+          Filter to any tag with at least two attached articles. Most articles
+          have several tags, so even if we remove tags with only one article,
+          all articles _should_ be findable within the filters.
+          
+          If we showed the tags with one associated article, those would
+          account for about two thirds of all tags, making it harder to
+          find anything.
+          */}} 
+          {{- if gt .count 0 -}}
+            <li 
+              class="blog-filter__wrapper"
+              data-filter-count="{{ .count }}"
+              data-filter-name="{{ .tag }}"
             >
-            <label for="tag:{{ .tag }}" class="blog-filter__label">{{ .tag }}: {{ .count }}</label>
-          </li>
-        {{ end }}
+              <input 
+                type="checkbox"
+                name="{{ .tag }}"
+                id="tag:{{ .tag }}"
+                class="blog-filter sr-only"
+                value="{{ .tag }}"
+                x-model="activeFilters"
+              >
+              <label for="tag:{{ .tag }}" class="blog-filter__label">{{ .tag }}: {{ .count }}</label>
+            </li>
+          {{- end -}}
+        {{- end -}}
       </ul>
     </div>
   </aside>
