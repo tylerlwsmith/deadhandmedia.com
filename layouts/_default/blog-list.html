@@ -20,7 +20,7 @@
     class="page-blog-list container"
     x-data="blogPageInitData()"
     x-on:keypress.document="toggleSidebar"
-    x-effect="_sortFilters(sortFiltersBy)"
+    x-effect="sortTags(sortTagsBy)"
     >
     {{- partial "blog-filter-sidebar.html" . -}}
 

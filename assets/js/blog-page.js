@@ -2,31 +2,16 @@ import Alpine from "alpinejs";
 import gsap from "gsap";
 import { unloadEvent } from "./event-names";
 
-/**
- * TODO: There's a bug here somewhere. If the page starts on mobile with the
- *       sidebar hidden by the media query, the animation completel breaks.
- */
-
-function makeSidebarTimeline() {
-  return gsap
-    .timeline({ paused: true })
-    .from(".blog-filter__sidebar", { display: "none", duration: 0 }, "closed")
-    .from(
-      ".blog-filter__sidebar",
-      { width: 0, display: "block", duration: 0.2 },
-      "closed"
-    )
-    .to(
-      ".blog-filter__sidebar",
-      { width: "auto", duration: 0 }, // duration: 0 prevents start delay on reverse.
-      "open"
-    );
-}
+const SORT_TAGS_BY = {
+  COUNT: "COUNT",
+  NAME: "NAME",
+};
 
 export const blogPageInitData = () => ({
+  SORT_TAGS_BY: SORT_TAGS_BY,
   activeFilters: Alpine.$persist([]).as("active-blog-filters"),
   sidebarIsOpen: Alpine.$persist(false).as("blog-sidebar-is-open"),
-  sortFiltersBy: Alpine.$persist("name").as("blog-sort-filters-by"),
+  sortTagsBy: Alpine.$persist(SORT_TAGS_BY.COUNT).as("blog-sort-filters-by"),
   activeFilterContainerSticky: false,
   sidebarOpenTimeline: null,
   init() {
@@ -66,10 +51,10 @@ export const blogPageInitData = () => ({
       ? false
       : true;
   },
-  _sortFilters(sortBy) {
+  sortTags(sortBy) {
     try {
       ({
-        name() {
+        [SORT_TAGS_BY.NAME]() {
           list = document.querySelector("[data-filter-list]");
           listItems = [...list.querySelectorAll("li[data-filter-name]")];
           getName = (el) => el.dataset.filterName;
@@ -78,7 +63,7 @@ export const blogPageInitData = () => ({
             .sort((a, b) => getName(a).localeCompare(getName(b)))
             .forEach((el) => list.appendChild(el));
         },
-        count() {
+        [SORT_TAGS_BY.COUNT]() {
           list = document.querySelector("[data-filter-list]");
           listItems = [...list.querySelectorAll("li[data-filter-count]")];
           getCount = (el) => el.dataset.filterCount;
@@ -109,3 +94,24 @@ export const blogPageInitData = () => ({
     });
   },
 });
+
+/**
+ * TODO: There's a bug here somewhere. If the page starts on mobile with the
+ *       sidebar hidden by the media query, the animation completel breaks.
+ */
+
+function makeSidebarTimeline() {
+  return gsap
+    .timeline({ paused: true })
+    .from(".blog-filter__sidebar", { display: "none", duration: 0 }, "closed")
+    .from(
+      ".blog-filter__sidebar",
+      { width: 0, display: "block", duration: 0.2 },
+      "closed"
+    )
+    .to(
+      ".blog-filter__sidebar",
+      { width: "auto", duration: 0 }, // duration: 0 prevents start delay on reverse.
+      "open"
+    );
+}

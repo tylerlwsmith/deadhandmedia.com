@@ -30,21 +30,22 @@
       >
         <button
           class="blog-filter__sort-button"
-          x-on:click="sortFiltersBy = 'name'"
-          x-bind:class="sortFiltersBy === 'name' ? 'blog-filter__sort-button--active' : ''"
-        >
-          Sort by name
-        </button>
-        <button
-          class="blog-filter__sort-button"
-          x-on:click="sortFiltersBy = 'count'"
-          x-bind:class="sortFiltersBy === 'count' ? 'blog-filter__sort-button--active' : ''"
+          x-on:click="sortTagsBy = SORT_TAGS_BY.COUNT"
+          x-bind:class="sortTagsBy === SORT_TAGS_BY.COUNT ? 'blog-filter__sort-button--active' : ''"
         >
           Sort by count
         </button>
+
+        <button
+          class="blog-filter__sort-button"
+          x-on:click="sortTagsBy = SORT_TAGS_BY.NAME"
+          x-bind:class="sortTagsBy === SORT_TAGS_BY.NAME ? 'blog-filter__sort-button--active' : ''"
+        >
+          Sort by name
+        </button>
       </div>
       <ul class="blog-filter__list" data-filter-list>
-        {{ range sort ($scratch.Get "tagCount") "tag" "asc" }}
+        {{ range sort ($scratch.Get "tagCount") "count" "desc" }}
           <li 
             class="blog-filter__wrapper"
             data-filter-count="{{ .count }}"
