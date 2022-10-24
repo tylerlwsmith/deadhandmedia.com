@@ -45,7 +45,7 @@
         </button>
       </div>
       <ul class="blog-filter__list" data-filter-list>
-        {{- range sort ($scratch.Get "tagCount") "count" "desc" -}}
+        {{- range (sort (sort ($scratch.Get "tagCount") "tag" "asc") "count" "desc") -}}
           {{/* 
           Filter to any tag with at least two attached articles. Most articles
           have several tags, so even if we remove tags with only one article,
