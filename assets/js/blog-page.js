@@ -10,7 +10,7 @@ const SORT_TAGS_BY = {
 export const blogPageInitData = () => ({
   SORT_TAGS_BY: SORT_TAGS_BY,
   activeFilters: Alpine.$persist([]).as("active-blog-filters"),
-  sidebarIsOpen: Alpine.$persist(false).as("blog-sidebar-is-open"),
+  sidebarIsOpen: true || Alpine.$persist(false).as("blog-sidebar-is-open"),
   sortTagsBy: Alpine.$persist(SORT_TAGS_BY.COUNT).as("blog-sort-filters-by"),
   activeFilterContainerSticky: false,
   sidebarOpenTimeline: null,
