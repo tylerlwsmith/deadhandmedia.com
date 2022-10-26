@@ -16,14 +16,13 @@
     {{- $scratch.Add "allYears" $year -}}
   {{- end -}}
 
-  <a href="https://bakersfield.craigslist.org/">Link</a>
   <div 
     class="page-blog-list container"
     x-data="blogPageInitData()"
     x-effect="sortTags(sortTagsBy)"
     {{/* 
     Restore back/forward cache.
-    
+
     https://web.dev/bfcache/
     https://github.com/alpinejs/alpine/discussions/2505 
     */}}
