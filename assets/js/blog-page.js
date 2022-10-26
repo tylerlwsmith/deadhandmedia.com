@@ -9,9 +9,9 @@ const SORT_TAGS_BY = {
 
 export const blogPageInitData = () => ({
   SORT_TAGS_BY: SORT_TAGS_BY,
-  activeFilters: Alpine.$persist([]).as("active-blog-filters"),
-  sidebarIsOpen: true || Alpine.$persist(false).as("blog-sidebar-is-open"),
-  sortTagsBy: Alpine.$persist(SORT_TAGS_BY.COUNT).as("blog-sort-filters-by"),
+  activeFilters: [],
+  sidebarIsOpen: true,
+  sortTagsBy: SORT_TAGS_BY.COUNT,
   activeFilterContainerSticky: false,
   sidebarOpenTimeline: null,
   init() {
@@ -20,17 +20,6 @@ export const blogPageInitData = () => ({
     if (this.sidebarIsOpen) {
       this.sidebarOpenTimeline.tweenTo("open").duration(0);
     }
-
-    Alpine.nextTick(() => {
-      this._makeActiveFiltersShadow.bind(this)();
-      this.activeFilters = [
-        ...document.querySelectorAll(
-          `input[type='checkbox'][x-model='activeFilters']`
-        ),
-      ]
-        .filter((el) => el.checked)
-        .map((el) => el.value);
-    });
   },
   toggleSidebar(event) {
     if (event.key.toUpperCase() !== "F") return;
@@ -76,6 +65,21 @@ export const blogPageInitData = () => ({
     } catch (e) {
       console.log(e);
     }
+  },
+
+  restoreStateFromBFCache() {
+    const sortTagsBy = document.querySelector(
+      `[name="sort_tags_by"]:checked`
+    ).value;
+
+    const activeFilters = [
+      ...document.querySelectorAll(
+        `input[type='checkbox'][x-model='activeFilters']:checked`
+      ),
+    ].map((el) => el.value);
+
+    this.sortTagsBy = sortTagsBy;
+    this.activeFilters = activeFilters;
   },
   _makeActiveFiltersShadow() {
     const observer = new IntersectionObserver(
