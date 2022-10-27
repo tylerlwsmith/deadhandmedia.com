@@ -26,7 +26,8 @@
     https://web.dev/bfcache/
     https://github.com/alpinejs/alpine/discussions/2505 
     */}}
-    x-on:pageshow.window="restoreStateFromBFCache"
+    x-on:pageshow.window="hydrateStateFromDOM"
+    x-bind:x-on:turbolinks:render.window="hydrateStateFromDOM"
     >
     {{- partial "blog-filter-sidebar.html" . -}}
 
@@ -40,6 +41,14 @@
         </h1>
         {{ .Content }}
       </article>
+
+      {{ if eq hugo.Environment "development" }}
+        <div>
+          <button class="blog-filter__mobile-toggle">
+            Show filters
+          </button>
+        </div>
+      {{ end }}
 
       <div 
         class="active-filter__container" 

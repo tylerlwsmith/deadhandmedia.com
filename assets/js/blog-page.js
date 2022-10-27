@@ -1,4 +1,3 @@
-import Alpine from "alpinejs";
 import gsap from "gsap";
 import { unloadEvent } from "./event-names";
 
@@ -11,7 +10,7 @@ export const blogPageInitData = () => ({
   SORT_TAGS_BY: SORT_TAGS_BY,
   activeFilters: [],
   sidebarIsOpen: true,
-  sortTagsBy: SORT_TAGS_BY.COUNT,
+  sortTagsBy: null, // Hydrate after page load.
   activeFilterContainerSticky: false,
   sidebarOpenTimeline: null,
   init() {
@@ -67,7 +66,7 @@ export const blogPageInitData = () => ({
     }
   },
 
-  restoreStateFromBFCache() {
+  hydrateStateFromDOM() {
     const sortTagsBy = document.querySelector(
       `[name="sort_tags_by"]:checked`
     ).value;

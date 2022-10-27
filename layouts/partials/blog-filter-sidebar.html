@@ -33,8 +33,9 @@
           id="sort_tags_by_count"
           name="sort_tags_by"
           class="sr-only"
-          x-bind:value="SORT_TAGS_BY.COUNT"
+          value="COUNT" {{/* SORT_TAGS_BY.COUNT */}}
           x-model="sortTagsBy"
+          checked
         >
         <label
           for="sort_tags_by_count"
@@ -48,7 +49,7 @@
           id="sort_tags_by_name"
           name="sort_tags_by"
           class="sr-only"
-          x-bind:value="SORT_TAGS_BY.NAME"
+          value="NAME" {{/* SORT_TAGS_BY.NAME */}}
           x-model="sortTagsBy"
           
         >

@@ -1,6 +1,17 @@
 .blog-filter {
   font-size: 14px;
 }
+.blog-filter__mobile-toggle {
+  appearance: none;
+  background: none;
+  border: none;
+  display: none;
+  color: $color__purple--400;
+  padding: 0;
+  @media (max-width: $breakpoint__md) {
+    display: initial;
+  }
+}
 .blog-filter__sidebar {
   overflow-x: hidden;
   @media (max-width: $breakpoint__md) {
@@ -58,7 +69,6 @@
   z-index: 10;
   &:not(:disabled) {
     position: sticky;
-    cursor: pointer;
     &:hover,
     &:focus,
     &:active {
@@ -84,7 +94,6 @@
   cursor: pointer;
   color: $color__purple--400;
 }
-
 input[type="radio"]:checked + .blog-filter__sort-button {
   font-weight: bold;
 }
