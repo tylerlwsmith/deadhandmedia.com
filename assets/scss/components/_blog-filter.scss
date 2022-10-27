@@ -83,7 +83,8 @@
   border: none;
   cursor: pointer;
   color: $color__purple--400;
-  &--active {
-    font-weight: bold;
-  }
+}
+
+input[type="radio"]:checked + .blog-filter__sort-button {
+  font-weight: bold;
 }
