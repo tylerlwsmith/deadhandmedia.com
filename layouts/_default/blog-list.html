@@ -44,7 +44,12 @@
 
       {{ if eq hugo.Environment "development" }}
         <div>
-          <button class="blog-filter__mobile-toggle">
+          <button
+            class="blog-filter__mobile-toggle"
+            aria-expanded="false"
+            x-bind:aria-expanded="sidebarIsOpen"
+            x-on:click="() => setTimeout(() => toggleSidebar(), 0)"
+          >
             Show filters
           </button>
         </div>
