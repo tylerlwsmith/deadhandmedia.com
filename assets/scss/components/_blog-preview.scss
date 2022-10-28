@@ -7,9 +7,6 @@
   background: rgb(252, 251, 253);
   display: flex;
   flex-direction: column;
-  @media (max-width: $breakpoint__md) {
-    display: flex !important;
-  }
 }
 .blog-preview__title {
   font-size: 16px;
@@ -40,9 +37,6 @@
   margin: 0;
   padding: 0;
   padding-bottom: 4px;
-  @media (max-width: $breakpoint__md) {
-    display: none;
-  }
 }
 .blog-preview__tag {
   @include pill;
@@ -64,9 +58,6 @@
 }
 .blog-preview__meta-list {
   margin: 0;
-  @media (max-width: $breakpoint__md) {
-    display: none;
-  }
 }
 .blog-preview__meta-list-item {
   color: $color__muted;

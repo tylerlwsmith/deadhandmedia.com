@@ -18,10 +18,6 @@
     &:not(:first-of-type) {
       margin-top: 100px;
     }
-    /** Display even if filters are enabled. */
-    @media (max-width: $breakpoint__md) {
-      display: flex !important;
-    }
   }
   .page-blog-list__year-heading-inner {
     background: $color__background;

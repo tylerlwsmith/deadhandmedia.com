@@ -42,18 +42,16 @@
         {{ .Content }}
       </article>
 
-      {{ if eq hugo.Environment "development" }}
-        <div>
-          <button
-            class="blog-filter__mobile-toggle"
-            aria-expanded="false"
-            x-bind:aria-expanded="sidebarIsOpen"
-            x-on:click="() => setTimeout(() => toggleSidebar(), 0)"
-          >
-            Show filters
-          </button>
-        </div>
-      {{ end }}
+      <div>
+        <button
+          class="blog-filter__mobile-toggle"
+          aria-expanded="false"
+          x-bind:aria-expanded="sidebarIsOpen"
+          x-on:click="() => setTimeout(() => toggleSidebar(), 0)"
+        >
+          Show filters
+        </button>
+      </div>
 
       <div 
         class="active-filter__container" 

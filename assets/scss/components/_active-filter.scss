@@ -27,9 +27,6 @@
   margin-bottom: 20px;
   padding: 3px 20px;
   background: $color__background;
-  @media (max-width: $breakpoint__md) {
-    display: none !important;
-  }
   @at-root .active-filter__container--stuck & {
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
   }

@@ -22,7 +22,6 @@ export const blogPageInitData = () => ({
   },
   toggleSidebar() {
     this.sidebarIsOpen = !this.sidebarIsOpen;
-    console.log(this.sidebarIsOpen);
     if (this.sidebarIsOpen) {
       this.sidebarOpenTimeline.play();
     } else {
@@ -30,7 +29,6 @@ export const blogPageInitData = () => ({
     }
   },
   closeSidebar() {
-    console.log("closeSidebar", this.sidebarIsOpen);
     if (!this.sidebarIsOpen) return;
     this.sidebarIsOpen = false;
     this.sidebarOpenTimeline.reverse();
@@ -68,7 +66,7 @@ export const blogPageInitData = () => ({
         },
       }[sortBy]());
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   },
 
