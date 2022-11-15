@@ -6,10 +6,10 @@
   link: https://dev.to/tylerlwsmith
   icon: "fab fa-dev"
   iconAlt: "fab fa-dev"
-- platform: Twitter
-  link: https://twitter.com/tylerlwsmith
-  icon: "fab fa-twitter-square"
-  iconAlt: "fab fa-twitter"
+# - platform: Twitter
+#   link: https://twitter.com/tylerlwsmith
+#   icon: "fab fa-twitter-square"
+#   iconAlt: "fab fa-twitter"
 - platform: LinkedIn
   link: https://www.linkedin.com/in/tylerlwsmith/
   icon: "fab fa-linkedin"
