@@ -27,9 +27,8 @@
             <li class="platform-link__wrapper animate:fade-in">
               <a
                 href="{{ .link }}"
-                rel="noreferrer noopener"
+                rel="noreferrer noopener {{ .rel }}"
                 class="platform-link"
-                {{ if .rel -}} rel="{{.rel}}" {{- end }}
               >
                 <span class="fab {{ .icon }}" aria-label="{{ .platform }}"></span>
               </a>
