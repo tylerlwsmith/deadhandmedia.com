@@ -29,6 +29,7 @@
                 href="{{ .link }}"
                 rel="noreferrer noopener"
                 class="platform-link"
+                {{ if .rel -}} rel="{{.rel}}" {{- end }}
               >
                 <span class="fab {{ .icon }}" aria-label="{{ .platform }}"></span>
               </a>
