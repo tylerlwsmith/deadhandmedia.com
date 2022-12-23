@@ -10,7 +10,7 @@ technologies:
   - featured: "Grunt"
 screenshot: hands-of-respect.png
 weight: 8
-draft: false
+draft: true
 hidden: false
 ---
 
