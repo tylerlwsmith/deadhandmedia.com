@@ -13,7 +13,7 @@ technologies:
   - "LiveReload"
   - "Netlify"
 screenshot: resume.png
-weight: 6
+weight: 7
 draft: false
 hidden: false
 ---

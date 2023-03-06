@@ -10,7 +10,7 @@ technologies:
   - featured: "CSS"
   - featured: "HTML"
 screenshot: smiley-face-animation.png
-weight: 7
+weight: 8
 draft: false
 hidden: false
 ---

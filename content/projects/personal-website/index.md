@@ -13,7 +13,7 @@ technologies:
   - featured: "GitHub Actions"
   - "Netlify"
 screenshot: homepage.png
-weight: 9
+weight: 10
 draft: false
 hidden: false
 ---

@@ -7,7 +7,7 @@ services: ["Front-End Development"]
 technologies:
   - featured: "GSAP"
 screenshot: /projects/three-dimensional-carousel-component.jpg
-weight: 10
+weight: 20
 draft: true
 hidden: true
 ---

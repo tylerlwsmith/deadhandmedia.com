@@ -8,7 +8,7 @@ technologies:
   - featured: "Raspberry Pi"
   - featured: "Midi"
 screenshot: /projects/in-the-end-pi.jpg
-weight: 10
+weight: 20
 draft: true
 hidden: true
 ---
