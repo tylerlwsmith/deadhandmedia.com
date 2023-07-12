@@ -16,6 +16,7 @@
       min-height: -webkit-fill-available;
       @media (pointer: fine) {
         min-height: 100vh;
+        min-height: 100svh;
       }
     }
     .header__menu {
