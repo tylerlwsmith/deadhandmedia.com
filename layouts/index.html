@@ -1,45 +1,46 @@
-<!DOCTYPE html>
-<html lang="en-US">
-{{- partial "head.html" . -}}
-<body class="page-home">
-  <div class="page-home__head-container" aria-label="Tyler's Giant Head">
-    {{/*  {{ partial "header.html" . }}  */}}
-    <div class="page-home__head">
-      {{ os.ReadFile "tylers-giant-head.svg" | safeHTML }}
+{{- define "body" }}
+  <div class="page-home">
+    <div class="page-home__head-container" aria-label="Tyler's Giant Head">
+      <div class="page-home__head">
+        {{ os.ReadFile "tylers-giant-head.svg" | safeHTML }}
+      </div>
+    </div>
+
+    <div class="page-home__content-container">
+      {{- .Scratch.Set "headerVariation" "header--light header--absolute" -}}
+      {{- partial "header.html" . -}}
+      <main id="main" class="page-home__main">
+        <header class="page-home__heading-wrapper">
+          <h1 class="page-home__heading animate:fade-in">Tyler Smith</h1>
+          <h2 class="page-home__sub-heading animate:fade-in">
+            Software Engineer
+          </h2>
+        </header>
+        <div class="page-home__content animate:fade-in">
+          {{ .Content }}
+        </div>
+        <div class="page-home__platform-link-wrapper">
+          <ul class="platform-link__list platform-link__list--gap-wide">
+            {{- range .Site.Data.platform_links -}}
+              <li class="platform-link__wrapper animate:fade-in">
+                <a
+                  href="{{ .link }}"
+                  rel="noreferrer noopener {{ .rel }}"
+                  class="platform-link"
+                >
+                  <span
+                    class="fab {{ .icon }}"
+                    aria-label="{{ .platform }}"
+                  ></span>
+                </a>
+              </li>
+            {{- end -}}
+          </ul>
+        </div>
+      </main>
+      <footer class="page-home__footer">
+        {{- partial "copyright.html" . -}}
+      </footer>
     </div>
   </div>
-  <div class="page-home__content-container">
-    {{- .Scratch.Set "headerVariation" "header--light header--absolute" -}}
-    {{- partial "header.html" . -}}
-    <main id="main" class="page-home__main">
-      <header class="page-home__heading-wrapper">
-        <h1 class="page-home__heading animate:fade-in">Tyler Smith</h1>
-        <h2 class="page-home__sub-heading animate:fade-in">
-          Software Engineer
-        </h2>
-      </header>
-      <div class="page-home__content animate:fade-in">
-        {{ .Content }}
-      </div>
-      <div class="page-home__platform-link-wrapper">
-        <ul class="platform-link__list platform-link__list--gap-wide">
-          {{- range .Site.Data.platform_links -}}
-            <li class="platform-link__wrapper animate:fade-in">
-              <a
-                href="{{ .link }}"
-                rel="noreferrer noopener {{ .rel }}"
-                class="platform-link"
-              >
-                <span class="fab {{ .icon }}" aria-label="{{ .platform }}"></span>
-              </a>
-            </li>
-          {{- end -}}
-        </ul>
-      </div>
-    </main>
-    <footer class="page-home__footer">
-      {{- partial "copyright.html" . -}}
-    </footer>
-  </div>
-</body>
-</html>
+{{- end }}

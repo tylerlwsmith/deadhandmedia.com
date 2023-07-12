@@ -1,11 +1,121 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  {{- partial "head.html" . -}}
+  {{- $description :=  replace .Content "\n" "" | plainify | truncate 160 -}}
+
+  {{- $styleOptions := (dict
+    "targetPath" "css/style.css"
+    "enableSourceMap" (not hugo.IsProduction)
+    "includePaths" (slice ".")
+    )
+  -}}
+
+  {{- $scriptOptions := (dict
+    "defines" (dict "process.env.NODE_ENV" (hugo.Environment | printf "'%s'"))
+    "enableSourceMap" (not hugo.IsProduction)
+    "minify" hugo.IsProduction
+    )
+  -}}
+
+  {{- /* md5 fingerprint is for cache busting */ -}}
+  {{- $style := resources.Get "scss/style.scss"
+    | toCSS $styleOptions
+    | resources.Fingerprint "md5"
+  -}}
+
+  {{- $mainScript := resources.Get "js/app.js"
+    | js.Build $scriptOptions
+    | resources.Fingerprint "md5"
+  -}}
+
+  {{- $homepageScript := resources.Get "js/homepage-animation.js"
+    | js.Build $scriptOptions
+    | resources.Fingerprint "md5"
+  -}}
+
+
+  <head>
+    {{ "<!-- Wanna look under the hood? Visit https://github.com/tylerlwsmith/deadhandmedia.com to see this site's source. -->" | safeHTML }}
+    <title>
+      {{ if not .IsHome }}{{- .Title }} -{{ end }}{{ .Site.Title -}}
+    </title>
+
+    {{- if eq hugo.Environment "production" -}}
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"
+      ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '{{ .Site.GoogleAnalytics }}');
+    </script>    <script id="turbolinks-navigation-analytics" type="module">
+      let isInitialLoad = true;
+      document.addEventListener('turbolinks:load', () => {
+        if (isInitialLoad){isInitialLoad = false; return;}
+        gtag('config', '{{ .Site.GoogleAnalytics }}', {
+          page_path: window.location.pathname,
+        });
+      });
+    </script>
+    {{- end -}}
+
+    {{ if (.Param "hidden") -}}
+      <meta name="robots" content="noindex, follow" />
+    {{ end -}}
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{{- trim $description "\n" -}}" />
+    <meta
+      property="og:title"
+      content="{{ if not .IsHome }}{{- .Title }} -{{ end }}{{ .Site.Title -}}"
+    />
+    <meta property="og:description" content="{{- trim $description "\n" -}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ .Permalink | absURL }}" />
+    <meta property="og:image" content="{{ "og-image.png" | absURL }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <link href="{{ "favicon.png" | absURL }}" rel="icon" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Bungee|Raleway:300,400,600&display=block"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/e37b089b64.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      href="{{ $style.RelPermalink }}"
+      rel="stylesheet"
+      data-turbolinks-track="reload"
+    />
+    <script
+      src="{{ $mainScript.RelPermalink }}"
+      data-turbolinks-track="reload"
+      defer
+    ></script>
+    <script
+      src="{{ $homepageScript.RelPermalink }}"
+      data-turbolinks-track="reload"
+      {{- /* Do not defer */}}
+    ></script>
+
+    <meta name="turbolinks-cache-control" content="no-cache" />
+  </head>
+
   <body>
-    <div class="page-wrapper">
-      {{- partial "header.html" . -}}
-      {{- block "main" . }}{{- end -}}
-      {{- partial "footer.html" . -}}
-    </div>
+    {{- block "body" . }}
+      <div class="page-wrapper">
+        {{- partial "header.html" . }}
+        {{- block "main" . }}{{- end }}
+        {{- partial "footer.html" . }}
+      </div>
+    {{- end }}
   </body>
 </html>
