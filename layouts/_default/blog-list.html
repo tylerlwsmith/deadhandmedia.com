@@ -2,9 +2,9 @@
   {{- $perPage := or (os.Getenv "HUGO_POSTS_PER_PAGE") 1000 -}}
   {{- .Scratch.Set "posts" ( getJSON "https://dev.to/api/articles?username=tylerlwsmith&per_page=" $perPage) -}}
 
-  {{/*  Must use newScratch instead of .Scratch: .Scratch doesn't work in range in Hugo 0.93.  */}}
-  {{- $scratch := newScratch -}}  
-  {{- $scratch.Set "allYears" (slice) -}} 
+  {{/* Must use newScratch instead of .Scratch: .Scratch doesn't work in range in Hugo 0.93. */}}
+  {{- $scratch := newScratch -}}
+  {{- $scratch.Set "allYears" (slice) -}}
   {{- range (.Scratch.Get "posts") -}}
     {{- $year := time.Format "2006" .published_at -}}
     {{/* Can't use isSet: checks to see if a key's value is null, not if a key exists. */}}
@@ -16,25 +16,25 @@
     {{- $scratch.Add "allYears" $year -}}
   {{- end -}}
 
-  <div 
+  <div
     class="page-blog-list container"
     x-data="blogPageInitData()"
     x-effect="sortTags(sortTagsBy)"
-    {{/* 
-    Restore back/forward cache.
+    {{/*
+      Restore back/forward cache.
 
-    https://web.dev/bfcache/
-    https://github.com/alpinejs/alpine/discussions/2505 
+      https://web.dev/bfcache/
+      https://github.com/alpinejs/alpine/discussions/2505
     */}}
     x-on:pageshow.window="hydrateStateFromDOM"
     x-bind:x-on:turbolinks:render.window="hydrateStateFromDOM"
-    >
+  >
     {{- partial "blog-filter-sidebar.html" . -}}
 
     <main id="main" class="content-column">
       <article class="content-area">
-        <h1 
-          class="page__title" 
+        <h1
+          class="page__title"
           data-total-posts="{{ len (.Scratch.Get "posts") }}"
         >
           {{ .Title }}
@@ -53,20 +53,21 @@
         </button>
       </div>
 
-      <div 
-        class="active-filter__container" 
+      <div
+        class="active-filter__container"
         x-bind:class="activeFilterContainerSticky ? 'active-filter__container--stuck' : ''"
       >
         <template x-if="activeFilters.length > 0">
           <div class="active-filter__list">
-            <span class="active-filter__label">Active Filters:</span> 
+            <span class="active-filter__label">Active Filters:</span>
             <template x-for="activeFilter in activeFilters">
-              <button 
+              <button
                 class="active-filter"
                 data="{activeFilter: activeFilter}"
                 x-text="`&times; ${activeFilter}`"
                 x-on:click="activeFilters = activeFilters.filter(filter => filter !== activeFilter)"
-              ></button>`
+              >
+              </button>`
             </template>
           </div>
         </template>
@@ -77,7 +78,9 @@
         {{- $postYear :=  time.Format "2006" .published_at -}}
         {{- if ne $yearIndex $postYear -}}
           {{- $yearIndex = $postYear -}}
+          {{- $yearId := printf "%s-posts" $yearIndex -}}
           <h2
+            id="{{ $yearId }}"
             class="page-blog-list__year-heading"
             x-show="activeFilters.length === 0"
           >
@@ -85,12 +88,16 @@
               <span class="page-blog-list__year">{{ $yearIndex }}</span>
               <span class="page-blog-list__year-count">
                 {{- $count := (index ($scratch.Get "yearCounts") $yearIndex).count -}}
-                {{- $count }} {{cond (eq $count 1) "post" "posts" -}}
+                {{- $count }}
+                {{ cond (eq $count 1) "post" "posts" -}}
               </span>
             </span>
+            <a class="page-blog-list__year-heading-link" href="#{{ $yearId }}">
+              #
+            </a>
           </h2>
         {{- end -}}
-        <article 
+        <article
           x-data="{tagList: {{ jsonify .tag_list }}}"
           class="blog-preview"
           x-show="postIsVisible"
@@ -99,7 +106,7 @@
             <a href="{{ .url }}" class="blog-preview__link">{{ .title }}</a>
           </h3>
 
-          <ul 
+          <ul
             class="blog-preview__tag-list"
             x-cloak
             x-show="activeFilters.length > 0"
@@ -108,15 +115,15 @@
               <li class="blog-preview__tag">#{{ . }}</li>
             {{- end -}}
           </ul>
-          
+
           <div class="blog-preview__meta-wrapper">
-            <time 
+            <time
               class="blog-preview__published_date"
               datetime="{{ time.Format "2006-01-02" .published_at }}"
             >
               {{ time.Format "Jan 2, 2006" .published_at }}
             </time>
-            <dl 
+            <dl
               class="blog-preview__meta-list"
               x-cloak
               x-show="activeFilters.length > 0"
@@ -129,7 +136,7 @@
                   </dd>
                 </div>
               {{- end -}}
-  
+
               {{- if .comments_count -}}
                 <div class="blog-preview__meta-list-item">
                   <dt class="blog-preview__meta-term">comments</dt>
@@ -144,5 +151,4 @@
       {{- end -}}
     </main>
   </div>
-
 {{- end -}}

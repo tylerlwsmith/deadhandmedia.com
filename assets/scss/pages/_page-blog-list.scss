@@ -43,4 +43,20 @@
     color: $color__muted;
     display: block;
   }
+  .page-blog-list__year-heading-link {
+    @at-root .page-blog-list__year-heading & {
+      display: inline-block;
+      position: absolute;
+      right: calc(100% - 6px);
+      top: 2px;
+      font-weight: 300;
+      color: $color__muted;
+      @media (pointer: fine) {
+        display: none;
+      }
+    }
+    @at-root .page-blog-list__year-heading:hover & {
+      display: inline-block !important;
+    }
+  }
 }
