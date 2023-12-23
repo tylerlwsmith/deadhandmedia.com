@@ -16,7 +16,7 @@ draft: false
 hidden: false
 ---
 
-Over a year after releasing the [Matrix Maker Android App](http://localhost:1313/projects/matrix-maker/) that I built using React Native, I wanted to build a web application to make it more accessible to musicians who don't use Android phones.
+Over a year after releasing the [Matrix Maker Android App](/projects/matrix-maker/) that I built using React Native, I wanted to build a web application to make it more accessible to musicians who don't use Android phones.
 
 I decided to build the web app using only what the browser provides: static HTML, unprocessed CSS, and vanilla JS. I was able to reuse a lot of styling from the React Native app, but hand-generating the markup for the 12x12 grid would be overwhelming. I used the gnarliest [Emmet abbreviations](https://docs.emmet.io/abbreviations/syntax/) I've ever seen to generate the Matrix and tweaked it until it was just right.
 
