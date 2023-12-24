@@ -6,6 +6,10 @@
   link: https://dev.to/tylerlwsmith
   icon: "fab fa-dev"
   iconAlt: "fab fa-dev"
+- platform: Twitter
+  link: https://twitter.com/tylerlwsmith
+  icon: "fab fa-twitter-square"
+  iconAlt: "fab fa-twitter"
 - platform: LinkedIn
   link: https://www.linkedin.com/in/tylerlwsmith/
   icon: "fab fa-linkedin"
@@ -14,8 +18,8 @@
   link: mailto:tyler@deadhandmedia.com
   icon: "fas fa-envelope-square"
   iconAlt: "fas fa-envelope"
-- platform: Mastodon
-  link: https://hachyderm.io/@tylerlwsmith
-  icon: "fa-brands fa-mastodon"
-  iconAlt: "fa-brands fa-mastodon"
-  rel: me
+# - platform: Mastodon
+#   link: https://hachyderm.io/@tylerlwsmith
+#   icon: "fa-brands fa-mastodon"
+#   iconAlt: "fa-brands fa-mastodon"
+#   rel: me
