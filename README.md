@@ -1,4 +1,4 @@
-# DeadHandMedia.com
+# deadhandmedia.com
 
 This is the Hugo project that powers [deadhandmedia.com](https://deadhandmedia.com). To get started with development, clone the repository and run the following command:
 
