@@ -25,7 +25,7 @@ You can view the [Hugo documentation here](https://gohugo.io/documentation/).
 To create a new project item, run the following:
 
 ```sh
-hugo new projects/{my-project}/index.md
+hugo new projects/{project-name}/index.md
 ```
 
 To publish the project item, be sure to set `draft` and `hidden` to true in the front matter.
