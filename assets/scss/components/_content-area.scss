@@ -45,8 +45,8 @@
   a {
     color: $color__black;
     text-decoration: none;
-    border-bottom: solid 2px $color__purple--500;
-    padding-bottom: 2px;
+    border-bottom: solid 2px $color__purple--300;
+    padding-bottom: 1px;
     &:hover,
     &:focus {
       color: $color__purple--500;
