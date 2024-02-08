@@ -6,3 +6,8 @@ export function whenPath(paths = [], func) {
     return func.bind(this)(event);
   };
 }
+
+// Reference: https://web.dev/articles/prefers-reduced-motion
+export function prefersReducedMotion() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}

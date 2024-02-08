@@ -1,9 +1,11 @@
 import { loadEvent } from "./event-names";
+import { prefersReducedMotion } from "./helpers";
 /**
  * Animate the homepage text. This must execute immediately: do not move into a
  * "DOMContentLoaded" callback.
  */
 (function () {
+  if (prefersReducedMotion()) return;
   /**
    * Creating the style tag in JavaScript ensures that the text will be
    * visible on load if JS is disabled. Placing script before the affected
