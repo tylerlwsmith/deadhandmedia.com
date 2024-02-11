@@ -10,7 +10,6 @@ technologies:
   - featured: "Flask"
   - featured: "TypeScript"
   - featured: "Scss"
-  - "Adobe Illustrator"
 screenshot: vite-flask-backend-integration.png
 weight: 8
 draft: false
