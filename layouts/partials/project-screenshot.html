@@ -4,14 +4,14 @@
   {{- $resized2x := $screenshot.Resize "1220x jpg q95" -}}
   {{- $width := float $resized.Width -}}
   {{- $height := float $resized.Height -}}
-  <div 
+  <div
     class="page-project__screenshot-wrapper"
     style="padding-bottom: {{ mul (div $height $width) 100 }}%;"
   >
-    <img 
-      src="{{- $resized.RelPermalink -}}" 
-      srcset="{{- $resized2x.RelPermalink }} 2x" 
-      alt="{{- .Name }} Screenshot" 
+    <img
+      src="{{- $resized.RelPermalink -}}"
+      srcset="{{- $resized2x.RelPermalink }} 2x"
+      alt="{{- .Name }} Screenshot"
       class="page-project__screenshot"
     >
   </div>

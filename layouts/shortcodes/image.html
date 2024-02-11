@@ -9,11 +9,11 @@
   <div class="content-image__wrapper-outer">
     <div
       class="content-image__wrapper-inner"
-      style="padding-bottom: {{ mul (div $height $width) 100}}%;"
+      style="padding-bottom: {{ mul (div $height $width) 100 }}%;"
     >
       <img
-        src="{{- $resized.RelPermalink }}" 
-        srcset="{{- $resized2x.RelPermalink }} 2x" 
+        src="{{- $resized.RelPermalink }}"
+        srcset="{{- $resized2x.RelPermalink }} 2x"
         alt="{{- $alt -}}"
         class="content-image"
       >
