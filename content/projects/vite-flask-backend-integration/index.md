@@ -24,5 +24,5 @@ I decided to build a minimal backend integration proof-of-concept to serve as a 
 One challenging part of this project was generating a vector image of the Flask logo in Illustrator because I couldn't find one on the Internet. I've included the SVG logo below in hopes that others may find it useful.
 
 {{< rawhtml >}}<div style="max-width: 100px; margin-left: auto; margin-right: auto;">{{< /rawhtml >}}
-![An SVG of Flask's logo](./flask.svg?width=200px)
+![An SVG of Flask's logo](./flask.svg)
 {{< rawhtml >}}</div>{{< /rawhtml >}}
