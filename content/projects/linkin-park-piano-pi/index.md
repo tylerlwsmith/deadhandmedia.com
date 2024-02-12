@@ -8,12 +8,12 @@ technologies:
   - featured: "Python"
   - featured: "Raspberry Pi"
   - featured: "Spleeter"
-  - featured: "systemd"
   - featured: "Midi"
-screenshot: /projects/in-the-end-pi.jpg
-weight: 20
-draft: true
-hidden: true
+  - featured: "systemd"
+screenshot: chester-pi-shill.jpg
+weight: 8
+draft: false
+hidden: false
 ---
 
 This project is simple: when you play the intro to Linkin Park's "In The End" on a digital piano that's connected to a Raspberry Pi, the Raspberry Pi plays the song's chorus.
