@@ -5,6 +5,7 @@ repositoryUrl: https://github.com/tylerlwsmith/pi-in-the-end
 category: "Tinkering"
 services: ["Tinkering"]
 technologies:
+  - featured: "Python"
   - featured: "Raspberry Pi"
   - featured: "Spleeter"
   - featured: "systemd"
@@ -15,6 +16,8 @@ draft: true
 hidden: true
 ---
 
-During the pandemic, I bought a pile of Raspberry Pis so that I could build interesting non-web projects. I had studied music before I was a programmer, so I wanted to experiment with my digital audio gear. I wrote a Python script that would listen for the intro of Linkin Park's "In The End" on a digital piano, and then play the chorus when the correct sequence of notes was entered.
+This project is simple: when you play the intro to Linkin Park's "In The End" on a digital piano that's connected to a Raspberry Pi, the Raspberry Pi plays the song's chorus.
 
-I wrote a [prototype](https://twitter.com/tylerlwsmith/status/1327802206020464640) that would print the first line of the chorus to the console when the notes were entered correctly, but I wanted it to play the actual chorus through a speaker. I couldn't find a non-awkward splice point in the audio before the chorus, so I used the TensorFlow-powered [Spleeter library](https://github.com/deezer/spleeter) for Python to separate the vocals from audio, then used [Reaper](https://www.reaper.fm/) to splice the audio back together correctly. To top off the project, I wrote a systemd unit file to ensure that the listener script would boot at startup without requiring manual intervention.
+I initially wrote a [prototype script](https://twitter.com/tylerlwsmith/status/1327802206020464640) that printed lyrics to the console when the notes were entered correctly, but I wanted to play the actual recording through a speaker. I couldn't find a clean splice point in the audio before the chorus, so I used the TensorFlow-powered [Spleeter library](https://github.com/deezer/spleeter) to separate the vocals from instrumentals. I then used [Reaper](https://www.reaper.fm/) to patch the audio back together correctly. Finally, I wrote a systemd unit file to ensure that the listener script would boot at startup without requiring manual intervention.
+
+In the End, I think it turned out pretty awesome.
