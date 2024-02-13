@@ -9,7 +9,7 @@ technologies:
   - featured: "Raspberry Pi"
   - featured: "Spleeter"
   - featured: "Midi"
-  - featured: "systemd"
+  - "systemd"
 screenshot: chester-pi-shill.jpg
 weight: 8
 draft: false
