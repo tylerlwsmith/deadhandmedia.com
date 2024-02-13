@@ -9,7 +9,6 @@ technologies:
   - featured: "Puppeteer"
   - featured: "Express.js"
   - featured: "EJS"
-  - "Luxon"
   - featured: "Docker"
 screenshot: raspberry-pi-desktop-background.png
 weight: 11
