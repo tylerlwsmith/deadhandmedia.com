@@ -1,5 +1,9 @@
 @at-root {
   $breakpoint: 550px;
+  $hoverable: ".project-preview:has(
+    .project-preview__thumbnail-wrapper:hover,
+    .project-preview__link:hover,
+  )";
   .project-preview {
     display: flex;
     flex-wrap: wrap;
@@ -54,7 +58,7 @@
       transition-duration: 0.4s;
       background: $color__black;
       opacity: 0;
-      @at-root .project-preview--hover & {
+      @at-root #{$hoverable} & {
         @media (pointer: fine) {
           transition-duration: 0.2s;
           opacity: 0.7;
@@ -79,7 +83,7 @@
       transform: translateY(0);
       transition-property: all;
       transition-duration: 0.4s;
-      @at-root .project-preview--hover & {
+      @at-root #{$hoverable} & {
         @media (pointer: fine) {
           opacity: 1;
           top: 50%;
