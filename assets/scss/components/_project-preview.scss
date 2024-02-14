@@ -66,8 +66,8 @@
       }
     }
     &:after {
-      transition-timing-function: ease-out;
       content: "View Project";
+      transition-timing-function: ease-out;
       text-shadow: 0 0 4px $color__black;
       font-weight: 600;
       letter-spacing: 0.05em;
@@ -80,15 +80,20 @@
       position: absolute;
       color: $color__white;
       opacity: 0;
-      transform: translateY(0);
       transition-property: all;
       transition-duration: 0.4s;
+      @media (prefers-reduced-motion: no-preference) {
+        transform: translateY(0);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        transform: translateY(-50%);
+      }
       @at-root #{$hoverable} & {
         @media (pointer: fine) {
           opacity: 1;
           top: 50%;
-          transform: translateY(-50%);
           transition-duration: 0.2s;
+          transform: translateY(-50%);
         }
       }
     }
