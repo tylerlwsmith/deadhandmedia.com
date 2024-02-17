@@ -6,7 +6,7 @@
       </article>
 
       <ul class="project-preview__list">
-        {{- range .Pages -}}
+        {{- range where .Pages "Params.hidden" "ne" true -}}
           {{- $category := .Param "category" -}}
           {{- $technologies := newScratch -}}
           {{- $technologies.Set "featured" slice -}}
@@ -36,7 +36,7 @@
                     srcset="{{- $resized2x.RelPermalink }} 2x"
                     alt="Screenshot of {{ .Title }}"
                     class="project-preview__thumbnail"
-                  >
+                  />
 
                   {{- if  (.Param "repositoryUrl") -}}
                     <span class="project-preview__open-source-badge">
