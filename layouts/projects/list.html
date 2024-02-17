@@ -1,12 +1,20 @@
 {{- define "main" -}}
+  {{- $projectsQuery := where .Pages "Params.hidden" "ne" true }}
+
+
   <div class="page-project-list container">
     <main id="main" class="content-column">
       <article class="content-area">
-        <h1 class="page__title">{{- .Title -}}</h1>
+        <h1
+          class="page__title"
+          data-published-projects="{{ len $projectsQuery }}"
+        >
+          {{- .Title -}}
+        </h1>
       </article>
 
       <ul class="project-preview__list">
-        {{- range where .Pages "Params.hidden" "ne" true -}}
+        {{- range $projectsQuery -}}
           {{- $category := .Param "category" -}}
           {{- $technologies := newScratch -}}
           {{- $technologies.Set "featured" slice -}}
