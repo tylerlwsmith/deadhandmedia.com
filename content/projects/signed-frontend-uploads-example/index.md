@@ -11,7 +11,7 @@ technologies:
   - featured: Node.js
   - featured: Docker
   - Express
-  - Parcel
+  - Vite
 screenshot: signed-frontend-uploads-example.png
 weight: 9
 draft: true
