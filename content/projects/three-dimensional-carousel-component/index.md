@@ -9,5 +9,5 @@ technologies:
 screenshot: /projects/three-dimensional-carousel-component.jpg
 weight: 20
 draft: true
-hidden: true
+hidden: false
 ---

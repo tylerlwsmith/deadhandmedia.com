@@ -14,5 +14,5 @@ technologies:
 screenshot: signed-frontend-uploads-example.png
 weight: 9
 draft: true
-hidden: true
+hidden: false
 ---
