@@ -14,7 +14,7 @@ technologies:
   - Vite
 screenshot: signed-frontend-uploads-example.png
 weight: 9
-draft: true
+draft: false
 hidden: false
 ---
 
