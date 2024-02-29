@@ -6,9 +6,9 @@ repositoryUrl: https://github.com/tylerlwsmith/x86-desktop-linux-playbook
 category: "Automation"
 services: ["Automation"]
 technologies: ["Ansible"]
-screenshot: desktop-linux-ansible-playbook.png
+screenshot: ansible-logo.jpg
 weight: 8
-draft: true
+draft: false
 hidden: false
 ---
 
