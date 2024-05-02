@@ -8,7 +8,7 @@ I've been writing code full-time since 2017, and I will continue writing code lo
 
 ## Public Speaking
 
-- [LinuxFest Northwest 2024](https://lfnw2024.sessionize.com/session/598956)
+- [LinuxFest Northwest 2024 - The "What" and "Why" of Docker](https://www.youtube.com/watch?v=pQtc23i59Os)
 - [Sacramento WordPress Meetup – Object-Oriented Theme Development (2019)](https://www.youtube.com/watch?v=_vUE-e_3mPk)
 - [Sacramento WordCamp 2018 – Widgets and Menus](https://sacramento.wordcamp.org/2018/session/widgets-and-menus/)
 
