@@ -1,7 +1,7 @@
 ---
 title: "Matrix Maker App"
 date: 2021-11-19T21:24:30-08:00
-projectUrl: https://play.google.com/store/apps/details?id=com.deadhandmedia.matrixmaker
+projectUrl: null
 category: "Mobile Development"
 services: ["Mobile Development", "UI Design"]
 technologies:
@@ -45,6 +45,4 @@ I knew I needed help designing an app icon, so I worked with
 
 {{< figure src="app-icon.png" width="150" caption="The app icon" >}}
 
-## Available on the Play Store
-
-You can download Matrix Maker on the Google Play store using the link below.
+I did not actively maintain the app, so it is no longer an the Google Play Store. However, I built [a web version](/projects/matrix-maker-web-app/) using vanilla JS version that you can view at [12tone.app](https://12tone.app/).
