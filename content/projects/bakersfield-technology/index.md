@@ -2,9 +2,9 @@
 title: "Bakersfield Technology"
 date: 2021-11-19T21:27:41-08:00
 projectUrl: https://bakersfieldtechnology.com
-category: "Front-End Development"
+category: "Full-Stack Development"
 repositoryUrl: https://github.com/tylerlwsmith/go-bakersfieldtechnology
-services: ["Front-End Development", "Design", "Content Writing"]
+services: ["Full-Stack Development", "Design", "Content Writing"]
 technologies:
   - featured: "Go"
   - featured: "Templ"
