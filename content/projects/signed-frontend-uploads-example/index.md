@@ -1,5 +1,5 @@
 ---
-title: "Signed Frontend Uploads Example"
+title: "MinIO Signed Frontend Uploads Example"
 date: 2024-02-16T21:30:36-08:00
 projectUrl: null
 repositoryUrl: https://github.com/tylerlwsmith/signed-frontend-uploads-s3-minio
