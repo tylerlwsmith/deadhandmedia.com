@@ -11,7 +11,7 @@ technologies:
   - featured: "Midi"
   - "systemd"
 screenshot: chester-pi-shill.jpg
-weight: 8
+weight: 5
 draft: false
 hidden: false
 ---

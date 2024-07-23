@@ -12,7 +12,7 @@ technologies:
   - featured: "Tailwind CSS"
   - "TypeScript"
 screenshot: bakersfield-technology.png
-weight: 6
+weight: 2
 draft: false
 hidden: false
 ---

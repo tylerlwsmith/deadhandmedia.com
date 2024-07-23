@@ -16,7 +16,7 @@ technologies:
   - "Scss"
   - "Laravel Mix"
 screenshot: northgate-2.png
-weight: 2
+weight: 6
 draft: false
 hidden: false
 ---

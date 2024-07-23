@@ -11,7 +11,7 @@ technologies:
   - featured: "Vanilla JS"
   - "Emmet"
 screenshot: matrix-maker-web-app.png
-weight: 5
+weight: 4
 draft: false
 hidden: false
 ---

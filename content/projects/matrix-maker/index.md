@@ -9,7 +9,7 @@ technologies:
   - "Expo"
   - featured: "TypeScript"
 screenshot: matrix-maker.png
-weight: 4
+weight: 3
 draft: false
 hidden: false
 ---

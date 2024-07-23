@@ -19,7 +19,7 @@ technologies:
   - featured: "Docker"
   - "Docker Compose"
 screenshot: catalytic-crime.png
-weight: 3
+weight: 7
 draft: false
 hidden: false
 ---
