@@ -28,10 +28,8 @@
                   rel="noreferrer noopener {{ .rel }}"
                   class="platform-link"
                 >
-                  <span
-                    class="fab {{ .icon }}"
-                    aria-label="{{ .platform }}"
-                  ></span>
+                  <span class="fab {{ .icon }}" aria-hidden="true"></span>
+                  <span class="sr-only">{{ .platform }}</span>
                 </a>
               </li>
             {{- end -}}

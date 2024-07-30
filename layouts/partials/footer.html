@@ -6,15 +6,12 @@
     <ul class="platform-link__list">
       {{- range .Site.Data.platform_links -}}
         <li class="platform-link__wrapper">
-          <a
-            href="{{ .link }}"
-            rel="noreferrer noopener"
-            class="platform-link"
-          >
-            <span class="fa-stack"  aria-label="{{ .platform }}">
+          <a href="{{ .link }}" rel="noreferrer noopener" class="platform-link">
+            <span class="fa-stack">
               <i class="fas fa-circle fa-stack-2x"></i>
               <i class="{{ .iconAlt }} fab fa-stack-1x fa-inverse"></i>
             </span>
+            <span class="sr-only">{{ .platform }}</span>
           </a>
         </li>
       {{- end -}}
