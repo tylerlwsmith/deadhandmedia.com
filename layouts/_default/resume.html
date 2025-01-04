@@ -1,10 +1,10 @@
 {{ define "main" }}
   {{- $resumeOrigin := or (os.Getenv "HUGO_RESUME_ORIGIN") "https://resume.deadhandmedia.com" -}}
   <main id="main" class="page-resume">
-    <h1 class="page__title sr-only">{{ .Name }}</h1>
+    <h1 class="page-title sr-only">{{ .Name }}</h1>
 
     <div class="page-resume__resume-container">
-        <script src="{{- $resumeOrigin -}}/embed.js"></script>
+      <script src="{{- $resumeOrigin -}}/embed.js"></script>
     </div>
   </main>
 {{ end }}

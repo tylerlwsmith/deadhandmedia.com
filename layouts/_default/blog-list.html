@@ -16,12 +16,12 @@
     {{- $scratch.Add "allYears" $year -}}
   {{- end -}}
 
+
   <div
     class="page-blog-list container"
     x-data="blogPageInitData()"
     x-effect="sortTags(sortTagsBy)"
-    {{/*
-      Restore back/forward cache.
+    {{/* Restore back/forward cache.
 
       https://web.dev/bfcache/
       https://github.com/alpinejs/alpine/discussions/2505
@@ -31,10 +31,11 @@
   >
     {{- partial "blog-filter-sidebar.html" . -}}
 
+
     <main id="main" class="content-column">
       <article class="content-area">
         <h1
-          class="page__title"
+          class="page-title"
           data-total-posts="{{ len (.Scratch.Get "posts") }}"
         >
           {{ .Title }}
@@ -66,8 +67,8 @@
                 data="{activeFilter: activeFilter}"
                 x-text="`&times; ${activeFilter}`"
                 x-on:click="activeFilters = activeFilters.filter(filter => filter !== activeFilter)"
-              >
-              </button>`
+              ></button
+              >`
             </template>
           </div>
         </template>
