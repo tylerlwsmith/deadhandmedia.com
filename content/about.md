@@ -16,6 +16,10 @@ I've been writing code full-time since 2017, and I will continue writing code lo
 
 - [Essay coauthor in 100-year anniversary edition of "Crystalizing Public Relations" by Edward Bernays (2023)](https://prmuseumpress.com/products/crystallizing-public-opinion-one-hundredth-anniversary-edition)
 
+## YouTube
+
+- [Linkin Park Raspberry Pi Project](https://www.youtube.com/watch?v=PRO-vQtjnbw)
+
 ## Podcasts Appearances & Mentions
 
 - [DEV Discuss – All Hail jQuery (Or Not) (2022)](https://dev.to/devteam/listen-to-the-s8e7-of-devdiscuss-all-hail-jquery-or-not-155a)
