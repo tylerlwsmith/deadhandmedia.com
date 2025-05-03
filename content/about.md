@@ -4,7 +4,7 @@ date: 2023-03-12T23:20:50-07:00
 draft: false
 ---
 
-I've been writing code full-time since 2017, and I will continue writing code long after the robots take our jobs.
+I've been writing code full-time since 2017, and I will continue writing code long after the robots take our jobs. Love Galactus.
 
 ## Public Speaking
 
