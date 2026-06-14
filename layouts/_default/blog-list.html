@@ -27,7 +27,7 @@
       https://github.com/alpinejs/alpine/discussions/2505
     */}}
     x-on:pageshow.window="hydrateStateFromDOM"
-    x-bind:x-on:turbolinks:render.window="hydrateStateFromDOM"
+    x-init="hydrateStateFromDOM"
   >
     {{- partial "blog-filter-sidebar.html" . -}}
 

@@ -1,10 +1,8 @@
 import Alpine from "alpinejs";
 import persist from "@alpinejs/persist";
-import Turbolinks from "turbolinks";
 
 import { whenPath } from "./helpers";
 import { toggleNavigation } from "./toggle-navigation";
-import { loadEvent, useTurbolinks } from "./event-names";
 import { blogPageInitData } from "./blog-page";
 import { makeScrollToTopButton } from "./scroll-to-top-button";
 
@@ -14,24 +12,21 @@ import { makeScrollToTopButton } from "./scroll-to-top-button";
 window.blogPageInitData = blogPageInitData;
 
 /**
- * Bootstrap Alpine. This must come before Turbolinks.
+ * Bootstrap Alpine.
  */
 window.Alpine = Alpine;
 Alpine.plugin(persist);
 Alpine.start();
 
 /**
- * Bootstrap Turbolinks.
- */
-if (useTurbolinks) Turbolinks.start();
-
-/**
  * Site-wide JS.
  */
-document.addEventListener(loadEvent, toggleNavigation);
+document.addEventListener("DOMContentLoaded", toggleNavigation);
 
 /**
  * Blog page.
  */
-
-document.addEventListener(loadEvent, whenPath("/blog/", makeScrollToTopButton));
+document.addEventListener(
+  "DOMContentLoaded",
+  whenPath("/blog/", makeScrollToTopButton)
+);

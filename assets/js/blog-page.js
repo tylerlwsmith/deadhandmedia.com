@@ -1,5 +1,4 @@
 import gsap from "gsap";
-import { unloadEvent } from "./event-names";
 
 const SORT_TAGS_BY = {
   COUNT: "COUNT",
@@ -95,9 +94,9 @@ export const blogPageInitData = () => ({
 
     observer.observe(document.querySelector(".active-filter__container"));
 
-    document.addEventListener(unloadEvent, function cleanup() {
+    document.addEventListener("unload", function cleanup() {
       observer.disconnect();
-      document.removeEventListener(unloadEvent, cleanup);
+      document.removeEventListener("unload", cleanup);
     });
   },
 });

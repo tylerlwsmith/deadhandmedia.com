@@ -1,4 +1,3 @@
-import { loadEvent } from "./event-names";
 import { prefersReducedMotion } from "./helpers";
 /**
  * Animate the homepage text. This must execute immediately: do not move into a
@@ -37,7 +36,7 @@ import { prefersReducedMotion } from "./helpers";
   }
 
   document.addEventListener(
-    loadEvent,
+    "DOMContentLoaded",
     function () {
       window.setTimeout(function () {
         const animatable = [...document.querySelectorAll(".animate\\:fade-in")];

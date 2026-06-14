@@ -41,29 +41,19 @@
     </title>
 
     {{ if eq hugo.Environment "production" -}}
-      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <!-- Google tag (gtag.js) -->
       <script
         async
-        src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"
+        src="https://www.googletagmanager.com/gtag/js?id=G-6RTSHZKVFS"
       ></script>
       <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
 
-        gtag('config', '{{ .Site.GoogleAnalytics }}');
-      </script>
-
-      <!-- Make Turbolinks Analytics compatible -->
-
-      <script id="turbolinks-navigation-analytics" type="module">
-        let isInitialLoad = true;
-        document.addEventListener('turbolinks:load', () => {
-          if (isInitialLoad){isInitialLoad = false; return;}
-          gtag('config', '{{ .Site.GoogleAnalytics }}', {
-            page_path: window.location.pathname,
-          });
-        });
+        gtag("config", "G-6RTSHZKVFS");
       </script>
     {{- end -}}
 
@@ -98,23 +88,12 @@
       crossorigin="anonymous"
     ></script>
 
-    <link
-      href="{{ $style.RelPermalink }}"
-      rel="stylesheet"
-      data-turbolinks-track="reload"
-    />
-    <script
-      src="{{ $mainScript.RelPermalink }}"
-      data-turbolinks-track="reload"
-      defer
-    ></script>
+    <link href="{{ $style.RelPermalink }}" rel="stylesheet" />
+    <script src="{{ $mainScript.RelPermalink }}" defer></script>
     <script
       src="{{ $homepageScript.RelPermalink }}"
-      data-turbolinks-track="reload"
       {{- /* Do not defer */}}
     ></script>
-
-    <meta name="turbolinks-cache-control" content="no-cache" />
   </head>
 
   <body>

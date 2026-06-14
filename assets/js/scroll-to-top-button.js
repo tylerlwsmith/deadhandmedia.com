@@ -1,5 +1,3 @@
-import { unloadEvent } from "./event-names";
-
 export function makeScrollToTopButton() {
   const buttonClassName = "scroll-to-top-button";
   const hiddenClassName = "scroll-to-top-button--hidden";
@@ -43,8 +41,8 @@ export function makeScrollToTopButton() {
     requestAnimationFrame(checkScroll);
   });
 
-  document.addEventListener(unloadEvent, function cleanup() {
+  document.addEventListener("unload", function cleanup() {
     scrollButton.remove();
-    document.removeEventListener(unloadEvent, cleanup);
+    document.removeEventListener("unload", cleanup);
   });
 }

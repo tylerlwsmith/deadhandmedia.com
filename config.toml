@@ -3,7 +3,6 @@ languageCode = "en-us"
 title = "Tyler Smith"
 enableInlineShortcodes = true
 disableKinds = ["RSS"]
-googleAnalytics = 'UA-100417057-1'
 
 [caches]
   [caches.getjson]
