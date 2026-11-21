@@ -6,7 +6,7 @@ draft: false
 
 I am a programmer with nearly a decade of experience building websites and mobile apps for organizations ranging from small businesses to publicly traded companies. I have developed websites for high-profile clients like Stan Lee, created a promotional microsite for a major Paramount documentary, and supported web operations for two United States presidential candidates. I have delivered solutions for a commercial real estate brokerage, a Series A startup, medical and behavioral health centers in ten states, three statewide California news publications, three popular Sacramento restaurants, several statewide ballot initiatives, and multiple e-commerce businesses.
 
-Today, I work as a Principal Software Engineer for a publicly traded company with more than $6 billion in annual revenue.
+Most recently, I worked as a Principal Software Engineer for a publicly traded company with more than $6 billion in annual revenue. I am currently reskilling and learning about electronics.
 
 ## Public Speaking
 
